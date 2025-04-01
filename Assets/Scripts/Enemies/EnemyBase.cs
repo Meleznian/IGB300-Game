@@ -33,6 +33,18 @@ public class EnemyBase : MonoBehaviour
         public float knockback;
     }
 
+    internal Rigidbody2D rb;
+    internal float actingMoveSpeed;
+
+    private void Start()
+    {
+        SetUp();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
 
     public virtual void Move()
     {
@@ -60,6 +72,20 @@ public class EnemyBase : MonoBehaviour
     }
 
     public virtual void Die()
+    {
+        
+    }
+
+
+    void SetUp()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        actingMoveSpeed = moveSpeed / 20;
+
+        ExtraSetup();
+    }
+
+    public virtual void ExtraSetup()
     {
 
     }
