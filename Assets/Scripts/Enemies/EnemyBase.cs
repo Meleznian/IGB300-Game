@@ -3,6 +3,9 @@ using System;
 
 public class EnemyBase : MonoBehaviour
 {
+    [ToolTip("The enemies name")]
+    public string enemyName;
+
     [Header("Enemy Stats")]
     [ToolTip("How much health the enemy starts with")]
     public float health;
@@ -22,6 +25,7 @@ public class EnemyBase : MonoBehaviour
     [Serializable]
     public class Attack
     {
+        [ToolTip("Attack identifier")]
         public string ID;
         [ToolTip("How much damage will the attack do")]
         public float damage;
