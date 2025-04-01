@@ -1,13 +1,33 @@
 using UnityEngine;
+using System;
 
 public class EnemyBase : MonoBehaviour
 {
     [Header("Enemy Stats")]
+    [ToolTip("How much health the enemy starts with")]
     public float health;
+    [ToolTip("How fast does the enemy move")]
     public float moveSpeed;
+    [ToolTip("How long between each attack")]
     public float attackSpeed;
-    public float damage;
+    [ToolTip("How long is it stunned after being parried")]
     public float stunTime;
+    [ToolTip("How much resistance does the enemy have to being knocked back by the player")]
+    public float knockbackResist;
+
+    [Header("Attacks")]
+    [ToolTip("List of attacks the enemy can do")]
+    public Attack[] attacks;
+
+    [Serializable]
+    public class Attack
+    {
+        public string ID;
+        [ToolTip("How much damage will the attack do")]
+        public float damage;
+        [ToolTip("how much force will the enemy knock the player back with")]
+        public float knockback;
+    }
 
 
     public virtual void Move()
@@ -15,7 +35,7 @@ public class EnemyBase : MonoBehaviour
 
     }
 
-    public virtual void Attack()
+    public virtual void DoAttack()
     {
 
     }
