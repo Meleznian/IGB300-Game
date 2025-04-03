@@ -9,7 +9,7 @@ public class SettingsManager : MonoBehaviour
     }
     public void OpenSettings()
     {
-        SceneManager.LoadScene("SettingScene");
+        SceneManager.LoadScene("Setting Scene");
     }
     public void ExitGame()
     {
