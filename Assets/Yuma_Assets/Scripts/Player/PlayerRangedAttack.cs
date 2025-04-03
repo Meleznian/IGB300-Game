@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerRangedAttack : MonoBehaviour
 {
@@ -7,18 +7,36 @@ public class PlayerRangedAttack : MonoBehaviour
 
     void Update()
     {
+        // right mouse click
         if (Input.GetMouseButtonDown(1))
         {
-            Shoot();
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var dir = mousePos - firePoint.position;
+
+            FireBullet(dir);
         }
+
+        // R2 + right stick direction to fire
+        if (Input.GetKeyDown(KeyCode.JoystickButton7))
+        {
+            float x = Input.GetAxis("RightStickX");
+            float y = -Input.GetAxis("RightStickY");
+
+            Vector2 stickInput = new Vector2(x, y);
+
+            if (stickInput.magnitude > 0.3f) // Determine if the stick is down.
+            {
+                FireBullet(stickInput.normalized);
+            }
+        }
+
+        Debug.Log($"RightStick: X={Input.GetAxis("RightStickX")} Y={Input.GetAxis("RightStickY")}");
+
     }
 
-    void Shoot()
+    void FireBullet(Vector2 dir)
     {
         if (!bulletPrefab || !firePoint) return;
-
-        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dir = mousePos - firePoint.position;
 
         var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().Init(dir);

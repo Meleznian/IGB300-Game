@@ -6011,6 +6011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crawler
       objectReference: {fileID: 0}
+    - target: {fileID: 2684136950865080351, guid: 23472b555268d6748a2b73b019622205, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6715951862846410851, guid: 23472b555268d6748a2b73b019622205, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
@@ -10,36 +10,49 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     void Update()
     {
+        // Gamepad input: Left stick + R1 button
+        if (Input.GetKeyDown(KeyCode.JoystickButton5))
+        {
+            Vector2 stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            if (stick.magnitude > 0.5f)
+                TryAttack(stick.normalized);
+        }
+
+        // Mouse input: left click
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir = (mouse - (Vector2)transform.position).normalized;
-
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            angle = (angle + 360) % 360;
-
-            Transform point = right;
-            Quaternion rot = Quaternion.identity;
-
-            if (angle >= 45 && angle < 135)
-            {
-                point = up;
-                rot = Quaternion.Euler(0, 0, 90);
-            }
-            else if (angle >= 135 && angle < 225)
-            {
-                point = left;
-                rot = Quaternion.Euler(0, 0, 180);
-            }
-            else if (angle >= 225 && angle < 315)
-            {
-                point = down;
-                rot = Quaternion.Euler(0, 0, 270);
-            }
-
-            SpawnEffect(point.position, rot);
-            DealDamage(point.position);
+            TryAttack(dir);
         }
+    }
+
+    void TryAttack(Vector2 dir)
+    {
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        angle = (angle + 360f) % 360f;
+
+        Transform point = right;
+        Quaternion rot = Quaternion.identity;
+
+        if (angle >= 45f && angle < 135f)
+        {
+            point = up;
+            rot = Quaternion.Euler(0, 0, 90);
+        }
+        else if (angle >= 135f && angle < 225f)
+        {
+            point = left;
+            rot = Quaternion.Euler(0, 0, 180);
+        }
+        else if (angle >= 225f && angle < 315f)
+        {
+            point = down;
+            rot = Quaternion.Euler(0, 0, 270);
+        }
+
+        SpawnEffect(point.position, rot);
+        DealDamage(point.position);
     }
 
     void DealDamage(Vector2 origin)
