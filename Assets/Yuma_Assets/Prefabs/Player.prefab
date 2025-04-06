@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7798716407410819560}
   - component: {fileID: 2538750840103604254}
   - component: {fileID: 7533820559843412030}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 31a06827f6f3fb64b84cf8401f41d818, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
