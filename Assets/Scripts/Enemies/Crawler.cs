@@ -34,7 +34,18 @@ public class Crawler : EnemyBase
         {
             ChangeDirection();
         }
+
+        if (other.CompareTag("Player"))
+        {
+            ChangeDirection();
+
+            //attack animation 
+
+            Debug.Log("Player Hit!");
+        }
     }
+
+    
 
     public override void ExtraSetup()
     {
