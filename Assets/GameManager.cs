@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public void EndGame()
     {
-        Debug.Log("GAME OVER");
+        Debug.Log("GAME OVER!!!");
     }
 
 }
