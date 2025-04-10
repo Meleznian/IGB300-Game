@@ -6397,6 +6397,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6278728508671436526, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -6405,6 +6409,10 @@ PrefabInstance:
       propertyPath: aimCursor
       value: 
       objectReference: {fileID: 17575495}
+    - target: {fileID: 7798716407410819560, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: jumps
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8403946606524122437, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -6468,13 +6476,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2572367188905131765, guid: 23472b555268d6748a2b73b019622205, type: 3}
+      propertyPath: m_Color.b
+      value: 0.17225882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572367188905131765, guid: 23472b555268d6748a2b73b019622205, type: 3}
+      propertyPath: m_Color.g
+      value: 0.17225882
+      objectReference: {fileID: 0}
+    - target: {fileID: 2572367188905131765, guid: 23472b555268d6748a2b73b019622205, type: 3}
+      propertyPath: m_Color.r
+      value: 0.745283
+      objectReference: {fileID: 0}
     - target: {fileID: 2684136950865080351, guid: 23472b555268d6748a2b73b019622205, type: 3}
       propertyPath: m_Name
       value: Crawler
       objectReference: {fileID: 0}
     - target: {fileID: 2684136950865080351, guid: 23472b555268d6748a2b73b019622205, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6715951862846410851, guid: 23472b555268d6748a2b73b019622205, type: 3}
       propertyPath: m_LocalPosition.x
