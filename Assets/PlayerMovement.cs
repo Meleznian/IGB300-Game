@@ -25,10 +25,10 @@ public class PlayerMovement : MonoBehaviour
     //Variables that only relate to default movement (WASD)
     [Header("Movement Variables")]
     [SerializeField] private float speed;
-
+    private bool velocityAdded;
 
     //Variables that only relate to sprinting/dashing (left shift)
-    [Header("Sprint Variables")]
+    [Header("Dash/Sprint Variables")]
     [SerializeField] private bool sprintAvailable;
     [SerializeField] private float sprintSpeed;
     private bool sprinting;
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool jumped;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private int jumps;
+    private bool jumpReleased;
 
 
 
@@ -65,10 +66,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Debug.Log(moveAction.ReadValue<Vector2>());
+        //int oldHMove = horizontalMove;
         horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
         horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
         verticalMove = moveAction.ReadValue<Vector2>().y > 0 ? 1 : 0;
         verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
+
+        //if (horizontalMove != oldHMove) velocityAdded = false;
         Debug.Log(moveAction.ReadValue<Vector2>().y);
         Debug.Log(verticalMove);
         //horizontalMove = Convert.ToInt32(Input.GetKey(KeyCode.D)) - Convert.ToInt32(Input.GetKey(KeyCode.A));
@@ -76,35 +80,37 @@ public class PlayerMovement : MonoBehaviour
 
         //Resets Jump Counter if Grounded
         jumps = isGrounded ? 0 : jumps;
-        jumped = isGrounded ? false : jumped;
+        //jumped = isGrounded ? false : jumped;
 
         lastDirection = Input.GetKeyDown(KeyCode.D) ? 1 : lastDirection;
         lastDirection = Input.GetKeyDown(KeyCode.A) ? -1 : lastDirection;
 
         if(isGrounded && !sprinting) sprintAvailable = true;
 
-        if(!shouldJump || jumped) shouldJump = Input.GetKeyDown(KeyCode.Space);
-
+        //if(!shouldJump || jumped) shouldJump = Input.GetKeyDown(KeyCode.Space);
+        if (jumpAction.IsPressed() && jumpReleased && jumps < 2) Jump();
 
         //Makes the player sprint if able to
         if (dashAction.IsPressed() && sprintAvailable && sprintReleased) StartCoroutine(Sprint(horizontalMove == 0 && verticalMove == 0 ? lastDirection : horizontalMove, verticalMove));
 
         sprintReleased = !dashAction.IsPressed();
+        jumpReleased = !jumpAction.IsPressed();
     }
 
     private void FixedUpdate()
     {
-        Move(horizontalMove, verticalMove);
+        if(!sprinting) Move(horizontalMove, verticalMove);
+        if (shouldJump) Jump();
     }
 
     void Jump()
     {
         Debug.Log("Jumping");
-        isGrounded = false;
-
+        //isGrounded = false;
+        rb.linearVelocityY = 0;
         rb.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
 
-        jumped = true;
+        //jumped = true;
 
         //Adds to the Jump Counter
         jumps++;
@@ -117,10 +123,15 @@ public class PlayerMovement : MonoBehaviour
         //if(!sprinting) rb.AddForce((transform.right * x * speed) - new Vector3(rb.linearVelocity.x, 0, 0), ForceMode2D.Impulse);
         //if (x != 0) rb.AddForce((transform.right * x * speed) - new Vector3(rb.linearVelocity.x, 0, 0), ForceMode2D.Impulse);
         //transform.position = new Vector3(transform.position.x + (x * speed), transform.position.y, 0);
+        //rb.linearVelocityX += x * speed;
+        //velocityAdded = true;
 
-        //Handles Jumping
+        float newVelocity = Mathf.Clamp(Mathf.Abs(rb.linearVelocityX), speed, int.MaxValue);
+        rb.linearVelocityX = newVelocity * x;
+
+        /*//Handles Jumping
         if ((isGrounded || jumps < 2) && shouldJump) Jump();
-
+        */
 
     }
 
@@ -142,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Debug.Log("Trigger exited");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) isGrounded = false;
+        jumps++;
     }
     
     /// <summary>
