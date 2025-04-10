@@ -1,0 +1,66 @@
+using UnityEngine;
+using System.Collections;
+
+public class PlayerHealth : MonoBehaviour
+{
+    [Header("HP Ý’è")]
+    public int maxHealth = 100;          // Maximum HP
+    public int currentHealth;            // Current HP
+
+    [Header("‰ñ•œÝ’è")]
+    public int healAmountPerTick = 5;    // Amount of recovery (per tick)
+    public float healTickDelay = 0.5f;   // Tick interval (seconds)
+    public int totalHealTicks = 5;       // Recovery times
+    public int healCharge = 1;           // Charge used for heels
+
+    public bool isHealing = false;       // Currently recovering?
+
+    void Start()
+    {
+        currentHealth = maxHealth;       // Maximize HP at the start of the game
+    }
+
+    void Update()
+    {
+        // Q key to recover (when charged and not in recovery)
+        if (Input.GetKeyDown(KeyCode.Q) && healCharge > 0 && !isHealing)
+        {
+            StartCoroutine(HealOverTime());
+        }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+        }
+    }
+
+    IEnumerator HealOverTime()
+    {
+        isHealing = true;
+        healCharge--;
+
+        for (int i = 0; i < totalHealTicks; i++)
+        {
+            currentHealth += healAmountPerTick;
+
+            if (currentHealth > maxHealth)
+                currentHealth = maxHealth;
+
+            yield return new WaitForSeconds(healTickDelay);
+        }
+
+        isHealing = false;
+    }
+
+    void Die()
+    {
+        Debug.Log("Player died. Reset to Wave 1...");
+        // TODO: Process back to Wave 1, currency and upgrades retained
+    }
+}
