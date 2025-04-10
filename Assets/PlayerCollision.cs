@@ -9,6 +9,7 @@ public class PlayerCollision : MonoBehaviour
 
             //attack animation 
 
+            FindFirstObjectByType<GameManager>().EndGame();
             Debug.Log("Crawler Hit!");
         }
     }
