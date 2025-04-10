@@ -8,82 +8,117 @@ public class SettingsMenu : MonoBehaviour
     public GameObject controlsPanel;
     public GameObject audioPanel;
 
-    public AudioMixer audioMixer;
+    public AudioMixer mixer;
 
-    public Slider masterSlider;
-    public Slider musicSlider;
-    public Slider sfxSlider;
+    public Slider MasterSlider;
+    public Slider MusicSlider;
+    public Slider SFXSlider;
     public Toggle muteToggle;
 
     private float lastMasterVolume = 1f;
+    private float lastMusicVolume = 1f;
+    private float lastSFXVolume = 1f;
 
     void Start()
     {
         ShowPanel(GraphicsPanel);
 
-        masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 1f);
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVol", 1f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVol", 1f);
-        muteToggle.isOn = PlayerPrefs.GetInt("Muted", 0) == 1;
+        // Get saved volume preferences from PlayerPrefs
+        lastMasterVolume = PlayerPrefs.GetFloat("MasterVolume", 100f);
+        lastMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 100f);
+        lastSFXVolume = PlayerPrefs.GetFloat("SFXVolume", 100f);
 
-        ApplyVolumes();
+        // Check if saved volume data exists
+        if (PlayerPrefs.HasKey("MasterVolume"))
+        {
+            // Set the mixer volume levels based on the saved player prefs
+            SetMixerVolume("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
+            SetMixerVolume("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
+            SetMixerVolume("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
+            muteToggle.isOn = PlayerPrefs.GetInt("Muted", 0) == 1;
+            SetSliders();
+        }
+        else
+        {
+            // No saved preferences, just set the sliders to defaults
+            SetSliders();
+        }
 
-        masterSlider.onValueChanged.AddListener(SetMasterVolume);
-        musicSlider.onValueChanged.AddListener(SetMusicVolume);
-        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        // Add listener to mute toggle
         muteToggle.onValueChanged.AddListener(SetMute);
-
     }
 
+    // Function to show specific panel
     public void ShowPanel(GameObject panel)
     {
-
         audioPanel.SetActive(false);
         GraphicsPanel.SetActive(false);
         controlsPanel.SetActive(false);
 
- 
         panel.SetActive(true);
     }
 
-    public void SetMasterVolume(float value)
+    void SetSliders()
     {
-        if (!muteToggle.isOn)
-            audioMixer.SetFloat("MasterVol", Mathf.Log10(value) * 20);
-        lastMasterVolume = value;
-        PlayerPrefs.SetFloat("MasterVol", value);
+        // Set sliders based on PlayerPrefs (assuming values are in 0-100 range)
+        MasterSlider.value = PlayerPrefs.GetFloat("MasterVolume", 100f);
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 100f);
+        MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 100f);
     }
 
-    public void SetMusicVolume(float value)
+    public void UpdateMasterVolume()
     {
-        audioMixer.SetFloat("MusicVol", Mathf.Log10(value) * 20);
-        PlayerPrefs.SetFloat("MusicVol", value);
+        // Update the mixer with the converted volume value
+        SetMixerVolume("MasterVolume", MasterSlider.value);
+        PlayerPrefs.SetFloat("MasterVolume", MasterSlider.value);
     }
 
-    public void SetSFXVolume(float value)
+    public void UpdateSFXVolume()
     {
-        audioMixer.SetFloat("SFXVol", Mathf.Log10(value) * 20);
-        PlayerPrefs.SetFloat("SFXVol", value);
+        // Update the mixer with the converted volume value
+        SetMixerVolume("SFXVolume", SFXSlider.value);
+        PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+    }
+
+    public void UpdateMusicVolume()
+    {
+        // Update the mixer with the converted volume value
+        SetMixerVolume("MusicVolume", MusicSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", MusicSlider.value);
     }
 
     public void SetMute(bool isMuted)
     {
         if (isMuted)
         {
-            audioMixer.SetFloat("MasterVol", -80f); // Effectively mute
+            mixer.SetFloat("MasterVolume", -100f);
+            mixer.SetFloat("MusicVolume", -100f);
+            mixer.SetFloat("SFXVolume", -100f);
         }
         else
         {
-            audioMixer.SetFloat("MasterVol", Mathf.Log10(lastMasterVolume) * 20);
+            // Restore volumes based on the last saved values
+            SetMixerVolume("MasterVolume", lastMasterVolume);
+            SetMixerVolume("MusicVolume", lastMusicVolume);
+            SetMixerVolume("SFXVolume", lastSFXVolume);
         }
         PlayerPrefs.SetInt("Muted", isMuted ? 1 : 0);
     }
 
-    private void ApplyVolumes()
+    private void SetMixerVolume(string parameterName, float value)
     {
-        SetMasterVolume(masterSlider.value);
-        SetMusicVolume(musicSlider.value);
-        SetSFXVolume(sfxSlider.value);
-        SetMute(muteToggle.isOn);
+        // If value is 0, apply -80dB (muted)
+        if (value == 0)
+        {
+            mixer.SetFloat(parameterName, -80f);
+        }
+        else
+        {
+            // Convert the slider value (0-100) to a logarithmic decibel value
+            float decibelValue = Mathf.Log10(value / 100f) * 20f;
+
+            // Apply the value to the mixer parameter
+            mixer.SetFloat(parameterName, decibelValue);
+        }
     }
 }
