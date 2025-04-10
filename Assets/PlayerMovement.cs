@@ -73,8 +73,8 @@ public class PlayerMovement : MonoBehaviour
         verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
 
         //if (horizontalMove != oldHMove) velocityAdded = false;
-        Debug.Log(moveAction.ReadValue<Vector2>().y);
-        Debug.Log(verticalMove);
+        //Debug.Log(moveAction.ReadValue<Vector2>().y);
+        //Debug.Log(verticalMove);
         //horizontalMove = Convert.ToInt32(Input.GetKey(KeyCode.D)) - Convert.ToInt32(Input.GetKey(KeyCode.A));
         //verticalMove = Convert.ToInt32(Input.GetKey(KeyCode.W)) - Convert.ToInt32(Input.GetKey(KeyCode.S));
 
