@@ -5318,7 +5318,7 @@ CompositeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 38c530bdb78cab64ca0ad435580c54b7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5452,7 +5452,7 @@ TilemapCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 38c530bdb78cab64ca0ad435580c54b7, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6469,6 +6469,10 @@ PrefabInstance:
       propertyPath: jumps
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7798716407410819560, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: jumpSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8403946606524122437, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -6558,6 +6562,10 @@ PrefabInstance:
     - target: {fileID: 2684136950865080351, guid: 23472b555268d6748a2b73b019622205, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6715951862846410851, guid: 23472b555268d6748a2b73b019622205, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6715951862846410851, guid: 23472b555268d6748a2b73b019622205, type: 3}
       propertyPath: m_LocalPosition.x
