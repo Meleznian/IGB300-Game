@@ -47,7 +47,7 @@ public class Crawler : EnemyBase
             {
                 other.GetComponent<PlayerHealth>().TakeDamage(33);
                 _lastDamageTime = Time.time;
-                Debug.Log("Continuous Damage!");
+                //Debug.Log("Continuous Damage!");
             }
         }
     }
