@@ -7,11 +7,6 @@ public class Crawler : EnemyBase
     private float _damageCooldown = 1f; // Time between damage ticks
     private float _lastDamageTime;
 
-    void Update()
-    {
-        
-    }
-
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
