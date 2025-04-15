@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int jumps;
     private bool jumpReleased;
 
+    private float gravScale;
+
 
 
 
@@ -53,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
+
+        gravScale = rb.gravityScale;
 
         rb.linearDamping = friction;
 
@@ -187,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Resets physics components (which will slow and stop the player's motion)
         rb.linearDamping = friction;
-        rb.gravityScale = 3;
+        rb.gravityScale = gravScale;
 
 
     }
