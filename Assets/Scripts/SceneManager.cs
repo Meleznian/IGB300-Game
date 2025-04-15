@@ -23,15 +23,12 @@ public class SettingsManager : MonoBehaviour
         string key = $"SaveSlot{slot}";
         if (PlayerPrefs.HasKey(key))
         {
-            string levelName = PlayerPrefs.GetString(key); // e.g., "Level1"
+            string levelName = PlayerPrefs.GetString(key);
             Debug.Log("Loaded Save Slot " + slot + ": " + levelName);
 
-            // Activate gameplay UI or logic
             loadGamePanel.SetActive(false);
             SceneManager.LoadScene("Main Game");
 
-            // You can also spawn player, set stats, etc.
-            // Example: GameManager.Instance.LoadPlayerData(slot);
         }
         else
         {
