@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 3
   tags:
   - Wall
+  - Enemy
+  - WaypointGraph
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Projectile
   - 
   - 
   - 
@@ -41,6 +43,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Effect
+    uniqueID: 4035962507
+    locked: 0
+  - name: Cursor
+    uniqueID: 1109470239
     locked: 0
   m_RenderingLayers:
   - Default

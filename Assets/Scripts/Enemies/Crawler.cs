@@ -3,28 +3,25 @@ using UnityEngine.UIElements;
 
 public class Crawler : EnemyBase
 {
-    Vector3 moveDirection;
-
-    void Update()
-    {
-        
-    }
+    private Vector3 _moveDirection;
+    private float _damageCooldown = 1f; // Time between damage ticks
+    private float _lastDamageTime;
 
     public override void Move()
     {
-        transform.position += moveDirection * actingMoveSpeed;
+        transform.position += _moveDirection * actingMoveSpeed;
         //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
     }
 
     void ChangeDirection()
     {
-        if (moveDirection == Vector3.left)
+        if (_moveDirection == Vector3.left)
         {
-            moveDirection = Vector3.right;
+            _moveDirection = Vector3.right;
         }
         else
         {
-            moveDirection = Vector3.left;
+            _moveDirection = Vector3.left;
         }
     }
 
@@ -36,8 +33,23 @@ public class Crawler : EnemyBase
         }
     }
 
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (Time.time > _lastDamageTime + _damageCooldown)
+            {
+                other.GetComponent<PlayerHealth>().TakeDamage(33);
+                _lastDamageTime = Time.time;
+                //Debug.Log("Continuous Damage!");
+            }
+        }
+    }
+
+
     public override void ExtraSetup()
     {
-        moveDirection = Vector2.left;
+        _moveDirection = Vector2.left;
     }
 }
