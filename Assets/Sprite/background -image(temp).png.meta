@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f207cb6663660b54d8b927d7b0e14245
+guid: a978e4364961b054aa3cc8f8eb3acef1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -702599490400753428
-    second: defense-up_0
+      213: -7552397361816951620
+    second: background -image(temp)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: defense-up_0
+      name: background -image(temp)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 90
-        height: 90
+        width: 1536
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce8ea4b6c7ddf36f0800000000000000
-      internalID: -702599490400753428
+      spriteID: cb4ad4e1d9e703790800000000000000
+      internalID: -7552397361816951620
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      defense-up_0: -702599490400753428
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

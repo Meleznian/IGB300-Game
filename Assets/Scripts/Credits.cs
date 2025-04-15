@@ -10,6 +10,7 @@ public class Credits : MonoBehaviour
 
     void Start()
     {
+        creditsPanel.SetActive(false);
         closeButton.onClick.AddListener(CloseCredits);
         creditButton.onClick.AddListener(OpenCredits);
     }

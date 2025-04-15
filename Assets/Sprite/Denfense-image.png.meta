@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Denfense-image_0: 2890381308504456047
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
