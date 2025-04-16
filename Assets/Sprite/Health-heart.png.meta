@@ -472,7 +472,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Health-heart_0: 80524759581967023
+      Health-heart_1: 6970025712165435052
+      Health-heart_10: 4922667015638125368
+      Health-heart_11: -1280746265902313888
+      Health-heart_12: -4769126261178550407
+      Health-heart_13: -104119394482829130
+      Health-heart_2: 1365513980151841314
+      Health-heart_3: -3221560210632062585
+      Health-heart_4: 3460135684021616968
+      Health-heart_5: 2850323902094173187
+      Health-heart_6: -2822762690303592420
+      Health-heart_7: -5254456027793635240
+      Health-heart_8: 6555561811173115746
+      Health-heart_9: 6542539179552203064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
