@@ -5,6 +5,11 @@ public class SettingsManager : MonoBehaviour
 {
     public GameObject mainMenuPanel;
     public GameObject loadGamePanel;
+
+    public void Start()
+    {
+        loadGamePanel.SetActive(false);
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("Main Game");
