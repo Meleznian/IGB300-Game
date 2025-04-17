@@ -3668,6 +3668,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!4 &1531201640 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8502951377849970374, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  m_PrefabInstance: {fileID: 1531201630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1616081329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,6 +3730,7 @@ GameObject:
   - component: {fileID: 1948289215}
   - component: {fileID: 1948289214}
   - component: {fileID: 1948289217}
+  - component: {fileID: 1948289218}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3850,6 +3856,21 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1948289218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948289213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89bcc3ec3edda04eba049da190be3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1531201640}
+  offset: {x: 0, y: 0, z: -10}
+  smoothSpeed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
