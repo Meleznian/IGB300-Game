@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject menuPanel;
+    public GameObject deathPanel;
     public AudioClip openSound;
     public AudioClip closeSound;
     private AudioSource audioSource;
@@ -14,6 +15,7 @@ public class MenuManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         menuPanel.SetActive(false);
+        deathPanel.SetActive(false);
     }
 
     void Update()
