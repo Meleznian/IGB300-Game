@@ -1,11 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+    public TextMeshProUGUI YouDiedtxt;
+
+    bool gameHasEnded = false;
+    public float restartDelay = 5f; 
+
     public void EndGame()
     {
-        Debug.Log("GAME OVER!!!");
+        if(gameHasEnded == false)
+        {
+            gameHasEnded = true;
+            Debug.Log("GAME OVER!!!");
+            YouDiedtxt.gameObject.SetActive(true);//for gameObject
+            //YouDiedtxt.enabled = true;//for component only 
+            Invoke("Restart", restartDelay);
+            //Restart();
+        }
+        
     }
 
     public void Restart()
