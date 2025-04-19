@@ -1,12 +1,13 @@
-
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class BehaviourAgent : NavigationAgent
 {
     public State currentState;
     public GameObject target;
+    public bool stunned;
+    public float stunTime;
 
     public void Start()
     {
@@ -51,5 +52,12 @@ public abstract class BehaviourAgent : NavigationAgent
         }
 
         return closestWaypoint;
+    }
+
+    public virtual IEnumerator Stunned()
+    {
+        stunned = true;
+        yield return new WaitForSeconds(stunTime);
+        stunned = false;
     }
 }
