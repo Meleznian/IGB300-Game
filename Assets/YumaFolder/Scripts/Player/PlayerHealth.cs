@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("HP İ’è")]
+    [Header("HP setting")]
     public int maxHealth = 100;          // Maximum HP
     public int currentHealth;            // Current HP
 
-    [Header("‰ñ•œİ’è")]
+    [Header("Recovery Settings")]
     public int healAmountPerTick = 5;    // Amount of recovery (per tick)
     public float healTickDelay = 0.5f;   // Tick interval (seconds)
     public int totalHealTicks = 5;       // Recovery times
