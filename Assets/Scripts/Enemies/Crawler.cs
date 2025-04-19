@@ -31,6 +31,12 @@ public class Crawler : EnemyBase
         {
             ChangeDirection();
         }
+        else if (other.CompareTag("Bullet"))
+        {
+            Destroy(gameObject); // Destroy the crawler when hit by bullet
+            Debug.Log("bullet hit Crawler");
+        }
+
     }
 
 
@@ -42,10 +48,13 @@ public class Crawler : EnemyBase
             {
                 other.GetComponent<PlayerHealth>().TakeDamage(33);
                 _lastDamageTime = Time.time;
-                //Debug.Log("Continuous Damage!");
+                Debug.Log("Continuous Damage!");
             }
         }
+
     }
+
+    
 
 
     public override void ExtraSetup()
