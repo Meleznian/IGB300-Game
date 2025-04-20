@@ -9,7 +9,7 @@ public class PlayerRangedAttack : MonoBehaviour
     void Update()
     {
         // Right click with mouse
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Vector2 dir = aimCursor.position - firePoint.position;
             FireBullet(dir.normalized);
