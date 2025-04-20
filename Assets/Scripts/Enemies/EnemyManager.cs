@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour
             if (enemy.GetComponent<ChargerAgent>() != null)
             {
                 enemy.GetComponent<ChargerAgent>().target = GameObject.Find("Player");
-                enemy.GetComponent<ChargerAgent>().graphNodes = GameObject.Find("NavigationNodes").GetComponent<WaypointGraph>();
+                enemy.GetComponent<ChargerAgent>().graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
             }
         }
     }
