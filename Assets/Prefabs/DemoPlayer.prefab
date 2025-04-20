@@ -304,6 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5765494503337787885}
   - component: {fileID: 7680749667488178075}
+  - component: {fileID: 742170538021214693}
   - component: {fileID: 1885519247420598914}
   - component: {fileID: 2982133742907216294}
   - component: {fileID: 2160569617568736537}
@@ -311,6 +312,7 @@ GameObject:
   - component: {fileID: 2117736800459837374}
   - component: {fileID: 6978071326035807399}
   - component: {fileID: 5612703334064629324}
+  - component: {fileID: 369074940725609312}
   m_Layer: 3
   m_Name: DemoPlayer
   m_TagString: Untagged
@@ -391,6 +393,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &742170538021214693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837223900107501713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293be83fe0486a94c82e5f07d5abffeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  healAmountPerTick: 5
+  healTickDelay: 0.5
+  totalHealTicks: 5
+  healCharge: 10
+  isHealing: 0
 --- !u!114 &1885519247420598914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,7 +652,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 1
+  m_Emitting: 0
   m_ApplyActiveColorSpace: 1
 --- !u!61 &5612703334064629324
 BoxCollider2D:
@@ -679,3 +700,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!114 &369074940725609312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837223900107501713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4760af8f3a18d94e97caebc46d927d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
