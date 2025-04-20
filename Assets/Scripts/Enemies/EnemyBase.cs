@@ -73,7 +73,8 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void Die()
     {
-        
+        EnemyManager.instance.EnemyKilled();
+        Destroy(gameObject);
     }
 
 

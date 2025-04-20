@@ -37,5 +37,10 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    internal void EnemyKilled()
+    {
+        currentlyAlive -= 1;
+    }
+
 
 }

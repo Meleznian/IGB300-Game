@@ -35,12 +35,6 @@ public class Crawler : EnemyBase
         {
             ChangeDirection();
         }
-        else if (other.CompareTag("Bullet"))
-        {
-            Destroy(gameObject); // Destroy the crawler when hit by bullet
-            Debug.Log("bullet hit Crawler");
-        }
-
     }
 
 
