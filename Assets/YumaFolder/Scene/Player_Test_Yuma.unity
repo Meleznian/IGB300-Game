@@ -3820,6 +3820,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617216221}
   m_CullTransparentMesh: 1
+--- !u!4 &635808080 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5158698978658212638, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  m_PrefabInstance: {fileID: 1924893879149892190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &875426028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
@@ -6515,7 +6520,7 @@ PrefabInstance:
     - target: {fileID: 6971030890138128735, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: aimCursor
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 635808080}
     - target: {fileID: 7798716407410819560, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: jumps
       value: 10
