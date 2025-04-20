@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="collision">The Collider that the player has triggered</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger hit");
+        //Debug.Log("Trigger hit");
         if(collision.gameObject.layer == LayerMask.NameToLayer("Ground")) isGrounded = true;
     }
 
@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="collision">The Collider the player is no longer triggering</param>
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Trigger exited");
+        //Debug.Log("Trigger exited");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) isGrounded = false;
         jumps++;
     }
@@ -168,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
     /// <returns>N/A (handled in corouting)</returns>
     private IEnumerator Sprint(int x, int y)
     {
-        Debug.Log("Sprinting");
+        //Debug.Log("Sprinting");
 
         //Sets state variables related to a sprint
         sprintAvailable = false;
