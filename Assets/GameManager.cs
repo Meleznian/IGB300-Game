@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI YouDiedtxt;
 
     bool gameHasEnded = false;
-    public float restartDelay = 5f; 
+    public float restartDelay = 0.5f; 
 
     public void EndGame()
     {
