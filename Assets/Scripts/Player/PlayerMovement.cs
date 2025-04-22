@@ -137,29 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// Used to detected when the player lands on the ground
-    /// </summary>
-    /// <param name="collision">The Collider that the player has triggered</param>
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("Trigger hit");
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            isGrounded = true;
-            airJump = false;
-        }
-    }
 
-    /// <summary>
-    /// Used to detect when the player leaves the ground (through jump or dash or fall)
-    /// </summary>
-    /// <param name="collision">The Collider the player is no longer triggering</param>
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //Debug.Log("Trigger exited");
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) isGrounded = false;
-    }
     
     /// <summary>
     /// The function handling the player sprint mechanics
@@ -195,5 +173,16 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = 3;
 
 
+    }
+
+    public void LandedOnGround()
+    {
+        isGrounded = true;
+        airJump = false;
+    }
+
+    public void LeftGround()
+    {
+        isGrounded = false;
     }
 }
