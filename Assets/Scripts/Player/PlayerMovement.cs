@@ -38,10 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
     //Variables that only relate to jumping (spacebar)
     [Header("Jump Variables")]
-    [SerializeField] bool shouldJump;
+    //[SerializeField] bool shouldJump;
     [SerializeField] bool jumped;
     [SerializeField] private float jumpSpeed;
-    [SerializeField] private int jumps;
+    //[SerializeField] private int jumps;
+    [SerializeField] private bool airJump;
     private bool jumpReleased;
 
 
@@ -79,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         //verticalMove = Convert.ToInt32(Input.GetKey(KeyCode.W)) - Convert.ToInt32(Input.GetKey(KeyCode.S));
 
         //Resets Jump Counter if Grounded
-        jumps = isGrounded ? 0 : jumps;
+        //jumps = isGrounded ? 0 : jumps;
         //jumped = isGrounded ? false : jumped;
 
         lastDirection = Input.GetKeyDown(KeyCode.D) ? 1 : lastDirection;
@@ -88,19 +89,19 @@ public class PlayerMovement : MonoBehaviour
         if(isGrounded && !sprinting) sprintAvailable = true;
 
         //if(!shouldJump || jumped) shouldJump = Input.GetKeyDown(KeyCode.Space);
-        if (jumpAction.IsPressed() && jumpReleased && jumps < 2) Jump();
+        if (jumpAction.WasPressedThisFrame() && (isGrounded || !isGrounded && !airJump)) Jump();
 
         //Makes the player sprint if able to
-        if (dashAction.IsPressed() && sprintAvailable && sprintReleased) StartCoroutine(Sprint(horizontalMove == 0 && verticalMove == 0 ? lastDirection : horizontalMove, verticalMove));
+        if (dashAction.WasPressedThisFrame() && sprintAvailable) StartCoroutine(Sprint(horizontalMove == 0 && verticalMove == 0 ? lastDirection : horizontalMove, verticalMove));
 
-        sprintReleased = !dashAction.IsPressed();
-        jumpReleased = !jumpAction.IsPressed();
+        //sprintReleased = !dashAction.IsPressed();
+        //jumpReleased = !jumpAction.IsPressed();
     }
 
     private void FixedUpdate()
     {
         if(!sprinting) Move(horizontalMove, verticalMove);
-        if (shouldJump) Jump();
+        //if (shouldJump) Jump();
     }
 
     void Jump()
@@ -110,10 +111,11 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocityY = 0;
         rb.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
 
+        if (!isGrounded) airJump = true;
         //jumped = true;
 
         //Adds to the Jump Counter
-        jumps++;
+        //jumps++;
     }
 
     void Move(int x, int y)
@@ -142,7 +144,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("Trigger hit");
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Ground")) isGrounded = true;
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            isGrounded = true;
+            airJump = false;
+        }
     }
 
     /// <summary>
@@ -153,7 +159,6 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.Log("Trigger exited");
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground")) isGrounded = false;
-        jumps++;
     }
     
     /// <summary>
