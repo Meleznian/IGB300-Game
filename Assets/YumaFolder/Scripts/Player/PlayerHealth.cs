@@ -61,6 +61,6 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player died. Reset to Wave 1...");
-        FindFirstObjectByType<GameManager>().Restart();
+        FindFirstObjectByType<GameManager>().EndGame();
     }
 }
