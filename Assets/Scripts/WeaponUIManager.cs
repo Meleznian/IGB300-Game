@@ -70,6 +70,7 @@ public class WeaponUIManager : MonoBehaviour
             playerCurrency -= weapon.cost;
             UpdateCoinUI();
             Debug.Log($"Bought {weapon.name}");
+            weaponInfoPanel.SetActive(false);
         }
         else
         {
