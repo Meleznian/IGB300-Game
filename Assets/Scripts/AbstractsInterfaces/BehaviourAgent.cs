@@ -5,10 +5,12 @@ using UnityEngine;
 public abstract class BehaviourAgent : NavigationAgent
 {
     public State currentState;
-    private State oldState;
+    private State _oldState;
     public GameObject target;
     public bool stunned;
     public float stunTime;
+
+    public float health;
 
     public void Start()
     {
@@ -28,13 +30,13 @@ public abstract class BehaviourAgent : NavigationAgent
                 break;
         }
 
-        if(currentState != oldState)
+        if(currentState != _oldState)
         {
             currentPath.Clear();
             greedyPaintList.Clear();
             currentPathIndex = 0;
 
-            oldState = currentState;
+            _oldState = currentState;
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -78,5 +80,16 @@ public abstract class BehaviourAgent : NavigationAgent
         stunned = true;
         yield return new WaitForSeconds(stunTime);
         stunned = false;
+    }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0) death();
+    }
+
+    private void death()
+    {
+        gameObject.SetActive(false);
     }
 }

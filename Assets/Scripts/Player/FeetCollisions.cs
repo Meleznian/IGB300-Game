@@ -3,7 +3,7 @@ using UnityEngine;
 public class FeetCollisions : MonoBehaviour
 {
 
-    [SerializeField] private PlayerMovement movementScript;
+    [SerializeField] private PlayerMovement _movementScript;
 
 
     /// <summary>
@@ -12,7 +12,7 @@ public class FeetCollisions : MonoBehaviour
     /// <param name="collision">The Collider that the player has triggered</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        movementScript.LandedOnGround();
+        _movementScript.LandedOnGround();
     }
 
     /// <summary>
@@ -21,6 +21,6 @@ public class FeetCollisions : MonoBehaviour
     /// <param name="collision">The Collider the player is no longer triggering</param>
     private void OnTriggerExit2D(Collider2D collision)
     {
-        movementScript.LeftGround();
+        _movementScript.LeftGround();
     }
 }
