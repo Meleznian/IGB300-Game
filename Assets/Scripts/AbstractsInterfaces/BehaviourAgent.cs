@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BehaviourAgent : NavigationAgent
 {
     public State currentState;
+    private State oldState;
     public GameObject target;
     public bool stunned;
     public float stunTime;
@@ -12,6 +13,7 @@ public abstract class BehaviourAgent : NavigationAgent
     public void Start()
     {
         currentNodeIndex = findClosestWayPoint(gameObject);
+        
     }
     // Update is called once per frame
     void Update()
@@ -24,6 +26,23 @@ public abstract class BehaviourAgent : NavigationAgent
             case State.Attack:
                 Attack();
                 break;
+        }
+
+        if(currentState != oldState)
+        {
+            currentPath.Clear();
+            greedyPaintList.Clear();
+            currentPathIndex = 0;
+
+            oldState = currentState;
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            List<int> integers = new List<int>
+        {
+            10
+        };
+            GreedySearch(10, 3, integers);
         }
     }
 
