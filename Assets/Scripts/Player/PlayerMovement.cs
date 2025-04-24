@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     //Required Components
     private Rigidbody2D rb;
     private TrailRenderer tr;
+    private Animator anim;
 
     //Input Actions
     InputAction moveAction;
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
+        anim = GetComponent<Animator>();
 
         rb.linearDamping = _friction;
 
@@ -74,6 +76,15 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
         verticalMove = moveAction.ReadValue<Vector2>().y > 0 ? 1 : 0;
         verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
+
+        if (horizontalMove != 0)
+        {
+            anim.SetBool("Running", true);
+        }
+        else
+        {
+            anim.SetBool("Running", false);
+        }
 
         //if (horizontalMove != oldHMove) velocityAdded = false;
         //Debug.Log(moveAction.ReadValue<Vector2>().y);
@@ -133,6 +144,8 @@ public class PlayerMovement : MonoBehaviour
         float newVelocity = Mathf.Clamp(Mathf.Abs(rb.linearVelocityX), _speed, int.MaxValue);
         rb.linearVelocityX = newVelocity * x;
 
+
+
         /*//Handles Jumping
         if ((isGrounded || jumps < 2) && shouldJump) Jump();
         */
@@ -179,12 +192,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void LandedOnGround()
     {
+        anim.SetBool("Jumping", false);
         _isGrounded = true;
         _airJump = false;
     }
 
     public void LeftGround()
     {
+        anim.SetBool("Jumping", true);
         _isGrounded = false;
     }
 }
