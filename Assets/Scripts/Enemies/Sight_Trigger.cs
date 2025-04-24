@@ -15,19 +15,20 @@ public class Sight_Trigger : MonoBehaviour
     //Player to look for
     public GameObject player;
 
-    [SerializeField] private float MaxDistance = Mathf.Infinity;
+    //private float MaxDistance = Mathf.Infinity;
 
     // Start is called before the first frame update
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        NPC = GetComponent<BehaviourAgent>();
     }
     // Update is called once per frame
     void FixedUpdate()
     {
         //Debug.Log("Running");
 
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, MaxDistance);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
         if(ray.collider != null)
         {
             if (ray.collider.CompareTag("Player"))
