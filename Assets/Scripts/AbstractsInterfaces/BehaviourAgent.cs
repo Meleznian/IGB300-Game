@@ -11,6 +11,8 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     public float stunTime;
 
     public float health;
+    public float iFrames;
+    public bool hasIFrames;
 
     public void Start()
     {
@@ -27,6 +29,12 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
                 break;
             case State.Attack:
                 Attack();
+                break;
+            case State.Pursue:
+                Pursue();
+                break;
+            case State.Flee:
+                Flee();
                 break;
         }
 
@@ -75,6 +83,15 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         return closestWaypoint;
     }
 
+    public virtual void Pursue()
+    {
+
+    }
+    public virtual void Flee()
+    {
+
+    }
+
     public virtual IEnumerator Stunned()
     {
         stunned = true;
@@ -84,12 +101,20 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (hasIFrames) return;
         health -= damage;
-        if (health <= 0) death();
+        if (health <= 0) Death();
     }
 
-    private void death()
+    private void Death()
     {
         gameObject.SetActive(false);
+    }
+
+    public IEnumerator Invincible()
+    {
+        hasIFrames = true;
+        yield return new WaitForSeconds(iFrames);
+        hasIFrames = false;
     }
 }
