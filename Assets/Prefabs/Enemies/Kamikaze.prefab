@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 1516655937781137473}
   - component: {fileID: 4604354957782654345}
   - component: {fileID: 1944717912842723637}
-  - component: {fileID: 5693210579481467239}
-  m_Layer: 0
-  m_Name: Charger
+  - component: {fileID: -9113151063536751712}
+  - component: {fileID: 1479381369196750076}
+  m_Layer: 2
+  m_Name: Kamikaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.99521923, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.9245283, b: 0.40782014, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -163,7 +164,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5693210579481467239
+--- !u!114 &-9113151063536751712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6348757875583023632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf0d7794123c794a96727ca846c94ef, type: 3}
+  m_Script: {fileID: 11500000, guid: 48bbd877883e96246870b422434c1d76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   graphNodes: {fileID: 0}
@@ -182,21 +183,40 @@ MonoBehaviour:
   greedyPaintList: 
   currentPathIndex: 0
   currentNodeIndex: 0
-  currentState: 1
+  currentState: 0
   target: {fileID: 0}
-  moveSpeed: 5
-  minDistance: 0.1
+  stunned: 0
+  stunTime: 0
+  moveSpeed: 0
+  minDistance: 0
   chargeDistance: 0
-  yLevelError: 1
+  yLevelError: 0
   attacking: 0
   chargeSpeed: 0
   chargeDamage: 0
   chargeKnockback: 0
-  chargeCooldown: 7
+  chargeCooldown: 0
   chargeParriable: 0
-  chargeAvailable: 0
+  chargeAvailable: 1
   bashDamage: 0
   bashKnockback: 0
-  bashCooldown: 3
+  bashCooldown: 0
   bashParriable: 0
-  bashAvailable: 0
+  bashAvailable: 1
+--- !u!114 &1479381369196750076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348757875583023632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a8f536948f5b14485822310e277f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enter: 1
+  exit: 0
+  NPC: {fileID: 0}
+  player: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  MaxDistance: Infinity

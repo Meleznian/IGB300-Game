@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour, IDamageable
 {
     [Tooltip("The enemies name")]
     public string enemyName;

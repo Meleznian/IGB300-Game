@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ChargerAgent : BehaviourAgent
+public class KamikazeAgent : BehaviourAgent
 {
     [Header("Universal")]
     public float moveSpeed;
@@ -81,11 +81,6 @@ public class ChargerAgent : BehaviourAgent
             StartCoroutine(Charge());
             currentPath.Clear();
 
-        }//Check Bash eligibility
-        else if (Vector3.Distance(target.transform.position, transform.position) < chargeDistance && bashAvailable)
-        {
-            StartCoroutine(Bash());
-            currentPath.Clear();
         }
         else
         {
@@ -144,6 +139,7 @@ public class ChargerAgent : BehaviourAgent
             yield return null;
         }
         Debug.Log("Charge End");
+        Explode();
         attacking = false;
         yield return new WaitForSeconds(chargeCooldown);
         chargeAvailable = true;
@@ -153,14 +149,8 @@ public class ChargerAgent : BehaviourAgent
     /// Enemy Bash attack
     /// </summary>
     /// <returns>N/A</returns>
-    public IEnumerator Bash()
+    public void Explode()
     {
-        bashAvailable = false;
-        attacking = true;
-        //Perform action
-        Debug.Log("Bashing");
-        attacking = false;
-        yield return new WaitForSeconds(bashCooldown);
-        bashAvailable = true;
+        gameObject.SetActive(false);
     }
 }

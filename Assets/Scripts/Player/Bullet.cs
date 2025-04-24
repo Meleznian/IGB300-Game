@@ -21,15 +21,17 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        var enemy = other.GetComponent<EnemyBase>();
+        var damageable = other.GetComponent<IDamageable>();
+        if (damageable != null)
+        var enemy = other.GetComponent<IDamageable>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            damageable.TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (!other.isTrigger)
         {
-            Destroy(gameObject); // Disappears when it hits a wall, etc.
+            Destroy(gameObject);
         }
     }
 }
