@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BehaviourAgent : NavigationAgent
+public abstract class BehaviourAgent : NavigationAgent, IDamageable
 {
     public State currentState;
     private State _oldState;
@@ -82,7 +82,7 @@ public abstract class BehaviourAgent : NavigationAgent
         stunned = false;
     }
 
-    public void takeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0) death();
