@@ -35,24 +35,35 @@ public class ChargerAgent : BehaviourAgent
     /// </summary>
     public override void Roam()
     {
+        //Debug.Log("Roaming");
         //Will Require Navigation Agent 
         if (currentPath.Count <= 0) { currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Length), currentPath);
             currentPath.Reverse();
             currentPath.RemoveAt(currentPath.Count - 1); 
             return; 
         }
-        if (Vector3.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPath.Count - 1]].transform.position) <= minDistance){
-            int randomNode = Random.Range(0, graphNodes.graphNodes.Length);
+        if (Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
+        {
+            //Debug.Log(currentPath.Count);
+            if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
+            else
+            {
+                int randomNode = Random.Range(0, graphNodes.graphNodes.Length);
+                //Debug.Log(graphNodes.graphNodes.Length);
+                //Debug.Log("Start");
+                //Debug.Log(currentNodeIndex);
+                //Debug.Log("New goal");
+                //Debug.Log(randomNode);
+                currentPath.Clear();
+                greedyPaintList.Clear();
+                currentPathIndex = 0;
+                currentPath.Add(currentNodeIndex);
 
-            currentPath.Clear();
-            greedyPaintList.Clear();
-            currentPathIndex = 0;
-            currentPath.Add(currentNodeIndex);
+                currentPath = GreedySearch(currentPath[currentPathIndex], randomNode, currentPath);
 
-            currentPath = GreedySearch(currentPath[currentPathIndex], randomNode, currentPath);
-
-            currentPath.Reverse();
-            currentPath.RemoveAt(currentPath.Count - 1);
+                currentPath.Reverse();
+                currentPath.RemoveAt(currentPath.Count - 1);
+            }
         }
         Move();
     }
@@ -82,7 +93,6 @@ public class ChargerAgent : BehaviourAgent
             //Debug.Log("Moving");
             if(currentPath.Count > 0)
             {
-                Move();  
                 /*transform.position = Vector2.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
 
                 if(Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
@@ -91,6 +101,14 @@ public class ChargerAgent : BehaviourAgent
                     else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target)); currentPathIndex = 0; }
                 }
                 currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;*/
+                if (Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
+                {
+                    if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
+                    else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target)); currentPathIndex = 0; }
+                    //else { currentPath.Clear(); currentPathIndex = 0; }
+                }
+                
+                Move();
             }
             else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));}
         }
@@ -102,13 +120,8 @@ public class ChargerAgent : BehaviourAgent
     public void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
-
-        if (Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
-        {
-            if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
-            else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target)); currentPathIndex = 0; }
-        }
         currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;
+
     }
 
 

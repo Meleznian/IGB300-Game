@@ -1,5 +1,7 @@
 public enum State
 {
     Roam,
-    Attack
+    Attack,
+    Pursue,
+    Flee
 }

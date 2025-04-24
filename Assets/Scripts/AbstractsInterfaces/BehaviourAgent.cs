@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BehaviourAgent : NavigationAgent
+public abstract class BehaviourAgent : NavigationAgent, IDamageable
 {
     public State currentState;
+    private State _oldState;
     public GameObject target;
     public bool stunned;
     public float stunTime;
 
+    public float health;
+    public float iFrames;
+    public bool hasIFrames;
+
     public void Start()
     {
         currentNodeIndex = findClosestWayPoint(gameObject);
+        
     }
     // Update is called once per frame
     void Update()
@@ -24,6 +30,29 @@ public abstract class BehaviourAgent : NavigationAgent
             case State.Attack:
                 Attack();
                 break;
+            case State.Pursue:
+                Pursue();
+                break;
+            case State.Flee:
+                Flee();
+                break;
+        }
+
+        if(currentState != _oldState)
+        {
+            currentPath.Clear();
+            greedyPaintList.Clear();
+            currentPathIndex = 0;
+
+            _oldState = currentState;
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            List<int> integers = new List<int>
+        {
+            10
+        };
+            GreedySearch(10, 3, integers);
         }
     }
 
@@ -54,10 +83,38 @@ public abstract class BehaviourAgent : NavigationAgent
         return closestWaypoint;
     }
 
+    public virtual void Pursue()
+    {
+
+    }
+    public virtual void Flee()
+    {
+
+    }
+
     public virtual IEnumerator Stunned()
     {
         stunned = true;
         yield return new WaitForSeconds(stunTime);
         stunned = false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (hasIFrames) return;
+        health -= damage;
+        if (health <= 0) Death();
+    }
+
+    private void Death()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public IEnumerator Invincible()
+    {
+        hasIFrames = true;
+        yield return new WaitForSeconds(iFrames);
+        hasIFrames = false;
     }
 }

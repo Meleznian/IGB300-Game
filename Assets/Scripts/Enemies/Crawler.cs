@@ -7,9 +7,13 @@ public class Crawler : EnemyBase
     private float _damageCooldown = 1f; // Time between damage ticks
     private float _lastDamageTime;
 
+    [SerializeField] private LayerMask grounds;
+
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
+
+        CheckFloor();
         //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
     }
 
@@ -63,4 +67,18 @@ public class Crawler : EnemyBase
     {
         _moveDirection = Vector2.left;
     }
+
+
+    void CheckFloor()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 1f, grounds);
+
+        //Debug.DrawRay(transform.position, -transform.up, Color.red);
+
+        if(hit.collider == null)
+        {
+            ChangeDirection();
+        }
+    }
+
 }

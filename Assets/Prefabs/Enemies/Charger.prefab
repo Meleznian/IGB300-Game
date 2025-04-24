@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 4604354957782654345}
   - component: {fileID: 1944717912842723637}
   - component: {fileID: 5693210579481467239}
-  m_Layer: 0
+  - component: {fileID: 1479381369196750076}
+  m_Layer: 2
   m_Name: Charger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,8 +183,10 @@ MonoBehaviour:
   greedyPaintList: 
   currentPathIndex: 0
   currentNodeIndex: 0
-  currentState: 1
+  currentState: 0
   target: {fileID: 0}
+  stunned: 0
+  stunTime: 0
   moveSpeed: 5
   minDistance: 0.1
   chargeDistance: 0
@@ -200,3 +203,19 @@ MonoBehaviour:
   bashCooldown: 3
   bashParriable: 0
   bashAvailable: 0
+--- !u!114 &1479381369196750076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348757875583023632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a8f536948f5b14485822310e277f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enter: 1
+  exit: 0
+  NPC: {fileID: 5693210579481467239}
+  player: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : MonoBehaviour, IDamageable
 {
     [Tooltip("The enemies name")]
     public string enemyName;
@@ -73,7 +73,8 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void Die()
     {
-        
+        EnemyManager.instance.EnemyKilled();
+        Destroy(gameObject);
     }
 
 

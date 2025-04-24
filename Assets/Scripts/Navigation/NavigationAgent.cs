@@ -133,9 +133,14 @@ public class NavigationAgent : MonoBehaviour
     {
         //Sort Children based on Heuristic
         //Debug.Log(end);
-        if (!greedyPaintList.Contains(current)) greedyPaintList.Add(current);
+        //if (!greedyPaintList.Contains(current)) greedyPaintList.Add(current);
+        //Debug.Log(current);
+        if (current == currentNodeIndex) greedyPaintList.Add(current);
+
         //Debug.Log("Grabbing children");
         List<GreedyChildren> children = new List<GreedyChildren>();
+        //Debug.Log(graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex.Length);
+        //Debug.Log("Children Count");
         for (int i = 0; i < graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex.Length; i++) {
             //Debug.Log("Filling children");
             children.Add(new GreedyChildren(graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex[i], Heuristic(graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex[i], end)));
@@ -143,11 +148,15 @@ public class NavigationAgent : MonoBehaviour
         //Debug.Log(children.Count);
         //Debug.Log("Sorting children");
         children.Sort();
+        //children.Reverse();
+        //Log(children[0].childID);
+
+
         //Loop through children
         for (int i = 0; i < children.Count; i++)
         {
             //Debug.Log(i);
-            int child = graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex[i];
+            int child = children[i].childID;
             //if child not painted
             if (!greedyPaintList.Contains(child))
             {
@@ -172,6 +181,7 @@ public class NavigationAgent : MonoBehaviour
                 }
             }
         }
+       // Debug.Log("Failed");
         return path;
     }
 }
