@@ -1,8 +1,7 @@
-//using System;
 using System.Collections;
 using UnityEngine;
 
-public class ChargerAgent : BehaviourAgent
+public class DroneMAgent : BehaviourAgent
 {
     [Header("Universal")]
     public float moveSpeed;
@@ -20,16 +19,14 @@ public class ChargerAgent : BehaviourAgent
     public int chargeCooldown;
     public bool chargeParriable;
     public bool chargeAvailable = true;
+    public float chargeTravel;
 
 
-    [Header("Bash Variables")]
-    public int bashDamage;
-    public Knockback bashKnockback;
-    public int bashCooldown;
-    public bool bashParriable;
-    public bool bashAvailable = true;
+    [Header("Contact Variables")]
+    public int damageCooldown;
+    public float contactDamage;
+    public Knockback damageKnockback;
 
-   
     /// <summary>
     /// Roam State of DFA Agent
     /// </summary>
@@ -37,10 +34,12 @@ public class ChargerAgent : BehaviourAgent
     {
         //Debug.Log("Roaming");
         //Will Require Navigation Agent 
-        if (currentPath.Count <= 0) { currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Length), currentPath);
+        if (currentPath.Count <= 0)
+        {
+            currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Length), currentPath);
             currentPath.Reverse();
-            currentPath.RemoveAt(currentPath.Count - 1); 
-            return; 
+            currentPath.RemoveAt(currentPath.Count - 1);
+            return;
         }
         if (Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
         {
@@ -76,22 +75,17 @@ public class ChargerAgent : BehaviourAgent
         if (attacking) return;
         //Debug.Log("Correct Attack");
         //Check Charge eligibility
-        if (transform.position.y >= target.transform.position.y - yLevelError && transform.position.y <= target.transform.position.y + yLevelError && Vector3.Distance(target.transform.position, transform.position) > chargeDistance && chargeAvailable)
+        if (Vector2.Distance(transform.position, target.transform.position) > chargeDistance && chargeAvailable)
         {
             StartCoroutine(Charge());
             currentPath.Clear();
 
-        }//Check Bash eligibility
-        else if (Vector3.Distance(target.transform.position, transform.position) < chargeDistance && bashAvailable)
-        {
-            StartCoroutine(Bash());
-            currentPath.Clear();
         }
         else
         {
             //Move
             //Debug.Log("Moving");
-            if(currentPath.Count > 0)
+            if (currentPath.Count > 0)
             {
                 /*transform.position = Vector2.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
 
@@ -107,10 +101,10 @@ public class ChargerAgent : BehaviourAgent
                     else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target)); currentPathIndex = 0; }
                     //else { currentPath.Clear(); currentPathIndex = 0; }
                 }
-                
+
                 Move();
             }
-            else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));}
+            else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target)); }
         }
     }
 
@@ -135,12 +129,14 @@ public class ChargerAgent : BehaviourAgent
         attacking = true;
         //Perform action
         Debug.Log("Charging");
-        float targetXPos = target.transform.position.x;
+        Vector2 targetPos = target.transform.position - transform.position;
+        targetPos /= targetPos.magnitude;
+        targetPos *= chargeTravel;
         bool cancelled = false;
         //move towards targetXPos
-        while (Vector2.Distance(transform.position, new Vector2(targetXPos, transform.position.y)) >= minDistance && !cancelled)
+        while (Vector2.Distance(transform.position, targetPos) >= minDistance && !cancelled)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetXPos, transform.position.y), chargeSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, chargeSpeed * Time.deltaTime);
             yield return null;
         }
         Debug.Log("Charge End");
@@ -149,18 +145,10 @@ public class ChargerAgent : BehaviourAgent
         chargeAvailable = true;
     }
 
-    /// <summary>
-    /// Enemy Bash attack
-    /// </summary>
-    /// <returns>N/A</returns>
-    public IEnumerator Bash()
+    private void OnTriggerStay2D(Collider2D other)
     {
-        bashAvailable = false;
-        attacking = true;
-        //Perform action
-        Debug.Log("Bashing");
-        attacking = false;
-        yield return new WaitForSeconds(bashCooldown);
-        bashAvailable = true;
+        if (other.CompareTag("Player")) other.gameObject.GetComponent<IDamageable>().TakeDamage(contactDamage);
     }
+
+
 }

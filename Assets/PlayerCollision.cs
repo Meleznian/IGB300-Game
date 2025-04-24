@@ -27,17 +27,18 @@ public class PlayerCollision : MonoBehaviour
         }
     }*/
 
-    void OnGUI()
+    /*void OnGUI()//Canvas set Sacle with Size fix it 
     {
         // Always use try-finally for clipping
         GUI.BeginClip(new Rect(0, 0, 100, 100));
         try
         {
-            GUI.Label(new Rect(0, 0, 100, 20), "Clipped Content");
+            GUI.Label(new Rect(0, 0, 100, 20), "");
+            //GUI.Label(new Rect(0, 0, 100, 20), "Clipped Content");
         }
         finally
         {
             GUI.EndClip(); // Guaranteed to execute
         }
-    }
+    }*/
 }

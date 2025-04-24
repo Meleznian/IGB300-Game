@@ -1,14 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
     public TextMeshProUGUI YouDiedtxt;
+    public TextMeshProUGUI killCountText;
 
     bool gameHasEnded = false;
-    public float restartDelay = 5f; 
+    public float restartDelay = 0.5f;
+    private int _killCount = 0;
+
+    void Update()
+    {
+        killCountText.text = DisplayKillCount().ToString();
+    }
+
+    public void KillCount()
+    {
+        _killCount = _killCount + 1;
+        Debug.Log("killCount " + _killCount);
+
+    }
+
+    public int DisplayKillCount()
+    {
+        return _killCount;
+    }
 
     public void EndGame()
     {
