@@ -23,8 +23,6 @@ public class Bullet : MonoBehaviour
     {
         var damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
-        var enemy = other.GetComponent<IDamageable>();
-        if (enemy != null)
         {
             damageable.TakeDamage(damage);
             Destroy(gameObject);

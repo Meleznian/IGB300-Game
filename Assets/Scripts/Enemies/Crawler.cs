@@ -1,32 +1,26 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Crawler : EnemyBase
 {
-    private Vector3 _moveDirection;
-    private float _damageCooldown = 1f; // Time between damage ticks
-    private float _lastDamageTime;
+    [Header("Crawler Settings")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform groundCheckPoint; // Drag a child GameObject here in Inspector
 
-    [SerializeField] private LayerMask grounds;
+    private Vector2 _moveDirection;
+    private float _damageCooldown = 1f;
+    private float _lastDamageTime;
 
     public override void Move()
     {
-        transform.position += _moveDirection * actingMoveSpeed;
-
+        // Physics-based movement
+        rb.velocity = new Vector2(_moveDirection.x * actingMoveSpeed, rb.velocity.y);
         CheckFloor();
-        //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
     }
 
-    void ChangeDirection()
+    private void ChangeDirection()
     {
-        if (_moveDirection == Vector3.left)
-        {
-            _moveDirection = Vector3.right;
-        }
-        else
-        {
-            _moveDirection = Vector3.left;
-        }
+        _moveDirection *= -1;
+        transform.localScale = new Vector3(-transform.localScale.x, 1, 1); // Flip sprite
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -37,48 +31,38 @@ public class Crawler : EnemyBase
         }
         else if (other.CompareTag("Bullet"))
         {
-
-            Destroy(gameObject); // Destroy the crawler when hit by bullet
-            //Debug.Log("bullet hit Crawler");
-            FindFirstObjectByType<GameManager>().KillCount();
+            Destroy(gameObject);
+            FindFirstObjectByType<GameManager>()?.KillCount(); // Null-safe
         }
-
     }
-
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && Time.time > _lastDamageTime + _damageCooldown)
         {
-            if (Time.time > _lastDamageTime + _damageCooldown)
+            if (other.TryGetComponent<PlayerHealth>(out var health))
             {
-                other.GetComponent<PlayerHealth>().TakeDamage(33);
+                health.TakeDamage(33);
                 _lastDamageTime = Time.time;
-                //Debug.Log("Continuous Damage!");
             }
         }
-
     }
-
-    
-
-
-    public override void ExtraSetup()
-    {
-        _moveDirection = Vector2.left;
-    }
-
 
     void CheckFloor()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.up, 1f, grounds);
+        Vector2 rayOrigin = groundCheckPoint.position;
+        bool hasGround = Physics2D.Raycast(rayOrigin, Vector2.down, 0.2f, groundLayer);
 
-        //Debug.DrawRay(transform.position, -transform.up, Color.red);
+        Debug.DrawRay(rayOrigin, Vector2.down * 0.2f, hasGround ? Color.green : Color.red);
 
-        if(hit.collider == null)
+        if (!hasGround)
         {
             ChangeDirection();
         }
     }
 
+    public override void ExtraSetup()
+    {
+        _moveDirection = Vector2.left;
+    }
 }
