@@ -4138,8 +4138,6 @@ GameObject:
   - component: {fileID: 552676277}
   - component: {fileID: 552676279}
   - component: {fileID: 552676278}
-  - component: {fileID: 552676280}
-  - component: {fileID: 552676281}
   m_Layer: 5
   m_Name: LevelComplete
   m_TagString: Untagged
@@ -4208,40 +4206,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552676276}
   m_CullTransparentMesh: 1
---- !u!95 &552676280
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552676276}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6eaf0c42f9cc6774d8b0dc5fa9cf5d23, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &552676281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 552676276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c75bd29b59db8c46b20d54ef9241495, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &617216221
 GameObject:
   m_ObjectHideFlags: 0
@@ -6059,7 +6023,7 @@ GameObject:
   - component: {fileID: 1468324789}
   - component: {fileID: 1468324788}
   m_Layer: 5
-  m_Name: lbl_isYours (TMP)
+  m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
