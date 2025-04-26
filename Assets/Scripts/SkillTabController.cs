@@ -3,44 +3,30 @@ using UnityEngine.UI;
 
 public class SkillTabController : MonoBehaviour
 {
-    public GameObject attackPanel, defensePanel, healthPanel;
+    public GameObject MeleeWeaponPanel, RangedWeaponPanel;
 
-    // New: add reference to Basic Attack skill group
-    public GameObject basicAttackGroup;
 
-    public Button attackTab, defenseTab, healthTab;
+    public Button meleeTab, rangedTab;
 
     void Start()
     {
-        ShowAttackPanel();
+        ShowMeleePanel();
     }
 
-    public void ShowAttackPanel()
+    public void ShowMeleePanel()
     {
-        ShowPanel(attackPanel);
-        basicAttackGroup.SetActive(true);
-        Debug.Log("Attack tab clicked!");
-
+        ShowPanel(MeleeWeaponPanel);
     }
 
-    public void ShowDefensePanel()
+    public void ShowRangedPanel()
     {
-        ShowPanel(defensePanel);
-        basicAttackGroup.SetActive(false);
-        Debug.Log("Defense tab clicked!");
-    }
-
-    public void ShowHealthPanel()
-    {
-        ShowPanel(healthPanel);
-        basicAttackGroup.SetActive(false);
-        Debug.Log("Health tab clicked!");
+        ShowPanel(RangedWeaponPanel);
     }
 
     void ShowPanel(GameObject activePanel)
     {
-        attackPanel.SetActive(activePanel == attackPanel);
-        defensePanel.SetActive(activePanel == defensePanel);
-        healthPanel.SetActive(activePanel == healthPanel);
+        MeleeWeaponPanel.SetActive(activePanel == MeleeWeaponPanel);
+        RangedWeaponPanel.SetActive(activePanel == RangedWeaponPanel);
+
     }
 }
