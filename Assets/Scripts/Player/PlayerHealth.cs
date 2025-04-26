@@ -18,14 +18,10 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;       // Maximize HP at the start of the game
+        anim = GetComponent<Animator>();
     }
 
     private Animator anim;
-
-    private void OnCollisionStay(Collision collision)
-    {
-        anim = GetComponent<Animator>();    
-    }
 
     void Update()
     {
@@ -44,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = 0;
             anim.SetTrigger("Killed");
-            Die();
+
         }
     }
 
