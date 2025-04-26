@@ -81,7 +81,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     void SetUp()
     {
         rb = GetComponent<Rigidbody2D>();
-        actingMoveSpeed = moveSpeed / 20;
+        actingMoveSpeed = moveSpeed /20;
 
         ExtraSetup();
     }

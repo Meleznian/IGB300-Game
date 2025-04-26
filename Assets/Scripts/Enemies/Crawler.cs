@@ -17,7 +17,7 @@ public class Crawler : EnemyBase
         //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
     }
 
-    void ChangeDirection()
+    private void ChangeDirection()
     {
         if (_moveDirection == Vector3.left)
         {
@@ -60,7 +60,7 @@ public class Crawler : EnemyBase
 
     }
 
-    
+
 
 
     public override void ExtraSetup()
@@ -75,10 +75,9 @@ public class Crawler : EnemyBase
 
         //Debug.DrawRay(transform.position, -transform.up, Color.red);
 
-        if(hit.collider == null)
+        if (hit.collider == null)
         {
             ChangeDirection();
         }
     }
-
 }

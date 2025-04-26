@@ -8,22 +8,41 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI YouDiedtxt;
     public TextMeshProUGUI killCountText;
+    public TextMeshProUGUI killCountVictoryText;
+    public GameObject completeLevelUI;
 
     bool gameHasEnded = false;
+    bool gameHasWon = false;
     public float restartDelay = 0.5f;
     private int _killCount = 0;
 
     void Update()
     {
         killCountText.text = DisplayKillCount().ToString();
+
+        if (_killCount >= 10 & gameHasWon == false)
+        {
+            gameHasWon = true;
+            CompleteLevel();
+        }
     }
 
     public void KillCount()
     {
         _killCount = _killCount + 1;
-        Debug.Log("killCount " + _killCount);
+        //Debug.Log("killCount " + _killCount);
 
     }
+
+    public void CompleteLevel()
+    {
+        completeLevelUI.SetActive(true);
+        killCountVictoryText.text = DisplayKillCount().ToString();
+        Debug.Log("LEVEL WON!");
+    }
+        
+
+
 
     public int DisplayKillCount()
     {
