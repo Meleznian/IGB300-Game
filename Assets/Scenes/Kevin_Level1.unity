@@ -7638,7 +7638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452984228530583574, guid: 965f4c3ddfc6946488bff17a695858c7, type: 3}
       propertyPath: grounds.m_Bits
-      value: 64
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6452984228530583574, guid: 965f4c3ddfc6946488bff17a695858c7, type: 3}
       propertyPath: groundCheckPoint

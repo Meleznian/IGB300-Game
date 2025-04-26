@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 7533820559843412030}
   - component: {fileID: 2736728679028021131}
   - component: {fileID: 897370748060503901}
+  - component: {fileID: 8269426992109311438}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -411,7 +412,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -3019424127853119141, guid: fb1eb63f02fd3004cb7cd0335e17d28d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -482,7 +483,7 @@ MonoBehaviour:
   _friction: 4
   jumped: 0
   _jumpSpeed: 20
-  airJump: 0
+  _airJump: 0
 --- !u!50 &2538750840103604254
 Rigidbody2D:
   serializedVersion: 5
@@ -548,7 +549,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.9, y: 0.9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -682,6 +683,28 @@ MonoBehaviour:
   totalHealTicks: 5
   healCharge: 10
   isHealing: 0
+--- !u!95 &8269426992109311438
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5717839705087557153}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6278728508671436526
 GameObject:
   m_ObjectHideFlags: 0
