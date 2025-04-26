@@ -174,8 +174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enter: 1
   exit: 0
-  NPC: {fileID: 8794318579024576227}
-  player: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  NPC: {fileID: 0}
+  player: {fileID: 8837223900107501713, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
 --- !u!61 &4810837044207700675
 BoxCollider2D:
   m_ObjectHideFlags: 0
