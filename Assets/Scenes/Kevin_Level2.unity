@@ -4422,25 +4422,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
   m_PrefabInstance: {fileID: 1924893879149892190}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &875426029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875426028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293be83fe0486a94c82e5f07d5abffeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healAmountPerTick: 5
-  healTickDelay: 0.5
-  totalHealTicks: 5
-  healCharge: 10
-  isHealing: 0
 --- !u!114 &875426037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5670,7 +5651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 1381788628}
-  playerHealth: {fileID: 875426029}
+  playerHealth: {fileID: 1924893879149892191}
 --- !u!114 &1381788628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7964,11 +7945,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 875426029}
-    - targetCorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 875426037}
   m_SourcePrefab: {fileID: 100100000, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+--- !u!114 &1924893879149892191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 897370748060503901, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  m_PrefabInstance: {fileID: 1924893879149892190}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875426028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293be83fe0486a94c82e5f07d5abffeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
