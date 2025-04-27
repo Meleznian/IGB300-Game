@@ -45,7 +45,7 @@ public class NavigationAgent : MonoBehaviour
             closedList.Add(current);
 
             //Index children
-            for (int i = 0; i < graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex.Count; i++) { 
+            for (int i = 0; i < graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex.Length; i++) { 
                 int child = graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex[i];
 
                 if (!closedList.Contains(child))
@@ -141,7 +141,7 @@ public class NavigationAgent : MonoBehaviour
         List<GreedyChildren> children = new List<GreedyChildren>();
         //Debug.Log(graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex.Length);
         //Debug.Log("Children Count");
-        for (int i = 0; i < graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex.Count; i++) {
+        for (int i = 0; i < graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex.Length; i++) {
             //Debug.Log("Filling children");
             children.Add(new GreedyChildren(graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex[i], Heuristic(graphNodes.graphNodes[current].GetComponent<LinkedNodes>().linkedNodesIndex[i], end)));
         }

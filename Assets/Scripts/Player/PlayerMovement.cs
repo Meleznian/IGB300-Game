@@ -186,6 +186,8 @@ public class PlayerMovement : MonoBehaviour
         //Resets physics components (which will slow and stop the player's motion)
         rb.linearDamping = _friction;
         rb.gravityScale = 3;
+
+
     }
 
     public void LandedOnGround()

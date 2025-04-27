@@ -141,12 +141,9 @@ MonoBehaviour:
   target: {fileID: 0}
   stunned: 0
   stunTime: 0
-  health: 15
-  iFrames: 5
+  health: 0
+  iFrames: 0
   hasIFrames: 0
-  colliding: 0
-  collisions: []
-  playerCollision: {fileID: 0}
   moveSpeed: 5
   minDistance: 1
   chargeDistance: 0
@@ -157,7 +154,7 @@ MonoBehaviour:
   chargeKnockback: 0
   chargeCooldown: 7
   chargeParriable: 0
-  chargeAvailable: 1
+  chargeAvailable: 0
   bashDamage: 0
   bashKnockback: 0
   bashCooldown: 3

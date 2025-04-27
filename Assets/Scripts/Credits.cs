@@ -26,6 +26,4 @@ public class Credits : MonoBehaviour
         creditsPanel.SetActive(false);
         MainCanvas.SetActive(true);
     }
-
-    
 }
