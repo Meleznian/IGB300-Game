@@ -17,7 +17,7 @@ public class NodeManager : MonoBehaviour
     private bool canDrawGizmos;
     private WaypointGraph graph;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         graph = GetComponent<WaypointGraph>();
          CreateNodes();

@@ -20,7 +20,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     public void Start()
     {
-        currentNodeIndex = findClosestWayPoint(gameObject);
+        //currentNodeIndex = findClosestWayPoint(gameObject);
         
     }
     // Update is called once per frame
@@ -50,7 +50,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
             _oldState = currentState;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        /*if(Input.GetKeyDown(KeyCode.Space))
         {
             List<int> integers = new List<int>
         {
@@ -61,7 +61,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         if (Input.GetKeyDown(KeyCode.F))
         {
             AStarSearch(10, 6);
-        }
+        }*/
     }
 
     public virtual void Roam()
@@ -86,6 +86,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
                 distance = Vector3.Distance(target.transform.position, graphNodes.graphNodes[i].transform.position);
                 closestWaypoint = i;
             }
+            Debug.Log(closestWaypoint);
         }
 
         return closestWaypoint;
