@@ -136,6 +136,13 @@ public class KamikazeAgent : BehaviourAgent
         while (Vector2.Distance(transform.position, new Vector2(targetXPos, transform.position.y)) >= minDistance && !cancelled)
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetXPos, transform.position.y), chargeSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetXPos, transform.position.y), chargeSpeed * Time.deltaTime);
+            if (colliding)
+            {
+                cancelled = true;
+                playerCollision.GetComponent<IDamageable>().TakeDamage(10);
+                Debug.Log("Damaged");
+            }
             yield return null;
         }
         Debug.Log("Charge End");

@@ -14,6 +14,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     public float iFrames;
     public bool hasIFrames;
 
+    public bool colliding;
+    public List<GameObject> collisions;
+    public GameObject playerCollision;
+
     public void Start()
     {
         currentNodeIndex = findClosestWayPoint(gameObject);
@@ -99,9 +103,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         stunned = false;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if (hasIFrames) return;
+        StartCoroutine(Invincible());
         health -= damage;
         if (health <= 0) Death();
     }
@@ -116,5 +121,22 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         hasIFrames = true;
         yield return new WaitForSeconds(iFrames);
         hasIFrames = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collisions.Contains(collision.gameObject)) return;
+        collisions.Add(collision.gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerCollision = collision.gameObject;
+            colliding = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!collisions.Contains(collision.gameObject)) return;
+        collisions.Remove(collision.gameObject);
+        if (collision.gameObject.CompareTag("Player")) colliding = false;
     }
 }
