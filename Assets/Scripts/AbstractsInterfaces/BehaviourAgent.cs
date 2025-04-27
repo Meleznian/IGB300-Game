@@ -58,6 +58,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         };
             GreedySearch(10, 3, integers);
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            AStarSearch(10, 6);
+        }
     }
 
     public virtual void Roam()
@@ -75,7 +79,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         float distance = 1000.0f;
         int closestWaypoint = 0;
         //Find the waypoint closest to this position
-        for (int i = 0; i < graphNodes.graphNodes.Length; i++)
+        for (int i = 0; i < graphNodes.graphNodes.Count; i++)
         {
             if (Vector3.Distance(target.transform.position, graphNodes.graphNodes[i].transform.position) <= distance)
             {
