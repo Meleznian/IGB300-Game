@@ -14,9 +14,13 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     public float iFrames;
     public bool hasIFrames;
 
+    public bool colliding;
+    public List<GameObject> collisions;
+    public GameObject playerCollision;
+
     public void Start()
     {
-        currentNodeIndex = findClosestWayPoint(gameObject);
+        //currentNodeIndex = findClosestWayPoint(gameObject);
         
     }
     // Update is called once per frame
@@ -46,7 +50,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
             _oldState = currentState;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        /*if(Input.GetKeyDown(KeyCode.Space))
         {
             List<int> integers = new List<int>
         {
@@ -54,6 +58,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         };
             GreedySearch(10, 3, integers);
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            AStarSearch(10, 6);
+        }*/
     }
 
     public virtual void Roam()
@@ -71,13 +79,14 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         float distance = 1000.0f;
         int closestWaypoint = 0;
         //Find the waypoint closest to this position
-        for (int i = 0; i < graphNodes.graphNodes.Length; i++)
+        for (int i = 0; i < graphNodes.graphNodes.Count; i++)
         {
             if (Vector3.Distance(target.transform.position, graphNodes.graphNodes[i].transform.position) <= distance)
             {
                 distance = Vector3.Distance(target.transform.position, graphNodes.graphNodes[i].transform.position);
                 closestWaypoint = i;
             }
+            Debug.Log(closestWaypoint);
         }
 
         return closestWaypoint;
@@ -99,9 +108,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         stunned = false;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if (hasIFrames) return;
+        StartCoroutine(Invincible());
         health -= damage;
         if (health <= 0) Death();
     }
@@ -116,5 +126,22 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         hasIFrames = true;
         yield return new WaitForSeconds(iFrames);
         hasIFrames = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collisions.Contains(collision.gameObject)) return;
+        collisions.Add(collision.gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerCollision = collision.gameObject;
+            colliding = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!collisions.Contains(collision.gameObject)) return;
+        collisions.Remove(collision.gameObject);
+        if (collision.gameObject.CompareTag("Player")) colliding = false;
     }
 }

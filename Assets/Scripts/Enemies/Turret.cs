@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : EnemyBase
 {
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
@@ -9,7 +9,7 @@ public class Turret : MonoBehaviour
     [SerializeField] float sightRange = 10f;
     [SerializeField] LayerMask obstacleMask; // Use walls and other objects to block views.
 
-    float fireCooldown = 0f;
+    [SerializeField ]float fireCooldown = 0f;
 
     void Update()
     {
@@ -33,7 +33,7 @@ public class Turret : MonoBehaviour
 
         if (dist > sightRange) return false;
 
-        int mask = ~(1 << LayerMask.NameToLayer("Turret")); // Exclude turret layer
+        int mask = ~(1 << LayerMask.NameToLayer("Enemy")); // Exclude turret layer
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, dist, mask);
 
         if (hit.collider != null)
