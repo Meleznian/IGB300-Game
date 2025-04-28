@@ -403,7 +403,6 @@ GameObject:
   - component: {fileID: 803783820872400899}
   - component: {fileID: 2117736800459837374}
   - component: {fileID: 6978071326035807399}
-  - component: {fileID: 369074940725609312}
   - component: {fileID: 6769743085428012412}
   m_Layer: 3
   m_Name: DemoPlayer
@@ -525,7 +524,7 @@ MonoBehaviour:
   damage: 1
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   flashFX: {fileID: 8653696390555176814, guid: 3cfd563972d54814e9156bbacd832532, type: 3}
 --- !u!114 &2982133742907216294
 MonoBehaviour:
@@ -746,18 +745,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &369074940725609312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8837223900107501713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4760af8f3a18d94e97caebc46d927d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6769743085428012412
 Animator:
   serializedVersion: 7
