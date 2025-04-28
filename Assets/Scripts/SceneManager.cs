@@ -12,7 +12,7 @@ public class SettingsManager : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Main Game");
+        SceneManager.LoadScene("DemoScene");
     }
     public void OpenSettings()
     {

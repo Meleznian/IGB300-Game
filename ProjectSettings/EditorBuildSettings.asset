@@ -11,15 +11,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Setting Scene.unity
     guid: f9e57ce9b4432024d88040331dc483d0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Game.unity
     guid: 9a36a42e4c0742a4999eb9a3ab20529e
   - enabled: 1
     path: Assets/Scenes/Kevin_Level1.unity
     guid: 3760e8352e22e2c4082f4abad3098972
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kevin_Level2.unity
     guid: 57ed01a6322aa6d44ab2ad6178d46738
+  - enabled: 1
+    path: Assets/Scenes/DemoScene.unity
+    guid: 52ec4509be1fea4458b392304a4f02df
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
