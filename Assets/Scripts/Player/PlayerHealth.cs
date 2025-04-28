@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviour
 {
     [Header("HP setting")]
     public int maxHealth = 100;          // Maximum HP
@@ -20,13 +20,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         currentHealth = maxHealth;       // Maximize HP at the start of the game
     }
 
-    private Animator anim;
-
-    private void OnCollisionStay(Collision collision)
-    {
-        anim = GetComponent<Animator>();    
-    }
-
     void Update()
     {
         // Q key to recover (when charged and not in recovery)
@@ -43,7 +36,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            anim.SetTrigger("Killed");
             Die();
         }
     }

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7287913584779518072}
   - component: {fileID: 5467482593722156720}
+  - component: {fileID: 999398048611842009}
   - component: {fileID: 2603370595115864241}
   - component: {fileID: 3254447055041720537}
-  - component: {fileID: -5120716224871148930}
-  - component: {fileID: -4340462171091187789}
-  m_Layer: 10
+  - component: {fileID: -6976457326544503096}
+  m_Layer: 8
   m_Name: Charger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.67, y: -1.97, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7181355213143217107, guid: 8d877944507e18b47907e95b0944a79f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Color: {r: 1, g: 0.8267321, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -91,6 +91,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &999398048611842009
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010242644535729339}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!50 &2603370595115864241
 Rigidbody2D:
   serializedVersion: 5
@@ -141,12 +187,6 @@ MonoBehaviour:
   target: {fileID: 0}
   stunned: 0
   stunTime: 0
-  health: 15
-  iFrames: 5
-  hasIFrames: 0
-  colliding: 0
-  collisions: []
-  playerCollision: {fileID: 0}
   moveSpeed: 5
   minDistance: 1
   chargeDistance: 0
@@ -157,13 +197,13 @@ MonoBehaviour:
   chargeKnockback: 0
   chargeCooldown: 7
   chargeParriable: 0
-  chargeAvailable: 1
+  chargeAvailable: 0
   bashDamage: 0
   bashKnockback: 0
   bashCooldown: 3
   bashParriable: 0
   bashAvailable: 0
---- !u!114 &-5120716224871148930
+--- !u!114 &-6976457326544503096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,56 +212,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3010242644535729339}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a8f536948f5b14485822310e277f0e, type: 3}
+  m_Script: {fileID: 11500000, guid: e46cb3a82f0f359479ada28e8eb0cd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enter: 1
-  exit: 0
-  NPC: {fileID: 3254447055041720537}
-  player: {fileID: 0}
---- !u!61 &-4340462171091187789
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3010242644535729339}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.154, y: 1.826}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.154, y: 1.826}
-  m_EdgeRadius: 0
+  enemyName: Charger
+  health: 15
+  moveSpeed: 0
+  attackSpeed: 0
+  stunTime: 0
+  knockbackResist: 0
+  attacks: []

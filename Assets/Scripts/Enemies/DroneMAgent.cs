@@ -24,7 +24,7 @@ public class DroneMAgent : BehaviourAgent
 
     [Header("Contact Variables")]
     public int damageCooldown;
-    public int contactDamage;
+    public float contactDamage;
     public Knockback damageKnockback;
 
     /// <summary>
@@ -36,7 +36,7 @@ public class DroneMAgent : BehaviourAgent
         //Will Require Navigation Agent 
         if (currentPath.Count <= 0)
         {
-            currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
+            currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Length), currentPath);
             currentPath.Reverse();
             currentPath.RemoveAt(currentPath.Count - 1);
             return;
@@ -47,7 +47,7 @@ public class DroneMAgent : BehaviourAgent
             if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
             else
             {
-                int randomNode = Random.Range(0, graphNodes.graphNodes.Count);
+                int randomNode = Random.Range(0, graphNodes.graphNodes.Length);
                 //Debug.Log(graphNodes.graphNodes.Length);
                 //Debug.Log("Start");
                 //Debug.Log(currentNodeIndex);

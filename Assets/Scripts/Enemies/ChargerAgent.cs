@@ -37,7 +37,7 @@ public class ChargerAgent : BehaviourAgent
     {
         //Debug.Log("Roaming");
         //Will Require Navigation Agent 
-        if (currentPath.Count <= 0) { currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
+        if (currentPath.Count <= 0) { currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Length), currentPath);
             currentPath.Reverse();
             currentPath.RemoveAt(currentPath.Count - 1); 
             return; 
@@ -48,7 +48,7 @@ public class ChargerAgent : BehaviourAgent
             if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
             else
             {
-                int randomNode = Random.Range(0, graphNodes.graphNodes.Count);
+                int randomNode = Random.Range(0, graphNodes.graphNodes.Length);
                 //Debug.Log(graphNodes.graphNodes.Length);
                 //Debug.Log("Start");
                 //Debug.Log(currentNodeIndex);
@@ -141,12 +141,6 @@ public class ChargerAgent : BehaviourAgent
         while (Vector2.Distance(transform.position, new Vector2(targetXPos, transform.position.y)) >= minDistance && !cancelled)
         {
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetXPos, transform.position.y), chargeSpeed * Time.deltaTime);
-            if (colliding)
-            {
-                cancelled = true;
-                playerCollision.GetComponent<IDamageable>().TakeDamage(10);
-                Debug.Log("Damaged");
-            }
             yield return null;
         }
         Debug.Log("Charge End");

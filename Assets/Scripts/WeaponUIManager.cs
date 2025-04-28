@@ -23,9 +23,6 @@ public class WeaponUIManager : MonoBehaviour
     public Button buyButton;
 
     public WeaponData[] weapons;
-    public GameObject[] tickUI;
-    public TMP_Text[] purchasedTextUI;
-    public Button[] weaponButtons;
 
 
     public int playerCurrency = 500;
@@ -36,27 +33,12 @@ public class WeaponUIManager : MonoBehaviour
     {
         UpdateCoinUI();
     }
+
     public void ShowWeaponInfo(int index)
     {
         if (index < 0 || index >= weapons.Length) return;
 
-        for (int i = 0; i < weapons.Length; i++)
-        {
-            if (i != index)
-            {
-                if (weaponButtons.Length > i && weaponButtons[i])
-                    weaponButtons[i].interactable = true;
-
-                if (tickUI.Length > i && tickUI[i])
-                    tickUI[i].SetActive(false);
-
-                if (purchasedTextUI.Length > i && purchasedTextUI[i])
-                    purchasedTextUI[i].gameObject.SetActive(false);
-            }
-        }
-
         selectedWeaponIndex = index;
-
 
         WeaponData weapon = weapons[index];
         nameText.text = weapon.name;
@@ -65,23 +47,9 @@ public class WeaponUIManager : MonoBehaviour
         costText.text = "Cost: " + weapon.cost;
 
         weaponInfoPanel.SetActive(true);
-        Debug.Log("Selected weapon: " + weapon.name);
+        Debug.Log("Selected weapon: " + weapons[index].name);
 
-        // Check if already purchased
-        bool alreadyPurchased = tickUI.Length > index && tickUI[index] && tickUI[index].activeSelf;
-
-        if (alreadyPurchased)
-        {
-            buyButton.interactable = false;
-            buyButton.GetComponentInChildren<TMP_Text>().text = "Purchased";
-        }
-        else
-        {
-            buyButton.interactable = true;
-            buyButton.GetComponentInChildren<TMP_Text>().text = "Buy";
-        }
     }
-
 
     public void HideWeaponInfo()
     {
@@ -102,31 +70,6 @@ public class WeaponUIManager : MonoBehaviour
             playerCurrency -= weapon.cost;
             UpdateCoinUI();
             Debug.Log($"Bought {weapon.name}");
-
-            // Show tick and purchased text
-            if (tickUI.Length > selectedWeaponIndex && tickUI[selectedWeaponIndex])
-                tickUI[selectedWeaponIndex].SetActive(true);
-
-            if (purchasedTextUI.Length > selectedWeaponIndex && purchasedTextUI[selectedWeaponIndex])
-                purchasedTextUI[selectedWeaponIndex].gameObject.SetActive(true);
-
-            // Disable the button and turn it gray
-            if (weaponButtons.Length > selectedWeaponIndex && weaponButtons[selectedWeaponIndex])
-            {
-                Button btn = weaponButtons[selectedWeaponIndex];
-                btn.interactable = false;
-
-                ColorBlock cb = btn.colors;
-                cb.normalColor = Color.gray;
-                cb.highlightedColor = Color.gray;
-                cb.pressedColor = Color.gray;
-                cb.selectedColor = Color.gray;
-                cb.disabledColor = Color.gray;
-                btn.colors = cb;
-            }
-
-            buyButton.interactable = false;
-            buyButton.GetComponentInChildren<TMP_Text>().text = "Purchased";
             weaponInfoPanel.SetActive(false);
         }
         else
@@ -134,6 +77,7 @@ public class WeaponUIManager : MonoBehaviour
             Debug.Log("Not enough Bolts!");
         }
     }
+
 
     void UpdateCoinUI()
     {
