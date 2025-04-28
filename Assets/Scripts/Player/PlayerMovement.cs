@@ -65,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
         jumpAction = InputSystem.actions.FindAction("Jump");
         dashAction = InputSystem.actions.FindAction("Sprint");
 
+        gravScale = rb.gravityScale;
+
     }
 
     // Update is called once per frame
@@ -185,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Resets physics components (which will slow and stop the player's motion)
         rb.linearDamping = _friction;
-        rb.gravityScale = 3;
+        rb.gravityScale = gravScale;
     }
 
     public void LandedOnGround()
