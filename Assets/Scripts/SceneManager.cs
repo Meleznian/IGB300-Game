@@ -5,10 +5,17 @@ public class SettingsManager : MonoBehaviour
 {
     public GameObject mainMenuPanel;
     public GameObject loadGamePanel;
+    public GameObject TutorialPanel;
 
     public void Start()
     {
         loadGamePanel.SetActive(false);
+        TutorialPanel.SetActive(false);
+    }
+
+    public void Tutorial()
+    {
+        TutorialPanel.SetActive(true);
     }
     public void StartGame()
     {

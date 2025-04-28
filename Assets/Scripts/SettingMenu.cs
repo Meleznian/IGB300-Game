@@ -122,7 +122,7 @@ public class SettingsMenu : MonoBehaviour
     }
     public void CloseSettings()
     {
-        SceneManager.UnloadSceneAsync("Setting Scene");
+        SceneManager.LoadScene("Start Scene");
         Time.timeScale = 1f;
     }
 }
