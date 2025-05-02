@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 0.5f;
     private int _killCount = 0;
 
-    public int KillTarget = 3;
+    public int KillTarget = 10;
 
 
     void Update()
