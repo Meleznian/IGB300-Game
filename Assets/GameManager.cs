@@ -16,11 +16,14 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 0.5f;
     private int _killCount = 0;
 
+    public int KillTarget = 3;
+
+
     void Update()
     {
         killCountText.text = DisplayKillCount().ToString();
 
-        if (_killCount >= 10 & gameHasWon == false)
+        if (_killCount >= KillTarget & gameHasWon == false)
         {
             gameHasWon = true;
             CompleteLevel();
