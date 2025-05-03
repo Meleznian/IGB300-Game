@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7106706533884588767}
   - component: {fileID: 3098073909106994128}
   - component: {fileID: 4235609817896632509}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Crawler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 264
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

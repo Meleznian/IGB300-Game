@@ -16,10 +16,10 @@ TagManager:
   - Water
   - UI
   - Ground
-  - PlayerProjectile
+  - Projectile
   - Turret
-  - EnemyProjectile
-  - Enemy
+  - 
+  - 
   - 
   - 
   - 
