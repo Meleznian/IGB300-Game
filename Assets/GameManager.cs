@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         completeLevelUI.SetActive(true);
         killCountVictoryText.text = DisplayKillCount().ToString();
-        Debug.Log("LEVEL WON!");
+        //Debug.Log("LEVEL WON!");
     }
         
 
