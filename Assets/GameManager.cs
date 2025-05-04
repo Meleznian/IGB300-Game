@@ -40,9 +40,6 @@ public class GameManager : MonoBehaviour
         killCountVictoryText.text = DisplayKillCount().ToString();
         Debug.Log("LEVEL WON!");
     }
-        
-
-
 
     public int DisplayKillCount()
     {
