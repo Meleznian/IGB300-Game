@@ -19,6 +19,7 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private int enemyCap;
     [SerializeField] private int currentlyAlive;
+    public int gameStage;
 
     internal void Spawn(Transform pos, GameObject prefab)
     {

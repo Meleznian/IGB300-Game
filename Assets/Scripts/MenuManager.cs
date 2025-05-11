@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour
     }
     public void OpenSettings()
     {
-        SceneManager.LoadScene("SettingsScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Setting Scene", LoadSceneMode.Additive);
         Time.timeScale = 0f;
     }
 
