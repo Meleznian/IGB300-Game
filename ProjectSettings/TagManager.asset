@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - WaypointGraph
   - Bullet
+  - Ground
   layers:
   - Default
   - TransparentFX

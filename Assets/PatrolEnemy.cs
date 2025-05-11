@@ -11,6 +11,8 @@ public class PatrolEnemy : MonoBehaviour
     //public bool isGround = false;
     public bool facingLeft = true;
 
+    public bool inRange = false; 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
