@@ -5,8 +5,8 @@ using TMPro;
 
 public class KeyBindButton : MonoBehaviour
 {
-    public InputActionReference actionRef; // e.g. Jump
-    public int bindingIndex; // Index of the binding to rebind (keyboard = 0, gamepad = 1)
+    public InputActionReference actionRef; // e.g. Jump or Move action
+    public int bindingIndex; 
     public TMP_Text label;
 
     private void Start()
@@ -22,12 +22,12 @@ public class KeyBindButton : MonoBehaviour
         label.text = "Press a key...";
 
         actionRef.action.PerformInteractiveRebinding(bindingIndex)
-            .WithControlsExcluding("Mouse") // optional
+            .WithControlsExcluding("Mouse") // can be optional
             .OnComplete(operation =>
             {
                 operation.Dispose();
 
-                // Re-enable after rebind
+                // Re-enable after rebind or else it will get error
                 actionRef.action.Enable();
 
                 UpdateLabel();
