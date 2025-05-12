@@ -3971,6 +3971,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!95 &428141503 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8011021466591389520, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+  m_PrefabInstance: {fileID: 1457798528017159871}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &445350347
 GameObject:
   m_ObjectHideFlags: 0
@@ -7899,6 +7904,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4659571277777179011, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 261575143}
+    - target: {fileID: 4659571277777179011, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 428141503}
+    - target: {fileID: 4659571277777179011, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659571277777179011, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+      propertyPath: retrieveDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8229869574490313706, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
       propertyPath: m_Name
       value: PatrolEnemy
