@@ -39,6 +39,11 @@ public class PatrolEnemy : MonoBehaviour
 
         if (inRange)
         {
+            if(player.position.x > transform.position.x)
+            {
+                facingLeft = false;
+            }
+
             if (Vector2.Distance(transform.position, player.position) > retrieveDistance)
             {
                 animator.SetBool("Attack1", false);

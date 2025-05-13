@@ -4476,7 +4476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   healAmountPerTick: 5
   healTickDelay: 0.5
   totalHealTicks: 5
@@ -7983,7 +7983,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 897370748060503901, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 897370748060503901, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: currentHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3671720977225801087, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_Layer
@@ -8069,7 +8073,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 897370748060503901, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8502951377849970374, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
