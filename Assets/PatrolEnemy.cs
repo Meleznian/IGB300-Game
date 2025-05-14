@@ -101,7 +101,18 @@ public class PatrolEnemy : MonoBehaviour
         if (collInfo)
         {
             //Debug.Log(collInfo.transform.name);
-            collInfo.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);//
+            /*if (collInfo.gameObject.GetComponent<PlayerHealth>() != null)//!= null mean component exist
+            {
+                collInfo.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            }*/
+
+
+            PlayerHealth health = collInfo.gameObject.GetComponent<PlayerHealth>();//wot!? Play
+
+            if(health != null)
+            {
+                health.TakeDamage(damage);
+            }
 
         }
     }
