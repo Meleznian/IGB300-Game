@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Xbox controller wireframe_0: -5202884477573971046
+      Xbox controller wireframe_1: -6328044110984215963
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
