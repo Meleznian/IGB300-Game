@@ -16,7 +16,13 @@ public class PatrolEnemy : MonoBehaviour
     public float attackRange = 3f;
     public float retrieveDistance = 1f;
     public float chaseSpeed = 4f;
-    public Animator animator; 
+    public Animator animator;
+
+    public Transform attackPoint;
+    public float attackRadius = 1f;
+    public LayerMask attackLayer;
+
+    public int damage = 34;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,9 +45,15 @@ public class PatrolEnemy : MonoBehaviour
 
         if (inRange)
         {
-            if(player.position.x > transform.position.x)
-            {
+            if(player.position.x > transform.position.x && facingLeft == true)//player on the right side
+            {//player is right side of the enemy and face left 
+                transform.eulerAngles = new Vector3(0, -180, 0);
                 facingLeft = false;
+            }
+            else if (player.position.x < transform.position.x && facingLeft == false)//player on the left side
+            {//player is left side of the enemy and face right 
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                facingLeft = true;
             }
 
             if (Vector2.Distance(transform.position, player.position) > retrieveDistance)
@@ -53,7 +65,7 @@ public class PatrolEnemy : MonoBehaviour
             {
                 animator.SetBool("Attack1", true);
 
-                Debug.Log("Attack");
+                //Debug.Log("Attack");
             }
             //Debug.Log("Player in Range");
         }
@@ -76,10 +88,25 @@ public class PatrolEnemy : MonoBehaviour
                 facingLeft = true;
             }
         }
-
-        
-
     }
+
+    public void Attack()
+    {
+        //make a circle hitbox 
+        Collider2D collInfo = Physics2D.OverlapCircle(attackPoint.position, attackRadius, attackLayer);//return bool. True/False
+        //collInfo return Info, true and false
+        //Debug.Log("Sword Attack");//work
+        //Debug.Log(collInfo);//work
+
+        if (collInfo)
+        {
+            //Debug.Log(collInfo.transform.name);
+            collInfo.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);//
+
+        }
+    }
+
+    
 
     private void OnDrawGizmosSelected()
     {
@@ -91,6 +118,11 @@ public class PatrolEnemy : MonoBehaviour
         Gizmos.DrawRay(checkPoint.position, Vector2.down * distance);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+
+
+        if (attackPoint == null) return;//check if attackPoint exist.. if not the rest of the code won't run
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
     }
 
 
