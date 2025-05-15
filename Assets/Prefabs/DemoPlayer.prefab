@@ -524,7 +524,7 @@ MonoBehaviour:
   damage: 1
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   flashFX: {fileID: 8653696390555176814, guid: 3cfd563972d54814e9156bbacd832532, type: 3}
 --- !u!114 &2982133742907216294
 MonoBehaviour:
