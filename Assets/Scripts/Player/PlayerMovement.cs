@@ -202,4 +202,12 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("Jumping", true);
         _isGrounded = false;
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Collectable")
+        {
+            other.gameObject.GetComponent<ICollectable>().Collect();
+        }
+    }
 }
