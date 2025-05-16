@@ -29,7 +29,10 @@ public class ChargerAgent : BehaviourAgent
     public bool bashParriable;
     public bool bashAvailable = true;
 
-   
+    [Header("Animation")]
+    Animator anim;
+
+
     /// <summary>
     /// Roam State of DFA Agent
     /// </summary>
@@ -135,6 +138,8 @@ public class ChargerAgent : BehaviourAgent
         attacking = true;
         //Perform action
         Debug.Log("Charging");
+        anim.SetBool("Charging", true);
+
         float targetXPos = target.transform.position.x;
         bool cancelled = false;
         //move towards targetXPos
@@ -144,6 +149,8 @@ public class ChargerAgent : BehaviourAgent
             yield return null;
         }
         Debug.Log("Charge End");
+        anim.SetBool("Charging", false);
+
         attacking = false;
         yield return new WaitForSeconds(chargeCooldown);
         chargeAvailable = true;

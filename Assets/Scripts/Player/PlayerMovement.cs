@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     //Required Components
     private Rigidbody2D rb;
     private TrailRenderer tr;
-    private Animator anim;
+    [SerializeField ]private Animator anim;
 
     //Input Actions
     InputAction moveAction;
@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
-        anim = GetComponent<Animator>();
 
         rb.linearDamping = _friction;
 
@@ -201,5 +200,13 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetBool("Jumping", true);
         _isGrounded = false;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Collectable")
+        {
+            other.gameObject.GetComponent<ICollectable>().Collect();
+        }
     }
 }
