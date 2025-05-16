@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -788514025252544848
     second: RunningAnimation_3_0
-  - first:
-      213: -1066207477286748610
-    second: RunningAnimation_3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,28 +103,6 @@ TextureImporter:
       name: RunningAnimation_3_0
       rect:
         serializedVersion: 2
-        x: 1172
-        y: 1279
-        width: 29
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0be9868fba2ae05f0800000000000000
-      internalID: -788514025252544848
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RunningAnimation_3_1
-      rect:
-        serializedVersion: 2
         x: 720
         y: 1
         width: 935
@@ -140,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3e357bc2f11431f0800000000000000
-      internalID: -1066207477286748610
+      spriteID: 0be9868fba2ae05f0800000000000000
+      internalID: -788514025252544848
       vertices: []
       indices: 
       edges: []
@@ -161,7 +136,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       RunningAnimation_3_0: -788514025252544848
-      RunningAnimation_3_1: -1066207477286748610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -7,6 +7,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] int damage = 1;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] GameObject flashFX;
+    [SerializeField] Animator anim;
 
     void Update()
     {
@@ -69,6 +70,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     void SpawnEffect(Vector2 pos, Quaternion rot)
     {
         if (flashFX)
+            anim.SetTrigger("Slash");
             Instantiate(flashFX, pos, rot);
     }
 
