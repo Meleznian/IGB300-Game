@@ -9,6 +9,7 @@ TagManager:
   - WaypointGraph
   - Bullet
   - Ground
+  - Collectable
   layers:
   - Default
   - TransparentFX
