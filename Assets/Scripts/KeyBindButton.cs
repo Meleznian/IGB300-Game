@@ -5,56 +5,71 @@ using TMPro;
 
 public class KeyBindButton : MonoBehaviour
 {
-    public InputActionReference actionRef; // e.g. Jump or Move action
-    public int bindingIndex; 
-    public TMP_Text label;
+    public InputActionReference actionRef; // The input action to rebind
+    public int[] bindingIndices;           // Supports multiple bindings (e.g., keyboard + gamepad)
+    public TMP_Text[] labels;              // Text fields for each binding button
 
     private void Start()
     {
-        UpdateLabel();
+        LoadAllBindings();
     }
 
-    public void StartRebind()
+    // Called by each UI button, passing the index you want to rebind
+    public void StartRebind(int index)
     {
+        if (index < 0 || index >= bindingIndices.Length)
+        {
+            Debug.LogError("Invalid binding index for rebind.");
+            return;
+        }
+
         // Disable the action first
         actionRef.action.Disable();
 
-        label.text = "Press a key...";
+        labels[index].text = "Press a key...";
 
-        actionRef.action.PerformInteractiveRebinding(bindingIndex)
-            .WithControlsExcluding("Mouse") // can be optional
+        actionRef.action.PerformInteractiveRebinding(bindingIndices[index])
+            .WithControlsExcluding("Mouse") // Optional
             .OnComplete(operation =>
             {
                 operation.Dispose();
-
-                // Re-enable after rebind or else it will get error
                 actionRef.action.Enable();
 
-                UpdateLabel();
-                SaveBinding();
+                UpdateLabel(index);
+                SaveBinding(index);
             })
             .Start();
     }
 
-    void UpdateLabel()
+    void UpdateLabel(int index)
     {
-        var displayString = actionRef.action.GetBindingDisplayString(bindingIndex);
-        label.text = displayString;
+        string displayString = actionRef.action.GetBindingDisplayString(bindingIndices[index]);
+        labels[index].text = displayString;
     }
 
-    void SaveBinding()
+    void SaveBinding(int index)
     {
-        var path = actionRef.action.bindings[bindingIndex].effectivePath;
-        PlayerPrefs.SetString(actionRef.action.name + bindingIndex, path);
+        string path = actionRef.action.bindings[bindingIndices[index]].effectivePath;
+        PlayerPrefs.SetString(actionRef.action.name + "_binding_" + index, path);
     }
 
-    public void LoadBinding()
+    void LoadBinding(int index)
     {
-        string path = PlayerPrefs.GetString(actionRef.action.name + bindingIndex, "");
+        string key = actionRef.action.name + "_binding_" + index;
+        string path = PlayerPrefs.GetString(key, "");
         if (!string.IsNullOrEmpty(path))
         {
-            actionRef.action.ApplyBindingOverride(bindingIndex, path);
-            UpdateLabel();
+            actionRef.action.ApplyBindingOverride(bindingIndices[index], path);
+        }
+
+        UpdateLabel(index);
+    }
+
+    void LoadAllBindings()
+    {
+        for (int i = 0; i < bindingIndices.Length; i++)
+        {
+            LoadBinding(i);
         }
     }
 }
