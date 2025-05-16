@@ -8,20 +8,19 @@ public class Turret : MonoBehaviour
     [SerializeField] float fireRate = 1f;
     [SerializeField] float sightRange = 10f;
     [SerializeField] LayerMask obstacleMask; // Use walls and other objects to block views.
+    [SerializeField] Animator anim;
 
     float fireCooldown = 0f;
 
     void Update()
     {
-        if (PlayerInSight())
+        if (PlayerInSight() && fireCooldown <= 0)
         {
-            fireCooldown -= Time.deltaTime;
-            if (fireCooldown <= 0f)
-            {
-                Fire();
-                fireCooldown = 1f / fireRate;
-            }
+            anim.SetTrigger("Shoot");
+            fireCooldown = fireRate;
         }
+
+        fireCooldown -= Time.deltaTime;
     }
 
     bool PlayerInSight()
@@ -40,7 +39,7 @@ public class Turret : MonoBehaviour
         {
             if (hit.collider.transform == player)
             {
-                Debug.Log("Player in sight!");
+                //Debug.Log("Player in sight!");
                 return true;
             }
         }
@@ -48,8 +47,9 @@ public class Turret : MonoBehaviour
         return false;
     }
 
-    void Fire()
+    internal void Fire()
     {
+        print("Shooting");
         Debug.Log("Turret fired!");
 
         Vector2 dir = (player.position - firePoint.position).normalized;
