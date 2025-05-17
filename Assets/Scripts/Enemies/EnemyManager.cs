@@ -1,5 +1,6 @@
 using System;
-using System.Linq.Expressions;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -17,25 +18,65 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SetUp();
+    }
+
+    private void Update()
+    {
+        TrySpawn();
+
+        if(currentlyAlive == 0)
+        {
+            CheckSpawners();
+        }
+    }
+
     [SerializeField] private int enemyCap;
     [SerializeField] private int currentlyAlive;
+    [SerializeField] private float spawnCooldown;
+    [SerializeField] float timer;
+
     public int gameStage;
+
+    public List<EnemySpawner> spawners = new();
+    [SerializeField] int spawnerIndex;
 
     internal void Spawn(Transform pos, GameObject prefab)
     {
-        if (currentlyAlive < enemyCap)
+        GameObject enemy;
+
+        enemy = Instantiate(prefab, pos.position, pos.rotation);
+        currentlyAlive += 1;
+
+        if (enemy.GetComponent<ChargerAgent>() != null)
         {
-            GameObject enemy;
+            enemy.GetComponent<ChargerAgent>().target = GameObject.Find("Player");
+            enemy.GetComponent<ChargerAgent>().graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
+        }
 
-            enemy = Instantiate(prefab, pos.position, pos.rotation);
-            currentlyAlive += 1;
+        timer = 0;
+    }
 
-            if (enemy.GetComponent<ChargerAgent>() != null)
+    internal void TrySpawn()
+    {
+        if(currentlyAlive < enemyCap && timer > spawnCooldown)
+        {
+            if (!spawners[spawnerIndex].currentGroup.queueFinished)
             {
-                enemy.GetComponent<ChargerAgent>().target = GameObject.Find("Player");
-                enemy.GetComponent<ChargerAgent>().graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
+                spawners[spawnerIndex].BeginSpawn();
+            }
+
+            spawnerIndex++;
+
+            if(spawnerIndex >= spawners.Count)
+            {
+                spawnerIndex = 0;   
             }
         }
+
+        timer += Time.deltaTime;
     }
 
     internal void EnemyKilled()
@@ -43,5 +84,67 @@ public class EnemyManager : MonoBehaviour
         currentlyAlive -= 1;
     }
 
+    internal void BeginNextWave()
+    {
+        gameStage++;
+        print("Starting Wave " + gameStage);
 
+        foreach (EnemySpawner s in spawners)
+        {
+            s.GetNextGroup();
+        }
+        ForceSpawnAll();
+    }
+
+    void SetUp()
+    {
+        //currentlyAlive = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None).Length;
+        spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None).ToList();
+        spawnerIndex = 0;
+
+        foreach (EnemySpawner s in spawners)
+        {
+            s.GetNextGroup();
+        }
+        ForceSpawnAll();
+    }
+
+    void CheckSpawners()
+    {
+        int i = 0;
+        int e = 0;
+
+        foreach(EnemySpawner s in spawners)
+        {
+            if (s.currentGroup.queueFinished)
+            {
+                i++;
+            }
+            if (s.spawnerExhausted)
+            {
+                e++;
+            }
+        }
+        if (e == spawners.Count)
+        {
+            NextLevel();
+        }
+        else if (i == spawners.Count)
+        {
+            BeginNextWave();
+        }
+    }
+
+    void ForceSpawnAll()
+    {
+        foreach (EnemySpawner s in spawners)
+        {
+            s.BeginSpawn();
+        }
+    }
+
+    void NextLevel()
+    {
+        print("All Spawners Exhausted");
+    }
 }

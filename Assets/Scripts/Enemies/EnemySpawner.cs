@@ -7,8 +7,8 @@ public class EnemySpawner : MonoBehaviour
 {
     //[SerializeField] private GameObject[] enemyPrefabs;
 
-    [SerializeField] private float cooldown;
-    [SerializeField] private float cooldownTimer;
+    [SerializeField] GameObject nextEnemy;
+    [SerializeField] internal bool spawnerExhausted;
 
     [Serializable]
     public class SpawnGroup 
@@ -16,11 +16,13 @@ public class EnemySpawner : MonoBehaviour
         [SerializeField] List<GameObject> queue = new();
         [SerializeField] internal int gameStage;
         [SerializeField] int index;
+        [SerializeField] internal bool queueFinished;
 
         public GameObject GetEnemy()
         {
-            if(index > queue.Count)
+            if(index >= queue.Count)
             {
+                queueFinished = true;
                 return null;
             }
 
@@ -32,47 +34,40 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] List<SpawnGroup> spawnGroups = new();
 
-    private SpawnGroup currentGroup;
+    internal SpawnGroup currentGroup;
     private int groupIndex;
-    [SerializeField] bool paused;
 
     private void Start()
     {
         currentGroup = spawnGroups[0];
+        nextEnemy = currentGroup.GetEnemy();
         groupIndex = 0;
     }
-    private void Update()
+
+    internal void GetNextGroup()
     {
-        if (!paused)
+        groupIndex++;
+        if (groupIndex < spawnGroups.Count)
         {
-            cooldownTimer += Time.deltaTime;
+            currentGroup = spawnGroups[groupIndex];
         }
-
-        if (cooldownTimer >= cooldown)
+        else
         {
-            cooldownTimer = 0;
-            var nextEnemy = currentGroup.GetEnemy();
+            spawnerExhausted = true;
+            print("Spawner Exhausted");
+        }
+    }
 
+    internal void BeginSpawn()
+    {
+        if (!currentGroup.queueFinished)
+        {
             if (nextEnemy != null)
             {
                 EnemyManager.instance.Spawn(transform, nextEnemy);
             }
-            else
-            {
-                GetNextGroup();
-            }
-        }      
-    }
 
-
-    void GetNextGroup()
-    {
-        groupIndex++;
-        currentGroup = spawnGroups[groupIndex];
-
-        if(currentGroup.gameStage < EnemyManager.instance.gameStage)
-        {
-            paused = true;
+            nextEnemy = currentGroup.GetEnemy();
         }
     }
 }
