@@ -565,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 918802385275866056, guid: f8627dce041d83043a11ab80165c40a8, type: 3}
   firePoint: {fileID: 3316597052216719953}
-  aimCursor: {fileID: 7711708414719727678}
+  aimCursor: {fileID: 5097541814939313960}
 --- !u!114 &7798716407410819560
 MonoBehaviour:
   m_ObjectHideFlags: 0
