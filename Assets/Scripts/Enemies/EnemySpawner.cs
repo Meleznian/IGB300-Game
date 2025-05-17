@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     //[SerializeField] private GameObject[] enemyPrefabs;
 
     [SerializeField] GameObject nextEnemy;
-    [SerializeField] internal bool spawnerExhausted;
+    [SerializeField] internal GameObject prev;
 
     [Serializable]
     public class SpawnGroup 
@@ -17,6 +17,7 @@ public class EnemySpawner : MonoBehaviour
         [SerializeField] internal int gameStage;
         [SerializeField] int index;
         [SerializeField] internal bool queueFinished;
+        [SerializeField] internal bool waitTillPrevDead;
 
         public GameObject GetEnemy()
         {
@@ -35,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] List<SpawnGroup> spawnGroups = new();
 
     internal SpawnGroup currentGroup;
+    [SerializeField] internal bool spawnerExhausted;
     private int groupIndex;
 
     private void Start()
@@ -64,7 +66,9 @@ public class EnemySpawner : MonoBehaviour
         {
             if (nextEnemy != null)
             {
-                EnemyManager.instance.Spawn(transform, nextEnemy);
+
+                prev = EnemyManager.instance.Spawn(transform, nextEnemy);
+
             }
 
             nextEnemy = currentGroup.GetEnemy();

@@ -592,10 +592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
-  cooldownTimer: 0
+  nextEnemy: {fileID: 0}
+  spawnerExhausted: 0
   spawnGroups: []
-  paused: 0
 --- !u!65 &301209385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1015,7 +1014,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 819308607}
-  - component: {fileID: 819308606}
   - component: {fileID: 819308608}
   m_Layer: 0
   m_Name: NodeManager
@@ -1024,18 +1022,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &819308606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819308605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d708961dc94a74daeac0dbd5265ad6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &819308607
 Transform:
   m_ObjectHideFlags: 0
@@ -1096,10 +1082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 3
-  cooldownTimer: 0
+  nextEnemy: {fileID: 0}
+  spawnerExhausted: 0
   spawnGroups: []
-  paused: 0
 --- !u!65 &868655272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1241,10 +1226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 6
-  cooldownTimer: 0
+  nextEnemy: {fileID: 0}
+  spawnerExhausted: 0
   spawnGroups: []
-  paused: 0
 --- !u!65 &1030559968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1431,7 +1415,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCap: 7
   currentlyAlive: 5
+  spawnCooldown: 0
+  timer: 0
   gameStage: 0
+  spawners: []
+  spawnerIndex: 0
 --- !u!1 &1275433022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,10 +4922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
-  cooldownTimer: 0
+  nextEnemy: {fileID: 0}
+  spawnerExhausted: 0
   spawnGroups: []
-  paused: 0
 --- !u!65 &1365551157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5376,10 +5363,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 5
-  cooldownTimer: 0
+  nextEnemy: {fileID: 0}
+  spawnerExhausted: 0
   spawnGroups: []
-  paused: 0
 --- !u!65 &1855866033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5759,10 +5745,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 6
-  cooldownTimer: 0
+  nextEnemy: {fileID: 0}
+  spawnerExhausted: 0
   spawnGroups: []
-  paused: 0
 --- !u!65 &1953230086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5869,10 +5854,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 3
-  cooldownTimer: -1
+  nextEnemy: {fileID: 0}
+  spawnerExhausted: 0
   spawnGroups: []
-  paused: 0
 --- !u!65 &2036666009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6142,11 +6126,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 104046690355526081, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.81
+      value: -3.22
       objectReference: {fileID: 0}
     - target: {fileID: 104046690355526081, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.64
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 104046690355526081, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
       propertyPath: m_LocalPosition.z

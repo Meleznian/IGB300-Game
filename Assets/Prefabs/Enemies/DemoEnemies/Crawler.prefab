@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7106706533884588767}
   - component: {fileID: 3098073909106994128}
   - component: {fileID: 4235609817896632509}
+  - component: {fileID: 3064701621189724166}
   m_Layer: 8
   m_Name: Crawler
   m_TagString: Untagged
@@ -132,6 +133,7 @@ MonoBehaviour:
   grounds:
     serializedVersion: 2
     m_Bits: 64
+  anim: {fileID: 8788563616757656013}
 --- !u!61 &3098073909106994128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -224,6 +226,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.1, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &3064701621189724166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846183097623824491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77645cd57a0c4f40aad5ff3b6e990f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7467031131712941437
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +281,7 @@ Animator:
   m_GameObject: {fileID: 7467031131712941437}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75b2ba79de7997941978128f8f314652, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

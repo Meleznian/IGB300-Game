@@ -43,7 +43,7 @@ public class EnemyManager : MonoBehaviour
     public List<EnemySpawner> spawners = new();
     [SerializeField] int spawnerIndex;
 
-    internal void Spawn(Transform pos, GameObject prefab)
+    internal GameObject Spawn(Transform pos, GameObject prefab)
     {
         GameObject enemy;
 
@@ -57,6 +57,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         timer = 0;
+        return enemy;
     }
 
     internal void TrySpawn()
@@ -65,7 +66,14 @@ public class EnemyManager : MonoBehaviour
         {
             if (!spawners[spawnerIndex].currentGroup.queueFinished)
             {
-                spawners[spawnerIndex].BeginSpawn();
+                if (!spawners[spawnerIndex].currentGroup.waitTillPrevDead)
+                {
+                    spawners[spawnerIndex].BeginSpawn();
+                }
+                else if(spawners[spawnerIndex].prev == null)
+                {
+                    spawners[spawnerIndex].BeginSpawn();
+                }
             }
 
             spawnerIndex++;
@@ -74,6 +82,8 @@ public class EnemyManager : MonoBehaviour
             {
                 spawnerIndex = 0;   
             }
+
+            timer = 0;
         }
 
         timer += Time.deltaTime;
@@ -82,6 +92,11 @@ public class EnemyManager : MonoBehaviour
     internal void EnemyKilled()
     {
         currentlyAlive -= 1;
+
+        if(currentlyAlive < 0)
+        {
+            currentlyAlive = CountEnemies();
+        }
     }
 
     internal void BeginNextWave()
@@ -98,7 +113,7 @@ public class EnemyManager : MonoBehaviour
 
     void SetUp()
     {
-        //currentlyAlive = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None).Length;
+        currentlyAlive = CountEnemies();
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None).ToList();
         spawnerIndex = 0;
 
@@ -146,5 +161,12 @@ public class EnemyManager : MonoBehaviour
     void NextLevel()
     {
         print("All Spawners Exhausted");
+    }
+
+    int CountEnemies()
+    {
+        int i = FindObjectsByType<ThisIsAnEnemy>(FindObjectsSortMode.None).Length;
+
+        return i;
     }
 }
