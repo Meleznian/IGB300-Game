@@ -29,7 +29,11 @@ public class KamikazeAgent : BehaviourAgent
     public bool bashParriable;
     public bool bashAvailable = true;
 
-   
+    [Header("Animation")]
+    [SerializeField] Animator anim;
+
+
+
     /// <summary>
     /// Roam State of DFA Agent
     /// </summary>

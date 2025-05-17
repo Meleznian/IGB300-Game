@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8541158798633803802}
   - component: {fileID: 7942758049274262040}
   - component: {fileID: 5455014072984151801}
-  m_Layer: 10
+  - component: {fileID: 1227780263026103394}
+  m_Layer: 8
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +111,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1227780263026103394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453854599463326146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e08419309e837a4782d944f131824cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4231360457807991548}
+  velocity: 0
 --- !u!1 &7175027469317663787
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +138,8 @@ GameObject:
   - component: {fileID: 8794318579024576227}
   - component: {fileID: 4385361011341478799}
   - component: {fileID: 4810837044207700675}
-  m_Layer: 2
+  - component: {fileID: -7414623440258760833}
+  m_Layer: 8
   m_Name: Kamikaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,6 +231,7 @@ MonoBehaviour:
   bashCooldown: 0
   bashParriable: 0
   bashAvailable: 1
+  anim: {fileID: 7942758049274262040}
 --- !u!114 &4385361011341478799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +264,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -277,3 +294,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.154, y: 1.826}
   m_EdgeRadius: 0
+--- !u!114 &-7414623440258760833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175027469317663787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77645cd57a0c4f40aad5ff3b6e990f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
