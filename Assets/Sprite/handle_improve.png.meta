@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 14bf6cb8a5831cd4884d766f18e095de
+guid: 011e2ae0c9d704b4aa6d39b2cc4479b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4453917398486875582
-    second: MeleeWeapon_Spear_0
+      213: 1176749646179948551
+    second: handle_improve_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MeleeWeapon_Spear_0
+      name: handle_improve_0
       rect:
         serializedVersion: 2
-        x: 844
-        y: 0
-        width: 360
-        height: 2048
+        x: 614
+        y: 379
+        width: 248
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ebdfdbba64e7fcd30800000000000000
-      internalID: 4453917398486875582
+      spriteID: 7085f1a8197a45010800000000000000
+      internalID: 1176749646179948551
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      MeleeWeapon_Spear_0: 4453917398486875582
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
