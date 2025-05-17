@@ -8,6 +8,7 @@ public class Crawler : EnemyBase
     private float _lastDamageTime;
 
     [SerializeField] private LayerMask grounds;
+    [SerializeField] Animator anim;
 
     public override void Move()
     {
@@ -58,6 +59,8 @@ public class Crawler : EnemyBase
     public override void ExtraSetup()
     {
         _moveDirection = Vector2.left;
+
+        anim.SetBool("Moving", true);
     }
 
 
