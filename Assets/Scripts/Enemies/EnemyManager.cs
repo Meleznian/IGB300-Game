@@ -49,11 +49,7 @@ public class EnemyManager : MonoBehaviour
     public bool LogSpawnerStates;
     public bool LogWaveUpdates;
 
-
-    bool setup;
     bool done;
-
-
 
     private void Start()
     {
@@ -123,11 +119,11 @@ public class EnemyManager : MonoBehaviour
             {
                 triesSinceLastSpawn++;
 
-                if(triesSinceLastSpawn > recountAfter)
-                {
-                    currentlyAlive = CountEnemies();
-                    triesSinceLastSpawn = 0;
-                }
+                //if(triesSinceLastSpawn > recountAfter)
+                //{
+                //    currentlyAlive = CountEnemies();
+                //    triesSinceLastSpawn = 0;
+                //}
             }
 
             if (currentlyAlive == 0)

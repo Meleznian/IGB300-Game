@@ -9,6 +9,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [Header("Enemy Stats")]
     [Tooltip("How much health the enemy starts with")]
     public float health;
+    [Tooltip("Enemy Damage when not otherwise specified")]
+    public int defaultDamage;
     [Tooltip("How fast does the enemy move")]
     public float moveSpeed;
     [Tooltip("How long between each attack")]
