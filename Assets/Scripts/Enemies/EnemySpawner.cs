@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    //[SerializeField] private GameObject[] enemyPrefabs;
-
     [SerializeField] GameObject nextEnemy;
     [SerializeField] internal GameObject prev;
 
@@ -48,7 +46,9 @@ public class EnemySpawner : MonoBehaviour
     internal void GetNextGroup()
     {
         groupIndex++;
-        print(name + " moving onto spawn group " + groupIndex);
+
+        if(EnemyManager.instance.LogSpawnerStates)
+            print(name + " moving onto spawn group " + groupIndex);
 
         if (groupIndex < spawnGroups.Count)
         {
@@ -57,7 +57,8 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             spawnerExhausted = true;
-            print(name + " is Exhausted");
+            if (EnemyManager.instance.LogSpawnerStates)
+                print(name + " is Exhausted");
         }
     
     }
@@ -70,7 +71,11 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (nextEnemy != null)
                 {
-                    print("Spawning " + nextEnemy.name + " at " + name);
+                    if (EnemyManager.instance.LogEnemySpawns)
+                    {
+                        print("Spawning " + nextEnemy.name + " at " + name);
+                    }
+
                     prev = EnemyManager.instance.Spawn(transform, nextEnemy);
                 }
 
