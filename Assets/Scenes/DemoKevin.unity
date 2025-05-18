@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 1652878134}
   - {fileID: 488732379}
@@ -451,6 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 5
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 1357419733}
   - {fileID: 1184708525}
@@ -635,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 750720935}
   linkedNodesIndex: 
@@ -700,10 +703,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
   cooldown: 5
   cooldownTimer: 0
+  spawnGroups: []
+  paused: 0
 --- !u!65 &301209385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -869,6 +872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 750720935}
   - {fileID: 926232249}
@@ -1035,6 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 3
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 980933752}
   - {fileID: 2014021917}
@@ -1221,6 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 8
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 5693080}
   linkedNodesIndex: 
@@ -1310,6 +1316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 1656177563}
   - {fileID: 2014021917}
@@ -1492,6 +1499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 223366047}
   - {fileID: 406472621}
@@ -1703,11 +1711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 3010242644535729339, guid: 17b4df676b6ad9240adf6eb61e5bfe7c, type: 3}
-  - {fileID: 7175027469317663787, guid: 386b89ef563e53f46857bd7b5552eb16, type: 3}
   cooldown: 3
   cooldownTimer: 0
+  spawnGroups: []
+  paused: 0
 --- !u!65 &868655272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1883,6 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 3
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 406472621}
   - {fileID: 1357419733}
@@ -2008,6 +2016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 9
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 993735031}
   linkedNodesIndex: 
@@ -2118,6 +2127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 1652878134}
   - {fileID: 422702489}
@@ -2224,6 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 6
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 1656177563}
   - {fileID: 937577859}
@@ -2290,10 +2301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5110408641072353378, guid: 002653a4593535c4c9b66491f3d74e52, type: 3}
   cooldown: 6
   cooldownTimer: 0
+  spawnGroups: []
+  paused: 0
 --- !u!65 &1030559968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2526,6 +2537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 6
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 82184959}
   linkedNodesIndex: 
@@ -2582,6 +2594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCap: 7
   currentlyAlive: 5
+  gameStage: 0
 --- !u!1001 &1253295350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6074,6 +6087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 926232249}
   - {fileID: 82184959}
@@ -6140,10 +6154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
   cooldown: 5
   cooldownTimer: 0
+  spawnGroups: []
+  paused: 0
 --- !u!65 &1365551157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6704,6 +6718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 5693080}
   - {fileID: 980933752}
@@ -6809,6 +6824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 7
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 993735031}
   - {fileID: 2014021917}
@@ -7073,10 +7089,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
   cooldown: 5
   cooldownTimer: 0
+  spawnGroups: []
+  paused: 0
 --- !u!65 &1855866033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7370,8 +7386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8502951377132988056}
-  offset: {x: 0, y: 0, z: -10}
   smoothSpeed: 5
+  offset: {x: 0, y: 0, z: -10}
 --- !u!1 &1952909272
 GameObject:
   m_ObjectHideFlags: 0
@@ -7458,6 +7474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 10
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 5693080}
   - {fileID: 1652878134}
@@ -7525,10 +7542,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5110408641072353378, guid: 002653a4593535c4c9b66491f3d74e52, type: 3}
   cooldown: 6
   cooldownTimer: 0
+  spawnGroups: []
+  paused: 0
 --- !u!65 &1953230086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7689,6 +7706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 5
+  prebuilt: 0
   linkedNodeObjects:
   - {fileID: 1656177563}
   - {fileID: 504430022}
@@ -7741,11 +7759,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33537a1b4066144925015129de4d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 3010242644535729339, guid: 17b4df676b6ad9240adf6eb61e5bfe7c, type: 3}
-  - {fileID: 7175027469317663787, guid: 386b89ef563e53f46857bd7b5552eb16, type: 3}
   cooldown: 3
   cooldownTimer: -1
+  spawnGroups: []
+  paused: 0
 --- !u!65 &2036666009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7952,6 +7969,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7973,21 +7994,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.74
       objectReference: {fileID: 0}
+    - target: {fileID: 1885519247420598914, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
     - target: {fileID: 2117736800459837374, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_Offset.y
       value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 2117736800459837374, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2117736800459837374, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.3569231
+      value: 1.424
       objectReference: {fileID: 0}
     - target: {fileID: 2117736800459837374, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.9076923
+      value: 1.932
       objectReference: {fileID: 0}
     - target: {fileID: 3639653419374855514, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalPosition.y

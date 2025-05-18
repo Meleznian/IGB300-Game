@@ -73,9 +73,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     public virtual void Die()
     {
-        EnemyManager.instance.EnemyKilled();
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.EnemyKilled();
+        }
+
         Destroy(gameObject);
     }
+
 
 
     void SetUp()
