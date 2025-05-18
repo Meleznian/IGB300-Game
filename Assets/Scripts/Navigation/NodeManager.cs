@@ -33,7 +33,7 @@ public class NodeManager : MonoBehaviour
                 if (!Physics2D.OverlapCircle(new Vector2(j, i), radius, grounds))
                 {
                     Nodes.Add(Instantiate(Node, new Vector3(j, i, 0), Quaternion.identity, transform));
-                    graph.AddNodes(Nodes[Nodes.Count - 1]);
+                    //graph.AddNodes(Nodes[Nodes.Count - 1]);
                 }
             }
         }

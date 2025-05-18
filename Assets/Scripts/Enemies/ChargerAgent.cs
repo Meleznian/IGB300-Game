@@ -30,7 +30,7 @@ public class ChargerAgent : BehaviourAgent
     public bool bashAvailable = true;
 
     [Header("Animation")]
-    Animator anim;
+    public Animator anim;
 
 
     /// <summary>
