@@ -373,8 +373,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1147,6 +1147,7 @@ GameObject:
   - component: {fileID: 58125003}
   - component: {fileID: 58125005}
   - component: {fileID: 58125004}
+  - component: {fileID: 58125006}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1204,8 +1205,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1274,6 +1275,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58125002}
   m_CullTransparentMesh: 1
+--- !u!114 &58125006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58125002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 58125004}
 --- !u!1 &61070986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,8 +1714,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2390,6 +2405,7 @@ GameObject:
   - component: {fileID: 179996261}
   - component: {fileID: 179996260}
   - component: {fileID: 179996259}
+  - component: {fileID: 179996262}
   m_Layer: 5
   m_Name: Right Button
   m_TagString: Untagged
@@ -2415,7 +2431,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: 259.20004}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &179996259
 MonoBehaviour:
@@ -2460,19 +2476,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 179996260}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &179996260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,6 +2515,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179996257}
   m_CullTransparentMesh: 1
+--- !u!114 &179996262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179996257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 1077255219}
 --- !u!1 &183081176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,8 +2597,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3164,8 +3182,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3582,6 +3600,7 @@ GameObject:
   - component: {fileID: 372469941}
   - component: {fileID: 372469940}
   - component: {fileID: 372469939}
+  - component: {fileID: 372469942}
   m_Layer: 5
   m_Name: Attack Button
   m_TagString: Untagged
@@ -3607,7 +3626,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: -83.80002}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &372469939
 MonoBehaviour:
@@ -3652,19 +3671,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 372469940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &372469940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3703,6 +3710,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372469937}
   m_CullTransparentMesh: 1
+--- !u!114 &372469942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372469937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: 1120369429361536294, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 1494070306}
 --- !u!1 &377054974
 GameObject:
   m_ObjectHideFlags: 0
@@ -4416,8 +4437,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4770,6 +4791,7 @@ GameObject:
   - component: {fileID: 559742403}
   - component: {fileID: 559742402}
   - component: {fileID: 559742401}
+  - component: {fileID: 559742404}
   m_Layer: 5
   m_Name: Shoot Button
   m_TagString: Untagged
@@ -4795,7 +4817,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: -48.50003}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559742401
 MonoBehaviour:
@@ -4840,19 +4862,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 559742402}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &559742402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4891,6 +4901,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559742399}
   m_CullTransparentMesh: 1
+--- !u!114 &559742404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559742399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -1424264854516165045, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 530347686}
 --- !u!1 &590102508
 GameObject:
   m_ObjectHideFlags: 0
@@ -5510,7 +5534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &662256426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6663,8 +6687,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7520,7 +7544,6 @@ GameObject:
   - component: {fileID: 1064936329}
   - component: {fileID: 1064936328}
   - component: {fileID: 1064936331}
-  - component: {fileID: 1064936332}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -7686,34 +7709,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1064936332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064936327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionRef: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  bindingIndices: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
-  labels:
-  - {fileID: 235908486}
-  - {fileID: 1077255219}
-  - {fileID: 1964588472}
-  - {fileID: 1731567126}
-  - {fileID: 18566732}
-  - {fileID: 58125004}
-  - {fileID: 1696828544}
-  - {fileID: 530347686}
-  - {fileID: 1494070306}
-  - {fileID: 183081178}
-  - {fileID: 82421331}
-  - {fileID: 1879369778}
-  - {fileID: 997595557}
 --- !u!1 &1071940180
 GameObject:
   m_ObjectHideFlags: 0
@@ -7908,8 +7903,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8126,6 +8121,7 @@ GameObject:
   - component: {fileID: 1090596102}
   - component: {fileID: 1090596101}
   - component: {fileID: 1090596100}
+  - component: {fileID: 1090596103}
   m_Layer: 5
   m_Name: Aim Button
   m_TagString: Untagged
@@ -8151,7 +8147,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: -13.300049}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1090596100
 MonoBehaviour:
@@ -8196,19 +8192,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1090596101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1090596101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8247,6 +8231,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090596098}
   m_CullTransparentMesh: 1
+--- !u!114 &1090596103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090596098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -744203319442446011, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 1696828544}
 --- !u!1 &1099115380
 GameObject:
   m_ObjectHideFlags: 0
@@ -8349,6 +8347,7 @@ GameObject:
   - component: {fileID: 1111185084}
   - component: {fileID: 1111185083}
   - component: {fileID: 1111185082}
+  - component: {fileID: 1111185085}
   m_Layer: 5
   m_Name: Parry Button
   m_TagString: Untagged
@@ -8374,7 +8373,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: -119.00003}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1111185082
 MonoBehaviour:
@@ -8419,19 +8418,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1111185083}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 9
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1111185083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8470,6 +8457,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111185080}
   m_CullTransparentMesh: 1
+--- !u!114 &1111185085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111185080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: 7854273847227287105, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 183081178}
 --- !u!1 &1154292245
 GameObject:
   m_ObjectHideFlags: 0
@@ -8543,7 +8544,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: 117.360016}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166106144
 MonoBehaviour:
@@ -8589,7 +8590,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1064936332}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
         m_MethodName: StartRebind
         m_Mode: 3
@@ -8822,6 +8823,7 @@ GameObject:
   - component: {fileID: 1220548412}
   - component: {fileID: 1220548411}
   - component: {fileID: 1220548410}
+  - component: {fileID: 1220548413}
   m_Layer: 5
   m_Name: Pause Button
   m_TagString: Untagged
@@ -8847,7 +8849,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: -321.89}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220548410
 MonoBehaviour:
@@ -8892,19 +8894,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1220548411}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 12
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1220548411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8943,6 +8933,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220548408}
   m_CullTransparentMesh: 1
+--- !u!114 &1220548413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220548408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: 7544917609637381074, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 997595557}
 --- !u!1 &1228544598
 GameObject:
   m_ObjectHideFlags: 0
@@ -8955,6 +8959,7 @@ GameObject:
   - component: {fileID: 1228544602}
   - component: {fileID: 1228544601}
   - component: {fileID: 1228544600}
+  - component: {fileID: 1228544603}
   m_Layer: 5
   m_Name: Look Up Button
   m_TagString: Untagged
@@ -8980,7 +8985,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547.00006, y: 153.44003}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1228544600
 MonoBehaviour:
@@ -9025,19 +9030,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1228544601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1228544601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9076,6 +9069,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228544598}
   m_CullTransparentMesh: 1
+--- !u!114 &1228544603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228544598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 18566732}
 --- !u!1 &1258369695
 GameObject:
   m_ObjectHideFlags: 0
@@ -9893,6 +9900,7 @@ GameObject:
   - component: {fileID: 1452445450}
   - component: {fileID: 1452445449}
   - component: {fileID: 1452445448}
+  - component: {fileID: 1452445451}
   m_Layer: 5
   m_Name: Heal Button
   m_TagString: Untagged
@@ -9918,7 +9926,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: -154.54}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1452445448
 MonoBehaviour:
@@ -9963,19 +9971,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1452445449}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1452445449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10014,6 +10010,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452445446}
   m_CullTransparentMesh: 1
+--- !u!114 &1452445451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452445446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -7315329341079708101, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 82421331}
 --- !u!1 &1494070304
 GameObject:
   m_ObjectHideFlags: 0
@@ -10082,8 +10092,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10467,8 +10477,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10741,8 +10751,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -11341,6 +11351,7 @@ GameObject:
   - component: {fileID: 1838752743}
   - component: {fileID: 1838752742}
   - component: {fileID: 1838752741}
+  - component: {fileID: 1838752744}
   m_Layer: 5
   m_Name: Left Button
   m_TagString: Untagged
@@ -11366,7 +11377,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: 295.34}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1838752741
 MonoBehaviour:
@@ -11411,19 +11422,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1838752742}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1838752742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11462,6 +11461,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838752739}
   m_CullTransparentMesh: 1
+--- !u!114 &1838752744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838752739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 235908486}
 --- !u!1 &1872475252
 GameObject:
   m_ObjectHideFlags: 0
@@ -11474,6 +11487,7 @@ GameObject:
   - component: {fileID: 1872475256}
   - component: {fileID: 1872475255}
   - component: {fileID: 1872475254}
+  - component: {fileID: 1872475257}
   m_Layer: 5
   m_Name: Special Button
   m_TagString: Untagged
@@ -11499,7 +11513,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: -191.87997}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1872475254
 MonoBehaviour:
@@ -11544,19 +11558,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1872475255}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 11
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1872475255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11595,6 +11597,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872475252}
   m_CullTransparentMesh: 1
+--- !u!114 &1872475257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872475252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: 133295712054880299, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 1879369778}
 --- !u!1 &1879369776
 GameObject:
   m_ObjectHideFlags: 0
@@ -11663,8 +11679,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12091,8 +12107,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -12309,6 +12325,7 @@ GameObject:
   - component: {fileID: 2023910752}
   - component: {fileID: 2023910751}
   - component: {fileID: 2023910750}
+  - component: {fileID: 2023910753}
   m_Layer: 5
   m_Name: 'Jump Button '
   m_TagString: Untagged
@@ -12334,7 +12351,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: 223.22}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023910750
 MonoBehaviour:
@@ -12379,19 +12396,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2023910751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2023910751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12430,6 +12435,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023910748}
   m_CullTransparentMesh: 1
+--- !u!114 &2023910753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023910748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 1964588472}
 --- !u!1 &2041058803
 GameObject:
   m_ObjectHideFlags: 0
@@ -13244,6 +13263,7 @@ GameObject:
   - component: {fileID: 2133039840}
   - component: {fileID: 2133039839}
   - component: {fileID: 2133039838}
+  - component: {fileID: 2133039841}
   m_Layer: 5
   m_Name: Dash Button
   m_TagString: Untagged
@@ -13269,7 +13289,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 547, y: 188.33}
-  m_SizeDelta: {x: 100, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133039838
 MonoBehaviour:
@@ -13314,19 +13334,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2133039839}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1064936332}
-        m_TargetAssemblyTypeName: KeyBindButton, Assembly-CSharp
-        m_MethodName: StartRebind
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2133039839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13365,6 +13373,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133039836}
   m_CullTransparentMesh: 1
+--- !u!114 &2133039841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133039836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82db88c4a9b4a364287860ccb15eb018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionRef: {fileID: -8895718254083618996, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  label: {fileID: 1731567126}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

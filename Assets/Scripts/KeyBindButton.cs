@@ -1,75 +1,98 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using TMPro;
 
 public class KeyBindButton : MonoBehaviour
 {
     public InputActionReference actionRef; // The input action to rebind
-    public int[] bindingIndices;           // Supports multiple bindings (e.g., keyboard + gamepad)
-    public TMP_Text[] labels;              // Text fields for each binding button
+    public TMP_Text label;                 // UI label showing the binding
+
+    private int xboxBindingIndex = -1;
 
     private void Start()
     {
-        LoadAllBindings();
+        xboxBindingIndex = FindXboxBindingIndex();
+
+        if (xboxBindingIndex != -1)
+        {
+            LoadBinding();
+        }
+        else
+        {
+            Debug.LogWarning($"No Xbox binding found on action: {actionRef.action.name}");
+        }
     }
 
-    // Called by each UI button, passing the index you want to rebind
-    public void StartRebind(int index)
+    public void StartRebind()
     {
-        if (index < 0 || index >= bindingIndices.Length)
+        if (xboxBindingIndex == -1)
         {
-            Debug.LogError("Invalid binding index for rebind.");
+            Debug.LogWarning("Cannot rebind — Xbox binding not found.");
             return;
         }
 
-        // Disable the action first
         actionRef.action.Disable();
+        label.text = "Press Xbox button...";
 
-        labels[index].text = "Press a key...";
-
-        actionRef.action.PerformInteractiveRebinding(bindingIndices[index])
-            .WithControlsExcluding("Mouse") // Optional
+        actionRef.action.PerformInteractiveRebinding(xboxBindingIndex)
+            .WithControlsHavingToMatchPath("<XInputController>")
             .OnComplete(operation =>
             {
                 operation.Dispose();
                 actionRef.action.Enable();
 
-                UpdateLabel(index);
-                SaveBinding(index);
+                UpdateLabel();
+                SaveBinding();
             })
             .Start();
     }
 
-    void UpdateLabel(int index)
+    private int FindXboxBindingIndex()
     {
-        string displayString = actionRef.action.GetBindingDisplayString(bindingIndices[index]);
-        labels[index].text = displayString;
+        var bindings = actionRef.action.bindings;
+        for (int i = 0; i < bindings.Count; i++)
+        {
+            var binding = bindings[i];
+            if (binding.path != null && binding.path.Contains("XInputController"))
+            {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
-    void SaveBinding(int index)
+    private void UpdateLabel()
     {
-        string path = actionRef.action.bindings[bindingIndices[index]].effectivePath;
-        PlayerPrefs.SetString(actionRef.action.name + "_binding_" + index, path);
+        if (xboxBindingIndex == -1) return;
+
+        string readable = InputControlPath.ToHumanReadableString(
+            actionRef.action.bindings[xboxBindingIndex].effectivePath,
+            InputControlPath.HumanReadableStringOptions.OmitDevice
+        );
+
+        label.text = readable;
     }
 
-    void LoadBinding(int index)
+    private void SaveBinding()
     {
-        string key = actionRef.action.name + "_binding_" + index;
+        if (xboxBindingIndex == -1) return;
+
+        string key = actionRef.action.name + "_Xbox";
+        string path = actionRef.action.bindings[xboxBindingIndex].effectivePath;
+        PlayerPrefs.SetString(key, path);
+    }
+
+    private void LoadBinding()
+    {
+        string key = actionRef.action.name + "_Xbox";
         string path = PlayerPrefs.GetString(key, "");
-        if (!string.IsNullOrEmpty(path))
+
+        if (!string.IsNullOrEmpty(path) && xboxBindingIndex != -1)
         {
-            actionRef.action.ApplyBindingOverride(bindingIndices[index], path);
+            actionRef.action.ApplyBindingOverride(xboxBindingIndex, path);
         }
 
-        UpdateLabel(index);
-    }
-
-    void LoadAllBindings()
-    {
-        for (int i = 0; i < bindingIndices.Length; i++)
-        {
-            LoadBinding(i);
-        }
+        UpdateLabel();
     }
 }
