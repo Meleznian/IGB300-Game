@@ -9,6 +9,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [Header("Enemy Stats")]
     [Tooltip("How much health the enemy starts with")]
     public float health;
+    [Tooltip("Enemy Damage when not otherwise specified")]
+    public int defaultDamage;
     [Tooltip("How fast does the enemy move")]
     public float moveSpeed;
     [Tooltip("How long between each attack")]
@@ -63,6 +65,11 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (EnemyManager.instance.LogEnemyDamage)
+        {
+            print(enemyName + " Has taken " + damage + " Damage");
+        }
+
         health -= damage;
 
         if(health <= 0)
@@ -73,9 +80,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     public virtual void Die()
     {
-        print("Enemy " + enemyName + " Killed");
-        EnemyManager.instance.EnemyKilled();
-        Destroy(gameObject);
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.EnemyKilled(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
 

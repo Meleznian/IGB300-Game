@@ -216,6 +216,7 @@ MonoBehaviour:
   bashCooldown: 3
   bashParriable: 0
   bashAvailable: 0
+  anim: {fileID: 3035971936109511413}
 --- !u!114 &-5120716224871148930
 MonoBehaviour:
   m_ObjectHideFlags: 0

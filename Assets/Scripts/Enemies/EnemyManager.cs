@@ -18,6 +18,39 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    [Serializable]
+    public class Wave
+    {
+        public string waveID;
+        public int waveNum;
+        public float spawnSpeed;
+        public int enemyCap;
+        public bool finished;
+    }
+
+    public List<Wave> waves = new();
+
+    [Header("Current Wave Info")]
+    public int currentWave;
+    [SerializeField] private int enemyCap;
+    [SerializeField] private int currentlyAlive;
+    [SerializeField] private float spawnCooldown;
+
+    [Header("Spawning Info")]
+    [SerializeField] float spawnTimer;
+    [SerializeField] int spawnerIndex;
+    public List<EnemySpawner> spawners = new();
+
+    [Header("Debug Info")]
+    [SerializeField] int triesSinceLastSpawn;
+    [SerializeField] int recountAfter;
+    public bool LogEnemySpawns;
+    public bool LogEnemyDamage;
+    public bool LogSpawnerStates;
+    public bool LogWaveUpdates;
+
+    bool done;
+
     private void Start()
     {
         SetUp();
@@ -25,23 +58,11 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        TrySpawn();
-
-        if(currentlyAlive == 0)
+        if (!done)
         {
-            CheckSpawners();
+            TrySpawn();
         }
     }
-
-    [SerializeField] private int enemyCap;
-    [SerializeField] private int currentlyAlive;
-    [SerializeField] private float spawnCooldown;
-    [SerializeField] float timer;
-
-    public int gameStage;
-
-    public List<EnemySpawner> spawners = new();
-    [SerializeField] int spawnerIndex;
 
     internal GameObject Spawn(Transform pos, GameObject prefab)
     {
@@ -56,72 +77,138 @@ public class EnemyManager : MonoBehaviour
             enemy.GetComponent<ChargerAgent>().graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
         }
 
-        timer = 0;
+        spawnTimer = 0;
         return enemy;
     }
 
     internal void TrySpawn()
     {
-        if(currentlyAlive < enemyCap && timer > spawnCooldown)
+        if(spawnTimer > spawnCooldown)
         {
-            if (!spawners[spawnerIndex].currentGroup.queueFinished)
+            bool didSpawn = false;
+
+            if (currentlyAlive < enemyCap)
             {
-                if (!spawners[spawnerIndex].currentGroup.waitTillPrevDead)
+                if (!spawners[spawnerIndex].currentGroup.queueFinished && spawners[spawnerIndex].currentGroup.wave == currentWave)
                 {
-                    spawners[spawnerIndex].BeginSpawn();
+                    if (!spawners[spawnerIndex].currentGroup.waitTillPrevDead)
+                    {
+                        spawners[spawnerIndex].BeginSpawn();
+                        didSpawn = true;
+                        triesSinceLastSpawn = 0;
+                    }
+                    else if (spawners[spawnerIndex].prev == null)
+                    {
+                        spawners[spawnerIndex].BeginSpawn();
+                        didSpawn = true;
+                        triesSinceLastSpawn = 0;
+                    }
                 }
-                else if(spawners[spawnerIndex].prev == null)
+
+                spawnerIndex++;
+
+                if (spawnerIndex >= spawners.Count)
                 {
-                    spawners[spawnerIndex].BeginSpawn();
+                    spawnerIndex = 0;
                 }
             }
 
-            spawnerIndex++;
+            spawnTimer = 0;
 
-            if(spawnerIndex >= spawners.Count)
+            if (didSpawn == false)
             {
-                spawnerIndex = 0;   
+                triesSinceLastSpawn++;
+
+                //if(triesSinceLastSpawn > recountAfter)
+                //{
+                //    currentlyAlive = CountEnemies();
+                //    triesSinceLastSpawn = 0;
+                //}
             }
 
-            timer = 0;
+            if (currentlyAlive == 0)
+            {
+                CheckSpawners();
+            }
         }
 
-        timer += Time.deltaTime;
+        spawnTimer += Time.deltaTime;
     }
 
-    internal void EnemyKilled()
+    internal void EnemyKilled(GameObject enemy)
     {
-        currentlyAlive -= 1;
+        if (LogEnemyDamage)
+        {
+            print("Enemy " + enemy.name + " Killed");
+        }
+
+        currentlyAlive--;
+
+        Destroy(enemy);
 
         if(currentlyAlive < 0)
         {
+            Debug.LogError("Currently Alive Enemies is " + currentlyAlive);
             currentlyAlive = CountEnemies();
         }
     }
 
     internal void BeginNextWave()
     {
-        gameStage++;
-        print("Starting Wave " + gameStage);
-
-        foreach (EnemySpawner s in spawners)
+        if (currentWave+1 >= waves.Count)
         {
-            s.GetNextGroup();
+            if(LogWaveUpdates)
+                print("All waves complete: Game Finished");
+            done = true;
+
+            GameManager.instance.CompleteLevel();
+            GameManager.instance.EndGame();
         }
-        ForceSpawnAll();
+
+        if (!done)
+        {
+            if (LogWaveUpdates)
+                print(waves[currentWave].waveID + " Complete");
+            waves[currentWave].finished = true;
+
+            //Move All Spawners onto next wave Spawn Group
+            foreach (EnemySpawner s in spawners)
+            {
+                if (s.currentGroup.wave == currentWave)
+                {
+                    s.GetNextGroup();
+                }
+            }
+
+            currentWave++;
+            if (LogWaveUpdates)
+                print("Starting " + waves[currentWave].waveID);
+
+            while (currentWave != waves[currentWave].waveNum)
+            {
+                Debug.LogError("Error mismatched wave values: " + currentWave + " Does not match " + waves[currentWave].waveNum);
+                currentWave++;
+                Debug.LogError("Moving to " + waves[currentWave].waveID);
+            }
+
+            SetupWave();
+
+            ForceSpawnAll();
+        }
     }
 
     void SetUp()
     {
+        SetupWave();
+
         currentlyAlive = CountEnemies();
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None).ToList();
         spawnerIndex = 0;
 
-        foreach (EnemySpawner s in spawners)
-        {
-            s.GetNextGroup();
-        }
         ForceSpawnAll();
+
+        if (LogWaveUpdates)
+            print("Setup Complete, Starting " + waves[currentWave].waveID);
     }
 
     void CheckSpawners()
@@ -131,42 +218,71 @@ public class EnemyManager : MonoBehaviour
 
         foreach(EnemySpawner s in spawners)
         {
+            if(LogSpawnerStates)
+                print("Checking spawner " + s.name);
+
             if (s.currentGroup.queueFinished)
             {
+                if (LogSpawnerStates)
+                    print("Spawner " + s.name + " Queue complete");
+                i++;
+            }
+            else if(s.currentGroup.wave != currentWave)
+            {
+                if (LogSpawnerStates)
+                    print("Spawner " + s.name + " queue does not match current wave: " + s.currentGroup.wave + " vs " + currentWave);
                 i++;
             }
             if (s.spawnerExhausted)
             {
+                if (LogSpawnerStates)
+                    print("Spawner " + s.name + " is exhausted");
                 e++;
             }
         }
         if (e == spawners.Count)
         {
-            NextLevel();
+            if (LogSpawnerStates)
+                print("All Spawners Exhausted");
+            //NextLevel();
         }
         else if (i == spawners.Count)
         {
+            if (LogSpawnerStates)
+                print("All Spawner Queues complete, moving to next");
             BeginNextWave();
         }
+        else
+        {
+            if (LogSpawnerStates)
+            { 
+                print(i + " Spawn Queues Finished, " + spawners.Count + " Remaining");
+                print(e + " Spawners Exhausted, " + spawners.Count + " Remaining");
+            }
+        }
+
+        print("Spawner Check Finished");
     }
 
     void ForceSpawnAll()
     {
         foreach (EnemySpawner s in spawners)
         {
-            s.BeginSpawn();
+            s.BeginSpawn();         
         }
-    }
-
-    void NextLevel()
-    {
-        print("All Spawners Exhausted");
     }
 
     int CountEnemies()
     {
         int i = FindObjectsByType<ThisIsAnEnemy>(FindObjectsSortMode.None).Length;
+        print("Recounting Enemies: " + i + " Counted");
 
         return i;
+    }
+
+    void SetupWave()
+    {
+        enemyCap = waves[currentWave].enemyCap;
+        spawnCooldown = waves[currentWave].spawnSpeed;
     }
 }

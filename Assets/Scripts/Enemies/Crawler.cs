@@ -18,7 +18,7 @@ public class Crawler : EnemyBase
         //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
     }
 
-    private void ChangeDirection()
+    internal void ChangeDirection()
     {
         if (_moveDirection == Vector3.left)
         {
@@ -30,29 +30,15 @@ public class Crawler : EnemyBase
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    internal void CrawlerAttack(Collider2D other)
     {
-        if (other.CompareTag("Wall"))
+        if (Time.time > _lastDamageTime + _damageCooldown)
         {
-            ChangeDirection();
+            other.GetComponent<PlayerHealth>().TakeDamage(defaultDamage);
+            _lastDamageTime = Time.time;
+            //Debug.Log("Continuous Damage!");
         }
     }
-
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (Time.time > _lastDamageTime + _damageCooldown)
-            {
-                other.GetComponent<PlayerHealth>().TakeDamage(33);
-                _lastDamageTime = Time.time;
-                //Debug.Log("Continuous Damage!");
-            }
-        }
-
-    }
-
 
 
 

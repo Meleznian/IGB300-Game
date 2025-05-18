@@ -1,12 +1,11 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    //[SerializeField] private GameObject[] enemyPrefabs;
-
     [SerializeField] GameObject nextEnemy;
     [SerializeField] internal GameObject prev;
 
@@ -14,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
     public class SpawnGroup 
     {
         [SerializeField] List<GameObject> queue = new();
-        [SerializeField] internal int gameStage;
+        [SerializeField] internal int wave;
         [SerializeField] int index;
         [SerializeField] internal bool queueFinished;
         [SerializeField] internal bool waitTillPrevDead;
@@ -41,14 +40,16 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        currentGroup = spawnGroups[0];
-        nextEnemy = currentGroup.GetEnemy();
-        groupIndex = 0;
+        Setup();
     }
 
     internal void GetNextGroup()
     {
         groupIndex++;
+
+        if(EnemyManager.instance.LogSpawnerStates)
+            print(name + " moving onto spawn group " + groupIndex);
+
         if (groupIndex < spawnGroups.Count)
         {
             currentGroup = spawnGroups[groupIndex];
@@ -56,22 +57,37 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             spawnerExhausted = true;
-            print("Spawner Exhausted");
+            if (EnemyManager.instance.LogSpawnerStates)
+                print(name + " is Exhausted");
         }
+    
     }
 
     internal void BeginSpawn()
     {
-        if (!currentGroup.queueFinished)
+        if (EnemyManager.instance.currentWave == currentGroup.wave)
         {
-            if (nextEnemy != null)
+            if (!currentGroup.queueFinished)
             {
+                if (nextEnemy != null)
+                {
+                    if (EnemyManager.instance.LogEnemySpawns)
+                    {
+                        print("Spawning " + nextEnemy.name + " at " + name);
+                    }
 
-                prev = EnemyManager.instance.Spawn(transform, nextEnemy);
+                    prev = EnemyManager.instance.Spawn(transform, nextEnemy);
+                }
 
+                nextEnemy = currentGroup.GetEnemy();
             }
-
-            nextEnemy = currentGroup.GetEnemy();
         }
+    }
+
+    void Setup()
+    {
+        currentGroup = spawnGroups[0];
+        nextEnemy = currentGroup.GetEnemy();
+        groupIndex = 0;
     }
 }
