@@ -3811,7 +3811,7 @@ PrefabInstance:
     - target: {fileID: -9113151063536751712, guid: bfbb93a88c7dfb146b5fd27eef06cba8, type: 3}
       propertyPath: graphNodes
       value: 
-      objectReference: {fileID: 1929254898}
+      objectReference: {fileID: 0}
     - target: {fileID: -9113151063536751712, guid: bfbb93a88c7dfb146b5fd27eef06cba8, type: 3}
       propertyPath: minDistance
       value: 0.1
@@ -4150,7 +4150,7 @@ PrefabInstance:
     - target: {fileID: 5693210579481467239, guid: 0f5ebba20f5af5a4cbb60798c8d032f8, type: 3}
       propertyPath: graphNodes
       value: 
-      objectReference: {fileID: 1929254898}
+      objectReference: {fileID: 0}
     - target: {fileID: 6348757875583023632, guid: 0f5ebba20f5af5a4cbb60798c8d032f8, type: 3}
       propertyPath: m_Name
       value: Charger
@@ -5367,11 +5367,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!4 &1235806327 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5097541814939313960, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-  m_PrefabInstance: {fileID: 1894550645}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1318786903
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,10 +6875,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6971030890138128735, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: aimCursor
-      value: 
-      objectReference: {fileID: 1235806327}
     - target: {fileID: 8502951377849970374, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.49
@@ -6927,8 +6918,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1894550647}
   m_SourcePrefab: {fileID: 100100000, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+--- !u!1 &1894550646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  m_PrefabInstance: {fileID: 1894550645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1894550647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894550646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db5eb5449cda8543a4a8c018acb8a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1929254897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6938,7 +6949,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1929254899}
-  - component: {fileID: 1929254898}
+  - component: {fileID: 1929254900}
   m_Layer: 0
   m_Name: NavigationNodes
   m_TagString: WaypointGraph
@@ -6946,35 +6957,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1929254898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929254897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a246b057f886acf4d977dbe730653542, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  graphNodes:
-  - {fileID: 1547080067}
-  - {fileID: 2036438599}
-  - {fileID: 1837853788}
-  - {fileID: 1567485098}
-  - {fileID: 2038688733}
-  - {fileID: 516651693}
-  - {fileID: 1826171193}
-  - {fileID: 402706366}
-  - {fileID: 1337916000}
-  - {fileID: 1318786903}
-  - {fileID: 188750464}
-  - {fileID: 1998219781}
-  - {fileID: 237105332}
-  - {fileID: 1125037446}
-  - {fileID: 651693755}
-  - {fileID: 294305554}
 --- !u!4 &1929254899
 Transform:
   m_ObjectHideFlags: 0
@@ -7006,6 +6988,35 @@ Transform:
   - {fileID: 294305556}
   m_Father: {fileID: 1663800260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929254900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929254897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ebc258d4914504ebed084745a36f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphNodes:
+  - {fileID: 1547080067}
+  - {fileID: 2036438599}
+  - {fileID: 1837853788}
+  - {fileID: 1567485098}
+  - {fileID: 2038688733}
+  - {fileID: 516651693}
+  - {fileID: 1826171193}
+  - {fileID: 402706366}
+  - {fileID: 1337916000}
+  - {fileID: 1318786903}
+  - {fileID: 188750464}
+  - {fileID: 1998219781}
+  - {fileID: 237105332}
+  - {fileID: 1125037446}
+  - {fileID: 651693755}
+  - {fileID: 294305554}
 --- !u!1 &1998219781
 GameObject:
   m_ObjectHideFlags: 0
