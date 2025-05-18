@@ -14,6 +14,8 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     public float iFrames;
     public bool hasIFrames;
 
+    public bool parriable;
+
     public void Start()
     {
         currentNodeIndex = findClosestWayPoint(gameObject);
@@ -22,6 +24,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     // Update is called once per frame
     void Update()
     {
+        if (stunned) return;
         switch (currentState)
         {
             case State.Roam:
@@ -95,6 +98,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     public virtual IEnumerator Stunned()
     {
         stunned = true;
+        Debug.Log("Stunned");
         yield return new WaitForSeconds(stunTime);
         stunned = false;
     }
