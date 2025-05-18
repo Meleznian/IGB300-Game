@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SteamTrap : MonoBehaviour
 {
-    [SerializeField] private float damagePerTick = 5f;          // 一回のダメージ量
-    [SerializeField] private float damageInterval = 1f;         // 何秒ごとにダメージか
+    [SerializeField] private float damagePerTick = 5f;          // Amount of damage per time
+    [SerializeField] private float damageInterval = 1f;         // Damage every how many seconds?
     private float timer = 0f;
 
     private bool isPlayerInside = false;

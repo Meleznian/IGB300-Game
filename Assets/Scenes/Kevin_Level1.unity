@@ -2388,6 +2388,7 @@ MonoBehaviour:
   killCountVictoryText: {fileID: 662752764}
   completeLevelUI: {fileID: 552676276}
   restartDelay: 0.5
+  KillTarget: 10
 --- !u!4 &222163503
 Transform:
   m_ObjectHideFlags: 0
@@ -3898,6 +3899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCap: 0
   currentlyAlive: 0
+  gameStage: 0
 --- !u!4 &445350349
 Transform:
   m_ObjectHideFlags: 0
@@ -8020,6 +8022,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.176
       objectReference: {fileID: 0}
+    - target: {fileID: 4529993732820932942, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4659571277777179011, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
       propertyPath: player
       value: 
@@ -8032,9 +8038,17 @@ PrefabInstance:
       propertyPath: attackLayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7392018009349191742, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8229869574490313706, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
       propertyPath: m_Name
       value: PatrolEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229869574490313706, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8834974390549162660, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
       propertyPath: m_LocalPosition.x
