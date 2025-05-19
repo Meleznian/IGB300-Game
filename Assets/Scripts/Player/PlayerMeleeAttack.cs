@@ -72,6 +72,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (flashFX)
             anim.SetTrigger("Slash");
             Instantiate(flashFX, pos, rot);
+        AudioManager.PlayEffect(SoundType.SLASH);
     }
 
     void OnDrawGizmosSelected()

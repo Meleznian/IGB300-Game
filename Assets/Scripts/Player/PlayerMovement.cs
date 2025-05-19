@@ -124,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
         //isGrounded = false;
         rb.linearVelocityY = 0;
         rb.AddForce(transform.up * _jumpSpeed, ForceMode2D.Impulse);
+        AudioManager.PlayEffect(SoundType.JUMP);
 
         if (!_isGrounded) _airJump = true;
         //jumped = true;
