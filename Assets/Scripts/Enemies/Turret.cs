@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : EnemyBase
 {
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform player;
-    [SerializeField] float fireRate = 1f;
     [SerializeField] float sightRange = 10f;
     [SerializeField] LayerMask obstacleMask; // Use walls and other objects to block views.
     [SerializeField] Animator anim;
@@ -17,7 +16,7 @@ public class Turret : MonoBehaviour
         if (PlayerInSight() && fireCooldown <= 0)
         {
             anim.SetTrigger("Shoot");
-            fireCooldown = fireRate;
+            fireCooldown = attackSpeed;
         }
 
         fireCooldown -= Time.deltaTime;
@@ -55,5 +54,10 @@ public class Turret : MonoBehaviour
         Vector2 dir = (player.position - firePoint.position).normalized;
         var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().Init(dir);
+    }
+
+    public override void ExtraSetup()
+    {
+        player = GameObject.Find("Player").transform;
     }
 }

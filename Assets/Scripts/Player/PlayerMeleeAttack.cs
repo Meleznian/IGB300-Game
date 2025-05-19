@@ -61,7 +61,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         var hits = Physics2D.OverlapCircleAll(origin, range, enemyLayer);
         foreach (var h in hits)
         {
-            var enemy = h.GetComponent<EnemyBase>();
+            var enemy = h.GetComponent<IDamageable>();
             if (enemy != null)
                 enemy.TakeDamage(damage);
         }
