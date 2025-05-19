@@ -49,7 +49,10 @@ public class EnemyManager : MonoBehaviour
     public bool LogSpawnerStates;
     public bool LogWaveUpdates;
 
+    public GameObject[] enemyList;
+
     bool done;
+    bool generate;
 
     private void Start()
     {
@@ -83,56 +86,59 @@ public class EnemyManager : MonoBehaviour
 
     internal void TrySpawn()
     {
-        if(spawnTimer > spawnCooldown)
+        if(currentlyAlive < enemyCap)
         {
-            bool didSpawn = false;
+            //bool didSpawn = false;
 
-            if (currentlyAlive < enemyCap)
+            if (spawnTimer > spawnCooldown)
             {
                 if (!spawners[spawnerIndex].currentGroup.queueFinished && spawners[spawnerIndex].currentGroup.wave == currentWave)
                 {
                     if (!spawners[spawnerIndex].currentGroup.waitTillPrevDead)
                     {
                         spawners[spawnerIndex].BeginSpawn();
-                        didSpawn = true;
-                        triesSinceLastSpawn = 0;
+                        spawnTimer = 0;
+                        //didSpawn = true;
+                        //triesSinceLastSpawn = 0;
                     }
                     else if (spawners[spawnerIndex].prev == null)
                     {
                         spawners[spawnerIndex].BeginSpawn();
-                        didSpawn = true;
-                        triesSinceLastSpawn = 0;
+                        spawnTimer = 0;
+                        //didSpawn = true;
+                        //triesSinceLastSpawn = 0;
                     }
                 }
 
                 spawnerIndex++;
 
+
                 if (spawnerIndex >= spawners.Count)
                 {
                     spawnerIndex = 0;
                 }
+
             }
 
-            spawnTimer = 0;
 
-            if (didSpawn == false)
-            {
-                triesSinceLastSpawn++;
-
-                //if(triesSinceLastSpawn > recountAfter)
-                //{
-                //    currentlyAlive = CountEnemies();
-                //    triesSinceLastSpawn = 0;
-                //}
-            }
+            //if (didSpawn == false)
+            //{
+            //    triesSinceLastSpawn++;
+            //
+            //    if(triesSinceLastSpawn > recountAfter)
+            //    {
+            //        currentlyAlive = CountEnemies();
+            //        triesSinceLastSpawn = 0;
+            //    }
+            //}
 
             if (currentlyAlive == 0)
             {
                 CheckSpawners();
             }
-        }
 
-        spawnTimer += Time.deltaTime;
+            spawnTimer += Time.deltaTime;
+        }
     }
 
     internal void EnemyKilled(GameObject enemy)
@@ -155,21 +161,23 @@ public class EnemyManager : MonoBehaviour
 
     internal void BeginNextWave()
     {
-        if (currentWave+1 >= waves.Count)
-        {
-            if(LogWaveUpdates)
-                print("All waves complete: Game Finished");
-            done = true;
-
-            GameManager.instance.CompleteLevel();
-            GameManager.instance.EndGame();
-        }
+        //if (currentWave+1 >= waves.Count)
+        //{
+        //    if(LogWaveUpdates)
+        //        print("All waves complete: Game Finished");
+        //    done = true;
+        //
+        //    GameManager.instance.CompleteLevel();
+        //    GameManager.instance.EndGame();
+        //}
 
         if (!done)
         {
             if (LogWaveUpdates)
                 print(waves[currentWave].waveID + " Complete");
             waves[currentWave].finished = true;
+
+            GenerateWave();
 
             //Move All Spawners onto next wave Spawn Group
             foreach (EnemySpawner s in spawners)
@@ -181,15 +189,17 @@ public class EnemyManager : MonoBehaviour
             }
 
             currentWave++;
+
             if (LogWaveUpdates)
+                print(currentWave);
                 print("Starting " + waves[currentWave].waveID);
 
-            while (currentWave != waves[currentWave].waveNum)
-            {
-                Debug.LogError("Error mismatched wave values: " + currentWave + " Does not match " + waves[currentWave].waveNum);
-                currentWave++;
-                Debug.LogError("Moving to " + waves[currentWave].waveID);
-            }
+            //while (currentWave != waves[currentWave].waveNum)
+            //{
+            //    Debug.LogError("Error mismatched wave values: " + currentWave + " Does not match " + waves[currentWave].waveNum);
+            //    currentWave++;
+            //    Debug.LogError("Moving to " + waves[currentWave].waveID);
+            //}
 
             SetupWave();
 
@@ -244,7 +254,11 @@ public class EnemyManager : MonoBehaviour
         {
             if (LogSpawnerStates)
                 print("All Spawners Exhausted");
+
             //NextLevel();
+            generate = true;
+            BeginNextWave();
+
         }
         else if (i == spawners.Count)
         {
@@ -261,7 +275,8 @@ public class EnemyManager : MonoBehaviour
             }
         }
 
-        print("Spawner Check Finished");
+        if (LogSpawnerStates)
+            print("Spawner Check Finished");
     }
 
     void ForceSpawnAll()
@@ -284,5 +299,25 @@ public class EnemyManager : MonoBehaviour
     {
         enemyCap = waves[currentWave].enemyCap;
         spawnCooldown = waves[currentWave].spawnSpeed;
+    }
+
+
+    void GenerateWave()
+    {
+        print("No Remaining Waves. Generating Wave " + currentWave +1);
+
+        Wave newWave = new Wave();
+        newWave.enemyCap = enemyCap + 1;
+        newWave.spawnSpeed = 1;
+        newWave.waveID = "Wave " + (currentWave + 1);
+        newWave.waveNum = currentWave + 1;
+
+        foreach(EnemySpawner s in spawners)
+        {
+            s.GenerateGroup(newWave.waveNum, enemyList);
+        }
+
+        waves.Add(newWave);
+        print(waves.IndexOf(newWave));
     }
 }

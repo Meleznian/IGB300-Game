@@ -200,6 +200,7 @@ MonoBehaviour:
   health: 15
   iFrames: 5
   hasIFrames: 0
+  parriable: 0
   moveSpeed: 5
   minDistance: 1
   chargeDistance: 0
