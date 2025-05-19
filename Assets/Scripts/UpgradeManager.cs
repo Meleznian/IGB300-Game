@@ -10,14 +10,16 @@ public class UpgradeManager : MonoBehaviour
     {
         public string upgradeName;
         public string effectDescription;
+        public Sprite icon;
     }
 
-    [Header("UI References")]
+
     public GameObject upgradePanel;
 
     public Button[] upgradeButtons;                 
     public TMP_Text[] upgradeNameTexts;             
-    public TMP_Text[] upgradeEffectTexts; 
+    public TMP_Text[] upgradeEffectTexts;
+    public Image[] UpgradeIcon;
 
     private List<Upgrade> allUpgrades = new List<Upgrade>();
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
@@ -27,15 +29,41 @@ public class UpgradeManager : MonoBehaviour
     {
         allUpgrades = new List<Upgrade>()
         {
-            new Upgrade { upgradeName = "Sharpen Blade", effectDescription = "Increase Melee Damage" },
-            new Upgrade { upgradeName = "Polish Blade", effectDescription = "Increase Melee Speed" },
-            new Upgrade { upgradeName = "Reinforce Shell", effectDescription = "Increase Health" },
-            new Upgrade { upgradeName = "Streamline Casings", effectDescription = "Increase Projectile Speed / Range" },
-            new Upgrade { upgradeName = "Sharpen Casings", effectDescription = "Increase Projectile Damage" },
-            new Upgrade { upgradeName = "Strengthen Arm", effectDescription = "Increase Melee Knockback" },
-            new Upgrade { upgradeName = "Oil Limbs", effectDescription = "Increase Move Speed" },
-            new Upgrade { upgradeName = "Analyse Opponents", effectDescription = "Increase Parry Multiplier" },
-            new Upgrade { upgradeName = "Enhanced Charging", effectDescription = "Reduce Special Cooldown" }
+            new Upgrade { upgradeName = "Sharpen Blade", 
+                effectDescription = "Increase Melee Damage", 
+                icon = Resources.Load<Sprite>("Sprite/Sharpen Blade")},
+
+            new Upgrade { upgradeName = "Polish Blade", 
+                effectDescription = "Increase Melee Speed", 
+                icon = Resources.Load<Sprite>("Sprite/Polish Blade") },
+
+            new Upgrade { upgradeName = "Reinforced Shield",
+                effectDescription = "Increase Health", 
+                icon = Resources.Load<Sprite>("Sprite/Reinforced Shield") },
+
+            new Upgrade { upgradeName = "Streamline Casings", 
+                effectDescription = "Increase Projectile Speed / Range", 
+                icon = Resources.Load<Sprite>("Sprite/Streamline Casings") },
+
+            new Upgrade { upgradeName = "Sharpen Casings", 
+                effectDescription = "Increase Projectile Damage", 
+                icon = Resources.Load<Sprite>("Sprite/Sharpen Casings") },
+
+            new Upgrade { upgradeName = "Strengthen Arm", 
+                effectDescription = "Increase Melee Knockback", 
+                icon = Resources.Load<Sprite>("Sprite/Strengthen Arm") },
+
+            new Upgrade { upgradeName = "Oil Limbs", 
+                effectDescription = "Increase Move Speed", 
+                icon = Resources.Load<Sprite>("Sprite/Sharpen Blade") },
+
+            new Upgrade { upgradeName = "Analyse Opponents", 
+                effectDescription = "Increase Parry Multiplier", 
+                icon = Resources.Load<Sprite>("Sprite/Sharpen Blade") },
+
+            new Upgrade { upgradeName = "Enhanced Charging", 
+                effectDescription = "Reduce Special Cooldown", 
+                icon = Resources.Load<Sprite>("Sprite/Sharpen Blade") }
         };
 
         availableUpgrades = new List<Upgrade>(allUpgrades);
@@ -73,10 +101,23 @@ public class UpgradeManager : MonoBehaviour
             currentOptions[i] = tempList[rand];
             tempList.RemoveAt(rand);
 
-            // Assign name and effect to correct button's text
             upgradeNameTexts[i].text = currentOptions[i].upgradeName;
             upgradeEffectTexts[i].text = currentOptions[i].effectDescription;
+
+
+            if (UpgradeIcon[i] != null && currentOptions[i].icon != null)
+            {
+                UpgradeIcon[i].sprite = currentOptions[i].icon;
+                UpgradeIcon[i].enabled = true;
+            }
+
+            if (UpgradeIcon[i] == null)
+                Debug.LogWarning("Missing Image reference at index " + i);
+            if (currentOptions[i].icon == null)
+                Debug.LogWarning("Missing sprite for upgrade: " + currentOptions[i].upgradeName);
+
         }
+
 
         upgradePanel.SetActive(true);
         Time.timeScale = 0f;
