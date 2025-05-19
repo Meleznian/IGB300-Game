@@ -112,7 +112,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     private void Death()
     {
-        gameObject.SetActive(false);
+        EnemyManager.instance.EnemyKilled(gameObject);
     }
 
     public IEnumerator Invincible()

@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [Serializable]
     public class SpawnGroup 
     {
-        [SerializeField] List<GameObject> queue = new();
+        [SerializeField] internal List<GameObject> queue = new();
         [SerializeField] internal int wave;
         [SerializeField] int index;
         [SerializeField] internal bool queueFinished;
@@ -89,5 +89,22 @@ public class EnemySpawner : MonoBehaviour
         currentGroup = spawnGroups[0];
         nextEnemy = currentGroup.GetEnemy();
         groupIndex = 0;
+    }
+
+
+    internal void GenerateGroup(int wave, GameObject[] enemyList)
+    {
+
+        SpawnGroup group = new SpawnGroup();
+        group.wave = wave;
+        int enemyNum = UnityEngine.Random.Range(1, 5);
+
+        while(enemyNum > 0)
+        {
+            group.queue.Add(enemyList[UnityEngine.Random.Range(0, group.queue.Count)]);
+            enemyNum--;
+        }
+
+        spawnGroups.Add(group);
     }
 }
