@@ -186,10 +186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b453dbdf93a42af43aa32f3743021e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyName: Turret
+  health: 15
+  defaultDamage: 10
+  moveSpeed: 0
+  attackSpeed: 3
+  stunTime: 0
+  knockbackResist: 0
+  attacks: []
   firePoint: {fileID: 2886474492072802165}
   bulletPrefab: {fileID: 918802385275866056, guid: 7102462c2cb5e8f4d9106e380257dc70, type: 3}
   player: {fileID: 0}
-  fireRate: 3
   sightRange: 20
   obstacleMask:
     serializedVersion: 2
