@@ -1980,7 +1980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8716705615099458124, guid: c53d603c895b50c4ba353ce8ffce5427, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8716705615099458124, guid: c53d603c895b50c4ba353ce8ffce5427, type: 3}
       propertyPath: recountAfter
@@ -5742,18 +5742,6 @@ PrefabInstance:
     - target: {fileID: 1354585238773915636, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1354585238773915636, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480391068720867452, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: m_Value
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3480391068720867452, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: m_MaxValue
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5860683412514568417, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: playerHealth

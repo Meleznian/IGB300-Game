@@ -35,10 +35,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        GameManager.instance.DecreaseHype();
 
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            Die();
             anim.SetTrigger("Killed");
 
         }
