@@ -8,15 +8,28 @@ public class Turret : EnemyBase
     [SerializeField] float sightRange = 10f;
     [SerializeField] LayerMask obstacleMask; // Use walls and other objects to block views.
     [SerializeField] Animator anim;
+    LineRenderer laserSight;
 
     float fireCooldown = 0f;
 
     void Update()
     {
-        if (PlayerInSight() && fireCooldown <= 0)
+        if (PlayerInSight())
         {
-            anim.SetTrigger("Shoot");
-            fireCooldown = attackSpeed;
+            laserSight.enabled = true;
+            laserSight.SetPosition(0, firePoint.position);
+            laserSight.SetPosition(1, player.position);
+
+
+            if (fireCooldown <= 0)
+            {
+                anim.SetTrigger("Shoot");
+                fireCooldown = attackSpeed;
+            }
+        }
+        else
+        {
+            laserSight.enabled = false;
         }
 
         fireCooldown -= Time.deltaTime;
@@ -59,5 +72,6 @@ public class Turret : EnemyBase
     public override void ExtraSetup()
     {
         player = GameObject.Find("Player").transform;
+        laserSight = GetComponent<LineRenderer>();
     }
 }
