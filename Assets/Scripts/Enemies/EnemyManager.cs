@@ -152,6 +152,8 @@ public class EnemyManager : MonoBehaviour
 
         Destroy(enemy);
 
+        GameManager.instance.IncreaseHype();
+
         if(currentlyAlive < 0)
         {
             Debug.LogError("Currently Alive Enemies is " + currentlyAlive);

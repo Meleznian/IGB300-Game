@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        GameManager.instance.DecreaseHype();
 
         if (currentHealth <= 0)
         {

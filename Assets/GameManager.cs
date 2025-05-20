@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI YouDiedtxt;
     public TextMeshProUGUI killCountText;
     public TextMeshProUGUI killCountVictoryText;
+    public TMP_Text crowdHypeText;
     public GameObject completeLevelUI;
 
     bool gameHasEnded = false;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     public int KillTarget = 10;
 
+    public int crowdHype;
+    public float cashMult;
 
     void Update()
     {
@@ -80,4 +83,45 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);//return the name of the current scene
     }
 
+
+    public void IncreaseHype()
+    {
+        crowdHype++;
+        crowdHype = Mathf.Clamp(crowdHype, 0, 10);
+        crowdHypeText.text = "Crowd Hype: " + crowdHype;
+
+        CalcMult();
+    }
+
+    public void DecreaseHype()
+    {
+        crowdHype /= 2;
+        crowdHypeText.text = "Crowd Hype: " + crowdHype;
+
+        CalcMult();
+    }
+
+    void CalcMult()
+    {
+        if(crowdHype == 10)
+        {
+            cashMult = 2;
+        }
+        else if(crowdHype >= 7)
+        {
+            cashMult = 1.7f;
+        }
+        else if (crowdHype >= 5)
+        {
+            cashMult = 1.5f;
+        }
+        else if (crowdHype >= 3)
+        {
+            cashMult = 1.2f;
+        }
+        else
+        {
+            cashMult = 1f;
+        }
+    }
 }
