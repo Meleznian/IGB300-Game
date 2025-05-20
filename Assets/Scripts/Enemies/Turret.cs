@@ -1,38 +1,41 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Turret : EnemyBase
 {
     [SerializeField] Transform firePoint;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject Gun;
     [SerializeField] Transform player;
     [SerializeField] float sightRange = 10f;
     [SerializeField] LayerMask obstacleMask; // Use walls and other objects to block views.
     [SerializeField] Animator anim;
-    LineRenderer laserSight;
+    internal LineRenderer laserSight;
 
     float fireCooldown = 0f;
+    bool aiming;
 
     void Update()
     {
         if (PlayerInSight())
         {
-            laserSight.enabled = true;
-            laserSight.SetPosition(0, firePoint.position);
-            laserSight.SetPosition(1, player.position);
-
+            LaserOn();
+            RotateGun();
 
             if (fireCooldown <= 0)
             {
                 anim.SetTrigger("Shoot");
+                //Fire();
                 fireCooldown = attackSpeed;
             }
+
+            fireCooldown -= Time.deltaTime;
         }
         else
         {
-            laserSight.enabled = false;
+            LaserOff();
         }
 
-        fireCooldown -= Time.deltaTime;
     }
 
     bool PlayerInSight()
@@ -73,5 +76,47 @@ public class Turret : EnemyBase
     {
         player = GameObject.Find("Player").transform;
         laserSight = GetComponent<LineRenderer>();
+    }
+
+    void RotateGun()
+    {
+        laserSight.SetPosition(0, firePoint.position);
+        laserSight.SetPosition(1, player.position);
+        Vector2 direction = player.position - Gun.transform.position;
+        Gun.transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+
+        if(player.position.x < transform.position.x)
+        {
+            Gun.transform.localScale = new Vector3(-1,1,1);
+        }
+        else
+        {
+            Gun.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    void LaserOn()
+    {
+        if (!aiming)
+        {
+            Gun.SetActive(true);
+            anim.SetBool("Aiming", true);
+            laserSight.enabled = true;
+            aiming = true;
+        }
+    }
+
+    void LaserOff()
+    {
+        if (aiming)
+        {
+            Gun.SetActive(false);
+            anim.SetBool("Aiming", false);
+            laserSight.startColor = Color.red;
+            laserSight.endColor = Color.red;
+            laserSight.enabled = false;
+            fireCooldown = attackSpeed;
+            aiming = false;
+        }
     }
 }
