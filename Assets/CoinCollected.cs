@@ -1,8 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CoinCollected : MonoBehaviour
 {
-    public int currenctCoin = 0;
+    
+    //public TextMeshProUGUI coinText;
+
+    void Update()
+    {
+        
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -11,10 +19,12 @@ public class CoinCollected : MonoBehaviour
         if(other.gameObject.tag == "Coin")
         {
             //Debug.Log("Destroy it");
-            currenctCoin += 100;
+            //call GameManager here
+            FindFirstObjectByType<GameManager>().CoinCount();
             other.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Collected");
-            Destroy(other.gameObject, 1f);
             Debug.Log("Destroy it");
+            Destroy(other.gameObject, 1f);
+            
 
         }
 
