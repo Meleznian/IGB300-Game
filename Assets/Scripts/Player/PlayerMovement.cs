@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        Debug.Log("Jumping");
+        //Debug.Log("Jumping");
         //isGrounded = false;
         rb.linearVelocityY = 0;
         rb.AddForce(transform.up * _jumpSpeed, ForceMode2D.Impulse);
