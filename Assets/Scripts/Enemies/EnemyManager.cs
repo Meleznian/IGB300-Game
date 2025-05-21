@@ -52,6 +52,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] enemyList;
 
     bool done;
+    bool inWave;
     bool generate;
 
     private void Start()
@@ -61,7 +62,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Update()
     {
-        if (!done)
+        if (!done && inWave)
         {
             TrySpawn();
         }
@@ -161,7 +162,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    internal void BeginNextWave()
+    internal void SetupNextWave()
     {
         //if (currentWave+1 >= waves.Count)
         //{
@@ -203,21 +204,23 @@ public class EnemyManager : MonoBehaviour
             //    Debug.LogError("Moving to " + waves[currentWave].waveID);
             //}
 
-            SetupWave();
+            enemyCap = waves[currentWave].enemyCap;
+            spawnCooldown = waves[currentWave].spawnSpeed;
 
-            ForceSpawnAll();
+            PlatformManager.instance.BeginMoving();      
         }
     }
 
     void SetUp()
     {
-        SetupWave();
+        enemyCap = waves[currentWave].enemyCap;
+        spawnCooldown = waves[currentWave].spawnSpeed;
 
         currentlyAlive = CountEnemies();
         spawners = FindObjectsByType<EnemySpawner>(FindObjectsSortMode.None).ToList();
         spawnerIndex = 0;
 
-        ForceSpawnAll();
+        StartWave();
 
         if (LogWaveUpdates)
             print("Setup Complete, Starting " + waves[currentWave].waveID);
@@ -259,14 +262,15 @@ public class EnemyManager : MonoBehaviour
 
             //NextLevel();
             generate = true;
-            BeginNextWave();
+            SetupNextWave();
 
         }
         else if (i == spawners.Count)
         {
             if (LogSpawnerStates)
                 print("All Spawner Queues complete, moving to next");
-            BeginNextWave();
+            inWave = false;
+            SetupNextWave();
         }
         else
         {
@@ -297,10 +301,11 @@ public class EnemyManager : MonoBehaviour
         return i;
     }
 
-    void SetupWave()
+    public void StartWave()
     {
-        enemyCap = waves[currentWave].enemyCap;
-        spawnCooldown = waves[currentWave].spawnSpeed;
+        print("Starting Wave");
+        inWave = true;
+        ForceSpawnAll();
     }
 
 

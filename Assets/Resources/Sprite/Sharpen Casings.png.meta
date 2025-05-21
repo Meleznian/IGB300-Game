@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sharpen Casings_0: -1467345839121930361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
