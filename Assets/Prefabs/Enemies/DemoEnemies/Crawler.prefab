@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 8920319125171865864}
   - component: {fileID: 7106706533884588767}
   - component: {fileID: 3064701621189724166}
+  - component: {fileID: 2194513479799854617}
   m_Layer: 8
   m_Name: Crawler
   m_TagString: Untagged
@@ -285,6 +286,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77645cd57a0c4f40aad5ff3b6e990f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2194513479799854617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3846183097623824491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc088a274c8dc542929013d6dc8a948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lodgedbullets: 0
+  floorBullet: {fileID: 0}
 --- !u!1 &7467031131712941437
 GameObject:
   m_ObjectHideFlags: 0

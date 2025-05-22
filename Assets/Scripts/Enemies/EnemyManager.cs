@@ -151,6 +151,12 @@ public class EnemyManager : MonoBehaviour
 
         currentlyAlive--;
 
+        int b = enemy.GetComponent<BulletLodging>().Lodgedbullets;
+        if (b >= 1)
+        {
+            GameManager.instance.SpawnBullets(b, enemy.transform.position);
+        }
+
         Destroy(enemy);
 
         GameManager.instance.IncreaseHype();

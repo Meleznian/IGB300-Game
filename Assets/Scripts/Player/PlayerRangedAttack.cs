@@ -27,7 +27,11 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         if (!bulletPrefab || !firePoint) return;
 
-        var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().Init(dir);
+        if (GameManager.instance.DecreaseAmmo(1))
+        {
+            var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            bullet.GetComponent<Bullet>().Init(dir);
+            bullet.GetComponent<Bullet>().playerOwned = true;
+        }
     }
 }

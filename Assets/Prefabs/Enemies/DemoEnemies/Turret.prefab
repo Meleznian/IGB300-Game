@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 8365425850685201997}
   - component: {fileID: -6542129862815509014}
   - component: {fileID: 2201805013913273220}
+  - component: {fileID: 7660672350349924354}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
@@ -484,6 +485,20 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7660672350349924354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110408641072353378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc088a274c8dc542929013d6dc8a948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lodgedbullets: 0
+  floorBullet: {fileID: 0}
 --- !u!1 &5562379817291759189
 GameObject:
   m_ObjectHideFlags: 0

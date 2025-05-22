@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1944717912842723637}
   - component: {fileID: 1479381369196750076}
   - component: {fileID: 7508291226925342388}
+  - component: {fileID: 5775169320188360067}
   m_Layer: 2
   m_Name: DroneMelee
   m_TagString: Untagged
@@ -167,6 +168,20 @@ MonoBehaviour:
   damageCooldown: 0
   contactDamage: 0
   damageKnockback: 0
+--- !u!114 &5775169320188360067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348757875583023632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc088a274c8dc542929013d6dc8a948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lodgedbullets: 0
+  floorBullet: {fileID: 918802385275866056, guid: e2b8a258f7406f54ea667de099b55cfa, type: 3}
 --- !u!1 &6894781992262527531
 GameObject:
   m_ObjectHideFlags: 0

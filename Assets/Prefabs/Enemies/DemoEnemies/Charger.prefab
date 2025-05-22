@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: -5120716224871148930}
   - component: {fileID: -4340462171091187789}
   - component: {fileID: 8676973816004458006}
+  - component: {fileID: 753404095893473022}
   m_Layer: 8
   m_Name: Charger
   m_TagString: Untagged
@@ -292,3 +293,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77645cd57a0c4f40aad5ff3b6e990f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &753404095893473022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3010242644535729339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc088a274c8dc542929013d6dc8a948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lodgedbullets: 0
+  floorBullet: {fileID: 0}

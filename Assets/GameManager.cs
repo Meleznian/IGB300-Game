@@ -34,8 +34,17 @@ public class GameManager : MonoBehaviour
     public int crowdHype;
     public float cashMult;
     public int steamGauge;
+    public int ammo;
+    public int maxAmmo;
     [SerializeField] Slider steamSlider;
     [SerializeField] Slider hypeSlider;
+    [SerializeField] TMP_Text ammoText;
+    [SerializeField] GameObject floorBullet;
+
+    private void Start()
+    {
+        ammoText.text = "Ammo: " + ammo;
+    }
 
     void Update()
     {
@@ -149,5 +158,36 @@ public class GameManager : MonoBehaviour
         {
             return false;
         }  
+    }
+
+    public void IncreaseAmmo(int amount)
+    {
+        ammo += amount;
+        ammo = Mathf.Clamp(ammo, 0, maxAmmo);
+        ammoText.text = "Ammo: " + ammo;
+    }
+
+    public bool DecreaseAmmo(int amount)
+    {
+        if (ammo - amount >= 0)
+        {
+            ammo -= amount;
+            ammoText.text = "Ammo: " + ammo;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    internal void SpawnBullets(int b, Vector3 position)
+    {
+        while (b > 0)
+        {
+            var bullet = Instantiate(floorBullet, position, transform.rotation);
+            bullet.GetComponent<Rigidbody2D>().AddForce(new Vector3(UnityEngine.Random.Range(-2.0f,3.0f), 0, 0), ForceMode2D.Impulse);
+            b--;
+        }
     }
 }

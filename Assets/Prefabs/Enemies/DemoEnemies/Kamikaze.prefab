@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 4385361011341478799}
   - component: {fileID: 4810837044207700675}
   - component: {fileID: -7414623440258760833}
+  - component: {fileID: -7685453078536734162}
   m_Layer: 8
   m_Name: Kamikaze
   m_TagString: Untagged
@@ -215,6 +216,7 @@ MonoBehaviour:
   health: 0
   iFrames: 0
   hasIFrames: 0
+  parriable: 0
   moveSpeed: 0
   minDistance: 0
   chargeDistance: 0
@@ -306,3 +308,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77645cd57a0c4f40aad5ff3b6e990f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7685453078536734162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175027469317663787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc088a274c8dc542929013d6dc8a948, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lodgedbullets: 0
+  floorBullet: {fileID: 0}

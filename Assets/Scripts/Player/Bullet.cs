@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float lifetime = 2f;
     [SerializeField] internal int damage = 1;
-    [SerializeField] bool playerOwned;
+    [SerializeField] internal bool playerOwned;
 
     Vector2 moveDir;
 
@@ -27,7 +27,9 @@ public class Bullet : MonoBehaviour
 
         if (playerOwned && damageable != null)
         {
+            other.GetComponent<BulletLodging>().LodgeBullet();
             damageable.TakeDamage(damage);
+
             Destroy(gameObject);
         }
         else if(!playerOwned && player != null)
@@ -37,6 +39,10 @@ public class Bullet : MonoBehaviour
         }
         else if (!other.isTrigger)
         {
+            if (playerOwned)
+            {
+                GameManager.instance.SpawnBullets(1, transform.position);
+            }
             Destroy(gameObject);
         }
     }
