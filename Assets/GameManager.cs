@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     public float cashMult;
     public int steamGauge;
     [SerializeField] Slider steamSlider;
+    [SerializeField] Slider hypeSlider;
 
     void Update()
     {
@@ -90,7 +91,8 @@ public class GameManager : MonoBehaviour
     {
         crowdHype++;
         crowdHype = Mathf.Clamp(crowdHype, 0, 10);
-        crowdHypeText.text = "Crowd Hype: " + crowdHype;
+        crowdHypeText.text = crowdHype.ToString();
+        hypeSlider.value = crowdHype;
 
         CalcMult();
     }
@@ -98,7 +100,8 @@ public class GameManager : MonoBehaviour
     public void DecreaseHype()
     {
         crowdHype /= 2;
-        crowdHypeText.text = "Crowd Hype: " + crowdHype;
+        crowdHypeText.text = crowdHype.ToString();
+        hypeSlider.value = crowdHype;
 
         CalcMult();
     }

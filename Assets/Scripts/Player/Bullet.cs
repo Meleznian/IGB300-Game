@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float lifetime = 2f;
     [SerializeField] internal int damage = 1;
+    [SerializeField] bool playerOwned;
 
     Vector2 moveDir;
 
@@ -22,14 +23,35 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         var damageable = other.GetComponent<IDamageable>();
-        if (damageable != null)
+        var player = other.GetComponent<PlayerHealth>();
+
+        if (playerOwned && damageable != null)
         {
             damageable.TakeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if(!playerOwned && player != null)
+        {
+            player.TakeDamage(damage);
             Destroy(gameObject);
         }
         else if (!other.isTrigger)
         {
             Destroy(gameObject);
+        }
+    }
+
+    internal void SwitchOwner()
+    {
+        playerOwned = !playerOwned;
+
+        if (playerOwned)
+        {
+            gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
+        }
+        else
+        {
+            gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
         }
     }
 }
