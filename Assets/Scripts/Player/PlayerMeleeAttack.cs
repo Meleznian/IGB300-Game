@@ -63,7 +63,10 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             var enemy = h.GetComponent<IDamageable>();
             if (enemy != null)
+            {
                 enemy.TakeDamage(damage);
+                GameManager.instance.IncreaseGauge();
+            }
         }
     }
 

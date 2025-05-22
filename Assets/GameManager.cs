@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
 
     public int crowdHype;
     public float cashMult;
+    public int steamGauge;
+    [SerializeField] Slider steamSlider;
 
     void Update()
     {
@@ -123,5 +125,26 @@ public class GameManager : MonoBehaviour
         {
             cashMult = 1f;
         }
+    }
+
+    public void IncreaseGauge()
+    {
+        steamGauge++;
+        steamGauge = Mathf.Clamp(steamGauge, 0, 10);
+        steamSlider.value = steamGauge;
+    }
+
+    public bool DecreaseGauge(int amount)
+    {
+        if (steamGauge - amount >= 0)
+        {
+            steamGauge -= amount;
+            steamSlider.value = steamGauge;
+            return true;
+        }
+        else
+        {
+            return false;
+        }  
     }
 }
