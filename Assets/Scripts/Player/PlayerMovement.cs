@@ -210,4 +210,10 @@ public class PlayerMovement : MonoBehaviour
             other.gameObject.GetComponent<ICollectable>().Collect();
         }
     }
+
+    internal void IncreaseSpeed(float amount)
+    {
+        _speed += amount;
+        _sprintSpeed += amount;
+    }
 }

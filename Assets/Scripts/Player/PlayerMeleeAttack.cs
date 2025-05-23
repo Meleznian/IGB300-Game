@@ -5,6 +5,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] Transform up, down, left, right;
     [SerializeField] float range = 1f;
     [SerializeField] int damage = 1;
+    [SerializeField] float knockback = 1f;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] GameObject flashFX;
     [SerializeField] Animator anim;
@@ -86,4 +87,18 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (left) Gizmos.DrawWireSphere(left.position, range);
         if (right) Gizmos.DrawWireSphere(right.position, range);
     }
+
+    internal void IncreaseDamage(int amount)
+    {
+        damage += amount;
+    }
+    internal void IncreaseSpeed(float amount)
+    {
+
+    }
+    internal void IncreaseKnockback(float amount)
+    {
+        knockback += amount;
+    }
+
 }

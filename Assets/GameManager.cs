@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public int steamGauge;
     public int ammo;
     public int maxAmmo;
+    public float parryMult = 1.2f;
+
     [SerializeField] Slider steamSlider;
     [SerializeField] Slider hypeSlider;
     [SerializeField] TMP_Text ammoText;
@@ -189,5 +191,10 @@ public class GameManager : MonoBehaviour
             bullet.GetComponent<Rigidbody2D>().AddForce(new Vector3(UnityEngine.Random.Range(-2.0f,3.0f), 0, 0), ForceMode2D.Impulse);
             b--;
         }
+    }
+
+    internal void IncreaseParryMult(float amount)
+    {
+        parryMult += amount;
     }
 }

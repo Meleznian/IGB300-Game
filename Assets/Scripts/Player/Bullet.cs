@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] float speed = 10f;
-    [SerializeField] float lifetime = 2f;
+    [SerializeField] internal float speed = 10f;
+    //[SerializeField] float lifetime = 2f;
     [SerializeField] internal int damage = 1;
     [SerializeField] internal bool playerOwned;
 
@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     public void Init(Vector2 direction)
     {
         moveDir = direction.normalized;
-        Destroy(gameObject, lifetime);
+        //Destroy(gameObject, lifetime);
     }
 
     void Update()

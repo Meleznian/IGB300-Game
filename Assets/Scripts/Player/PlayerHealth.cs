@@ -69,4 +69,9 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Player died. Reset to Wave 1...");
         FindFirstObjectByType<GameManager>().EndGame();
     }
+
+    public void IncreaseMax(int amount)
+    {
+        maxHealth +=+ amount;
+    }
 }
