@@ -22,4 +22,11 @@ public class PlayerHealthUI : MonoBehaviour
             hpSlider.value = playerHealth.currentHealth;
         }
     }
+
+    internal void UpdateMax()
+    {
+        hpSlider.maxValue = playerHealth.maxHealth;
+        hpSlider.value = playerHealth.currentHealth;
+    }
+
 }

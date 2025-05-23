@@ -5,6 +5,8 @@ public class PlayerRangedAttack : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] Transform aimCursor;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] int bulletDamage;
 
     void Update()
     {
@@ -29,9 +31,20 @@ public class PlayerRangedAttack : MonoBehaviour
 
         if (GameManager.instance.DecreaseAmmo(1))
         {
-            var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-            bullet.GetComponent<Bullet>().Init(dir);
-            bullet.GetComponent<Bullet>().playerOwned = true;
+            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();
+            bullet.Init(dir);
+            bullet.playerOwned = true;
+            bullet.damage = bulletDamage;
+            bullet.speed = bulletSpeed;
         }
+    }
+
+    internal void IncreaseDamage(int amount)
+    {
+        bulletDamage += amount;
+    }
+    internal void IncreaseSpeed(float amount)
+    {
+        bulletSpeed += amount;
     }
 }
