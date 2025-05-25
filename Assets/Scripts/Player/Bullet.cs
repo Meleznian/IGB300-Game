@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal int damage = 1;
     [SerializeField] internal float knockback;
     [SerializeField] internal bool playerOwned;
+    [SerializeField] internal bool originallyEnemy;
 
     Vector2 moveDir;
 
@@ -28,19 +29,29 @@ public class Bullet : MonoBehaviour
 
         if (playerOwned && damageable != null)
         {
-            other.GetComponent<BulletLodging>().LodgeBullet();
+            if (!originallyEnemy)
+            {
+                other.GetComponent<BulletLodging>().LodgeBullet();
+            }
             damageable.TakeDamage(damage);
 
             Destroy(gameObject);
         }
         else if(!playerOwned && player != null)
         {
-            player.TakeDamage(damage);
-            Destroy(gameObject);
+            if (player.parrying)
+            {
+                GetParried();
+            }
+            else
+            {
+                player.TakeDamage(damage);
+                Destroy(gameObject);
+            }
         }
         else if (!other.isTrigger)
         {
-            if (playerOwned)
+            if (playerOwned && !originallyEnemy)
             {
                 GameManager.instance.SpawnBullets(1, transform.position);
             }
@@ -48,17 +59,24 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    internal void SwitchOwner()
+    internal void GetParried()
     {
-        playerOwned = !playerOwned;
+        playerOwned = true;
 
-        if (playerOwned)
-        {
-            gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
-        }
-        else
-        {
-            gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
-        }
+        Vector2 newDirection = Input.mousePosition;
+        newDirection = Camera.main.ScreenToWorldPoint(newDirection);
+        newDirection = newDirection - new Vector2(transform.position.x,transform.position.y);
+        moveDir = newDirection.normalized;
+
+        //if (playerOwned)
+        //{
+        gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
+        GetComponent<CircleCollider2D>().excludeLayers &= ~(1 << LayerMask.NameToLayer("Enemy"));
+        GetComponent<CircleCollider2D>().excludeLayers |= (1 << LayerMask.NameToLayer("Player"));
+        //}
+        //else
+        //{
+        //    gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
+        //}
     }
 }

@@ -7,6 +7,7 @@ public class Parry : MonoBehaviour
 
     InputAction parryAction;
     BehaviourAgent parryTarget;
+    [SerializeField] Animator anim;
     bool parriable;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,7 +24,11 @@ public class Parry : MonoBehaviour
 
     void UseParry()
     {
-        StartCoroutine(parryTarget.Stunned());
+        anim.SetTrigger("Parry");
+        if (parryTarget != null)
+        {
+            StartCoroutine(parryTarget.Stunned());
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)

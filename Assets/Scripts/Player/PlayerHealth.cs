@@ -15,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
 
     public bool isHealing = false;       // Currently recovering?
 
+    internal bool parrying;
+
     void Start()
     {
         currentHealth = maxHealth;       // Maximize HP at the start of the game
@@ -73,5 +75,14 @@ public class PlayerHealth : MonoBehaviour
     public void IncreaseMax(int amount)
     {
         maxHealth +=+ amount;
+    }
+
+    internal void StartParry()
+    {
+        parrying = true;
+    }
+    internal void EndParry()
+    {
+        parrying = false;
     }
 }

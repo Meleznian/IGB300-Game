@@ -48,7 +48,7 @@ public class Turret : EnemyBase
         if (dist > sightRange) return false;
 
         int mask = ~(1 << LayerMask.NameToLayer("Turret")); // Exclude turret layer
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, dist, mask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, dist, ~obstacleMask);
 
         if (hit.collider != null)
         {
@@ -70,6 +70,8 @@ public class Turret : EnemyBase
         Vector2 dir = (player.position - firePoint.position).normalized;
         var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().Init(dir);
+        bullet.GetComponent<Bullet>().originallyEnemy = true;
+
     }
 
     public override void ExtraSetup()
