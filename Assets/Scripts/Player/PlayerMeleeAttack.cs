@@ -10,22 +10,31 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] GameObject flashFX;
     [SerializeField] Animator anim;
 
+    [SerializeField] float meleeCooldown = 0.5f;
+    float meleeCooldownTimer = 0f;
+
     void Update()
     {
+        meleeCooldownTimer -= Time.deltaTime;
+
         // Gamepad input: Left stick + R1 button
-        if (Input.GetKeyDown(KeyCode.JoystickButton5))
+        if (Input.GetKeyDown(KeyCode.JoystickButton5) && meleeCooldownTimer <= 0f)
         {
             Vector2 stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             if (stick.magnitude > 0.5f)
+            {
                 TryAttack(stick.normalized);
+                meleeCooldownTimer = meleeCooldown;
+            }
         }
 
         // Mouse input: left click
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && meleeCooldownTimer <= 0f)
         {
             Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 dir = (mouse - (Vector2)transform.position).normalized;
             TryAttack(dir);
+            meleeCooldownTimer = meleeCooldown;
         }
     }
 
