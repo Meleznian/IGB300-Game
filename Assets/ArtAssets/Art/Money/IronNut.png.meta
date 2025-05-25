@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 20d12d068dafc564885527979fe4c3f1
+guid: f7d865f257b5a60409b531e481c1ba42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7609541930175334744
-    second: Upgrade Panel Border 1_0
+      213: 763139851816678386
+    second: IronNut_0
+  - first:
+      213: 6599449906262106580
+    second: IronNut_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Upgrade Panel Border 1_0
+      name: IronNut_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 46
-        width: 1536
-        height: 935
+        x: 496
+        y: 620
+        width: 1056
+        height: 1057
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8598a8381168a9960800000000000000
-      internalID: 7609541930175334744
+      spriteID: 2f33a75e6a7379a00800000000000000
+      internalID: 763139851816678386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IronNut_1
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 370
+        width: 25
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d1ecbf69b4f59b50800000000000000
+      internalID: 6599449906262106580
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Upgrade Panel Border 1_0: 7609541930175334744
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

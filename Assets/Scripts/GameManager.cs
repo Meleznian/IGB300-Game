@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     public TMP_Text crowdHypeText;
     public GameObject completeLevelUI;
 
+
+    public TextMeshProUGUI coinText;
+    private int _CoinCount = 0;
+
     bool gameHasEnded = false;
     bool gameHasWon = false;
     public float restartDelay = 0.5f;
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         killCountText.text = DisplayKillCount().ToString();
+        coinText.text = _CoinCount.ToString();
 
         if (_killCount >= KillTarget & gameHasWon == false)
         {
@@ -66,6 +71,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void CoinCount()
+    {
+        _CoinCount += 100;
+    }
+
     public void CompleteLevel()
     {
         completeLevelUI.SetActive(true);
@@ -76,6 +86,11 @@ public class GameManager : MonoBehaviour
     public int DisplayKillCount()
     {
         return _killCount;
+    }
+
+    public int DisplayCoinCount()
+    {
+        return _CoinCount;
     }
 
     public void EndGame()

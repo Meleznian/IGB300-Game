@@ -5860,6 +5860,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2651924747346083446, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651924747346083446, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5860683412514568417, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: playerHealth
       value: 
@@ -5877,13 +5885,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8380166252511085950}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: cashGoal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: movement
       value: 
       objectReference: {fileID: 8380166252511085949}
+    - target: {fileID: 7023252639497638171, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 8502951377132988065}
     - target: {fileID: 7477950269015109050, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6538,14 +6546,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: bulletSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: bulletDamage
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.21
