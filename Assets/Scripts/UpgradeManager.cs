@@ -51,8 +51,8 @@ public class UpgradeManager : MonoBehaviour
                 icon = Resources.Load<Sprite>("Sprite/Sharpen Casings"), id = "BulletDamage" },
 
             new Upgrade { upgradeName = "Strengthen Arm", 
-                effectDescription = "Increase Melee Knockback", 
-                icon = Resources.Load<Sprite>("Sprite/Strengthen Arm"), id = "MeleeKnock" },
+                effectDescription = "Increase Knockback", 
+                icon = Resources.Load<Sprite>("Sprite/Strengthen Arm"), id = "Knockback" },
 
             new Upgrade { upgradeName = "Oil Limbs", 
                 effectDescription = "Increase Move Speed", 
@@ -143,6 +143,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] float attackSpeedIncrease = 0.1f;
     [SerializeField] int damageIncrease = 3;
     [SerializeField] float bulletSpeedIncrease = 1;
+    [SerializeField] float bulletCoolIncrease = 1;
     [SerializeField] int bulletDamageIncrease = 1;
     [SerializeField] float moveSpeedIncrease = 0.5f;
     [SerializeField] float knockbackIncrease = 1;
@@ -174,15 +175,16 @@ public class UpgradeManager : MonoBehaviour
         }
         else if (stat == "BulletSpeed")
         {
-            ranged.IncreaseSpeed(bulletSpeedIncrease);
+            ranged.IncreaseSpeed(bulletSpeedIncrease, bulletCoolIncrease);
         }
         else if (stat == "BulletDamage")
         {
             ranged.IncreaseDamage(bulletDamageIncrease);
         }
-        else if (stat == "MeleeKnock")
+        else if (stat == "Knockback")
         {
             melee.IncreaseKnockback(knockbackIncrease);
+            ranged.IncreaseKnockback(knockbackIncrease);
         }
         else if (stat == "MoveSpeed")
         {

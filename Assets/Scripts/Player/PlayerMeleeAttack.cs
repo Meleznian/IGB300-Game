@@ -103,7 +103,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     }
     internal void IncreaseSpeed(float amount)
     {
-
+        meleeCooldown -= amount;
     }
     internal void IncreaseKnockback(float amount)
     {
