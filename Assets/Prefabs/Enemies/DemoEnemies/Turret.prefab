@@ -498,7 +498,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lodgedbullets: 0
-  floorBullet: {fileID: 0}
 --- !u!1 &5562379817291759189
 GameObject:
   m_ObjectHideFlags: 0

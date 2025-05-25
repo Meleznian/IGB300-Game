@@ -25,7 +25,10 @@ public class Parry : MonoBehaviour
     void UseParry()
     {
         anim.SetTrigger("Parry");
-        StartCoroutine(parryTarget.Stunned());
+        if (parryTarget != null)
+        {
+            StartCoroutine(parryTarget.Stunned());
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)

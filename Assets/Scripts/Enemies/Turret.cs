@@ -70,6 +70,8 @@ public class Turret : EnemyBase
         Vector2 dir = (player.position - firePoint.position).normalized;
         var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().Init(dir);
+        bullet.GetComponent<Bullet>().originallyEnemy = true;
+
     }
 
     public override void ExtraSetup()
