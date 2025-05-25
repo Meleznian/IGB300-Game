@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal int damage = 1;
     [SerializeField] internal float knockback;
     [SerializeField] internal bool playerOwned;
-    internal bool originallyEnemy;
+    [SerializeField] internal bool originallyEnemy;
 
     Vector2 moveDir;
 
@@ -29,7 +29,10 @@ public class Bullet : MonoBehaviour
 
         if (playerOwned && damageable != null)
         {
-            other.GetComponent<BulletLodging>().LodgeBullet();
+            if (!originallyEnemy)
+            {
+                other.GetComponent<BulletLodging>().LodgeBullet();
+            }
             damageable.TakeDamage(damage);
 
             Destroy(gameObject);
@@ -58,20 +61,22 @@ public class Bullet : MonoBehaviour
 
     internal void GetParried()
     {
-        playerOwned = !playerOwned;
+        playerOwned = true;
 
         Vector2 newDirection = Input.mousePosition;
         newDirection = Camera.main.ScreenToWorldPoint(newDirection);
         newDirection = newDirection - new Vector2(transform.position.x,transform.position.y);
         moveDir = newDirection.normalized;
 
-        if (playerOwned)
-        {
-            gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
-        }
-        else
-        {
-            gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
-        }
+        //if (playerOwned)
+        //{
+        gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
+        GetComponent<CircleCollider2D>().excludeLayers &= ~(1 << LayerMask.NameToLayer("Enemy"));
+        GetComponent<CircleCollider2D>().excludeLayers |= (1 << LayerMask.NameToLayer("Player"));
+        //}
+        //else
+        //{
+        //    gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
+        //}
     }
 }
