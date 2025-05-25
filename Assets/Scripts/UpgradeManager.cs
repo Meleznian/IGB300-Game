@@ -62,9 +62,6 @@ public class UpgradeManager : MonoBehaviour
                 effectDescription = "Increase Parry Multiplier", 
                 icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "Parry" },
 
-            //new Upgrade { upgradeName = "Enhanced Charging", 
-            //    effectDescription = "Reduce Special Cooldown", 
-            //    icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "SpecCool" }
         };
 
         availableUpgrades = new List<Upgrade>(allUpgrades);
