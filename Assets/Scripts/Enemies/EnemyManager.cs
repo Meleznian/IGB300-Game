@@ -160,6 +160,7 @@ public class EnemyManager : MonoBehaviour
         Destroy(enemy);
 
         GameManager.instance.IncreaseHype();
+        GameManager.instance.KillCount();
 
         if(currentlyAlive < 0)
         {

@@ -600,7 +600,7 @@ MonoBehaviour:
     m_Bits: 256
   flashFX: {fileID: 8653696390555176814, guid: 3cfd563972d54814e9156bbacd832532, type: 3}
   anim: {fileID: 1389103851451260586}
-  meleeCooldown: 0.35
+  meleeCooldown: 0.4
 --- !u!114 &2982133742907216294
 MonoBehaviour:
   m_ObjectHideFlags: 0

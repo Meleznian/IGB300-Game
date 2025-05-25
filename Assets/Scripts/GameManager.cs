@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
@@ -44,18 +45,18 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Slider steamSlider;
     [SerializeField] Slider hypeSlider;
-    [SerializeField] TMP_Text ammoText;
+    [SerializeField] Slider ammoDisplay;
     [SerializeField] GameObject floorBullet;
 
     private void Start()
     {
-        ammoText.text = "Ammo: " + ammo;
+        ammoDisplay.value = ammo;
     }
 
     void Update()
     {
-        killCountText.text = DisplayKillCount().ToString();
-        coinText.text = _CoinCount.ToString();
+        killCountText.text = "Kills: " + DisplayKillCount();
+        //coinText.text = _CoinCount.ToString();
 
         if (_killCount >= KillTarget & gameHasWon == false)
         {
@@ -67,7 +68,8 @@ public class GameManager : MonoBehaviour
     public void KillCount()
     {
         _killCount = _killCount + 1;
-        //Debug.Log("killCount " + _killCount);
+        killCountText.text = "Kills: " + DisplayKillCount();
+        Debug.Log("killCount " + _killCount);
 
     }
 
@@ -181,7 +183,7 @@ public class GameManager : MonoBehaviour
     {
         ammo += amount;
         ammo = Mathf.Clamp(ammo, 0, maxAmmo);
-        ammoText.text = "Ammo: " + ammo;
+        ammoDisplay.value = ammo;
     }
 
     public bool DecreaseAmmo(int amount)
@@ -189,7 +191,7 @@ public class GameManager : MonoBehaviour
         if (ammo - amount >= 0)
         {
             ammo -= amount;
-            ammoText.text = "Ammo: " + ammo;
+            ammoDisplay.value = ammo;
             return true;
         }
         else
@@ -211,5 +213,11 @@ public class GameManager : MonoBehaviour
     internal void IncreaseParryMult(float amount)
     {
         parryMult += amount;
+    }
+
+    public void IncreaseMaxAmmo(int amount)
+    {
+        maxAmmo += amount;
+        IncreaseAmmo(maxAmmo - ammo);
     }
 }
