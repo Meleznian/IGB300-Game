@@ -40,6 +40,13 @@ public class MenuManager : MonoBehaviour
             audioSource.PlayOneShot(closeSound);
         }
     }
+    public void ResumeGame()
+    {
+        if (isOpen)
+        {
+            ToggleMenu();
+        }
+    }
     public void OpenSettings()
     {
         SceneManager.LoadScene("Setting Scene", LoadSceneMode.Additive);
