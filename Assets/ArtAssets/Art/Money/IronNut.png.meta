@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      IronNut_0: 763139851816678386
+      IronNut_1: 6599449906262106580
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

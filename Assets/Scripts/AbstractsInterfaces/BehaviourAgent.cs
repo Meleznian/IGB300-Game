@@ -121,4 +121,5 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         yield return new WaitForSeconds(iFrames);
         hasIFrames = false;
     }
+
 }
