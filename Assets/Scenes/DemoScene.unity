@@ -6546,6 +6546,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 742170538021214693, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: healTickDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 742170538021214693, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: totalHealTicks
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 742170538021214693, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: healAmountPerTick
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1368808508018827744, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 1983

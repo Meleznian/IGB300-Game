@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public int healAmountPerTick = 5;    // Amount of recovery (per tick)
     public float healTickDelay = 0.5f;   // Tick interval (seconds)
     public int totalHealTicks = 5;       // Recovery times
-    public int healCharge = 1;           // Charge used for heels
+    //public int healCharge = 1;           // Charge used for heels
 
     public bool isHealing = false;       // Currently recovering?
 
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         // Q key to recover (when charged and not in recovery)
-        if (Input.GetKeyDown(KeyCode.Q) && healCharge > 0 && !isHealing)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && GameManager.instance.DecreaseGauge(10) && !isHealing)
         {
             StartCoroutine(HealOverTime());
         }
@@ -49,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator HealOverTime()
     {
         isHealing = true;
-        healCharge--;
+        //healCharge--;
 
         for (int i = 0; i < totalHealTicks; i++)
         {
