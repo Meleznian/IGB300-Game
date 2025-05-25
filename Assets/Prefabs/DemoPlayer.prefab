@@ -572,10 +572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healAmountPerTick: 5
+  healAmountPerTick: 1
   healTickDelay: 0.5
-  totalHealTicks: 5
-  healCharge: 10
+  totalHealTicks: 40
   isHealing: 0
 --- !u!114 &1885519247420598914
 MonoBehaviour:
@@ -601,7 +600,7 @@ MonoBehaviour:
     m_Bits: 256
   flashFX: {fileID: 8653696390555176814, guid: 3cfd563972d54814e9156bbacd832532, type: 3}
   anim: {fileID: 1389103851451260586}
-  meleeCooldown: 0.5
+  meleeCooldown: 0.35
 --- !u!114 &2982133742907216294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,7 +618,8 @@ MonoBehaviour:
   aimCursor: {fileID: 3461828938588683644}
   bulletSpeed: 7
   bulletDamage: 5
-  rangedCooldown: 0.3
+  bulletKnockback: 0
+  rangedCooldown: 0.5
 --- !u!114 &2160569617568736537
 MonoBehaviour:
   m_ObjectHideFlags: 0

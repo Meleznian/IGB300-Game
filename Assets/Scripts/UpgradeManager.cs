@@ -129,6 +129,9 @@ public class UpgradeManager : MonoBehaviour
 
         availableUpgrades.RemoveAll(u => u.upgradeName == chosen.upgradeName);
 
+        playerLevel++;
+        levelText.text = playerLevel.ToString();
+
         DoUpgrade(chosen.id);
 
         upgradePanel.SetActive(false);
@@ -137,6 +140,7 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] float cashGoal;
+    [SerializeField] int playerLevel = 1;
 
     [Header("Stat Increases")]
     [SerializeField] int healthIncrease = 10;
@@ -150,13 +154,14 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] float parryMultIncrease = 0.1f;
     [SerializeField] float specialCoolIncrease;
 
-    [Header("Player Scripts")]
+    [Header("Components")]
     [SerializeField] PlayerMovement movement;
     [SerializeField] PlayerMeleeAttack melee;
     [SerializeField] PlayerRangedAttack ranged;
     [SerializeField] PlayerHealth health;
     [SerializeField] PlayerHealthUI healthUI;
-
+    [SerializeField] TMP_Text levelText;
+    [SerializeField] Slider progressSlider;
 
     public void DoUpgrade(string stat)
     {
@@ -209,5 +214,7 @@ public class UpgradeManager : MonoBehaviour
     void increaseGoal()
     {
         cashGoal *= 1.5f;
+        progressSlider.maxValue = cashGoal;
+        progressSlider.value = 0;
     }
 }
