@@ -291,7 +291,7 @@ MonoBehaviour:
   sightRange: 20
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1924
   anim: {fileID: 4701749514085336846}
 --- !u!50 &8605524292342893880
 Rigidbody2D:

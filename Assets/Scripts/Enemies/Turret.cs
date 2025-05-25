@@ -48,7 +48,7 @@ public class Turret : EnemyBase
         if (dist > sightRange) return false;
 
         int mask = ~(1 << LayerMask.NameToLayer("Turret")); // Exclude turret layer
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, dist, mask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, dist, ~obstacleMask);
 
         if (hit.collider != null)
         {
