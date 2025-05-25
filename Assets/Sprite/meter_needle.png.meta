@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bf60954fda4f9b74da2f98f79fe290b9
+guid: 16c87524a391eb841b79dac5e8554217
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4680308760330381219
-    second: SilverBolt_0
+      213: 3940271464047067380
+    second: meter_needle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SilverBolt_0
+      name: meter_needle_0
       rect:
         serializedVersion: 2
-        x: 227
-        y: 196
-        width: 1647
-        height: 1648
+        x: 707
+        y: 495
+        width: 91
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3a724aa250cc3f040800000000000000
-      internalID: 4680308760330381219
+      spriteID: 4f042252508aea630800000000000000
+      internalID: 3940271464047067380
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SilverBolt_0: 4680308760330381219
+      meter_needle_0: 3940271464047067380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
