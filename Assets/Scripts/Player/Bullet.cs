@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal float speed = 10f;
     //[SerializeField] float lifetime = 2f;
     [SerializeField] internal int damage = 1;
+    [SerializeField] internal float knockback;
     [SerializeField] internal bool playerOwned;
 
     Vector2 moveDir;

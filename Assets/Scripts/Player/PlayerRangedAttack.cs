@@ -7,21 +7,29 @@ public class PlayerRangedAttack : MonoBehaviour
     [SerializeField] Transform aimCursor;
     [SerializeField] float bulletSpeed;
     [SerializeField] int bulletDamage;
+    [SerializeField] float bulletKnockback;
+
+    [SerializeField] float rangedCooldown = 0.3f;
+    float rangedCooldownTimer = 0f;
 
     void Update()
     {
+        rangedCooldownTimer -= Time.deltaTime;
+
         // Right click with mouse
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && rangedCooldownTimer <= 0f)
         {
             Vector2 dir = aimCursor.position - firePoint.position;
             FireBullet(dir.normalized);
+            rangedCooldownTimer = rangedCooldown;
         }
 
         // Controller: press R2
-        if (Input.GetKeyDown(KeyCode.JoystickButton7))
+        if (Input.GetKeyDown(KeyCode.JoystickButton7) && rangedCooldownTimer <= 0f)
         {
             Vector2 dir = aimCursor.position - firePoint.position;
             FireBullet(dir.normalized);
+            rangedCooldownTimer = rangedCooldown;
         }
     }
 
@@ -36,6 +44,7 @@ public class PlayerRangedAttack : MonoBehaviour
             bullet.playerOwned = true;
             bullet.damage = bulletDamage;
             bullet.speed = bulletSpeed;
+            bullet.knockback = bulletKnockback;
         }
     }
 
@@ -43,8 +52,13 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         bulletDamage += amount;
     }
-    internal void IncreaseSpeed(float amount)
+    internal void IncreaseSpeed(float move, float cool)
     {
-        bulletSpeed += amount;
+        bulletSpeed += move;
+        rangedCooldown -= cool;
+    }
+    internal void IncreaseKnockback(float amount)
+    {
+        bulletKnockback += amount;
     }
 }
