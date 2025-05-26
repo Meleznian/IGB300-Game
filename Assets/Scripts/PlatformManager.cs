@@ -49,12 +49,10 @@ public class PlatformManager : MonoBehaviour
 
         internal void DeactivatePlatform()
         {
-            CheckColliders(false);
-
             platform.SetActive(false);
         }
 
-        void CheckColliders(bool on)
+        internal void CheckColliders(bool on)
         {
             if (platform.GetComponent<TilemapCollider2D>() != null)
             {
@@ -213,6 +211,10 @@ public class PlatformManager : MonoBehaviour
             if (p.wave == EnemyManager.instance.currentWave)
             {
                 setToRemove = p;
+                foreach (Platform pf in setToRemove.Platforms)
+                {
+                    pf.CheckColliders(false);
+                }
                 print("Set To Remove Found");
                 break;
             }
