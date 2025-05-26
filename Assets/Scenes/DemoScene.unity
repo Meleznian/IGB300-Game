@@ -6723,6 +6723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6939360305520653043, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: platformAddSets.Array.data[0].Platforms.Array.data[0].platform
       value: 
@@ -6762,11 +6766,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.21
+      value: -7.3
       objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.15
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalPosition.z
