@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     public bool isHealing = false;       // Currently recovering?
 
     internal bool parrying;
+    bool iframing;
+    [SerializeField] SpriteRenderer sprite;
 
     void Start()
     {
@@ -36,15 +39,19 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        GameManager.instance.DecreaseHype();
-
-        if (currentHealth <= 0)
+        if (!iframing)
         {
-            currentHealth = 0;
-            Die();
-            anim.SetTrigger("Killed");
+            currentHealth -= amount;
+            StartCoroutine(ChangeColour());
 
+            GameManager.instance.DecreaseHype();
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                Die();
+                anim.SetTrigger("Killed");
+            }
         }
     }
 
@@ -84,5 +91,48 @@ public class PlayerHealth : MonoBehaviour
     internal void EndParry()
     {
         parrying = false;
+    }
+
+    IEnumerator ChangeColour()
+    {
+        print("Colour Changed Started");
+        bool done = false;
+        bool reverse = false;
+        float t = 0;
+        iframing = true;
+
+        while (!done)
+        {
+            if (!reverse && sprite.color != Color.red)
+            {
+                print("Red");
+                sprite.color = Color.Lerp(sprite.color, Color.red, t);
+                t += Time.deltaTime;
+
+                yield return null;
+            }
+            else if (!reverse && sprite.color == Color.red)
+            {
+                print("Neither");
+                reverse = true;
+                t = 0;
+                yield return null;
+            }
+            else if (reverse && sprite.color != Color.white)
+            {
+                print("White");
+                sprite.color = Color.Lerp(sprite.color, Color.white, t);
+                t += Time.deltaTime;
+
+                yield return null;
+            }
+            else
+            {
+                done = true;
+            }
+        }
+
+        iframing = false;
+        print("Colour Changed Finished");
     }
 }
