@@ -6748,6 +6748,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1062696313977331800, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: useVelocity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1885519247420598914, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: knockback
       value: 4

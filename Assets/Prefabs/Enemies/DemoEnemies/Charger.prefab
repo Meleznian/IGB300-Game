@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1db9b960fb49d4e8b2093a2b65a8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parriable: 0
+  agent: {fileID: 0}
 --- !u!1 &3010242644535729339
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ MonoBehaviour:
   currentState: 0
   target: {fileID: 8837223900107501713, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
   stunned: 0
-  stunTime: 0
+  stunTime: 5
   health: 15
   iFrames: 5
   hasIFrames: 0
