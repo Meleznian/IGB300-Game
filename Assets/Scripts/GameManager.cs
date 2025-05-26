@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     public GameObject completeLevelUI;
 
 
-    public TextMeshProUGUI coinText;
-    private int _CoinCount = 0;
+    public TextMeshProUGUI botText;
+    private int _BotCount = 0;
 
     bool gameHasEnded = false;
     bool gameHasWon = false;
@@ -56,13 +56,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         killCountText.text = "Kills: " + DisplayKillCount();
-        //coinText.text = _CoinCount.ToString();
+        //botText.text = _BotCount.ToString();
+
+        DisplayBotCount();//why was this remove?
 
         if (_killCount >= KillTarget & gameHasWon == false)
         {
             gameHasWon = true;
             CompleteLevel();
         }
+
+
     }
 
     public void KillCount()
@@ -73,9 +77,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void CoinCount()
+    public void BotCount()
     {
-        _CoinCount += 100;
+        //Debug.Log("_BotCount " + _BotCount);
+        _BotCount += 100;
     }
 
     public void CompleteLevel()
@@ -90,9 +95,10 @@ public class GameManager : MonoBehaviour
         return _killCount;
     }
 
-    public int DisplayCoinCount()
+    public int DisplayBotCount()
     {
-        return _CoinCount;
+        Debug.Log("_BotCount " + _BotCount);
+        return _BotCount;
     }
 
     public void EndGame()
