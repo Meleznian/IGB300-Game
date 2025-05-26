@@ -34,6 +34,10 @@ public class Bullet : MonoBehaviour
                 other.GetComponent<BulletLodging>().LodgeBullet();
             }
             damageable.TakeDamage(damage);
+            if(other.GetComponent<Rigidbody2D>() != null)
+            {
+                other.GetComponent<Rigidbody2D>().AddForce(moveDir*knockback, ForceMode2D.Impulse);
+            }
 
             Destroy(gameObject);
         }

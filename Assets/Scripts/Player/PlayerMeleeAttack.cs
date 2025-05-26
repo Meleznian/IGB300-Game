@@ -5,10 +5,11 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] Transform up, down, left, right;
     [SerializeField] float range = 1f;
     [SerializeField] int damage = 1;
-    [SerializeField] float knockback = 1f;
+    [SerializeField] float knockback = 5f;
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] GameObject flashFX;
     [SerializeField] Animator anim;
+    Vector2 knockDirection;
 
     [SerializeField] float meleeCooldown = 0.5f;
     float meleeCooldownTimer = 0f;
@@ -44,21 +45,25 @@ public class PlayerMeleeAttack : MonoBehaviour
         angle = (angle + 360f) % 360f;
 
         Transform point = right;
+        knockDirection = Vector2.right;
         Quaternion rot = Quaternion.identity;
 
         if (angle >= 45f && angle < 135f)
         {
             point = up;
+            knockDirection = Vector2.up;
             rot = Quaternion.Euler(0, 0, 90);
         }
         else if (angle >= 135f && angle < 225f)
         {
             point = left;
+            knockDirection = Vector2.left;
             rot = Quaternion.Euler(0, 0, 180);
         }
         else if (angle >= 225f && angle < 315f)
         {
             point = down;
+            knockDirection = Vector2.down;
             rot = Quaternion.Euler(0, 0, 270);
         }
 
@@ -75,6 +80,10 @@ public class PlayerMeleeAttack : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                if (h.GetComponent<Rigidbody2D>() != null)
+                {
+                    h.GetComponent<Rigidbody2D>().AddForce(knockDirection*knockback, ForceMode2D.Impulse);
+                }
                 GameManager.instance.IncreaseGauge();
             }
         }
