@@ -4,11 +4,16 @@ using UnityEngine.UIElements;
 public class TurnSprite : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] float velocity;
+    //[SerializeField] float velocity;
+    [SerializeField] bool useVelocity;
+    bool right;
 
     private void Update()
     {
-       CheckMovement();    
+        if (useVelocity)
+        {
+            CheckMovement();
+        }
     }
 
     void CheckMovement()
@@ -22,7 +27,21 @@ public class TurnSprite : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        velocity = Vector3.Dot(rb.linearVelocity, Vector3.right);
+        //velocity = Vector3.Dot(rb.linearVelocity, Vector3.right);
+    }
+
+    internal void Flip()
+    {
+        right = !right;
+
+        if (right)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (!right)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
 }

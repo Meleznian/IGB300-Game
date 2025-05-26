@@ -65,6 +65,11 @@ public class EnemySpawner : MonoBehaviour
 
     internal void BeginSpawn()
     {
+        if(currentGroup == null)
+        {
+            return;
+        }
+
         if (EnemyManager.instance.currentWave == currentGroup.wave)
         {
             if (!currentGroup.queueFinished)
