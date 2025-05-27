@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1564299281057255125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7939551634256045150}
+  m_Layer: 8
+  m_Name: ThrustPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7939551634256045150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564299281057255125}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.3, y: 0, z: 0}
+  m_LocalScale: {x: 3.125, y: 3.125, z: 3.125}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2125157881911985372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751150773830703968
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +237,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1342962074211682124}
+  - {fileID: 7939551634256045150}
   m_Father: {fileID: 1265414723797895428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &927256182467344961
@@ -312,13 +344,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   steamKingScript: {fileID: 6019268654907744953}
-  slashEffect: {fileID: 8653696390555176814, guid: 4282d0384d15bea47b053e18e69f5a66, type: 3}
+  slashEffect: {fileID: 8653696390555176814, guid: 3cfd563972d54814e9156bbacd832532, type: 3}
   ignore:
     serializedVersion: 2
     m_Bits: 2039
-  SlashDamage: 5
+  slashDamage: 5
+  thrustDamage: 5
   slashPoint: {fileID: 1342962074211682124}
   slashSize: {x: 3, y: 3}
+  thrustPoint: {fileID: 7939551634256045150}
+  thrustSize: {x: 4, y: 1.5}
 --- !u!114 &7050018728340063729
 MonoBehaviour:
   m_ObjectHideFlags: 0

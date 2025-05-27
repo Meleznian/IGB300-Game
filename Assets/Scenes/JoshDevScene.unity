@@ -1045,7 +1045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246b057f886acf4d977dbe730653542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphNodes: []
 --- !u!4 &824867747
 Transform:
   m_ObjectHideFlags: 0
@@ -4463,18 +4462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a246b057f886acf4d977dbe730653542, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphNodes:
-  - {fileID: 5693080}
-  - {fileID: 1652878134}
-  - {fileID: 980933752}
-  - {fileID: 422702489}
-  - {fileID: 504430022}
-  - {fileID: 2014021917}
-  - {fileID: 993735031}
-  - {fileID: 1656177563}
-  - {fileID: 488732379}
-  - {fileID: 937577859}
-  - {fileID: 1952909272}
 --- !u!1 &1496718764
 GameObject:
   m_ObjectHideFlags: 0

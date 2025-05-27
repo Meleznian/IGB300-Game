@@ -89,7 +89,7 @@ public class SteamKing : EnemyBase
         {
             if (nextAction == 1)
             {
-                anim.SetTrigger("Slash");
+                anim.SetTrigger("Thrust");
             }
             else
             {
