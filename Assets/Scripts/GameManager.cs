@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ammoDisplay.value = ammo;
+        AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
     }
 
     void Update()
