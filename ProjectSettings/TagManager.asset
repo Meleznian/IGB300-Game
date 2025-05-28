@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Collectable
   - Coin
+  - Bot
   layers:
   - Default
   - TransparentFX
