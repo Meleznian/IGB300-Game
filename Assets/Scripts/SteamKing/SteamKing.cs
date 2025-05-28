@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SteamKing : EnemyBase
@@ -6,7 +7,7 @@ public class SteamKing : EnemyBase
     //[SerializeField] Transform leftWall;
     //[SerializeField] Transform rightWall;
     //[SerializeField] Transform Centre;
-    [SerializeField] internal Transform Player;
+    [SerializeField] internal Transform player;
     [SerializeField] Animator anim;
     [SerializeField] Transform[] arenaPoints;
     [SerializeField] Transform currentLocation;
@@ -18,6 +19,7 @@ public class SteamKing : EnemyBase
     [Header("Debug Stuff")]
     [SerializeField] int timesParried;
     [SerializeField] bool damagedRecently;
+    int locationIndex;
 
     enum KingStates
     {
@@ -31,7 +33,7 @@ public class SteamKing : EnemyBase
 
     private void Start()
     {
-        Player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player").transform;
         transform.position = arenaPoints[2].position;
         currentLocation = arenaPoints[2];  
     }
@@ -42,26 +44,33 @@ public class SteamKing : EnemyBase
         {
             Dash();
         }
+        else
+        {
+            Turn();
+        }
     }
 
 
     public void GetNextAction()
     {
-        //float playerDist = Vector3.Distance(transform.position, Player.position);
-        //int index = System.Array.IndexOf(arenaPoints, currentLocation);
+        float playerDist = Vector3.Distance(transform.position, player.position);
+        print(playerDist);
+        locationIndex = System.Array.IndexOf(arenaPoints, currentLocation);
         
-        //if (playerDist < meleeRange)
+        if (playerDist < meleeRange)
         {
             GetMeleeAttack();
         }
-        //else if(index == 0 || index == 4)
-        //{
-        //    GetEdgeAttack();
-        //}
-        //else
-        //{
-        //    GetCentreAttack();
-        //}
+        else if(locationIndex == 0 || locationIndex == 4)
+        {
+            damagedRecently = false;
+            GetEdgeAttack();
+        }
+        else
+        {
+            damagedRecently = false;
+            GetCentreAttack();
+        }
     }
 
 
@@ -74,15 +83,17 @@ public class SteamKing : EnemyBase
             StartDash();
             return;
         }
-        if (damagedRecently)
+        else if (damagedRecently)
         {
+            damagedRecently = false;
             if(nextAction == 1)
             {
-                //Kick
+                anim.SetTrigger("Kick");
             }
             else
             {
-               //DodgeShoot            
+                anim.SetTrigger("DodgeShoot");  
+                StartDodge();
             }
         }
         else
@@ -148,6 +159,12 @@ public class SteamKing : EnemyBase
         anim.SetBool("Dashing", true);
         state = KingStates.Dashing;
     }
+    public void StartDodge()
+    {
+        ChooseDodgeLocation();
+        state = KingStates.Dashing;
+    }
+
 
     public void Dash()
     {
@@ -163,7 +180,7 @@ public class SteamKing : EnemyBase
 
     public void ChooseDashLocation()
     {
-        int index = System.Array.IndexOf(arenaPoints, currentLocation);
+        int index = locationIndex;
 
         int next = UnityEngine.Random.Range(0, 2);
 
@@ -185,6 +202,62 @@ public class SteamKing : EnemyBase
         else if(index == 4)
         {
             nextLocation = arenaPoints[index - 1];
+        }
+    }
+
+    public void ChooseDodgeLocation()
+    {
+        int index = locationIndex;
+
+        if (player.position.x < transform.position.x)
+        {
+            if (index + 1 != 5)
+            {
+                nextLocation = arenaPoints[index + 1];
+            }
+            else
+            {
+                nextLocation = currentLocation;
+            }
+        }
+        else if (player.position.x > transform.position.x)
+        {
+            if (index - 1 != -1)
+            {
+                nextLocation = arenaPoints[index - 1];
+            }
+            else
+            {
+                nextLocation = currentLocation;
+            }
+        }
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        if (EnemyManager.instance.LogEnemyDamage)
+        {
+            print(enemyName + " Has taken " + damage + " Damage");
+        }
+
+        health -= damage;
+        damagedRecently = true;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Turn()
+    {
+        if (player.position.x > transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (player.position.x < transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 }

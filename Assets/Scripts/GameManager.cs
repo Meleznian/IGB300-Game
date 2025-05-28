@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         killCountText.text = "Kills: " + DisplayKillCount();
         //botText.text = _BotCount.ToString();
 
-        DisplayBotCount();//why was this remove?
+        //DisplayBotCount();//why was this remove? //If you have questions put them in the chat, also because this should be handled when bolts are increased not in Update()
 
         if (_killCount >= KillTarget & gameHasWon == false)
         {
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     public int DisplayBotCount()
     {
-        Debug.Log("_BotCount " + _BotCount);
+        Debug.Log("_BoltCount " + _BotCount);
         return _BotCount;
     }
 

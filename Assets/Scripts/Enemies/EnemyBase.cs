@@ -63,7 +63,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         if (EnemyManager.instance.LogEnemyDamage)
         {
