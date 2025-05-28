@@ -8,6 +8,7 @@ public class SteamKingCharge : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            print("Player hit by Charge");
             attack.ChargeHit();
         }
     }

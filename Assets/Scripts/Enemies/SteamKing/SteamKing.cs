@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,9 +9,10 @@ public class SteamKing : EnemyBase
     //[SerializeField] Transform rightWall;
     //[SerializeField] Transform Centre;
     [SerializeField] internal Transform player;
+    [SerializeField] internal SteamKingAttacks attackScript;
     [SerializeField] Animator anim;
     [SerializeField] Transform[] arenaPoints;
-    [SerializeField] Transform currentLocation;
+    [SerializeField] Vector2 currentLocation;
     [SerializeField] BoxCollider2D ChargeCollider;
 
     [Header("King Variables")]
@@ -30,7 +32,9 @@ public class SteamKing : EnemyBase
     {
         Idle,
         Dashing,
-        Attacking
+        Attacking,
+        Diving,
+        Leaping
     }
 
     KingStates state;
@@ -40,7 +44,7 @@ public class SteamKing : EnemyBase
     {
         player = GameObject.Find("Player").transform;
         transform.position = arenaPoints[2].position;
-        currentLocation = arenaPoints[2];
+        currentLocation = arenaPoints[2].position;
         phaseTransition = health / 2;
     }
 
@@ -49,6 +53,14 @@ public class SteamKing : EnemyBase
         if (state == KingStates.Dashing)
         {
             Dash();
+        }
+        else if (state == KingStates.Leaping)
+        {
+            
+        }
+        else if (state == KingStates.Diving)
+        {
+            DiveSlam();
         }
         else
         {
@@ -68,13 +80,13 @@ public class SteamKing : EnemyBase
     public void GetNextAction()
     {
         float playerDist = Vector3.Distance(transform.position, player.position);
-        //print(playerDist);
-        locationIndex = System.Array.IndexOf(arenaPoints, currentLocation);
-        
+        GetLocationIndex();
+
         if (playerDist < meleeRange)
         {
             if (logConsoleMessages)
                 print("Melee Attack Selected");
+
             GetMeleeAttack();
         }
         else if(locationIndex == 0 || locationIndex == 4)
@@ -82,6 +94,7 @@ public class SteamKing : EnemyBase
             damagedRecently = false;
             if (logConsoleMessages)
                 print("Edge Attack Selected");
+
             GetEdgeAttack();
         }
         else
@@ -89,6 +102,7 @@ public class SteamKing : EnemyBase
             damagedRecently = false;
             if (logConsoleMessages)
                 print("Centre Attack Selected");
+
             GetCentreAttack();
         }
     }
@@ -142,7 +156,7 @@ public class SteamKing : EnemyBase
 
     void GetEdgeAttack()
     {
-        int nextAction = UnityEngine.Random.Range(0, 4);
+        int nextAction = UnityEngine.Random.Range(0, 5);
         switch(nextAction)
         {
             case 0:
@@ -153,7 +167,7 @@ public class SteamKing : EnemyBase
             case 1:
                 if (logConsoleMessages)
                     print("Diving");
-                //Dive Slam
+                StartDive();
                 return;
             case 2:
                 if (logConsoleMessages)
@@ -164,6 +178,11 @@ public class SteamKing : EnemyBase
                 if (logConsoleMessages)
                     print("Whipping");
                 anim.SetTrigger("ChainWhip");
+                return;
+            case 4:
+                if (logConsoleMessages)
+                    print("Dashing");
+                StartDash();
                 return;
         }
     }
@@ -198,7 +217,7 @@ public class SteamKing : EnemyBase
 
 
     //Dash Variable
-    Transform nextLocation;
+    Vector2 nextLocation;
 
     public void StartDash()
     {
@@ -215,9 +234,9 @@ public class SteamKing : EnemyBase
 
     public void Dash()
     {
-        transform.position = Vector3.MoveTowards(transform.position, nextLocation.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, nextLocation, moveSpeed * Time.deltaTime);
 
-        if(transform.position == nextLocation.position)
+        if(transform.position.x == nextLocation.x)
         {
             currentLocation = nextLocation;
             anim.SetBool("Dashing",false);
@@ -240,20 +259,20 @@ public class SteamKing : EnemyBase
         {
             if(next == 0)
             {
-                nextLocation = arenaPoints[index + 1];
+                nextLocation = arenaPoints[index + 1].position;
             }
             else
             {
-                nextLocation = arenaPoints[index - 1];
+                nextLocation = arenaPoints[index - 1].position;
             }
         }
         else if(index == 0)
         {
-            nextLocation = arenaPoints[index + 1];
+            nextLocation = arenaPoints[index + 1].position;
         }
         else if(index == 4)
         {
-            nextLocation = arenaPoints[index - 1];
+            nextLocation = arenaPoints[index - 1].position;
         }
     }
 
@@ -265,7 +284,7 @@ public class SteamKing : EnemyBase
         {
             if (index + 1 != 5)
             {
-                nextLocation = arenaPoints[index + 1];
+                nextLocation = arenaPoints[index + 1].position;
             }
             else
             {
@@ -276,7 +295,7 @@ public class SteamKing : EnemyBase
         {
             if (index - 1 != -1)
             {
-                nextLocation = arenaPoints[index - 1];
+                nextLocation = arenaPoints[index - 1].position;
             }
             else
             {
@@ -324,11 +343,11 @@ public class SteamKing : EnemyBase
 
         if (locationIndex == 0)
         {
-            nextLocation = arenaPoints[4];
+            nextLocation = arenaPoints[4].position;
         }
         else if(locationIndex == 4)
         {
-            nextLocation = arenaPoints[0];
+            nextLocation = arenaPoints[0].position;
         }
     }
 
@@ -344,5 +363,84 @@ public class SteamKing : EnemyBase
     {
         ChargeCollider.enabled = false;
         anim.SetBool("Charging", false);
+    }
+
+    bool up;
+    bool hovering;
+
+    void DiveSlam()
+    {
+        if(!up && !hovering)
+        {
+            DiveUp();
+        }
+        else if(up)
+        {
+            DiveDown();
+        }
+    }
+
+    void StartDive()
+    {
+        anim.SetBool("Diving", true);
+        state = KingStates.Diving;
+        nextLocation = new Vector2(currentLocation.x,currentLocation.y + 10);
+    }
+
+    void DiveUp()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, nextLocation, (moveSpeed*1.5f) * Time.deltaTime);
+
+        if(transform.position.y == nextLocation.y)
+        {
+            anim.SetTrigger("DiveDown");
+            nextLocation = GetRandomLocation();
+            transform.position = new Vector2 (nextLocation.x, transform.position.y);
+            hovering = true;
+            StartCoroutine(Hover());
+        }
+    }
+
+    IEnumerator Hover()
+    {
+        yield return new WaitForSeconds(2);
+        up = true;
+        hovering = false;
+    }
+
+    void DiveDown()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, nextLocation, (moveSpeed/1.3f) * Time.deltaTime);
+
+        if (transform.position.y <= nextLocation.y)
+        {
+            anim.SetBool("Diving", false);
+            attackScript.DiveSlam();
+            currentLocation = nextLocation;
+            state = KingStates.Idle;
+            up = false;
+        }
+    }
+
+    void Leap()
+    {
+
+    }
+
+    Vector2 GetRandomLocation()
+    {
+        return arenaPoints[UnityEngine.Random.Range(0,5)].position;
+    }
+
+    void GetLocationIndex()
+    {
+        foreach(Transform t in arenaPoints)
+        {
+            if(currentLocation.x == t.position.x)
+            {
+                locationIndex = System.Array.IndexOf(arenaPoints, t);
+                break;
+            }
+        }
     }
 }

@@ -119,6 +119,7 @@ MonoBehaviour:
   knockbackResist: 0
   attacks: []
   player: {fileID: 0}
+  attackScript: {fileID: 4573819921395826135}
   anim: {fileID: 927256182467344961}
   arenaPoints:
   - {fileID: 0}
@@ -126,7 +127,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  currentLocation: {fileID: 0}
+  currentLocation: {x: 0, y: 0}
   ChargeCollider: {fileID: 4274320339170839149}
   meleeRange: 5
   phase2: 0
@@ -219,6 +220,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lodgedbullets: 0
+--- !u!1 &2166513400434156553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6180355974175838511}
+  m_Layer: 8
+  m_Name: SlamPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6180355974175838511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166513400434156553}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.55, y: -4.53, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2125157881911985372}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4523209162879185230
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +323,7 @@ Transform:
   - {fileID: 5025088129170451733}
   - {fileID: 4476921967686479387}
   - {fileID: 8932432148020764261}
+  - {fileID: 6180355974175838511}
   m_Father: {fileID: 1265414723797895428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &927256182467344961
@@ -404,20 +437,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2039
   bullet: {fileID: 918802385275866056, guid: 2137dbfd11de0e54d91646bacc15319e, type: 3}
+  slamWave: {fileID: 521124769410394629, guid: fd144f2f4c919da4087ea5dfdb81d604, type: 3}
   slashDamage: 5
   thrustDamage: 10
   kickDamage: 3
   bulletDamage: 5
   whipDamage: 5
   chargeDamage: 0
+  slamDamage: 0
   slashKnockback: 3
   thrustKnockback: 3
   kickKnockback: 3
   bulletKnockback: 1
   whipKnockback: 3
   chargeKnockback: 0
+  slamKnockback: 0
   dodgeBulletSpeed: 7
   aimedBulletSpeed: 10
+  slamSpeed: 5
   slashPoint: {fileID: 1342962074211682124}
   slashSize: {x: 3, y: 3}
   thrustPoint: {fileID: 7939551634256045150}
@@ -428,6 +465,7 @@ MonoBehaviour:
   whipSize: {x: 10, y: 1}
   dodgeFirePoint: {fileID: 8540978539869536386}
   aimedFirePoint: {fileID: 4476921967686479387}
+  slamPoint: {fileID: 6180355974175838511}
 --- !u!114 &7050018728340063729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,7 +582,7 @@ GameObject:
   - component: {fileID: 8932432148020764261}
   - component: {fileID: 4274320339170839149}
   - component: {fileID: 8310934015055283399}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: ChargeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

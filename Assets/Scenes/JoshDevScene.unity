@@ -958,7 +958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1265414723797895428, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.636623
+      value: 11.03
       objectReference: {fileID: 0}
     - target: {fileID: 1265414723797895428, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: m_LocalPosition.z
@@ -996,18 +996,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteamKing
       objectReference: {fileID: 0}
-    - target: {fileID: 4274320339170839149, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274320339170839149, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
-      propertyPath: m_Size.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6019268654907744953, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
-      propertyPath: moveSpeed
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 6019268654907744953, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: 'arenaPoints.Array.data[0]'
       value: 
@@ -1028,14 +1016,6 @@ PrefabInstance:
       propertyPath: 'arenaPoints.Array.data[4]'
       value: 
       objectReference: {fileID: 1122355477}
-    - target: {fileID: 8932432148020764261, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932432148020764261, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

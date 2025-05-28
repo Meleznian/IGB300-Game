@@ -1,6 +1,5 @@
 using NUnit.Framework.Constraints;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public class SteamKingAttacks : MonoBehaviour
 {
@@ -11,8 +10,9 @@ public class SteamKingAttacks : MonoBehaviour
     [SerializeField] GameObject slashEffect;
     [SerializeField] LayerMask ignore;
     [SerializeField] GameObject bullet;
-    
-    
+    [SerializeField] GameObject slamWave;
+
+
 
     [Header("Attack Damages")]
     [SerializeField] int slashDamage;
@@ -21,6 +21,7 @@ public class SteamKingAttacks : MonoBehaviour
     [SerializeField] int bulletDamage;
     [SerializeField] int whipDamage;
     [SerializeField] int chargeDamage;
+    [SerializeField] int slamDamage;
 
 
     [Header("Attack Knockbacks")]
@@ -30,12 +31,14 @@ public class SteamKingAttacks : MonoBehaviour
     [SerializeField] float bulletKnockback;
     [SerializeField] float whipKnockback;
     [SerializeField] float chargeKnockback;
+    [SerializeField] float slamKnockback;
 
 
 
     [Header("Bullet Speeds")]
     [SerializeField] float dodgeBulletSpeed;
     [SerializeField] float aimedBulletSpeed;
+    [SerializeField] float slamSpeed;
 
     [Header("Attack Transforms")]
     [SerializeField] Transform slashPoint;
@@ -48,6 +51,7 @@ public class SteamKingAttacks : MonoBehaviour
     [SerializeField] Vector2 whipSize;
     [SerializeField] Transform dodgeFirePoint;
     [SerializeField] Transform aimedFirePoint;
+    [SerializeField] Transform slamPoint;
 
     void Start()
     {
@@ -250,5 +254,13 @@ public class SteamKingAttacks : MonoBehaviour
         Vector2 dir = GetDirection();
         playerRb.AddForce(dir * chargeKnockback, ForceMode2D.Impulse);
         playerHealth.TakeDamage(chargeDamage);
+    }
+
+    public void DiveSlam()
+    {
+        Shockwave wave = Instantiate(slamWave, slamPoint.position, Quaternion.identity).GetComponent<Shockwave>();
+        wave.Setup(slamDamage,slamSpeed,slamKnockback, Vector2.left);
+        wave = Instantiate(slamWave, slamPoint.position, Quaternion.identity).GetComponent<Shockwave>();
+        wave.Setup(slamDamage, slamSpeed, slamKnockback, Vector2.right);
     }
 }
