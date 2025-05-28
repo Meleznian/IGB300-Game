@@ -20,7 +20,7 @@ public class CoinCollected : MonoBehaviour
         {
             //Debug.Log("Destroy it");
             //call GameManager here
-            FindFirstObjectByType<GameManager>().CoinCount();
+            FindFirstObjectByType<GameManager>().BotCount();
             other.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Collected");
             Debug.Log("Destroy it");
             Destroy(other.gameObject, 1f);
