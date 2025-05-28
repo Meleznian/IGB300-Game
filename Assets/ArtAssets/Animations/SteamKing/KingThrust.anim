@@ -22,11 +22,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 2804437670916681613, guid: b3d7f6f9a215e094b9ec193a0dce3f00, type: 3}
-    - time: 0.21666667
-      value: {fileID: -1378907765724310433, guid: 45d9058ff2f6aef4c98fbe2879de2438, type: 3}
     - time: 0.25
+      value: {fileID: -1378907765724310433, guid: 45d9058ff2f6aef4c98fbe2879de2438, type: 3}
+    - time: 0.28333333
       value: {fileID: 1387624947855949160, guid: 8a1ae48a8c7996b4a80f2040d350a744, type: 3}
-    - time: 0.41666666
+    - time: 0.45
       value: {fileID: -7693112027549875669, guid: 01a0f81d5f54e8342a5594d192f33ba5, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.46666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -79,7 +79,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.23333333
+  - time: 0.25
     functionName: Thrust
     data: 
     objectReferenceParameter: {fileID: 0}

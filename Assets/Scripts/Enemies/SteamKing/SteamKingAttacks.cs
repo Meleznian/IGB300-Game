@@ -6,10 +6,9 @@ public class SteamKingAttacks : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] SteamKing steamKingScript;
-    PlayerHealth playerHealth;
-    Rigidbody playerRb;
+    [SerializeField] PlayerHealth playerHealth;
+    [SerializeField] Rigidbody2D playerRb;
     [SerializeField] GameObject slashEffect;
-    //[SerializeField] GameObject thrustEffect;
     [SerializeField] LayerMask ignore;
     [SerializeField] GameObject bullet;
     
@@ -20,12 +19,19 @@ public class SteamKingAttacks : MonoBehaviour
     [SerializeField] int thrustDamage;
     [SerializeField] int kickDamage;
     [SerializeField] int bulletDamage;
+    [SerializeField] int whipDamage;
+    [SerializeField] int chargeDamage;
+
 
     [Header("Attack Knockbacks")]
-    [SerializeField] float slashknockBack;
-    [SerializeField] float thrustknockBack;
-    [SerializeField] float kickknockBack;
-    [SerializeField] float bulletknockBack;
+    [SerializeField] float slashKnockback;
+    [SerializeField] float thrustKnockback;
+    [SerializeField] float kickKnockback;
+    [SerializeField] float bulletKnockback;
+    [SerializeField] float whipKnockback;
+    [SerializeField] float chargeKnockback;
+
+
 
     [Header("Bullet Speeds")]
     [SerializeField] float dodgeBulletSpeed;
@@ -38,18 +44,31 @@ public class SteamKingAttacks : MonoBehaviour
     [SerializeField] Vector2 thrustSize;
     [SerializeField] Transform kickPoint;
     [SerializeField] Vector2 kickSize;
+    [SerializeField] Transform whipPoint;
+    [SerializeField] Vector2 whipSize;
     [SerializeField] Transform dodgeFirePoint;
+    [SerializeField] Transform aimedFirePoint;
 
     void Start()
     {
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-        playerRb = playerHealth.GetComponent<Rigidbody>();  
+        playerRb = playerHealth.GetComponent<Rigidbody2D>();  
 
     }
 
     public void GetNextAction()
     {
         steamKingScript.GetNextAction();
+    }
+
+    public void Phase2Get()
+    {
+        steamKingScript.Phase2GetNextAction();
+    }
+
+    public void StartCharge()
+    {
+        steamKingScript.StartCharge();
     }
 
     public void Slash()
@@ -64,7 +83,10 @@ public class SteamKingAttacks : MonoBehaviour
             if (hit.gameObject == playerHealth.gameObject)
             {
                 print("Player Hit");
+                Vector2 dir = GetDirection();
+                //playerRb.AddForce(dir * slashKnockback, ForceMode2D.Impulse);
                 playerHealth.TakeDamage(slashDamage);
+
             }
         }
         else
@@ -86,8 +108,10 @@ public class SteamKingAttacks : MonoBehaviour
             if (hit.gameObject == playerHealth.gameObject)
             {
                 print("Player Hit");
-                //playerRb.AddForce(thrustknockBack);
+                Vector2 dir = GetDirection();
+                playerRb.AddForce(dir * thrustKnockback, ForceMode2D.Impulse);
                 playerHealth.TakeDamage(thrustDamage);
+
             }
         }
         else
@@ -109,7 +133,8 @@ public class SteamKingAttacks : MonoBehaviour
             if (hit.gameObject == playerHealth.gameObject)
             {
                 print("Player Hit");
-                //playerRb.AddForce(thrustknockBack);
+                Vector2 dir = GetDirection();
+                playerRb.AddForce(dir * kickKnockback, ForceMode2D.Impulse);
                 playerHealth.TakeDamage(kickDamage);
             }
         }
@@ -177,6 +202,53 @@ public class SteamKingAttacks : MonoBehaviour
         if (slashPoint) Gizmos.DrawWireCube(slashPoint.position, slashSize);
         if (thrustPoint) Gizmos.DrawWireCube(thrustPoint.position, thrustSize);
         if (kickPoint) Gizmos.DrawWireCube(kickPoint.position, kickSize);
+        if (whipPoint) Gizmos.DrawWireCube(whipPoint.position, whipSize);
 
+    }
+
+    Vector2 GetDirection()
+    {
+        Vector2 direction = transform.position - playerHealth.transform.position;
+        direction = direction.normalized;
+        print(direction);
+        return -direction;
+    }
+
+    public void ChainWhip()
+    {
+        var effect = Instantiate(slashEffect, whipPoint.position, whipPoint.rotation);
+        effect.transform.localScale = thrustSize;
+
+
+        var hit = Physics2D.OverlapBox(whipPoint.position, whipSize, 0f, ~ignore);
+        if (hit != null)
+        {
+            print(hit.gameObject);
+            if (hit.gameObject == playerHealth.gameObject)
+            {
+                print("Player Hit");
+                Vector2 dir = GetDirection();
+                playerRb.AddForce(dir * whipKnockback, ForceMode2D.Impulse);
+                playerHealth.TakeDamage(whipDamage);
+
+            }
+        }
+        else
+        {
+            print("Nothing Hit");
+        }
+    }
+
+    public void AimedShot()
+    {
+        Vector2 dir = playerHealth.transform.position - transform.position;
+        FireBullet(dir,aimedFirePoint,aimedBulletSpeed);
+    }
+
+    public void ChargeHit()
+    {
+        Vector2 dir = GetDirection();
+        playerRb.AddForce(dir * chargeKnockback, ForceMode2D.Impulse);
+        playerHealth.TakeDamage(chargeDamage);
     }
 }

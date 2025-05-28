@@ -11,14 +11,19 @@ public class SteamKing : EnemyBase
     [SerializeField] Animator anim;
     [SerializeField] Transform[] arenaPoints;
     [SerializeField] Transform currentLocation;
+    [SerializeField] BoxCollider2D ChargeCollider;
 
     [Header("King Variables")]
     [SerializeField] float meleeRange;
+    float phaseTransition;
+    [SerializeField] bool phase2;
    
 
     [Header("Debug Stuff")]
     [SerializeField] int timesParried;
     [SerializeField] bool damagedRecently;
+    [SerializeField] bool logConsoleMessages;
+
     int locationIndex;
 
     enum KingStates
@@ -35,7 +40,8 @@ public class SteamKing : EnemyBase
     {
         player = GameObject.Find("Player").transform;
         transform.position = arenaPoints[2].position;
-        currentLocation = arenaPoints[2];  
+        currentLocation = arenaPoints[2];
+        phaseTransition = health / 2;
     }
 
     private void Update()
@@ -50,28 +56,43 @@ public class SteamKing : EnemyBase
         }
     }
 
+    public void Phase2GetNextAction()
+    {
+        if (phase2)
+        {
+            GetNextAction();
+        }
+    }
+
 
     public void GetNextAction()
     {
         float playerDist = Vector3.Distance(transform.position, player.position);
-        print(playerDist);
+        //print(playerDist);
         locationIndex = System.Array.IndexOf(arenaPoints, currentLocation);
         
         if (playerDist < meleeRange)
         {
+            if (logConsoleMessages)
+                print("Melee Attack Selected");
             GetMeleeAttack();
         }
         else if(locationIndex == 0 || locationIndex == 4)
         {
             damagedRecently = false;
+            if (logConsoleMessages)
+                print("Edge Attack Selected");
             GetEdgeAttack();
         }
         else
         {
             damagedRecently = false;
+            if (logConsoleMessages)
+                print("Centre Attack Selected");
             GetCentreAttack();
         }
     }
+
 
 
     void GetMeleeAttack()
@@ -80,6 +101,8 @@ public class SteamKing : EnemyBase
 
         if (nextAction == 0)
         {
+            if (logConsoleMessages)
+                print("Dashing");
             StartDash();
             return;
         }
@@ -88,10 +111,14 @@ public class SteamKing : EnemyBase
             damagedRecently = false;
             if(nextAction == 1)
             {
+                if (logConsoleMessages)
+                    print("Kicking");
                 anim.SetTrigger("Kick");
             }
             else
             {
+                if (logConsoleMessages)
+                    print("Dodge Shooting");
                 anim.SetTrigger("DodgeShoot");  
                 StartDodge();
             }
@@ -100,10 +127,14 @@ public class SteamKing : EnemyBase
         {
             if (nextAction == 1)
             {
+                if (logConsoleMessages)
+                    print("Thrusting");
                 anim.SetTrigger("Thrust");
             }
             else
             {
+                if (logConsoleMessages)
+                    print("Slashing");
                 anim.SetTrigger("Slash");         
             }
         }
@@ -115,16 +146,24 @@ public class SteamKing : EnemyBase
         switch(nextAction)
         {
             case 0:
-                //Shield Charge
+                if (logConsoleMessages)
+                    print("Charging");
+                ReadyCharge();
                 return;
             case 1:
+                if (logConsoleMessages)
+                    print("Diving");
                 //Dive Slam
                 return;
             case 2:
-                //Aimed Shot
+                if (logConsoleMessages)
+                    print("Aiming");
+                anim.SetTrigger("AimedShot");
                 return;
             case 3:
-                //Chain Whip
+                if (logConsoleMessages)
+                    print("Whipping");
+                anim.SetTrigger("ChainWhip");
                 return;
         }
     }
@@ -135,16 +174,24 @@ public class SteamKing : EnemyBase
         switch (nextAction)
         {
             case 0:
+                if (logConsoleMessages)
+                    print("Dashing");
                 StartDash();
                 return;
             case 1:
+                if (logConsoleMessages)
+                    print("Leaping");
                 //Leap
                 return;
             case 2:
-                //Aimed Shot
+                if (logConsoleMessages)
+                    print("Aiming");
+                anim.SetTrigger("AimedShot");
                 return;
             case 3:
-                //Chain Whip
+                if (logConsoleMessages)
+                    print("Whipping");
+                anim.SetTrigger("ChainWhip");
                 return;
         }
     }
@@ -175,6 +222,11 @@ public class SteamKing : EnemyBase
             currentLocation = nextLocation;
             anim.SetBool("Dashing",false);
             state = KingStates.Idle;
+
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("KingCharge"))
+            {
+                EndCharge();
+            }
         }
     }
 
@@ -243,6 +295,11 @@ public class SteamKing : EnemyBase
         health -= damage;
         damagedRecently = true;
 
+        if(health <= phaseTransition && !phase2)
+        {
+            phase2 = true;  
+        }
+
         if (health <= 0)
         {
             Die();
@@ -259,5 +316,33 @@ public class SteamKing : EnemyBase
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+    }
+
+    void ReadyCharge()
+    {
+        anim.SetBool("Charging", true);
+
+        if (locationIndex == 0)
+        {
+            nextLocation = arenaPoints[4];
+        }
+        else if(locationIndex == 4)
+        {
+            nextLocation = arenaPoints[0];
+        }
+    }
+
+    internal void StartCharge()
+    {
+        anim.SetTrigger("Charge");
+        state = KingStates.Dashing;
+        ChargeCollider.enabled = true;
+    }
+
+
+    void EndCharge()
+    {
+        ChargeCollider.enabled = false;
+        anim.SetBool("Charging", false);
     }
 }
