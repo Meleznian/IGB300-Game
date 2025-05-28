@@ -2402,9 +2402,21 @@ MonoBehaviour:
   YouDiedtxt: {fileID: 1941303423}
   killCountText: {fileID: 986245195}
   killCountVictoryText: {fileID: 0}
+  crowdHypeText: {fileID: 0}
   completeLevelUI: {fileID: 0}
+  coinText: {fileID: 0}
   restartDelay: 0.5
   KillTarget: 10
+  crowdHype: 0
+  cashMult: 0
+  steamGauge: 0
+  ammo: 0
+  maxAmmo: 0
+  parryMult: 1.2
+  steamSlider: {fileID: 0}
+  hypeSlider: {fileID: 0}
+  ammoDisplay: {fileID: 0}
+  floorBullet: {fileID: 0}
 --- !u!4 &222163503
 Transform:
   m_ObjectHideFlags: 0
@@ -2483,14 +2495,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b453dbdf93a42af43aa32f3743021e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyName: 
+  health: 0
+  defaultDamage: 0
+  moveSpeed: 0
+  attackSpeed: 0
+  stunTime: 0
+  knockbackResist: 0
+  attacks: []
   firePoint: {fileID: 298505076}
   bulletPrefab: {fileID: 918802385275866056, guid: f8627dce041d83043a11ab80165c40a8, type: 3}
+  Gun: {fileID: 0}
   player: {fileID: 261575143}
-  fireRate: 1
   sightRange: 10
   obstacleMask:
     serializedVersion: 2
     m_Bits: 0
+  anim: {fileID: 0}
 --- !u!61 &232538310
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4278,8 +4299,8 @@ MonoBehaviour:
   healAmountPerTick: 5
   healTickDelay: 0.5
   totalHealTicks: 5
-  healCharge: 10
   isHealing: 0
+  sprite: {fileID: 0}
 --- !u!114 &875426037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7900,6 +7921,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0de027f1e27dd40a69139953cee60b, type: 3}
+--- !u!1001 &5041645176153742154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2321086332139497096, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_Name
+      value: SpringPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.1754
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301499822982335155, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 007d0696930ef0d48b6447aa9fd95823, type: 3}
 --- !u!1001 &5795312306409605707
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7987,3 +8065,4 @@ SceneRoots:
   - {fileID: 4145727194320401567}
   - {fileID: 1605620952}
   - {fileID: 1160373122}
+  - {fileID: 5041645176153742154}
