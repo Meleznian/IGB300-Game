@@ -20,6 +20,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [Tooltip("How much resistance does the enemy have to being knocked back by the player")]
     public float knockbackResist;
 
+
+    [Header("Currency Drop")]
+    [Tooltip("Prefab to spawn when the enemy dies")]
+    public GameObject currencyPrefab;
+
+    [Tooltip("Number of currency drops to spawn")]
+    public int dropAmount = 1;
+
     [Header("Attacks")]
     [Tooltip("List of attacks the enemy can do")]
     public Attack[] attacks;
@@ -35,8 +43,11 @@ public class EnemyBase : MonoBehaviour, IDamageable
         public float knockback;
     }
 
+
+
     internal Rigidbody2D rb;
     internal float actingMoveSpeed;
+
 
     private void Start()
     {
@@ -80,9 +91,15 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     public virtual void Die()
     {
+        Debug.Log("Die here");
+
+        SpawnCurrency();
+
         if (EnemyManager.instance != null)
         {
+            
             EnemyManager.instance.EnemyKilled(gameObject);
+
         }
         else
         {
@@ -102,5 +119,20 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public virtual void ExtraSetup()
     {
 
+    }
+
+    void SpawnCurrency()
+    {
+        
+        if (currencyPrefab == null) return;
+
+        Debug.Log("Drop bot");
+        
+        for (int i = 0; i < dropAmount; i++)
+        {
+            // Random offset to spread them a bit
+            Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
+            Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
+        }
     }
 }

@@ -2,16 +2,40 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private float smoothSpeed = 5f;
-    [SerializeField] private Vector3 offset = new Vector3(0, 0, -10f);
+    public Transform target;
+    public float smoothSpeed = 5f;
+    public Vector3 offset;
+
+    [Header("Stage Bounds")]
+    public Transform stageBoundsTopLeft;
+    public Transform stageBoundsBottomRight;
+
+    private float camHalfHeight;
+    private float camHalfWidth;
+
+    void Start()
+    {
+        Camera cam = Camera.main;
+        camHalfHeight = cam.orthographicSize;
+        camHalfWidth = camHalfHeight * cam.aspect;
+    }
 
     void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null || stageBoundsTopLeft == null || stageBoundsBottomRight == null) return;
 
         Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothed = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.position = smoothed;
+
+        float minX = stageBoundsTopLeft.position.x + camHalfWidth;
+        float maxX = stageBoundsBottomRight.position.x - camHalfWidth;
+        float minY = stageBoundsBottomRight.position.y + camHalfHeight;
+        float maxY = stageBoundsTopLeft.position.y - camHalfHeight;
+
+        float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
+        float clampedY = Mathf.Clamp(desiredPosition.y, minY, maxY);
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, new Vector3(clampedX, clampedY, desiredPosition.z), smoothSpeed * Time.deltaTime);
+        transform.position = smoothedPosition;
     }
 }
+
