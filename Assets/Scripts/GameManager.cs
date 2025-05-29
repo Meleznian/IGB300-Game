@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
 
     public TextMeshProUGUI boltText;
-    [SerializeField] private int _BoltCount = 0;
+    [SerializeField] internal int _BoltCount = 0;
 
     bool gameHasEnded = false;
     bool gameHasWon = false;

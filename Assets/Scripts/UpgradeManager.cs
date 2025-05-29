@@ -225,5 +225,6 @@ public class UpgradeManager : MonoBehaviour
         cashGoal *= 1.5f;
         progressSlider.maxValue = cashGoal;
         progressSlider.value = 0;
+        GameManager.instance._BoltCount = 0;
     }
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7835850529534847684}
   - component: {fileID: 3235539322155298633}
-  - component: {fileID: 746724888352529913}
   - component: {fileID: 6939304625285668413}
   m_Layer: 0
   m_Name: GameManager
@@ -53,7 +52,7 @@ MonoBehaviour:
   crowdHypeText: {fileID: 1334253665117281990}
   completeLevelUI: {fileID: 2743665091204896469}
   upgrader: {fileID: 6939304625285668413}
-  botText: {fileID: 0}
+  boltText: {fileID: 0}
   _BoltCount: 0
   restartDelay: 5
   KillTarget: 100
@@ -67,19 +66,6 @@ MonoBehaviour:
   hypeSlider: {fileID: 7391088710861397707}
   ammoDisplay: {fileID: 3016185820096805597}
   floorBullet: {fileID: 918802385275866056, guid: e2b8a258f7406f54ea667de099b55cfa, type: 3}
---- !u!114 &746724888352529913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354585238773915636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2baa0ec465c066343972503b747726fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalCurrency: 0
 --- !u!114 &6939304625285668413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +123,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7835850529534847684}
     m_Modifications:
+    - target: {fileID: 765393135792478948, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 971384434662763352, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_text
       value: 0
@@ -157,9 +147,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3437338744111390178, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3901402990032867139, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Value
       value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3901402990032867139, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035565314505555251, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4582798722900154699, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchorMax.y
@@ -267,6 +269,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8139802582615821761, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300211905836761032, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749746791797615445, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
