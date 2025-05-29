@@ -6268,9 +6268,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundList:
-  - {fileID: 8300000, guid: 5201e421367c1f54aa50adbb096930be, type: 3}
-  - {fileID: 8300000, guid: e5ee9223847bc854d8c61031419a076e, type: 3}
-  musicList: []
+  - name: JUMP
+    sounds: []
+  - name: DOUBLEJUMP
+    sounds: []
+  - name: DASH
+    sounds: []
+  - name: SLASH
+    sounds: []
+  - name: WALK
+    sounds: []
+  - name: TAKE_DAMAGE
+    sounds: []
+  - name: LANDED
+    sounds: []
+  - name: MAIN_MUSIC
+    sounds: []
+  - name: PAUSE_MUSIC
+    sounds: []
+  - name: START_MUSIC
+    sounds: []
+  - name: BOSS_MUSIC
+    sounds: []
   musicSource: {fileID: 193034881}
 --- !u!82 &1860385022
 AudioSource:
@@ -6748,17 +6767,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 398435340768379175, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 0b8cb75bb63fc7c4fbce67feaddbfd4a, type: 2}
     - target: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_Name
-      value: Bot
+      value: Bolt
       objectReference: {fileID: 0}
     - target: {fileID: 4150202562344647544, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.09
+      value: -10.63
       objectReference: {fileID: 0}
     - target: {fileID: 4150202562344647544, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.74
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 4150202562344647544, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6877,6 +6900,22 @@ PrefabInstance:
     - target: {fileID: 1885519247420598914, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: knockback
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_Size.x
+      value: 8.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_Size.y
+      value: 12.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4903086354309169804, guid: bab82c872f37995419db90057c144704, type: 3}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: bulletKnockback
