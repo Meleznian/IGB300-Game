@@ -1,15 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using TMPro;
 public class SettingsManager : MonoBehaviour
 {
     public GameObject mainMenuPanel;
-    public GameObject loadGamePanel;
     public GameObject TutorialPanel;
 
+    public GameObject popupPanel;
+    public float popupDuration = 3f;
+    public TMP_Text popupText;
     public void Start()
     {
-        loadGamePanel.SetActive(false);
+        popupPanel.SetActive(false);
         TutorialPanel.SetActive(false);
     }
 
@@ -27,29 +31,23 @@ public class SettingsManager : MonoBehaviour
     }
     public void ShowLoadPanel()
     {
-        mainMenuPanel.SetActive(false);
-        loadGamePanel.SetActive(true);
+        ShowPopup("Save/Save game feature coming in a future update — Thank you for your patience!");
     }
-    public void LoadGame(int slot)
+    private void ShowPopup(string message)
     {
-        string key = $"SaveSlot{slot}";
-        if (PlayerPrefs.HasKey(key))
-        {
-            string levelName = PlayerPrefs.GetString(key);
-            Debug.Log("Loaded Save Slot " + slot + ": " + levelName);
-
-            loadGamePanel.SetActive(false);
-            SceneManager.LoadScene("Main Game");
-
-        }
-        else
-        {
-            Debug.LogWarning("No save found in slot " + slot);
-        }
+        StopAllCoroutines();
+        popupText.text = message;
+        popupPanel.SetActive(true);
+        StartCoroutine(HidePopupAfterDelay());
+    }
+    private IEnumerator HidePopupAfterDelay()
+    {
+        yield return new WaitForSeconds(popupDuration);
+        popupPanel.SetActive(false);
     }
     public void GoBackToMainMenu()
     {
-        loadGamePanel.SetActive(false);
+        popupPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
     public void ExitGame()

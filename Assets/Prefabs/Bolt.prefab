@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4150202562344647544}
   - component: {fileID: 3946942318568561565}
   - component: {fileID: 398435340768379175}
-  - component: {fileID: 6660083131322734321}
   - component: {fileID: 8653817461236289596}
+  - component: {fileID: 6970564716278901016}
   m_Layer: 0
   m_Name: Bolt
   m_TagString: Bot
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0b8cb75bb63fc7c4fbce67feaddbfd4a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -117,8 +117,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6660083131322734321
-BoxCollider2D:
+--- !u!114 &8653817461236289596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678814081965962704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3311ba275778dc4c940ae82f251deab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MagnetRange: 3
+  MagnetSpeed: 4
+  player: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+  inRange: 0
+--- !u!58 &6970564716278901016
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,7 +149,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1975
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -152,30 +168,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64335936, y: 0.64375}
-    newSize: {x: 0.64335936, y: 0.64375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.64335936, y: 0.64375}
-  m_EdgeRadius: 0
---- !u!114 &8653817461236289596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678814081965962704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3311ba275778dc4c940ae82f251deab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MagnetRange: 3
-  MagnetSpeed: 4
-  player: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-  inRange: 0
+  m_Radius: 0.35

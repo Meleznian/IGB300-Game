@@ -95,7 +95,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator ChangeColour()
     {
-        print("Colour Changed Started");
+        //print("Colour Changed Started");
         bool done = false;
         bool reverse = false;
         float t = 0;
@@ -105,7 +105,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (!reverse && sprite.color != Color.red)
             {
-                print("Red");
+                //print("Red");
                 sprite.color = Color.Lerp(sprite.color, Color.red, t);
                 t += Time.deltaTime;
 
@@ -113,14 +113,14 @@ public class PlayerHealth : MonoBehaviour
             }
             else if (!reverse && sprite.color == Color.red)
             {
-                print("Neither");
+                //print("Neither");
                 reverse = true;
                 t = 0;
                 yield return null;
             }
             else if (reverse && sprite.color != Color.white)
             {
-                print("White");
+                //print("White");
                 sprite.color = Color.Lerp(sprite.color, Color.white, t);
                 t += Time.deltaTime;
 
@@ -133,6 +133,6 @@ public class PlayerHealth : MonoBehaviour
         }
 
         iframing = false;
-        print("Colour Changed Finished");
+        //print("Colour Changed Finished");
     }
 }

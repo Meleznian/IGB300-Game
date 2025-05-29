@@ -52,7 +52,9 @@ MonoBehaviour:
   killCountVictoryText: {fileID: 443273602477746849}
   crowdHypeText: {fileID: 1334253665117281990}
   completeLevelUI: {fileID: 2743665091204896469}
-  coinText: {fileID: 0}
+  upgrader: {fileID: 6939304625285668413}
+  botText: {fileID: 0}
+  _BoltCount: 0
   restartDelay: 5
   KillTarget: 100
   crowdHype: 0
@@ -146,6 +148,14 @@ PrefabInstance:
     - target: {fileID: 2307737494299569644, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330426395651647141, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -216
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913235389415130893, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3901402990032867139, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Value

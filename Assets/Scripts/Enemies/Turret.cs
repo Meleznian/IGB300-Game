@@ -68,9 +68,10 @@ public class Turret : EnemyBase
         Debug.Log("Turret fired!");
 
         Vector2 dir = (player.position - firePoint.position).normalized;
-        var bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().Init(dir);
-        bullet.GetComponent<Bullet>().originallyEnemy = true;
+        Bullet newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();
+        newBullet.Init(dir);
+        newBullet.damage = defaultDamage;
+        newBullet.originallyEnemy = true;
 
     }
 

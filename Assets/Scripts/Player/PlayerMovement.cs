@@ -124,9 +124,18 @@ public class PlayerMovement : MonoBehaviour
         //isGrounded = false;
         rb.linearVelocityY = 0;
         rb.AddForce(transform.up * _jumpSpeed, ForceMode2D.Impulse);
-        AudioManager.PlayEffect(SoundType.JUMP);
+        
+        
 
-        if (!_isGrounded) _airJump = true;
+        if (!_isGrounded)
+        {
+            _airJump = true;
+            AudioManager.PlayEffect(SoundType.DOUBLEJUMP, 0.8f);
+        }
+        else
+        {
+            AudioManager.PlayEffect(SoundType.JUMP);
+        }
         //jumped = true;
 
         //Adds to the Jump Counter
@@ -178,6 +187,9 @@ public class PlayerMovement : MonoBehaviour
         rb.linearDamping = 0;
         rb.gravityScale = 0;
 
+        //play sound
+        AudioManager.PlayEffect(SoundType.DASH);
+
         //Waits for Sprint to conclude
         yield return new WaitForSeconds(_sprintTime);
         
@@ -195,6 +207,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("Jumping", false);
         _isGrounded = true;
         _airJump = false;
+        AudioManager.PlayEffect(SoundType.LANDED);
     }
 
     public void LeftGround()

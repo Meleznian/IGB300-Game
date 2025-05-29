@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,10 +23,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI killCountVictoryText;
     public TMP_Text crowdHypeText;
     public GameObject completeLevelUI;
+    [SerializeField] UpgradeManager upgrader;
 
 
-    public TextMeshProUGUI botText;
-    private int _BotCount = 0;
+    public TextMeshProUGUI boltText;
+    [SerializeField] private int _BoltCount = 0;
 
     bool gameHasEnded = false;
     bool gameHasWon = false;
@@ -51,14 +51,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ammoDisplay.value = ammo;
+        AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
     }
 
     void Update()
     {
         killCountText.text = "Kills: " + DisplayKillCount();
-        //botText.text = _BotCount.ToString();
+        //boltText.text = _BoltCount.ToString();
 
-        DisplayBotCount();//why was this remove?
+        //DisplayBoltCount();//why was this remove? //If you have questions put them in the chat. There are several reasons this was removed 
 
         if (_killCount >= KillTarget & gameHasWon == false)
         {
@@ -77,10 +78,15 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void BotCount()
+    public void BoltCount(int amount)
     {
-        //Debug.Log("_BotCount " + _BotCount);
-        _BotCount += 100;
+        //Debug.Log("_BoltCount " + _BoltCount);
+        _BoltCount += amount;
+
+        if(_BoltCount >= upgrader.cashGoal)
+        {
+            upgrader.ShowUpgradeOptions();
+        }
     }
 
     public void CompleteLevel()
@@ -95,10 +101,10 @@ public class GameManager : MonoBehaviour
         return _killCount;
     }
 
-    public int DisplayBotCount()
+    public int DisplayBoltCount()
     {
-        //Debug.Log("_BotCount " + _BotCount);
-        return _BotCount;
+        Debug.Log("_BoltCount " + _BoltCount);
+        return _BoltCount;
     }
 
     public void EndGame()
