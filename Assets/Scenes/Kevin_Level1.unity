@@ -2465,7 +2465,9 @@ MonoBehaviour:
   killCountVictoryText: {fileID: 662752764}
   crowdHypeText: {fileID: 0}
   completeLevelUI: {fileID: 552676276}
-  botText: {fileID: 0}
+  upgrader: {fileID: 0}
+  boltText: {fileID: 0}
+  _BoltCount: 0
   restartDelay: 0.5
   KillTarget: 10
   crowdHype: 0
@@ -2524,11 +2526,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &261575143 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8502951377849970374, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+--- !u!1 &245918878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8837223900107501713, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
   m_PrefabInstance: {fileID: 1924893879149892190}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &245918886 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5765494503337787885, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  m_PrefabInstance: {fileID: 1924893879149892190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &245918887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245918878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832188da56fa4c84b91bcdb577647cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isboltCount: 0
 --- !u!1 &271381382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4549,7 +4569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &798833538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4564,7 +4584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagnetRange: 3
   MagnetSpeed: 4
-  player: {fileID: 261575143}
+  player: {fileID: 0}
   inRange: 0
 --- !u!61 &798833539
 BoxCollider2D:
@@ -4709,17 +4729,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &875426029 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 724266256920192143, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-  m_PrefabInstance: {fileID: 1924893879149892190}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155362970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 293be83fe0486a94c82e5f07d5abffeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &986245193
 GameObject:
   m_ObjectHideFlags: 0
@@ -5885,36 +5894,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2250689153475494381, guid: 965f4c3ddfc6946488bff17a695858c7, type: 3}
   m_PrefabInstance: {fileID: 1990006365}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1155362970 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-  m_PrefabInstance: {fileID: 1924893879149892190}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1155362980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155362970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d9383c6fccf9dd4cb1bd3d6187cbca4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1155362989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155362970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832188da56fa4c84b91bcdb577647cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isbotCount: 0
 --- !u!1 &1307733405
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,7 +6049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1334989665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6085,7 +6064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagnetRange: 3
   MagnetSpeed: 4
-  player: {fileID: 261575143}
+  player: {fileID: 0}
   inRange: 0
 --- !u!61 &1334989666
 BoxCollider2D:
@@ -6282,7 +6261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 1381788628}
-  playerHealth: {fileID: 875426029}
+  playerHealth: {fileID: 0}
 --- !u!114 &1381788628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6562,9 +6541,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89bcc3ec3edda04eba049da190be3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 261575143}
+  target: {fileID: 0}
   smoothSpeed: 5
   offset: {x: 0, y: 0, z: -10}
+  stageBoundsTopLeft: {fileID: 0}
+  stageBoundsBottomRight: {fileID: 0}
 --- !u!1 &1434386632
 GameObject:
   m_ObjectHideFlags: 0
@@ -7045,7 +7026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1635865200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7060,7 +7041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagnetRange: 3
   MagnetSpeed: 4
-  player: {fileID: 261575143}
+  player: {fileID: 0}
   inRange: 0
 --- !u!61 &1635865201
 BoxCollider2D:
@@ -9113,7 +9094,7 @@ PrefabInstance:
     - target: {fileID: 4659571277777179011, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 261575143}
+      objectReference: {fileID: 0}
     - target: {fileID: 4659571277777179011, guid: be885e53ba8c7dc42ae9c50f6a9a17ce, type: 3}
       propertyPath: attackRadius
       value: 0.55
@@ -9244,12 +9225,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8837223900107501713, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1155362980}
-    - targetCorrespondingSourceObject: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1155362989}
+      addedObject: {fileID: 245918887}
   m_SourcePrefab: {fileID: 100100000, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
 --- !u!1001 &5848212912156089285
 PrefabInstance:
@@ -9262,6 +9240,10 @@ PrefabInstance:
     - target: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_Name
       value: Bot
+      objectReference: {fileID: 0}
+    - target: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+      propertyPath: m_TagString
+      value: Bolt
       objectReference: {fileID: 0}
     - target: {fileID: 4150202562344647544, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9306,7 +9288,7 @@ PrefabInstance:
     - target: {fileID: 8653817461236289596, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 261575143}
+      objectReference: {fileID: 245918886}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
