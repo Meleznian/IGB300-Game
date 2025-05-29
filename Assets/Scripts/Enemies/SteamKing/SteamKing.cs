@@ -189,7 +189,7 @@ public class SteamKing : EnemyBase
 
     void GetCentreAttack()
     {
-        int nextAction = UnityEngine.Random.Range(0, 4);
+        int nextAction = UnityEngine.Random.Range(0, 3);
         switch (nextAction)
         {
             case 0:
@@ -199,8 +199,8 @@ public class SteamKing : EnemyBase
                 return;
             case 1:
                 if (logConsoleMessages)
-                    print("Leaping");
-                //Leap
+                    print("Whipping");
+                anim.SetTrigger("ChainWhip");
                 return;
             case 2:
                 if (logConsoleMessages)
@@ -209,8 +209,8 @@ public class SteamKing : EnemyBase
                 return;
             case 3:
                 if (logConsoleMessages)
-                    print("Whipping");
-                anim.SetTrigger("ChainWhip");
+                    print("Leaping");
+                //Leap
                 return;
         }
     }
