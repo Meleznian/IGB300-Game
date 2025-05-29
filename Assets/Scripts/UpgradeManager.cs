@@ -28,6 +28,7 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
+        SetupPlayer();
         allUpgrades = new List<Upgrade>()
         {
             new Upgrade { upgradeName = "Sharpen Blade", 
@@ -167,6 +168,18 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] PlayerHealthUI healthUI;
     [SerializeField] TMP_Text levelText;
     [SerializeField] Slider progressSlider;
+
+    void SetupPlayer()
+    {
+        if(movement == null)
+        {
+            GameObject player = GameObject.Find("Player");
+            movement = player.GetComponent<PlayerMovement>();
+            melee = player.GetComponent<PlayerMeleeAttack>();
+            ranged = player.GetComponent<PlayerRangedAttack>();
+            health = player.GetComponent<PlayerHealth>();
+        }
+    }
 
     public void DoUpgrade(string stat)
     {

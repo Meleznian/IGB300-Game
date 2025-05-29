@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,11 @@ public class PlayerHealthUI : MonoBehaviour
 
     void Start()
     {
+        if(playerHealth == null)
+        {
+            playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        }
+
         if (playerHealth != null && hpSlider != null)
         {
             hpSlider.maxValue = playerHealth.maxHealth;
