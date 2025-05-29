@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private SoundList[] soundList;
 
-    
+
     public static AudioManager instance;
     private AudioSource effectsSource;
     public AudioSource musicSource;
@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }    
+    }
 
     private void Start()
     {
@@ -49,22 +49,24 @@ public class AudioManager : MonoBehaviour
     {
         string[] effectNames = Enum.GetNames(typeof(SoundType));
         Array.Resize(ref soundList, effectNames.Length);
-        for (int i =0; i < soundList.Length; i++)
+        for (int i = 0; i < soundList.Length; i++)
         {
             soundList[i].name = effectNames[i];
         }
 
     }
-}
+
 #endif
 
-[Serializable]
-public struct SoundList
-{
-    public AudioClip[] Sounds { get => sounds; }
-    [HideInInspector] public string name;
-    [SerializeField] private AudioClip[] sounds;
+    [Serializable]
+    public struct SoundList
+    {
+        public AudioClip[] Sounds { get => sounds; }
+        [HideInInspector] public string name;
+        [SerializeField] private AudioClip[] sounds;
+    }
 }
+
 
 
 
