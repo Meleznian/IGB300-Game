@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MagnetBot : MonoBehaviour
+public class MagnetBolt : MonoBehaviour
 {
     public float MagnetRange = 3f;
     public float MagnetSpeed = 4f;

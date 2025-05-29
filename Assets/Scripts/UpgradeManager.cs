@@ -87,7 +87,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    void ShowUpgradeOptions()
+    internal void ShowUpgradeOptions()
     {
         //if (availableUpgrades.Count < 3)
         //{
@@ -143,7 +143,7 @@ public class UpgradeManager : MonoBehaviour
     }
 
     [Header("Variables")]
-    [SerializeField] float cashGoal;
+    [SerializeField] internal float cashGoal;
     [SerializeField] int playerLevel = 1;
 
     [Header("Stat Increases")]
