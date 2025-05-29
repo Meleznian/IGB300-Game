@@ -15,6 +15,7 @@ public class BoltCollected : MonoBehaviour
             //collision.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Collected");
             //Debug.Log("Destroy it");
             Destroy(collision.gameObject);
+            
         }
     }
 }
