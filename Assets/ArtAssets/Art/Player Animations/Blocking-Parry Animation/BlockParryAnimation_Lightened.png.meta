@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fd5aebfcfb6bf294ca4185a129c6423d
+guid: 1092446da12459c489dfd73bc4c3d0d0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6826581348035109320
-    second: BasicAttack2_UpwardSlash_3_0
+      213: 3263822734768587540
+    second: BlockParryAnimation_3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BasicAttack2_UpwardSlash_3_0
+      name: BlockParryAnimation_3_0
       rect:
         serializedVersion: 2
-        x: 794
+        x: 650
         y: 0
-        width: 917
-        height: 1264
+        width: 753
+        height: 1222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83e5f08ce6c1341a0800000000000000
-      internalID: -6826581348035109320
+      spriteID: 413c9bb1c7d6b4d20800000000000000
+      internalID: 3263822734768587540
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BasicAttack2_UpwardSlash_3_0: -6826581348035109320
+      BlockParryAnimation_3_0: 3263822734768587540
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BoltCollected : MonoBehaviour
 {
-    public bool isbotCount = false; 
+    public bool isboltCount = false; 
 
     void OnCollisionEnter2D(Collision2D collision)
     {

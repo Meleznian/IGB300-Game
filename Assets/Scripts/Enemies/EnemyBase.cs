@@ -126,7 +126,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         
         if (currencyPrefab == null) return;
 
-        Debug.Log("Drop bot");
+        Debug.Log("Drop bolt");
         
         for (int i = 0; i < dropAmount; i++)
         {

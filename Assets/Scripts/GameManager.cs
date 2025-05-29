@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UpgradeManager upgrader;
 
 
-    public TextMeshProUGUI botText;
+    public TextMeshProUGUI boltText;
     [SerializeField] private int _BoltCount = 0;
 
     bool gameHasEnded = false;
@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         killCountText.text = "Kills: " + DisplayKillCount();
-        //botText.text = _BoltCount.ToString();
+        //boltText.text = _BoltCount.ToString();
 
-        //DisplayBotCount();//why was this remove? //If you have questions put them in the chat. There are several reasons this was removed 
+        //DisplayBoltCount();//why was this remove? //If you have questions put them in the chat. There are several reasons this was removed 
 
         if (_killCount >= KillTarget & gameHasWon == false)
         {
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         return _killCount;
     }
 
-    public int DisplayBotCount()
+    public int DisplayBoltCount()
     {
         Debug.Log("_BoltCount " + _BoltCount);
         return _BoltCount;

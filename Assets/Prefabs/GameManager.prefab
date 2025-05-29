@@ -52,7 +52,9 @@ MonoBehaviour:
   killCountVictoryText: {fileID: 443273602477746849}
   crowdHypeText: {fileID: 1334253665117281990}
   completeLevelUI: {fileID: 2743665091204896469}
-  coinText: {fileID: 0}
+  upgrader: {fileID: 6939304625285668413}
+  botText: {fileID: 0}
+  _BoltCount: 0
   restartDelay: 5
   KillTarget: 100
   crowdHype: 0

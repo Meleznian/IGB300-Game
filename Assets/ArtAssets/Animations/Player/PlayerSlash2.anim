@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: KingKick
+  m_Name: PlayerSlash2
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 5549510990010863931, guid: df316d44fdfbc834880c346f85c2b034, type: 3}
-    - time: 0.33333334
-      value: {fileID: -6845614398688854262, guid: e03d790d4aeb6a3419120d106cf694b3, type: 3}
-    - time: 0.41666666
-      value: {fileID: -8924305482473798697, guid: eadfa78d1047b6f4aabb12c1b33d7735, type: 3}
-    - time: 0.5833333
-      value: {fileID: -8924305482473798697, guid: eadfa78d1047b6f4aabb12c1b33d7735, type: 3}
+      value: {fileID: -4667114310214057412, guid: 31f754ce997e9c64ba760f279a2f6444, type: 3}
+    - time: 0.033333335
+      value: {fileID: 2930346400434603289, guid: 580addefc4bf47246a5fbec4b433ab66, type: 3}
+    - time: 0.06666667
+      value: {fileID: 9112367218637098556, guid: 884c4c76ffa9c0c42b65dcb2db6d4d41, type: 3}
+    - time: 0.1
+      value: {fileID: 9112367218637098556, guid: 884c4c76ffa9c0c42b65dcb2db6d4d41, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 5549510990010863931, guid: df316d44fdfbc834880c346f85c2b034, type: 3}
-    - {fileID: -6845614398688854262, guid: e03d790d4aeb6a3419120d106cf694b3, type: 3}
-    - {fileID: -8924305482473798697, guid: eadfa78d1047b6f4aabb12c1b33d7735, type: 3}
-    - {fileID: -8924305482473798697, guid: eadfa78d1047b6f4aabb12c1b33d7735, type: 3}
+    - {fileID: -4667114310214057412, guid: 31f754ce997e9c64ba760f279a2f6444, type: 3}
+    - {fileID: 2930346400434603289, guid: 580addefc4bf47246a5fbec4b433ab66, type: 3}
+    - {fileID: 9112367218637098556, guid: 884c4c76ffa9c0c42b65dcb2db6d4d41, type: 3}
+    - {fileID: 9112367218637098556, guid: 884c4c76ffa9c0c42b65dcb2db6d4d41, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 0.11666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,11 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.43333334
-    functionName: Kick
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
