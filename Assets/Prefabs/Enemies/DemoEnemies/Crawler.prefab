@@ -269,6 +269,8 @@ MonoBehaviour:
   attackSpeed: 0
   stunTime: 0
   knockbackResist: 0
+  currencyPrefab: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+  dropAmount: 1
   attacks: []
   grounds:
     serializedVersion: 2
@@ -299,7 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lodgedbullets: 0
-  floorBullet: {fileID: 0}
 --- !u!1 &7467031131712941437
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6660083131322734321}
   - component: {fileID: 8653817461236289596}
   m_Layer: 0
-  m_Name: Bot
+  m_Name: Bolt
   m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,5 +177,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagnetRange: 3
   MagnetSpeed: 4
-  player: {fileID: 0}
+  player: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
   inRange: 0

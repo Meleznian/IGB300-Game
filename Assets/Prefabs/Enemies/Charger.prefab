@@ -187,6 +187,10 @@ MonoBehaviour:
   target: {fileID: 0}
   stunned: 0
   stunTime: 0
+  health: 0
+  iFrames: 0
+  hasIFrames: 0
+  parriable: 1
   moveSpeed: 5
   minDistance: 0.1
   chargeDistance: 0
@@ -203,6 +207,7 @@ MonoBehaviour:
   bashCooldown: 3
   bashParriable: 0
   bashAvailable: 0
+  anim: {fileID: 0}
 --- !u!114 &1479381369196750076
 MonoBehaviour:
   m_ObjectHideFlags: 0

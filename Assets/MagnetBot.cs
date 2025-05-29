@@ -7,7 +7,10 @@ public class MagnetBot : MonoBehaviour
     public Transform player;
     public bool inRange = false;
 
-
+    private void Start()
+    {
+        player = GameObject.Find("Player").transform;
+    }
     void Update()
     {
 

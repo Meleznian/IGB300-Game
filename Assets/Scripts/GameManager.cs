@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     public int DisplayBotCount()
     {
-        Debug.Log("_BotCount " + _BotCount);
+        //Debug.Log("_BotCount " + _BotCount);
         return _BotCount;
     }
 
