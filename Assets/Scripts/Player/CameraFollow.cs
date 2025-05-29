@@ -2,25 +2,40 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private float smoothSpeed = 5f;
-    [SerializeField] private Vector3 offset = new Vector3(0, 0, -10f);
+    public Transform target;
+    public float smoothSpeed = 5f;
+    public Vector3 offset;
 
-    [Header("Clamp Settings")]
-    [SerializeField] private Vector2 minClamp; // 左下の制限座標
-    [SerializeField] private Vector2 maxClamp; // 右上の制限座標
+    [Header("Stage Bounds")]
+    public Transform stageBoundsTopLeft;
+    public Transform stageBoundsBottomRight;
+
+    private float camHalfHeight;
+    private float camHalfWidth;
+
+    void Start()
+    {
+        Camera cam = Camera.main;
+        camHalfHeight = cam.orthographicSize;
+        camHalfWidth = camHalfHeight * cam.aspect;
+    }
 
     void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null || stageBoundsTopLeft == null || stageBoundsBottomRight == null) return;
 
         Vector3 desiredPosition = target.position + offset;
 
-        // カメラの位置を制限
-        desiredPosition.x = Mathf.Clamp(desiredPosition.x, minClamp.x, maxClamp.x);
-        desiredPosition.y = Mathf.Clamp(desiredPosition.y, minClamp.y, maxClamp.y);
+        float minX = stageBoundsTopLeft.position.x + camHalfWidth;
+        float maxX = stageBoundsBottomRight.position.x - camHalfWidth;
+        float minY = stageBoundsBottomRight.position.y + camHalfHeight;
+        float maxY = stageBoundsTopLeft.position.y - camHalfHeight;
 
-        Vector3 smoothed = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.position = smoothed;
+        float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
+        float clampedY = Mathf.Clamp(desiredPosition.y, minY, maxY);
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, new Vector3(clampedX, clampedY, desiredPosition.z), smoothSpeed * Time.deltaTime);
+        transform.position = smoothedPosition;
     }
 }
+
