@@ -6118,7 +6118,7 @@ PrefabInstance:
       objectReference: {fileID: 8380166252511085950}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: cashGoal
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: movement
@@ -6569,10 +6569,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bolt
       objectReference: {fileID: 0}
-    - target: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
-      propertyPath: m_TagString
-      value: Bolt
-      objectReference: {fileID: 0}
     - target: {fileID: 4150202562344647544, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.63
@@ -6832,7 +6828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832188da56fa4c84b91bcdb577647cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isbotCount: 0
+  isboltCount: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
