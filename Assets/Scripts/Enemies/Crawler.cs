@@ -13,7 +13,7 @@ public class Crawler : EnemyBase
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
-
+        AudioManager.PlayEffect(SoundType.CRAWLER_WALK);
         CheckFloor();
         //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
     }
@@ -37,6 +37,7 @@ public class Crawler : EnemyBase
             other.GetComponent<PlayerHealth>().TakeDamage(defaultDamage);
             _lastDamageTime = Time.time;
             //Debug.Log("Continuous Damage!");
+            AudioManager.PlayEffect(SoundType.CRAWLER_ATTACK);
         }
     }
 

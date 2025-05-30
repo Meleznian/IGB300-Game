@@ -1668,7 +1668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: soundList.Array.size
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: soundList.Array.data[11].name
@@ -1696,22 +1696,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: soundList.Array.data[17].name
-      value: TURRET_SHOOT
+      value: TURRET_LOCKON
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: soundList.Array.data[18].name
-      value: CRAWLER_WALK
+      value: TURRET_SHOOT
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: soundList.Array.data[19].name
-      value: CRAWLER_DIE
+      value: CRAWLER_WALK
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: soundList.Array.data[20].name
-      value: CRAWLER_HIT
+      value: CRAWLER_DIE
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: soundList.Array.data[21].name
+      value: CRAWLER_HIT
+      objectReference: {fileID: 0}
+    - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
+      propertyPath: soundList.Array.data[22].name
       value: CRAWLER_ATTACK
       objectReference: {fileID: 0}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
@@ -1801,7 +1805,7 @@ PrefabInstance:
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: 'soundList.Array.data[17].sounds.Array.data[0]'
       value: 
-      objectReference: {fileID: 8300000, guid: 56094b3c9df9b9a41be3a5e8fa291271, type: 3}
+      objectReference: {fileID: 8300000, guid: 96a6f5e7496b56b4fba8a6ffbd7d5f3a, type: 3}
     - target: {fileID: 5885128289884181055, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: 'soundList.Array.data[18].sounds.Array.data[0]'
       value: 

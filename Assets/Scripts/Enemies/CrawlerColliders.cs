@@ -20,6 +20,7 @@ public class CrawlerColliders : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             parent.CrawlerAttack(other);
+            AudioManager.PlayEffect(SoundType.CRAWLER_ATTACK);
         }
     }
 }

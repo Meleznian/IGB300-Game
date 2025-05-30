@@ -124,7 +124,7 @@ public class ChargerAgent : BehaviourAgent
     {
         transform.position = Vector2.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
         currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;
-
+        AudioManager.PlayEffect(SoundType.CHARGER_WALK);
     }
 
 
@@ -154,6 +154,7 @@ public class ChargerAgent : BehaviourAgent
         attacking = false;
         yield return new WaitForSeconds(chargeCooldown);
         chargeAvailable = true;
+        AudioManager.PlayEffect(SoundType.CHARGER_WALK);
     }
 
     /// <summary>
@@ -169,5 +170,6 @@ public class ChargerAgent : BehaviourAgent
         attacking = false;
         yield return new WaitForSeconds(bashCooldown);
         bashAvailable = true;
+        AudioManager.PlayEffect(SoundType.CHARGER_ATTACK);
     }
 }
