@@ -106,6 +106,7 @@ public class Turret : EnemyBase
             anim.SetBool("Aiming", true);
             laserSight.enabled = true;
             aiming = true;
+            AudioManager.PlayEffect(SoundType.TURRET_LOCKON);
         }
     }
 
