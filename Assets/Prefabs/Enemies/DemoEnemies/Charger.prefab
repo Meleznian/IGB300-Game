@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parriable: 0
-  agent: {fileID: 0}
+  agent: {fileID: 3254447055041720537}
 --- !u!1 &3010242644535729339
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,22 +222,22 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  moveSpeed: 5
+  moveSpeed: 3
   minDistance: 1
-  chargeDistance: 0
+  chargeDistance: 3
   yLevelError: 1
   attacking: 0
   chargeSpeed: 7
   chargeDamage: 11
   chargeKnockback: 0
-  chargeCooldown: 7
+  chargeCooldown: 3
   chargeParriable: 0
   chargeAvailable: 1
   bashDamage: 0
   bashKnockback: 0
-  bashCooldown: 3
+  bashCooldown: 1
   bashParriable: 0
-  bashAvailable: 0
+  bashAvailable: 1
   anim: {fileID: 3035971936109511413}
 --- !u!114 &-5120716224871148930
 MonoBehaviour:
