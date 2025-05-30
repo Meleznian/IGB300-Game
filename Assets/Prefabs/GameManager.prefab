@@ -67,6 +67,11 @@ MonoBehaviour:
   ammoDisplay: {fileID: 3016185820096805597}
   levelProgress: {fileID: 7840611494678022742}
   floorBullet: {fileID: 918802385275866056, guid: e2b8a258f7406f54ea667de099b55cfa, type: 3}
+  bolt1: {fileID: 678814081965962704, guid: 1a2e658dfe78f3d4ca97cdf409c9b9c7, type: 3}
+  bolt5: {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
+  bolt10: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+  bolt15: {fileID: 678814081965962704, guid: 3a8dc92e1dfe6fd448922a8b3108aabf, type: 3}
+  bolt25: {fileID: 678814081965962704, guid: 0c7596ec65a85474aa8d2476fdfe133a, type: 3}
 --- !u!114 &6939304625285668413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +101,7 @@ MonoBehaviour:
   - {fileID: 5383047197967753256}
   - {fileID: 1120410713885797693}
   - {fileID: 5626209272273471459}
+  anim: {fileID: 0}
   cashGoal: 100
   playerLevel: 1
   healthIncrease: 10
@@ -282,6 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4895811028855215878, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+    - {fileID: 8904347218417037592, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

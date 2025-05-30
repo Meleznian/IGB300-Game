@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class SteamKing : EnemyBase
 {
@@ -35,18 +36,23 @@ public class SteamKing : EnemyBase
         Attacking,
         Diving,
         Leaping,
-        DeathsDoor
+        DeathsDoor,
+        Entering
     }
 
-    KingStates state;
+    [SerializeField] KingStates state;
 
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
-        transform.position = arenaPoints[2].position;
         currentLocation = arenaPoints[2].position;
+        transform.position = arenaPoints[2].position;
+        transform.localPosition = new Vector2(transform.localPosition.x, 7);
+        nextLocation = arenaPoints[2].position;
         phaseTransition = health / 2;
+        state = KingStates.Entering;
+        anim.SetBool("Dashing", true);
     }
 
     private void Update()
@@ -62,6 +68,10 @@ public class SteamKing : EnemyBase
         else if (state == KingStates.Diving)
         {
             DiveSlam();
+        }
+        if (state == KingStates.Entering)
+        {
+            Entering();
         }
         else
         {
@@ -449,5 +459,29 @@ public class SteamKing : EnemyBase
     {
         state = KingStates.DeathsDoor;
         anim.SetTrigger("Dying");
+        dialogue.GetComponent<TMP_Text>().text = "Finish Me... Please";
+    }
+
+    public void Entering()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, nextLocation, moveSpeed * Time.deltaTime);
+
+        if (transform.position.y == nextLocation.y)
+        {
+            currentLocation = nextLocation;
+
+            state = KingStates.Idle;
+            StartCoroutine("Dialogue");
+        }
+    }
+
+    [SerializeField] GameObject dialogue;
+    IEnumerator Dialogue()
+    {
+        dialogue.SetActive(true);
+        yield return new WaitForSeconds(3);
+        dialogue.SetActive(false);
+        anim.SetBool("Dashing", false);
     }
 }
+
