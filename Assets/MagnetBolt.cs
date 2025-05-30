@@ -4,6 +4,7 @@ public class MagnetBolt : MonoBehaviour
 {
     public float MagnetRange = 3f;
     public float MagnetSpeed = 4f;
+    public int value;
     public Transform player;
     public bool inRange = false;
 
