@@ -249,7 +249,7 @@ MonoBehaviour:
   chargeAvailable: 1
   bashDamage: 0
   bashKnockback: 0
-  bashCooldown: 1
+  bashCooldown: 2
   bashParriable: 0
   bashAvailable: 1
   anim: {fileID: 3035971936109511413}

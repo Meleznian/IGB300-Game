@@ -9,6 +9,7 @@ public class ChargerAttacks : MonoBehaviour
     private void Start()
     {
         bashDamage = agent.bashDamage;
+        attackPoint = agent.attackPoint;
     }
 
     public void Bash()
@@ -16,6 +17,7 @@ public class ChargerAttacks : MonoBehaviour
         DealDamage(attackPoint.position, bashDamage);
         Debug.Log("Bashing");
         agent.attacking = false;
+        print(agent.attacking);
     }
 
     void DealDamage(Vector2 origin, int damage)
