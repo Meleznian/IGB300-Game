@@ -138,8 +138,6 @@ public class NavigationAgent : MonoBehaviour
         if (current == currentNodeIndex)
         {
             greedyPaintList.Add(current);
-            Debug.Log(current);
-            Debug.Log(end);
         }
 
         //Debug.Log("Grabbing children");
@@ -186,7 +184,6 @@ public class NavigationAgent : MonoBehaviour
                 }
             }
         }
-       Debug.Log("Failed");
        path.Add(current);
        return path;
     }
