@@ -34,7 +34,8 @@ public class SteamKing : EnemyBase
         Dashing,
         Attacking,
         Diving,
-        Leaping
+        Leaping,
+        DeathsDoor
     }
 
     KingStates state;
@@ -321,7 +322,7 @@ public class SteamKing : EnemyBase
 
         if (health <= 0)
         {
-            Die();
+            DeathsDoor();
         }
     }
 
@@ -442,5 +443,11 @@ public class SteamKing : EnemyBase
                 break;
             }
         }
+    }
+
+    void DeathsDoor()
+    {
+        state = KingStates.DeathsDoor;
+        anim.SetTrigger("Dying");
     }
 }

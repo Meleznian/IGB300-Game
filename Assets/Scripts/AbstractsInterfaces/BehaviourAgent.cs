@@ -18,7 +18,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     public bool flipped;
     public float lastX;
+
+    [Header("Animation")]
     public GameObject animation;
+    public Animator anim;
 
 
     public Transform attackPoint;
@@ -120,8 +123,11 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     {
         stunned = true;
         Debug.Log("Stunned");
+        anim.SetBool("Stunned", true);
         yield return new WaitForSeconds(stunTime);
         stunned = false;
+        anim.SetBool("Stunned", false);
+
     }
 
     public void TakeDamage(int damage)
@@ -133,9 +139,8 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     private void Death()
     {
-
+        anim.SetTrigger("Dead");
         SpawnCurrency();
-        EnemyManager.instance.EnemyKilled(gameObject);
     }
 
     public IEnumerator Invincible()

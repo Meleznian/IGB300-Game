@@ -33,7 +33,11 @@ public class ChargerAttacks : MonoBehaviour
                 player.TakeDamage(damage);
             }
         }
+    }
 
+    public void Killed()
+    {
+        EnemyManager.instance.EnemyKilled(gameObject);
     }
 
 }

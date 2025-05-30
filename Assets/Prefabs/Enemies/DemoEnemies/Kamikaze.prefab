@@ -44,7 +44,7 @@ Animator:
   m_GameObject: {fileID: 2453854599463326146}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 598362060d8e0014ba8617d44acb7e31, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2b0585ec82e82fe4a86743b32c7d5050, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4231360457807991548}
-  velocity: 0
+  useVelocity: 0
 --- !u!1 &7175027469317663787
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +217,16 @@ MonoBehaviour:
   iFrames: 5
   hasIFrames: 0
   parriable: 0
+  flipped: 0
+  lastX: 0
+  animation: {fileID: 0}
+  anim: {fileID: 7942758049274262040}
+  attackPoint: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currencyPrefab: {fileID: 0}
+  dropAmount: 1
   moveSpeed: 5
   minDistance: 1
   chargeDistance: 0

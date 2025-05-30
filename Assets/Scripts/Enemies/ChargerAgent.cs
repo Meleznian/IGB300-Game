@@ -29,9 +29,6 @@ public class ChargerAgent : BehaviourAgent
     public bool bashParriable;
     public bool bashAvailable = true;
 
-    [Header("Animation")]
-    public Animator anim;
-
 
     /// <summary>
     /// Roam State of DFA Agent
