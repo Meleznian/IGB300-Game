@@ -157,6 +157,7 @@ public class ChargerAgent : BehaviourAgent
             yield return null;
         }
         Debug.Log("Charge End");
+        DealDamage(attackPoint.position, chargeDamage);
         anim.SetBool("Charging", false);
 
         attacking = false;
