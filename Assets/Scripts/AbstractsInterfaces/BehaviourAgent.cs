@@ -17,6 +17,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     public bool parriable;
 
+    public bool flipped;
+    public float lastX;
+    public GameObject animation;
+
 
     public Transform attackPoint;
     [SerializeField] LayerMask playerLayer;
@@ -46,6 +50,18 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
                 Flee();
                 break;
         }
+
+        if(transform.position.x > lastX)
+        {
+            flipped = false;
+            lastX = transform.position.x;
+        } else
+        {
+            flipped = true;
+            lastX = transform.position.x;
+        }
+
+        animation.transform.localScale = flipped ? new Vector3(-0.1f, 0.1f, 0.1f) : new Vector3(0.1f, 0.1f, 0.1f);
 
         if (currentState != _oldState)
         {

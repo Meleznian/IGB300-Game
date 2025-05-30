@@ -218,6 +218,9 @@ MonoBehaviour:
   iFrames: 5
   hasIFrames: 0
   parriable: 0
+  flipped: 0
+  lastX: 0
+  animation: {fileID: 1689101763427329885}
   attackPoint: {fileID: 4640591427425474399}
   playerLayer:
     serializedVersion: 2
