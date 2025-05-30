@@ -8,7 +8,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     [Header("Enemy Stats")]
     [Tooltip("How much health the enemy starts with")]
-    public float health;
+    public int health;
     [Tooltip("Enemy Damage when not otherwise specified")]
     public int defaultDamage;
     [Tooltip("How fast does the enemy move")]
@@ -74,7 +74,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(int damage)
     {
         if (EnemyManager.instance.LogEnemyDamage)
         {

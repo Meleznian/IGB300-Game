@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [Header("HP setting")]
     public int maxHealth = 100;          // Maximum HP
