@@ -90,31 +90,34 @@ public class SteamKing : EnemyBase
 
     public void GetNextAction()
     {
-        float playerDist = Vector3.Distance(transform.position, player.position);
-        GetLocationIndex();
-
-        if (playerDist < meleeRange)
+        if (state == KingStates.Idle)
         {
-            if (logConsoleMessages)
-                print("Melee Attack Selected");
+            float playerDist = Vector3.Distance(transform.position, player.position);
+            GetLocationIndex();
 
-            GetMeleeAttack();
-        }
-        else if(locationIndex == 0 || locationIndex == 4)
-        {
-            damagedRecently = false;
-            if (logConsoleMessages)
-                print("Edge Attack Selected");
+            if (playerDist < meleeRange)
+            {
+                if (logConsoleMessages)
+                    print("Melee Attack Selected");
 
-            GetEdgeAttack();
-        }
-        else
-        {
-            damagedRecently = false;
-            if (logConsoleMessages)
-                print("Centre Attack Selected");
+                GetMeleeAttack();
+            }
+            else if (locationIndex == 0 || locationIndex == 4)
+            {
+                damagedRecently = false;
+                if (logConsoleMessages)
+                    print("Edge Attack Selected");
 
-            GetCentreAttack();
+                GetEdgeAttack();
+            }
+            else
+            {
+                damagedRecently = false;
+                if (logConsoleMessages)
+                    print("Centre Attack Selected");
+
+                GetCentreAttack();
+            }
         }
     }
 
@@ -127,7 +130,6 @@ public class SteamKing : EnemyBase
         if (nextAction == 0)
         {
             if (logConsoleMessages)
-                print("Dashing");
             StartDash();
             return;
         }
@@ -234,6 +236,7 @@ public class SteamKing : EnemyBase
     {
         ChooseDashLocation();
         anim.SetBool("Dashing", true);
+        print("Dashing");
         state = KingStates.Dashing;
     }
     public void StartDodge()
@@ -330,9 +333,13 @@ public class SteamKing : EnemyBase
             phase2 = true;  
         }
 
-        if (health <= 0)
+        if (health <= 0 && state != KingStates.DeathsDoor)
         {
             DeathsDoor();
+        }
+        else if(state == KingStates.DeathsDoor)
+        {
+            EnemyManager.instance.EnemyKilled(gameObject);
         }
     }
 
@@ -459,6 +466,7 @@ public class SteamKing : EnemyBase
     {
         state = KingStates.DeathsDoor;
         anim.SetTrigger("Dying");
+        dialogue.SetActive(true);
         dialogue.GetComponent<TMP_Text>().text = "Finish Me... Please";
     }
 
@@ -470,7 +478,8 @@ public class SteamKing : EnemyBase
         {
             currentLocation = nextLocation;
 
-            state = KingStates.Idle;
+            anim.SetBool("Dashing", false);
+            state = KingStates.Leaping;
             StartCoroutine("Dialogue");
         }
     }
@@ -481,7 +490,7 @@ public class SteamKing : EnemyBase
         dialogue.SetActive(true);
         yield return new WaitForSeconds(3);
         dialogue.SetActive(false);
-        anim.SetBool("Dashing", false);
+        state = KingStates.Idle;
     }
 }
 

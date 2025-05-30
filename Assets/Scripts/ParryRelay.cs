@@ -4,6 +4,7 @@ public class ParryRelay : MonoBehaviour
 {
     [SerializeField] PlayerHealth health;
     [SerializeField] Parry parry;
+    [SerializeField] GameObject shoulder;
 
     public void StartParry()
     {
@@ -14,5 +15,10 @@ public class ParryRelay : MonoBehaviour
     {
         health.EndParry();
         parry.EndParry();   
+    }
+
+    public void DisableShoulder()
+    {
+        shoulder.SetActive(false);
     }
 }

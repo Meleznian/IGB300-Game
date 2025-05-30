@@ -8,6 +8,9 @@ public class PlayerRangedAttack : MonoBehaviour
     [SerializeField] float bulletSpeed;
     [SerializeField] int bulletDamage;
     [SerializeField] float bulletKnockback;
+    [SerializeField] Animator anim;
+    [SerializeField] GameObject shoulder;
+
 
     [SerializeField] float rangedCooldown = 0.3f;
     float rangedCooldownTimer = 0f;
@@ -35,8 +38,11 @@ public class PlayerRangedAttack : MonoBehaviour
 
     void FireBullet(Vector2 dir)
     {
-        if (!bulletPrefab || !firePoint) return;
+        anim.SetTrigger("Shoot");
+        shoulder.SetActive(true);
+        shoulder.transform.rotation = Quaternion.FromToRotation(Vector3.up, -dir);
 
+        if (!bulletPrefab || !firePoint) return;
         if (GameManager.instance.DecreaseAmmo(1))
         {
             Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();

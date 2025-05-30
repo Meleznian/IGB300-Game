@@ -90,14 +90,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822333268947557744}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.020000001, y: 0.020000001, z: 0.020000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3292473400567335773}
   m_Father: {fileID: 2111711450117209256}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 3.54, y: 1.02}
@@ -514,6 +514,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteamKing
       objectReference: {fileID: 0}
+    - target: {fileID: 2759994465043550950, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_Size.x
+      value: 20.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759994465043550950, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_Size.y
+      value: 20.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274320339170839149, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274320339170839149, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573819921395826135, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: slamDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573819921395826135, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: chargeDamage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4573819921395826135, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: thrustSize.y
       value: 1
@@ -553,6 +577,14 @@ PrefabInstance:
     - target: {fileID: 7939551634256045150, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932432148020764261, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932432148020764261, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
