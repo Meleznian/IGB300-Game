@@ -121,7 +121,7 @@ public class ChargerAgent : BehaviourAgent
                 
                 Move();
             }
-            else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));}
+            else { currentPathIndex = 0; currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));}
         }
     }
 
@@ -174,6 +174,8 @@ public class ChargerAgent : BehaviourAgent
         bashAvailable = false;
         attacking = true;
         //Perform action
+
+        DealDamage(attackPoint.position, chargeDamage);
         Debug.Log("Bashing");
         attacking = false;
         yield return new WaitForSeconds(bashCooldown);
