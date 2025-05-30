@@ -19,6 +19,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     internal bool parrying;
     bool iframing;
     [SerializeField] SpriteRenderer sprite;
+    [SerializeField] ParticleSystem healStart;
+    [SerializeField] ParticleSystem healing;
+
 
     void Start()
     {
@@ -33,6 +36,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         // Q key to recover (when charged and not in recovery)
         if (Input.GetKeyDown(KeyCode.LeftControl) && GameManager.instance.DecreaseGauge(10) && !isHealing)
         {
+            healStart.Play();
+            healing.Play();
             StartCoroutine(HealOverTime());
         }
     }
@@ -71,6 +76,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
 
         isHealing = false;
+        healing.Stop();
     }
 
     void Die()

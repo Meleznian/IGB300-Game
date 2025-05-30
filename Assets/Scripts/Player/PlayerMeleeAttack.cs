@@ -79,6 +79,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             var enemy = h.GetComponent<IDamageable>();
             if (enemy != null)
             {
+                print(h.gameObject.name);
                 enemy.TakeDamage(damage);
                 if (h.GetComponent<Rigidbody2D>() != null)
                 {

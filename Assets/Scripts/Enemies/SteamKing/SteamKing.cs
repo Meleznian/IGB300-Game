@@ -320,7 +320,7 @@ public class SteamKing : EnemyBase
 
     public override void TakeDamage(int damage)
     {
-        if (EnemyManager.instance.LogEnemyDamage)
+        if (EnemyManager.instance != null && EnemyManager.instance.LogEnemyDamage)
         {
             print(enemyName + " Has taken " + damage + " Damage");
         }
