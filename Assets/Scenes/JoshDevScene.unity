@@ -4887,7 +4887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927309907016366696, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6189051802309212028, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: m_Volume
@@ -4896,6 +4896,10 @@ PrefabInstance:
     - target: {fileID: 6189051802309212028, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8278167607208257251, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5515,6 +5519,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SteamKingSetup
       objectReference: {fileID: 0}
+    - target: {fileID: 3726888536452794491, guid: a55d762fc8cae5b4b9c35998943ef166, type: 3}
+      propertyPath: thrustSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295488358857119929, guid: a55d762fc8cae5b4b9c35998943ef166, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.94
+      objectReference: {fileID: 0}
     - target: {fileID: 5493916977310514862, guid: a55d762fc8cae5b4b9c35998943ef166, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.14765488
@@ -5554,6 +5566,14 @@ PrefabInstance:
     - target: {fileID: 5493916977310514862, guid: a55d762fc8cae5b4b9c35998943ef166, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128949419154444786, guid: a55d762fc8cae5b4b9c35998943ef166, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128949419154444786, guid: a55d762fc8cae5b4b9c35998943ef166, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.89
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
