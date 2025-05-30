@@ -72,7 +72,7 @@ public class Turret : EnemyBase
         newBullet.Init(dir);
         newBullet.damage = defaultDamage;
         newBullet.originallyEnemy = true;
-
+        AudioManager.PlayEffect(SoundType.TURRET_SHOOT);
     }
 
     public override void ExtraSetup()
