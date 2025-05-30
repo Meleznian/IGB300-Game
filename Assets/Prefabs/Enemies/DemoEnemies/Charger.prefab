@@ -228,7 +228,7 @@ MonoBehaviour:
   yLevelError: 1
   attacking: 0
   chargeSpeed: 7
-  chargeDamage: 0
+  chargeDamage: 11
   chargeKnockback: 0
   chargeCooldown: 7
   chargeParriable: 0
