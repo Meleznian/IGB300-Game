@@ -8,9 +8,8 @@ public class BoltCollected : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bolt")
         {
-            
                 Debug.Log("Bolt collected"); 
-                GameManager.instance.BoltCount(1);
+                GameManager.instance.BoltCount(collision.gameObject.GetComponent<MagnetBolt>().value);
 
             //collision.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Collected");
             //Debug.Log("Destroy it");

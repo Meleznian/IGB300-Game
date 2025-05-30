@@ -21,6 +21,7 @@ public class UpgradeManager : MonoBehaviour
     public TMP_Text[] upgradeNameTexts;             
     public TMP_Text[] upgradeEffectTexts;
     public Image[] UpgradeIcon;
+    [SerializeField] Animator anim;
 
     private List<Upgrade> allUpgrades = new List<Upgrade>();
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
@@ -124,23 +125,27 @@ public class UpgradeManager : MonoBehaviour
 
         upgradePanel.SetActive(true);
         Time.timeScale = 0f;
+        anim.SetTrigger("Enter");
     }
 
     public void SelectUpgrade(int index)
     {
-        Upgrade chosen = currentOptions[index];
-        Debug.Log($"Selected: {chosen.upgradeName}");
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Entered"))
+        {
+            Upgrade chosen = currentOptions[index];
+            Debug.Log($"Selected: {chosen.upgradeName}");
 
 
-        availableUpgrades.RemoveAll(u => u.upgradeName == chosen.upgradeName);
+            availableUpgrades.RemoveAll(u => u.upgradeName == chosen.upgradeName);
 
-        playerLevel++;
-        levelText.text = playerLevel.ToString();
+            playerLevel++;
+            levelText.text = playerLevel.ToString();
 
-        DoUpgrade(chosen.id);
+            DoUpgrade(chosen.id);
 
-        upgradePanel.SetActive(false);
-        Time.timeScale = 1f;
+            upgradePanel.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 
     [Header("Variables")]

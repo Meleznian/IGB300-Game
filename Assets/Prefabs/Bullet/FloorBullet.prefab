@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1538279303707521416}
   - component: {fileID: 9191285267427449879}
   - component: {fileID: 7494685995291648931}
+  - component: {fileID: -4226491505121240895}
   m_Layer: 0
   m_Name: FloorBullet
   m_TagString: Bullet
@@ -163,6 +164,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4226491505121240895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918802385275866056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3311ba275778dc4c940ae82f251deab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MagnetRange: 3
+  MagnetSpeed: 4
+  value: 0
+  player: {fileID: 0}
+  inRange: 0
 --- !u!1 &5029950587768164069
 GameObject:
   m_ObjectHideFlags: 0
