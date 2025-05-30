@@ -49,14 +49,6 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
             _oldState = currentState;
         }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            List<int> integers = new List<int>
-        {
-            10
-        };
-            GreedySearch(10, 3, integers);
-        }
     }
 
     public virtual void Roam()

@@ -66,7 +66,7 @@ public class NavigationAgent : MonoBehaviour
                 }
             }
         }
-        return null;
+        return new List<int>() { start };
     }
 
     /// <summary>
@@ -135,7 +135,12 @@ public class NavigationAgent : MonoBehaviour
         //Debug.Log(end);
         //if (!greedyPaintList.Contains(current)) greedyPaintList.Add(current);
         //Debug.Log(current);
-        if (current == currentNodeIndex) greedyPaintList.Add(current);
+        if (current == currentNodeIndex)
+        {
+            greedyPaintList.Add(current);
+            Debug.Log(current);
+            Debug.Log(end);
+        }
 
         //Debug.Log("Grabbing children");
         List<GreedyChildren> children = new List<GreedyChildren>();
@@ -181,7 +186,8 @@ public class NavigationAgent : MonoBehaviour
                 }
             }
         }
-       // Debug.Log("Failed");
-        return path;
+       Debug.Log("Failed");
+       path.Add(current);
+       return path;
     }
 }

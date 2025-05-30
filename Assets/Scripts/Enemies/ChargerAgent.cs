@@ -40,7 +40,15 @@ public class ChargerAgent : BehaviourAgent
     {
         //Debug.Log("Roaming");
         //Will Require Navigation Agent 
-        if (currentPath.Count <= 0) { currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
+        if (currentPath.Count <= 0) {
+
+            currentPath.Clear();
+            greedyPaintList.Clear();
+
+            currentPathIndex = 0;
+            currentPath.Add(currentNodeIndex); 
+
+            currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
             currentPath.Reverse();
             currentPath.RemoveAt(currentPath.Count - 1); 
             return; 
