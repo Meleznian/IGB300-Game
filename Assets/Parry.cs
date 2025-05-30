@@ -35,7 +35,7 @@ public class Parry : MonoBehaviour
         if(other.gameObject.TryGetComponent<BehaviourAgent>(out parryTarget))
         {
             parriable = parryTarget.parriable;
-            if (parryTarget != null && !parryTarget.stunned)
+            if (parryTarget != null && !parryTarget.stunned && parryTarget.parriable)
             {
                 StartCoroutine(parryTarget.Stunned());
                 EndParry();

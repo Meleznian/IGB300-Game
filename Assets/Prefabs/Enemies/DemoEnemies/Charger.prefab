@@ -225,6 +225,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  currencyPrefab: {fileID: 678814081965962704, guid: 1a2e658dfe78f3d4ca97cdf409c9b9c7, type: 3}
+  dropAmount: 5
   moveSpeed: 3
   minDistance: 1
   chargeDistance: 3
@@ -234,12 +236,12 @@ MonoBehaviour:
   chargeDamage: 11
   chargeKnockback: 0
   chargeCooldown: 3
-  chargeParriable: 0
+  chargeParriable: 1
   chargeAvailable: 1
   bashDamage: 0
   bashKnockback: 0
   bashCooldown: 1
-  bashParriable: 0
+  bashParriable: 1
   bashAvailable: 1
   anim: {fileID: 3035971936109511413}
 --- !u!114 &-5120716224871148930

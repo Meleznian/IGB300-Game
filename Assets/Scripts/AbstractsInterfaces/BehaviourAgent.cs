@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public abstract class BehaviourAgent : NavigationAgent, IDamageable
@@ -24,6 +23,14 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     public Transform attackPoint;
     [SerializeField] LayerMask playerLayer;
+
+
+    [Header("Currency Drop")]
+    [Tooltip("Prefab to spawn when the enemy dies")]
+    public GameObject currencyPrefab;
+
+    [Tooltip("Number of currency drops to spawn")]
+    public int dropAmount = 1;
 
 
     public void Start()
@@ -126,6 +133,8 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     private void Death()
     {
+
+        SpawnCurrency();
         EnemyManager.instance.EnemyKilled(gameObject);
     }
 
@@ -153,5 +162,21 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
             }
         }
 
+    }
+
+
+    void SpawnCurrency()
+    {
+
+        if (currencyPrefab == null) return;
+
+        Debug.Log("Drop bolt");
+
+        for (int i = 0; i < dropAmount; i++)
+        {
+            // Random offset to spread them a bit
+            Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
+            Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
+        }
     }
 }
