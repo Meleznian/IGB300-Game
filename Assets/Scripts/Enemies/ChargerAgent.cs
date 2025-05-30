@@ -174,6 +174,7 @@ public class ChargerAgent : BehaviourAgent
         bashAvailable = false;
         attacking = true;
         //Perform action
+        anim.SetTrigger("Bash");
 
         DealDamage(attackPoint.position, chargeDamage);
         Debug.Log("Bashing");
