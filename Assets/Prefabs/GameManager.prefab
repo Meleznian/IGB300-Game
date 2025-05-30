@@ -65,6 +65,7 @@ MonoBehaviour:
   steamSlider: {fileID: 1540245765535838074}
   hypeSlider: {fileID: 7391088710861397707}
   ammoDisplay: {fileID: 3016185820096805597}
+  levelProgress: {fileID: 7840611494678022742}
   floorBullet: {fileID: 918802385275866056, guid: e2b8a258f7406f54ea667de099b55cfa, type: 3}
 --- !u!114 &6939304625285668413
 MonoBehaviour:
@@ -279,7 +280,8 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4895811028855215878, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

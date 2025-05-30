@@ -19,12 +19,10 @@ public class Parriable : MonoBehaviour
     public void StartParriable()
     {
         parriable = true;
-        Debug.Log("ThisWorked.wav");
     }
 
     public void EndParriable()
     {
         parriable = false;
-        Debug.Log("ThisAlsoWorked.wav");
     }
 }

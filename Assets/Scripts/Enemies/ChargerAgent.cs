@@ -40,7 +40,15 @@ public class ChargerAgent : BehaviourAgent
     {
         //Debug.Log("Roaming");
         //Will Require Navigation Agent 
-        if (currentPath.Count <= 0) { currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
+        if (currentPath.Count <= 0) {
+
+            currentPath.Clear();
+            greedyPaintList.Clear();
+
+            currentPathIndex = 0;
+            currentPath.Add(currentNodeIndex); 
+
+            currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
             currentPath.Reverse();
             currentPath.RemoveAt(currentPath.Count - 1); 
             return; 
@@ -113,7 +121,7 @@ public class ChargerAgent : BehaviourAgent
                 
                 Move();
             }
-            else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));}
+            else { currentPathIndex = 0; currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));}
         }
     }
 
@@ -149,6 +157,7 @@ public class ChargerAgent : BehaviourAgent
             yield return null;
         }
         Debug.Log("Charge End");
+        DealDamage(attackPoint.position, chargeDamage);
         anim.SetBool("Charging", false);
 
         attacking = false;
@@ -165,9 +174,8 @@ public class ChargerAgent : BehaviourAgent
     {
         bashAvailable = false;
         attacking = true;
-        //Perform action
-        Debug.Log("Bashing");
-        attacking = false;
+        anim.SetTrigger("Bash");
+
         yield return new WaitForSeconds(bashCooldown);
         bashAvailable = true;
         AudioManager.PlayEffect(SoundType.CHARGER_ATTACK);

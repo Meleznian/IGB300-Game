@@ -8,7 +8,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     [Header("Enemy Stats")]
     [Tooltip("How much health the enemy starts with")]
-    public float health;
+    public int health;
     [Tooltip("Enemy Damage when not otherwise specified")]
     public int defaultDamage;
     [Tooltip("How fast does the enemy move")]
@@ -74,7 +74,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(int damage)
     {
         if (EnemyManager.instance.LogEnemyDamage)
         {
@@ -124,15 +124,26 @@ public class EnemyBase : MonoBehaviour, IDamageable
     void SpawnCurrency()
     {
         
-        if (currencyPrefab == null) return;
+        //if (currencyPrefab == null) return;
+        //
+        //Debug.Log("Drop bolt");
+        //
+        //for (int i = 0; i < dropAmount; i++)
+        //{
+        //    // Random offset to spread them a bit
+        //    Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
+        //    Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
+        //}
 
+        GameObject[] money = GameManager.instance.GenerateMoney(dropAmount);
+        
         Debug.Log("Drop bolt");
         
-        for (int i = 0; i < dropAmount; i++)
+        foreach (GameObject g in money)
         {
             // Random offset to spread them a bit
             Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
-            Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
+            Instantiate(g, transform.position + (Vector3)spawnOffset, Quaternion.identity);
         }
     }
 }

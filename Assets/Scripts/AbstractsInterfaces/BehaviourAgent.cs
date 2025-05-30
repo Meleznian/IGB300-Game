@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public abstract class BehaviourAgent : NavigationAgent, IDamageable
@@ -10,16 +11,21 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     public bool stunned;
     public float stunTime;
 
-    public float health;
+    public int health;
     public float iFrames;
     public bool hasIFrames;
 
     public bool parriable;
 
+
+    public Transform attackPoint;
+    [SerializeField] LayerMask playerLayer;
+
+
     public void Start()
     {
         currentNodeIndex = findClosestWayPoint(gameObject);
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -41,21 +47,13 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
                 break;
         }
 
-        if(currentState != _oldState)
+        if (currentState != _oldState)
         {
             currentPath.Clear();
             greedyPaintList.Clear();
             currentPathIndex = 0;
 
             _oldState = currentState;
-        }
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            List<int> integers = new List<int>
-        {
-            10
-        };
-            GreedySearch(10, 3, integers);
         }
     }
 
@@ -68,7 +66,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     {
         Debug.Log("Bad Attack");
     }
-   
+
     public int findClosestWayPoint(GameObject target)
     {
         float distance = 1000.0f;
@@ -103,7 +101,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         stunned = false;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if (hasIFrames) return;
         health -= damage;
@@ -122,4 +120,22 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
         hasIFrames = false;
     }
 
+
+    protected void DealDamage(Vector2 origin, int damage)
+    {
+        float range = 1f;
+
+
+
+        var hits = Physics2D.OverlapCircleAll(origin, range, playerLayer);
+        foreach (var h in hits)
+        {
+            var player = h.GetComponent<IDamageable>();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
+        }
+
+    }
 }

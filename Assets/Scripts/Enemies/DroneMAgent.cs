@@ -24,7 +24,7 @@ public class DroneMAgent : BehaviourAgent
 
     [Header("Contact Variables")]
     public int damageCooldown;
-    public float contactDamage;
+    public int contactDamage;
     public Knockback damageKnockback;
 
     /// <summary>

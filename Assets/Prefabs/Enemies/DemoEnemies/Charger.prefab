@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3035971936109511413}
   - component: {fileID: 2882195928403433118}
   - component: {fileID: 3727256944619408609}
+  - component: {fileID: 5502666436555367778}
   m_Layer: 8
   m_Name: Animation
   m_TagString: Untagged
@@ -31,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4640591427425474399}
   m_Father: {fileID: 7287913584779518072}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3035971936109511413
@@ -124,7 +126,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parriable: 0
-  agent: {fileID: 0}
+  agent: {fileID: 3254447055041720537}
+--- !u!114 &5502666436555367778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689101763427329885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b379c6b69a207de498942f408fd3a379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 3254447055041720537}
 --- !u!1 &3010242644535729339
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +171,7 @@ Transform:
   m_GameObject: {fileID: 3010242644535729339}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.67, y: -1.97, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -217,22 +232,26 @@ MonoBehaviour:
   iFrames: 5
   hasIFrames: 0
   parriable: 0
-  moveSpeed: 5
+  attackPoint: {fileID: 4640591427425474399}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  moveSpeed: 3
   minDistance: 1
-  chargeDistance: 0
+  chargeDistance: 3
   yLevelError: 1
   attacking: 0
   chargeSpeed: 7
-  chargeDamage: 0
+  chargeDamage: 11
   chargeKnockback: 0
-  chargeCooldown: 7
+  chargeCooldown: 3
   chargeParriable: 0
   chargeAvailable: 1
   bashDamage: 0
   bashKnockback: 0
-  bashCooldown: 3
+  bashCooldown: 2
   bashParriable: 0
-  bashAvailable: 0
+  bashAvailable: 1
   anim: {fileID: 3035971936109511413}
 --- !u!114 &-5120716224871148930
 MonoBehaviour:
@@ -321,3 +340,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lodgedbullets: 0
+--- !u!1 &5096266320627810161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4640591427425474399}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4640591427425474399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096266320627810161}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3984454267571898881}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
