@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
 
     public TextMeshProUGUI boltText;
-    [SerializeField] internal int _BoltCount = 0;
+    [SerializeField] internal float _BoltCount = 0;
 
     bool gameHasEnded = false;
     bool gameHasWon = false;
@@ -68,8 +68,6 @@ public class GameManager : MonoBehaviour
             gameHasWon = true;
             CompleteLevel();
         }
-
-
     }
 
     public void KillCount()
@@ -80,12 +78,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void BoltCount(int amount)
+    public void BoltCount(float amount)
     {
         Debug.Log("_BoltCount " + _BoltCount);
         _BoltCount += amount;
         levelProgress.value = _BoltCount;
-
+        
         if(_BoltCount >= upgrader.cashGoal)
         {
             upgrader.ShowUpgradeOptions();
@@ -104,7 +102,7 @@ public class GameManager : MonoBehaviour
         return _killCount;
     }
 
-    public int DisplayBoltCount()
+    public float DisplayBoltCount()
     {
         Debug.Log("_BoltCount " + _BoltCount);
         return _BoltCount;
