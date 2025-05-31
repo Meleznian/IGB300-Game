@@ -320,26 +320,30 @@ public class SteamKing : EnemyBase
 
     public override void TakeDamage(int damage)
     {
-        if (EnemyManager.instance != null && EnemyManager.instance.LogEnemyDamage)
+        if (state != KingStates.Entering)
         {
-            print(enemyName + " Has taken " + damage + " Damage");
-        }
+            if (EnemyManager.instance != null && EnemyManager.instance.LogEnemyDamage)
+            {
+                print(enemyName + " Has taken " + damage + " Damage");
+            }
 
-        health -= damage;
-        damagedRecently = true;
+            health -= damage;
+            damagedRecently = true;
 
-        if(health <= phaseTransition && !phase2)
-        {
-            phase2 = true;  
-        }
+            if (health <= phaseTransition && !phase2)
+            {
+                phase2 = true;
+            }
 
-        if (health <= 0 && state != KingStates.DeathsDoor)
-        {
-            DeathsDoor();
-        }
-        else if(state == KingStates.DeathsDoor)
-        {
-            EnemyManager.instance.EnemyKilled(gameObject);
+            if (health <= 0 && state != KingStates.DeathsDoor)
+            {
+                DeathsDoor();
+            }
+            else if (state == KingStates.DeathsDoor)
+            {
+                dialogue.GetComponent<TMP_Text>().text = "Thank... \nYou...";
+                anim.SetTrigger("Killed");
+            }
         }
     }
 
@@ -467,7 +471,7 @@ public class SteamKing : EnemyBase
         state = KingStates.DeathsDoor;
         anim.SetTrigger("Dying");
         dialogue.SetActive(true);
-        dialogue.GetComponent<TMP_Text>().text = "Finish Me... Please";
+        dialogue.GetComponent<TMP_Text>().text = "Finish Me... \nPlease...";
     }
 
     public void Entering()

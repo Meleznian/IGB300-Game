@@ -1,5 +1,6 @@
 using NUnit.Framework.Constraints;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SteamKingAttacks : MonoBehaviour
 {
@@ -262,5 +263,11 @@ public class SteamKingAttacks : MonoBehaviour
         wave.Setup(slamDamage,slamSpeed,slamKnockback, Vector2.left);
         wave = Instantiate(slamWave, slamPoint.position, Quaternion.identity).GetComponent<Shockwave>();
         wave.Setup(slamDamage, slamSpeed, slamKnockback, Vector2.right);
+    }
+
+
+    public void TransitionToCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
