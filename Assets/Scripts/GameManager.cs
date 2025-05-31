@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void BoltCount(int amount)
     {
-        //Debug.Log("_BoltCount " + _BoltCount);
+        Debug.Log("_BoltCount " + _BoltCount);
         _BoltCount += amount;
         levelProgress.value = _BoltCount;
 
