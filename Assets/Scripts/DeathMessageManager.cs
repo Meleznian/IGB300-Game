@@ -7,12 +7,12 @@ public class DeathMessageManager : MonoBehaviour
     [TextArea(2, 4)]
     public string[] deathMessages;
 
-    public GameObject deathPanel;        // Assign your death panel UI here
+    public GameObject deathPanel;    
     public TMP_Text messageText;
 
     void Start()
     {
-        deathPanel.SetActive(false);     // Hide panel at start
+        deathPanel.SetActive(false);   
     }
 
     void Update()
