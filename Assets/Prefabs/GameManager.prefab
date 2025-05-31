@@ -101,7 +101,7 @@ MonoBehaviour:
   - {fileID: 5383047197967753256}
   - {fileID: 1120410713885797693}
   - {fileID: 5626209272273471459}
-  anim: {fileID: 0}
+  anim: {fileID: 1125054177344072442}
   cashGoal: 100
   playerLevel: 1
   healthIncrease: 10
@@ -130,12 +130,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7835850529534847684}
     m_Modifications:
+    - target: {fileID: 218655194636372932, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 478.098
+      objectReference: {fileID: 0}
     - target: {fileID: 765393135792478948, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 971384434662763352, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949300927607659328, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2307737494299569644, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
@@ -150,9 +158,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -216
       objectReference: {fileID: 0}
+    - target: {fileID: 2547124771439512454, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 478.098
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547124771439512454, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 2913235389415130893, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363741565837278315, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 478.098
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363741565837278315, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -600
       objectReference: {fileID: 0}
     - target: {fileID: 3437338744111390178, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Interactable
@@ -160,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3901402990032867139, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Value
-      value: 31
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3901402990032867139, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Interactable
@@ -291,7 +315,10 @@ PrefabInstance:
     - {fileID: 8904347218417037592, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3236711182376902370, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125054177344072442}
   m_SourcePrefab: {fileID: 100100000, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
 --- !u!114 &380141769733977848 stripped
 MonoBehaviour:
@@ -413,6 +440,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3236711182376902370, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
   m_PrefabInstance: {fileID: 2305619106360915358}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1125054177344072442
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3680619535114890108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0858eed63dcc2584bbedb285c19cb0ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4564533711103761011 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2352936627184889837, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
