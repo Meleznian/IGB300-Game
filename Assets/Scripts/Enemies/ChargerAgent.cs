@@ -172,9 +172,13 @@ public class ChargerAgent : BehaviourAgent
         bashAvailable = false;
         attacking = true;
         anim.SetTrigger("Bash");
-
+        while (attacking)
+        {
+            yield return null;
+        }
         yield return new WaitForSeconds(bashCooldown);
         bashAvailable = true;
         AudioManager.PlayEffect(SoundType.CHARGER_ATTACK);
     }
+
 }
