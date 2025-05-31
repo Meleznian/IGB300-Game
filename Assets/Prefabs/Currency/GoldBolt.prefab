@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6970564716278901016}
   m_Layer: 11
   m_Name: GoldBolt
-  m_TagString: GoldBolt
+  m_TagString: Bolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagnetRange: 3
   MagnetSpeed: 4
+  value: 25
   player: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
   inRange: 0
 --- !u!58 &6970564716278901016
