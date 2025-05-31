@@ -2907,7 +2907,7 @@ PrefabInstance:
     - target: {fileID: 6896004327914255067, guid: b1537571185186449ac0cf46d47614b9, type: 3}
       propertyPath: 'spawnGroups.Array.data[0].queue.Array.data[0]'
       value: 
-      objectReference: {fileID: 3010242644535729339, guid: 17b4df676b6ad9240adf6eb61e5bfe7c, type: 3}
+      objectReference: {fileID: 7175027469317663787, guid: 386b89ef563e53f46857bd7b5552eb16, type: 3}
     - target: {fileID: 6896004327914255067, guid: b1537571185186449ac0cf46d47614b9, type: 3}
       propertyPath: 'spawnGroups.Array.data[0].queue.Array.data[1]'
       value: 
@@ -5773,6 +5773,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1611492078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+  m_PrefabInstance: {fileID: 104605858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1616081329
 GameObject:
   m_ObjectHideFlags: 0
@@ -6230,7 +6235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89bcc3ec3edda04eba049da190be3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1611492078}
   smoothSpeed: 5
   offset: {x: 0, y: 0, z: -10}
   stageBoundsTopLeft: {fileID: 737593123}
@@ -6485,7 +6490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 428835995943738216, guid: 84d3843f2a1d79e41bd2842b76e71516, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.05
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 428835995943738216, guid: 84d3843f2a1d79e41bd2842b76e71516, type: 3}
       propertyPath: m_LocalPosition.z

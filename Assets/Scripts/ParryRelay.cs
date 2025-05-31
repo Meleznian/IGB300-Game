@@ -21,4 +21,8 @@ public class ParryRelay : MonoBehaviour
     {
         shoulder.SetActive(false);
     }
+    public void EnableShoulder()
+    {
+        shoulder.SetActive(true);
+    }
 }

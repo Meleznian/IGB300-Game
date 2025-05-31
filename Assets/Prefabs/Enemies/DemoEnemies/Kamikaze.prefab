@@ -238,12 +238,10 @@ MonoBehaviour:
   chargeCooldown: 7
   chargeParriable: 0
   chargeAvailable: 1
-  bashDamage: 0
-  bashKnockback: 0
-  bashCooldown: 0
-  bashParriable: 0
-  bashAvailable: 1
-  anim: {fileID: 7942758049274262040}
+  explodeDamage: 10
+  explodeKnockback: 5
+  explodeRadius: 1.5
+  explosionEffect: {fileID: 8297608615447593002, guid: b2d145255d00ce748ba8a2ccaeb6ac00, type: 3}
 --- !u!114 &4385361011341478799
 MonoBehaviour:
   m_ObjectHideFlags: 0
