@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 162.6001, y: -109}
+  m_AnchoredPosition: {x: 168.6001, y: -109}
   m_SizeDelta: {x: 552.4894, y: 112.204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126909867
@@ -298,7 +298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61, y: -109}
+  m_AnchoredPosition: {x: -55, y: -109}
   m_SizeDelta: {x: 552.4894, y: 112.204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205798790
@@ -896,7 +896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 416, y: -109}
+  m_AnchoredPosition: {x: 422, y: -109}
   m_SizeDelta: {x: 552.4894, y: 112.204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859771201
@@ -919,14 +919,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programming:
+  m_text: 'Art:
 
     Lead Artist: Giveson L
 
-    Programmer: Alex D
+    Artist: Alex D
 
-    Programmer:
-    Tobias Groeneveld
+    Artist: Tobias
+    Groeneveld
 
 '
   m_isRightToLeft: 0
