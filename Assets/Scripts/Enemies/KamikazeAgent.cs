@@ -28,10 +28,7 @@ public class KamikazeAgent : BehaviourAgent
     public int bashCooldown;
     public bool bashParriable;
     public bool bashAvailable = true;
-
-    [Header("Animation")]
-    [SerializeField] Animator anim;
-
+    
 
 
     /// <summary>
