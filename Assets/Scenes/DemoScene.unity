@@ -6951,34 +6951,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1885519247420598914, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: knockback
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_Size.x
-      value: 8.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_Size.y
-      value: 12.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 4903086354309169804, guid: bab82c872f37995419db90057c144704, type: 3}
-    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: bulletKnockback
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6847513084246365023, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: maxDistance
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.21
@@ -7022,6 +6994,34 @@ PrefabInstance:
     - target: {fileID: 8837223900107501713, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885519247420598914, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: knockback
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_Size.x
+      value: 8.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_Size.y
+      value: 12.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4903086354309169804, guid: bab82c872f37995419db90057c144704, type: 3}
+    - target: {fileID: 2885941554445413653, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: bulletKnockback
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847513084246365023, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
+      propertyPath: maxDistance
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
