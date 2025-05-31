@@ -30,6 +30,8 @@ public class ChargerAgent : BehaviourAgent
     public bool bashAvailable = true;
 
 
+    private bool isBashing = false;
+
     /// <summary>
     /// Roam State of DFA Agent
     /// </summary>
@@ -129,6 +131,8 @@ public class ChargerAgent : BehaviourAgent
     {
         transform.position = Vector2.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
         currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;
+
+        if (isBashing) return;
         AudioManager.PlayEffect(SoundType.CHARGER_WALK);
     }
 
@@ -144,6 +148,7 @@ public class ChargerAgent : BehaviourAgent
         //Perform action
         Debug.Log("Charging");
         anim.SetBool("Charging", true);
+        AudioManager.PlayEffect(SoundType.CHARGER_CHARGING);
 
         float targetXPos = target.transform.position.x;
         bool cancelled = false;
@@ -160,7 +165,6 @@ public class ChargerAgent : BehaviourAgent
         attacking = false;
         yield return new WaitForSeconds(chargeCooldown);
         chargeAvailable = true;
-        AudioManager.PlayEffect(SoundType.CHARGER_WALK);
     }
 
     /// <summary>
@@ -169,6 +173,8 @@ public class ChargerAgent : BehaviourAgent
     /// <returns>N/A</returns>
     public IEnumerator Bash()
     {
+        isBashing = true;
+
         bashAvailable = false;
         attacking = true;
         anim.SetTrigger("Bash");
@@ -176,5 +182,8 @@ public class ChargerAgent : BehaviourAgent
         yield return new WaitForSeconds(bashCooldown);
         bashAvailable = true;
         AudioManager.PlayEffect(SoundType.CHARGER_ATTACK);
+
+        isBashing = false;
     }
+
 }
