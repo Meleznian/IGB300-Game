@@ -232,10 +232,16 @@ MonoBehaviour:
   iFrames: 5
   hasIFrames: 0
   parriable: 0
+  flipped: 0
+  lastX: 0
+  animation: {fileID: 1689101763427329885}
+  anim: {fileID: 3035971936109511413}
   attackPoint: {fileID: 4640591427425474399}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  currencyPrefab: {fileID: 0}
+  dropAmount: 1
   moveSpeed: 3
   minDistance: 1
   chargeDistance: 3
@@ -252,7 +258,6 @@ MonoBehaviour:
   bashCooldown: 2
   bashParriable: 0
   bashAvailable: 1
-  anim: {fileID: 3035971936109511413}
 --- !u!114 &-5120716224871148930
 MonoBehaviour:
   m_ObjectHideFlags: 0
