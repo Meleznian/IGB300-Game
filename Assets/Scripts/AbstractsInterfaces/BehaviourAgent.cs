@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class BehaviourAgent : NavigationAgent, IDamageable
 {
+    public bool assignGraph;
     public State currentState;
     private State _oldState;
     public GameObject target;

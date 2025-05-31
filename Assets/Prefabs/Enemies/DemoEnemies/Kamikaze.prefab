@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7942758049274262040}
   - component: {fileID: 5455014072984151801}
   - component: {fileID: 1227780263026103394}
+  - component: {fileID: 2469778998233502791}
   m_Layer: 8
   m_Name: Animation
   m_TagString: Untagged
@@ -42,7 +43,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2453854599463326146}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2b0585ec82e82fe4a86743b32c7d5050, type: 2}
   m_CullingMode: 0
@@ -125,6 +126,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4231360457807991548}
   useVelocity: 0
+--- !u!114 &2469778998233502791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453854599463326146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572f0802710b4ef4783f03ff42878a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionToRelay1:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8794318579024576227}
+        m_TargetAssemblyTypeName: KamikazeAgent, Assembly-CSharp
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  functionToRelay2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8794318579024576227}
+        m_TargetAssemblyTypeName: KamikazeAgent, Assembly-CSharp
+        m_MethodName: Killed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  functionToRelay3:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7175027469317663787
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 7175027469317663787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3321877, y: -0.23382711, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -209,6 +255,7 @@ MonoBehaviour:
   greedyPaintList: 
   currentPathIndex: 0
   currentNodeIndex: 0
+  assignGraph: 1
   currentState: 0
   target: {fileID: 0}
   stunned: 0
@@ -219,7 +266,7 @@ MonoBehaviour:
   parriable: 0
   flipped: 0
   lastX: 0
-  animation: {fileID: 0}
+  animation: {fileID: 2453854599463326146}
   anim: {fileID: 7942758049274262040}
   attackPoint: {fileID: 0}
   playerLayer:
@@ -230,17 +277,22 @@ MonoBehaviour:
   moveSpeed: 5
   minDistance: 1
   chargeDistance: 0
+  chargeAdditionalTravel: 5
   yLevelError: 1
   attacking: 0
-  chargeSpeed: 7
+  chargeSpeed: 10
   chargeDamage: 0
   chargeKnockback: 0
-  chargeCooldown: 7
+  chargeCooldown: 20
   chargeParriable: 0
   chargeAvailable: 1
-  explodeDamage: 10
+  explodeDamage: 20
   explodeKnockback: 5
-  explodeRadius: 1.5
+  explodeRadius: 2.5
+  explodingSpeed: 2
+  layersToHit:
+    serializedVersion: 2
+    m_Bits: 8
   explosionEffect: {fileID: 8297608615447593002, guid: b2d145255d00ce748ba8a2ccaeb6ac00, type: 3}
 --- !u!114 &4385361011341478799
 MonoBehaviour:
