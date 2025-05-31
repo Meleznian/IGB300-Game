@@ -16,23 +16,17 @@ public class KamikazeAgent : BehaviourAgent
     [Header("Charge Variables")]
     public float chargeSpeed;
     public int chargeDamage;
-    public Knockback chargeKnockback;
+    public float chargeKnockback;
     public int chargeCooldown;
     public bool chargeParriable;
     public bool chargeAvailable = true;
 
 
     [Header("Bash Variables")]
-    public int bashDamage;
-    public Knockback bashKnockback;
-    public int bashCooldown;
-    public bool bashParriable;
-    public bool bashAvailable = true;
-
-    [Header("Animation")]
-    [SerializeField] Animator anim;
-
-
+    public int explodeDamage;
+    public float explodeKnockback;
+    public float explodeRadius;
+    [SerializeField] GameObject explosionEffect;
 
     /// <summary>
     /// Roam State of DFA Agent
@@ -155,6 +149,33 @@ public class KamikazeAgent : BehaviourAgent
     /// <returns>N/A</returns>
     public void Explode()
     {
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
+        var hits = Physics2D.OverlapCircleAll(transform.position, explodeRadius, LayerMask.NameToLayer("Player")); 
+        foreach (var h in hits)
+        {
+            var player = h.GetComponent<IDamageable>();
+            if (player != null)
+            {
+                player.TakeDamage(explodeDamage);
+
+                Vector2 knockDirection = transform.position - h.transform.position;
+                knockDirection = knockDirection.normalized;
+
+                if (h.GetComponent<Rigidbody2D>() != null)
+                {
+                    h.GetComponent<Rigidbody2D>().AddForce(knockDirection * explodeKnockback, ForceMode2D.Impulse);
+                }
+            }
+        }
+
+
         gameObject.SetActive(false);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explodeRadius);
     }
 }
