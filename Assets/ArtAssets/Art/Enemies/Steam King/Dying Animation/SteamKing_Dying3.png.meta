@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SteamKing_Dying3_0: 4676863723542394927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
