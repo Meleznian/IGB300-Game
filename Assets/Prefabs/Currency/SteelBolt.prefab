@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 398435340768379175}
   - component: {fileID: 8653817461236289596}
   - component: {fileID: 6970564716278901016}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SteelBolt
   m_TagString: Bolt
   m_Icon: {fileID: 0}

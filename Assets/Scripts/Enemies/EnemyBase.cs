@@ -22,8 +22,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
 
     [Header("Currency Drop")]
-    [Tooltip("Prefab to spawn when the enemy dies")]
-    public GameObject currencyPrefab;
+    //[Tooltip("Prefab to spawn when the enemy dies")]
+    //public GameObject currencyPrefab;
 
     [Tooltip("Number of currency drops to spawn")]
     public int dropAmount = 1;
