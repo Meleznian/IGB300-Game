@@ -12,6 +12,11 @@ TagManager:
   - Collectable
   - Coin
   - Bolt
+  - BrassBolt
+  - GoldBolt
+  - IronNut
+  - SteelBolt
+  - SilverBolt
   layers:
   - Default
   - TransparentFX
@@ -24,7 +29,7 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - Feet
-  - 
+  - Bolt
   - 
   - 
   - 
