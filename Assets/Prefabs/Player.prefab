@@ -386,12 +386,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6845614398688854262, guid: 0f3683b3ee61eba4a88da6f6b3f54da9, type: 3}
+  m_Sprite: {fileID: 4903086354309169804, guid: bab82c872f37995419db90057c144704, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.82, y: 12.19}
+  m_Size: {x: 8.82, y: 12.39}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 5765494503337787885}
   moveSpeed: 5
-  maxDistance: 5
+  maxDistance: 3
   inputSwitchDelay: 0.5
 --- !u!1 &8069373985250813970
 GameObject:
@@ -670,6 +670,8 @@ GameObject:
   - component: {fileID: 803783820872400899}
   - component: {fileID: 2117736800459837374}
   - component: {fileID: 6978071326035807399}
+  - component: {fileID: 7722755983110565033}
+  - component: {fileID: 6277761298631123338}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -735,7 +737,7 @@ MonoBehaviour:
   right: {fileID: 7132780285115553264}
   range: 1
   damage: 5
-  knockback: 1
+  knockback: 4
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -759,7 +761,7 @@ MonoBehaviour:
   aimCursor: {fileID: 3461828938588683644}
   bulletSpeed: 7
   bulletDamage: 5
-  bulletKnockback: 0
+  bulletKnockback: 3
   anim: {fileID: 1389103851451260586}
   shoulder: {fileID: 2942565711873893426}
   rangedCooldown: 0.5
@@ -968,6 +970,32 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &7722755983110565033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837223900107501713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832188da56fa4c84b91bcdb577647cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isboltCount: 0
+--- !u!114 &6277761298631123338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837223900107501713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832188da56fa4c84b91bcdb577647cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isboltCount: 0
 --- !u!1 &8878762065042313836
 GameObject:
   m_ObjectHideFlags: 0

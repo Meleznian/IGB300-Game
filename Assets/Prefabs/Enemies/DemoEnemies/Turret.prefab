@@ -283,6 +283,8 @@ MonoBehaviour:
   attackSpeed: 2.5
   stunTime: 0
   knockbackResist: 0
+  currencyPrefab: {fileID: 0}
+  dropAmount: 25
   attacks: []
   firePoint: {fileID: 2886474492072802165}
   bulletPrefab: {fileID: 918802385275866056, guid: 7102462c2cb5e8f4d9106e380257dc70, type: 3}
