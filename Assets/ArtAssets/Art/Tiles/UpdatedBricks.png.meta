@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 35472e725898f3d4694bd7a7d430969a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1403426281746602860
+    second: UpdatedBricks_0
+  - first:
+      213: 6187381163759122762
+    second: UpdatedBricks_1
+  - first:
+      213: -2823334234651429740
+    second: UpdatedBricks_2
+  - first:
+      213: 5644174889798517694
+    second: UpdatedBricks_3
+  - first:
+      213: -2151866265460355477
+    second: UpdatedBricks_4
+  - first:
+      213: 2560598317591796735
+    second: UpdatedBricks_5
+  - first:
+      213: -4062230397182499902
+    second: UpdatedBricks_6
+  - first:
+      213: -2694570526187298039
+    second: UpdatedBricks_7
+  - first:
+      213: -6866418725356622853
+    second: UpdatedBricks_8
+  - first:
+      213: 1577477618842153685
+    second: UpdatedBricks_9
+  - first:
+      213: 8297611105438461767
+    second: UpdatedBricks_10
+  - first:
+      213: -7509527024580175001
+    second: UpdatedBricks_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 2048
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UpdatedBricks_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7951
+        width: 2049
+        height: 2049
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 494eb008b37068ce0800000000000000
+      internalID: -1403426281746602860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_1
+      rect:
+        serializedVersion: 2
+        x: 2408
+        y: 7952
+        width: 2050
+        height: 2048
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a493ec3e26efdd550800000000000000
+      internalID: 6187381163759122762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_2
+      rect:
+        serializedVersion: 2
+        x: 5032
+        y: 9503
+        width: 2050
+        height: 497
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 494f665e87081d8d0800000000000000
+      internalID: -2823334234651429740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5872
+        width: 2048
+        height: 2050
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3ce9c7823245e40800000000000000
+      internalID: 5644174889798517694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_4
+      rect:
+        serializedVersion: 2
+        x: 2405
+        y: 5867
+        width: 2050
+        height: 2050
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ec61b58090322e0800000000000000
+      internalID: -2151866265460355477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_5
+      rect:
+        serializedVersion: 2
+        x: 5029
+        y: 7418
+        width: 2050
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb958c6a92198320800000000000000
+      internalID: 2560598317591796735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3768
+        width: 2049
+        height: 2050
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3a424f9fe00a7c0800000000000000
+      internalID: -4062230397182499902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_7
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 3755
+        width: 2050
+        height: 2050
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9036e540266fa9ad0800000000000000
+      internalID: -2694570526187298039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_8
+      rect:
+        serializedVersion: 2
+        x: 5027
+        y: 5307
+        width: 2050
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb27049c8495b0a0800000000000000
+      internalID: -6866418725356622853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1681
+        width: 2049
+        height: 2050
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d23738598354e510800000000000000
+      internalID: 1577477618842153685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_10
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 1663
+        width: 2050
+        height: 2050
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74feef77659072370800000000000000
+      internalID: 8297611105438461767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UpdatedBricks_11
+      rect:
+        serializedVersion: 2
+        x: 5023
+        y: 3214
+        width: 2050
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76bd3b455fcc8c790800000000000000
+      internalID: -7509527024580175001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UpdatedBricks_0: -1403426281746602860
+      UpdatedBricks_1: 6187381163759122762
+      UpdatedBricks_10: 8297611105438461767
+      UpdatedBricks_11: -7509527024580175001
+      UpdatedBricks_2: -2823334234651429740
+      UpdatedBricks_3: 5644174889798517694
+      UpdatedBricks_4: -2151866265460355477
+      UpdatedBricks_5: 2560598317591796735
+      UpdatedBricks_6: -4062230397182499902
+      UpdatedBricks_7: -2694570526187298039
+      UpdatedBricks_8: -6866418725356622853
+      UpdatedBricks_9: 1577477618842153685
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

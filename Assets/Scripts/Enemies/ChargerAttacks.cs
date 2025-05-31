@@ -37,7 +37,7 @@ public class ChargerAttacks : MonoBehaviour
 
     public void Killed()
     {
-        EnemyManager.instance.EnemyKilled(gameObject);
+        EnemyManager.instance.EnemyKilled(transform.parent.gameObject);
     }
 
 }

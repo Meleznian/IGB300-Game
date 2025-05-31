@@ -1,5 +1,6 @@
 //using System;
 using System.Collections;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class KamikazeAgent : BehaviourAgent
@@ -10,28 +11,28 @@ public class KamikazeAgent : BehaviourAgent
 
     [Header("Attack differentiation")]
     public float chargeDistance;
+    public float chargeAdditionalTravel;
     public float yLevelError;
     public bool attacking;
 
     [Header("Charge Variables")]
     public float chargeSpeed;
     public int chargeDamage;
-    public Knockback chargeKnockback;
+    public float chargeKnockback;
     public int chargeCooldown;
     public bool chargeParriable;
     public bool chargeAvailable = true;
 
 
-    [Header("Bash Variables")]
-    public int bashDamage;
-    public Knockback bashKnockback;
-    public int bashCooldown;
-    public bool bashParriable;
-    public bool bashAvailable = true;
+    [Header("Explosion Variables")]
+    public int explodeDamage;
+    public float explodeKnockback;
+    public float explodeRadius;
+    public float explodingSpeed;
+    bool exploding;
+    public LayerMask layersToHit;
 
-    [Header("Animation")]
-    [SerializeField] Animator anim;
-
+    [SerializeField] GameObject explosionEffect;
 
 
     /// <summary>
@@ -39,12 +40,15 @@ public class KamikazeAgent : BehaviourAgent
     /// </summary>
     public override void Roam()
     {
+    
         //Debug.Log("Roaming");
         //Will Require Navigation Agent 
-        if (currentPath.Count <= 0) { currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
+        if (currentPath.Count <= 0)
+        {
+            currentPath = GreedySearch(currentNodeIndex, Random.Range(0, graphNodes.graphNodes.Count), currentPath);
             currentPath.Reverse();
-            currentPath.RemoveAt(currentPath.Count - 1); 
-            return; 
+            currentPath.RemoveAt(currentPath.Count - 1);
+            return;
         }
         if (Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
         {
@@ -70,6 +74,7 @@ public class KamikazeAgent : BehaviourAgent
             }
         }
         Move();
+    
     }
 
     /// <summary>
@@ -84,7 +89,6 @@ public class KamikazeAgent : BehaviourAgent
         {
             StartCoroutine(Charge());
             currentPath.Clear();
-
         }
         else
         {
@@ -106,8 +110,9 @@ public class KamikazeAgent : BehaviourAgent
                     else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target)); currentPathIndex = 0; }
                     //else { currentPath.Clear(); currentPathIndex = 0; }
                 }
-                
+
                 Move();
+                
             }
             else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));}
         }
@@ -118,9 +123,23 @@ public class KamikazeAgent : BehaviourAgent
     /// </summary>
     public void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
-        currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;
+        if (!exploding)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position, moveSpeed * Time.deltaTime);
+            currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;
+        }
+        else
+        {
+            if (target.transform.position.x >= transform.position.x)
+            {
+                transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
 
+            }
+            else
+            {
+                transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
+            }
+        }
     }
 
 
@@ -133,8 +152,20 @@ public class KamikazeAgent : BehaviourAgent
         chargeAvailable = false;
         attacking = true;
         //Perform action
-        Debug.Log("Charging");
+        //Debug.Log("Charging");
+        anim.SetBool("Charging",true);
+
         float targetXPos = target.transform.position.x;
+
+        //if (target.transform.position.x > transform.position.x)
+        //{
+        //    targetXPos += chargeAdditionalTravel;
+        //}
+        //else
+        //{
+        //    targetXPos -= chargeAdditionalTravel;
+        //}
+
         bool cancelled = false;
         //move towards targetXPos
         while (Vector2.Distance(transform.position, new Vector2(targetXPos, transform.position.y)) >= minDistance && !cancelled)
@@ -142,8 +173,12 @@ public class KamikazeAgent : BehaviourAgent
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetXPos, transform.position.y), chargeSpeed * Time.deltaTime);
             yield return null;
         }
-        Debug.Log("Charge End");
-        Explode();
+        //Debug.Log("Charge End");
+
+        moveSpeed = explodingSpeed;
+        exploding = true;
+        anim.SetTrigger("Explode");
+
         attacking = false;
         yield return new WaitForSeconds(chargeCooldown);
         chargeAvailable = true;
@@ -155,6 +190,42 @@ public class KamikazeAgent : BehaviourAgent
     /// <returns>N/A</returns>
     public void Explode()
     {
-        gameObject.SetActive(false);
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+
+        var hits = Physics2D.OverlapCircleAll(transform.position, explodeRadius, layersToHit); 
+        foreach (var h in hits)
+        {
+            print(h.gameObject.name);
+            var player = h.GetComponent<IDamageable>();
+
+            if (player != null)
+            {
+                //print("Player Exploded");
+                player.TakeDamage(explodeDamage);
+
+                Vector2 knockDirection = transform.position - h.transform.position;
+                knockDirection = knockDirection.normalized;
+
+                if (h.GetComponent<Rigidbody2D>() != null)
+                {
+                    h.GetComponent<Rigidbody2D>().AddForce(knockDirection * explodeKnockback, ForceMode2D.Impulse);
+                }
+            }
+        }
+
+
+        TakeDamage(health);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explodeRadius);
+    }
+
+    public void Killed()
+    {
+        print("Kamikaze Killed");
+        EnemyManager.instance.EnemyKilled(gameObject);
     }
 }

@@ -39,7 +39,6 @@ public class PlayerRangedAttack : MonoBehaviour
     void FireBullet(Vector2 dir)
     {
         anim.SetTrigger("Shoot");
-        shoulder.SetActive(true);
         shoulder.transform.rotation = Quaternion.FromToRotation(Vector3.up, -dir);
 
         if (!bulletPrefab || !firePoint) return;

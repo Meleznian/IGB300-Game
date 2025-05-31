@@ -75,10 +75,16 @@ public class EnemyManager : MonoBehaviour
         enemy = Instantiate(prefab, pos.position, pos.rotation);
         currentlyAlive += 1;
 
-        if (enemy.GetComponent<ChargerAgent>() != null)
+        BehaviourAgent b = enemy.GetComponent<BehaviourAgent>();
+
+        if (b != null)
         {
-            enemy.GetComponent<ChargerAgent>().target = GameObject.Find("Player");
-            enemy.GetComponent<ChargerAgent>().graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
+            b.target = GameObject.Find("Player");
+
+            if (b.assignGraph)
+            {
+                b.graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
+            }
         }
 
         spawnTimer = 0;
