@@ -221,10 +221,6 @@ public class SteamKingAttacks : MonoBehaviour
 
     public void ChainWhip()
     {
-        var effect = Instantiate(slashEffect, whipPoint.position, whipPoint.rotation);
-        effect.transform.localScale = thrustSize;
-
-
         var hit = Physics2D.OverlapBox(whipPoint.position, whipSize, 0f, ~ignore);
         if (hit != null)
         {

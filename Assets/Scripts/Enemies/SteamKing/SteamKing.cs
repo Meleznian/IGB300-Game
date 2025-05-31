@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.U2D;
 
 public class SteamKing : EnemyBase
 {
@@ -15,6 +16,7 @@ public class SteamKing : EnemyBase
     [SerializeField] Transform[] arenaPoints;
     [SerializeField] Vector2 currentLocation;
     [SerializeField] BoxCollider2D ChargeCollider;
+    [SerializeField] SpriteRenderer sprite;
 
     [Header("King Variables")]
     [SerializeField] float meleeRange;
@@ -320,7 +322,7 @@ public class SteamKing : EnemyBase
 
     public override void TakeDamage(int damage)
     {
-        if (state != KingStates.Entering)
+        if (state != KingStates.Entering && state != KingStates.Leaping)
         {
             if (EnemyManager.instance != null && EnemyManager.instance.LogEnemyDamage)
             {
@@ -343,6 +345,13 @@ public class SteamKing : EnemyBase
             {
                 dialogue.GetComponent<TMP_Text>().text = "Thank... \nYou...";
                 anim.SetTrigger("Killed");
+            }
+            else
+            {
+                if (!changing)
+                {
+                    StartCoroutine(ChangeColour());
+                }
             }
         }
     }
@@ -495,6 +504,51 @@ public class SteamKing : EnemyBase
         yield return new WaitForSeconds(3);
         dialogue.SetActive(false);
         state = KingStates.Idle;
+    }
+
+
+    bool changing;
+    IEnumerator ChangeColour()
+    {
+        //print("Colour Changed Started");
+        bool done = false;
+        bool reverse = false;
+        float t = 0;
+        changing = true;
+
+        while (!done)
+        {
+            if (!reverse && sprite.color != Color.red)
+            {
+                //print("Red");
+                sprite.color = Color.Lerp(sprite.color, Color.red, t);
+                t += Time.deltaTime;
+
+                yield return null;
+            }
+            else if (!reverse && sprite.color == Color.red)
+            {
+                //print("Neither");
+                reverse = true;
+                t = 0;
+                yield return null;
+            }
+            else if (reverse && sprite.color != Color.white)
+            {
+                //print("White");
+                sprite.color = Color.Lerp(sprite.color, Color.white, t);
+                t += Time.deltaTime;
+
+                yield return null;
+            }
+            else
+            {
+                done = true;
+            }
+        }
+
+        changing = false;
+        //print("Colour Changed Finished");
     }
 }
 
