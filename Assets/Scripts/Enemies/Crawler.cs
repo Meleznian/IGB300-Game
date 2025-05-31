@@ -7,13 +7,17 @@ public class Crawler : EnemyBase
     private float _damageCooldown = 1f; // Time between damage ticks
     private float _lastDamageTime;
 
+    private bool isAttacking = false; 
+
     [SerializeField] private LayerMask grounds;
     [SerializeField] Animator anim;
 
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
+        if (isAttacking) return;
         AudioManager.PlayEffect(SoundType.CRAWLER_WALK);
+
         CheckFloor();
         //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
     }
@@ -34,10 +38,11 @@ public class Crawler : EnemyBase
     {
         if (Time.time > _lastDamageTime + _damageCooldown)
         {
+            isAttacking = true;
             other.GetComponent<PlayerHealth>().TakeDamage(defaultDamage);
             _lastDamageTime = Time.time;
-            //Debug.Log("Continuous Damage!");
             AudioManager.PlayEffect(SoundType.CRAWLER_ATTACK);
+            isAttacking = false;
         }
     }
 
