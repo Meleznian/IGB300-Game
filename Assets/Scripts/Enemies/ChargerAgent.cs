@@ -133,6 +133,7 @@ public class ChargerAgent : BehaviourAgent
         currentNodeIndex = graphNodes.graphNodes[currentPath[currentPathIndex]].GetComponent<LinkedNodes>().index;
 
         if (isBashing) return;
+        if (attacking) return;
         AudioManager.PlayEffect(SoundType.CHARGER_WALK);
     }
 
