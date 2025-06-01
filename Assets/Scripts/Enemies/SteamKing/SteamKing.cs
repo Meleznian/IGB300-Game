@@ -252,7 +252,7 @@ public class SteamKing : EnemyBase
     {
         transform.position = Vector3.MoveTowards(transform.position, nextLocation, moveSpeed * Time.deltaTime);
 
-        if(transform.position.x == nextLocation.x)
+        if(transform.position.x == nextLocation.x && transform.position.y == nextLocation.y)
         {
             currentLocation = nextLocation;
             anim.SetBool("Dashing",false);
