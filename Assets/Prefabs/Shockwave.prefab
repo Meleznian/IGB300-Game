@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 928489785836749878}
   - component: {fileID: 3082256673715157570}
   - component: {fileID: -5381608729464626117}
-  - component: {fileID: 7579828991793823110}
+  - component: {fileID: 143758236114043503}
   m_Layer: 9
   m_Name: Shockwave
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 62ad79f2bf4d5fa4392930d59ae015b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
   damage: 0
   speed: 0
   knockBack: 0
---- !u!60 &7579828991793823110
-PolygonCollider2D:
+--- !u!61 &143758236114043503
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,23 +134,19 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.45495296, y: -0.2053296}
-      - {x: 0.45270061, y: -0.20532966}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 0.64, y: 0.64}
+  m_EdgeRadius: 0

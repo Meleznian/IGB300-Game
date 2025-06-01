@@ -415,7 +415,7 @@ public class SteamKing : EnemyBase
     {
         anim.SetBool("Diving", true);
         state = KingStates.Diving;
-        nextLocation = new Vector2(currentLocation.x,currentLocation.y + 10);
+        nextLocation = new Vector2(currentLocation.x,currentLocation.y + 15);
     }
 
     void DiveUp()
@@ -434,7 +434,7 @@ public class SteamKing : EnemyBase
 
     IEnumerator Hover()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         up = true;
         hovering = false;
     }
