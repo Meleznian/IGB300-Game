@@ -30,8 +30,9 @@ public class PlatformManager : MonoBehaviour
     public class Platform
     {
         public GameObject platform;
-        internal Vector3 startPos;
-        internal bool reached;
+        [SerializeField] internal Vector3 startPos;
+        [SerializeField] internal bool reached;
+        internal bool setup;
 
         internal void SetUpPlatform()
         {
@@ -144,6 +145,7 @@ public class PlatformManager : MonoBehaviour
     {
         foreach(Platform p in setToAdd.Platforms)
         {
+            print("moving platform");
             if (!p.reached)
             {
                 p.platform.transform.position = Vector3.MoveTowards(p.platform.transform.position, p.startPos,  platformMoveSpeed*Time.deltaTime);
@@ -206,6 +208,7 @@ public class PlatformManager : MonoBehaviour
                 foreach(Platform pf in setToAdd.Platforms)
                 {
                     pf.platform.SetActive(true);
+                    pf.reached = false;
                     print("Set To Add Found");
                 }
                 break;
@@ -220,6 +223,7 @@ public class PlatformManager : MonoBehaviour
                 foreach (Platform pf in setToRemove.Platforms)
                 {
                     pf.CheckColliders(false);
+                    pf.reached = false;
                 }
                 print("Set To Remove Found");
                 break;
@@ -247,10 +251,22 @@ public class PlatformManager : MonoBehaviour
         {
             foreach(Platform pf in p.Platforms)
             {
+
                 pf.SetUpPlatform();
-                pf.platform.transform.position = new Vector3(pf.platform.transform.position.x, -11, pf.platform.transform.position.z);
+                
             }
         }
+
+        foreach (PlatformAddSet p in platformAddSets)
+        {
+            foreach (Platform pf in p.Platforms)
+            {
+
+                pf.platform.transform.position = new Vector3(pf.platform.transform.position.x, -11, pf.platform.transform.position.z);
+                
+            }
+        }
+
     }
 
     bool refreshing;
@@ -259,6 +275,7 @@ public class PlatformManager : MonoBehaviour
         if (!refreshing)
         {
             refreshing = true;
+            print("Refreshing Nodes");
             nodeManager.RefreshGraph();
         }
     }
