@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     void Update()
     {
         // Q key to recover (when charged and not in recovery)
-        if (Input.GetKeyDown(KeyCode.LeftControl) && GameManager.instance.DecreaseGauge(10) && !isHealing)
+        if (Input.GetKeyDown(KeyCode.Q) && GameManager.instance.DecreaseGauge(10) && !isHealing)
         {
             healStart.Play();
             healing.Play();

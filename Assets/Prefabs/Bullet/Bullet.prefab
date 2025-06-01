@@ -166,5 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  lifetime: 2
   damage: 5
+  knockback: 0
+  playerOwned: 0
+  originallyEnemy: 0
