@@ -4387,11 +4387,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &707735488 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 670640505612683000, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-  m_PrefabInstance: {fileID: 1818541285}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &715727721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8558,16 +8553,6 @@ Transform:
   - {fileID: 1083688462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1649542473 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4829286838370569723, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-  m_PrefabInstance: {fileID: 1818541285}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1746281015 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4989178912908870611, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-  m_PrefabInstance: {fileID: 1818541285}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1818025989
 GameObject:
   m_ObjectHideFlags: 0
@@ -8908,14 +8893,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 670640505612683000, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: m_Name
-      value: DeathPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 690428657003143736, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: UICanvas
-      value: 
-      objectReference: {fileID: 1649542473}
     - target: {fileID: 1354585238773915636, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -8924,18 +8901,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: UICanvas
-      value: 
-      objectReference: {fileID: 1649542473}
-    - target: {fileID: 3579715915885456711, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: deathPanel
-      value: 
-      objectReference: {fileID: 707735488}
-    - target: {fileID: 3579715915885456711, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: deathCanvas
-      value: 
-      objectReference: {fileID: 1746281015}
     - target: {fileID: 4609873313042110578, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8944,16 +8909,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4989178912908870611, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: m_Name
-      value: DeathCanvas
-      objectReference: {fileID: 0}
     - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7391088710861397707, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7835850529534847684, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
