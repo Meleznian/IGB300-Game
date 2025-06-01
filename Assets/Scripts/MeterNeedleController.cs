@@ -3,13 +3,13 @@ using UnityEngine;
 public class MeterNeedleController : MonoBehaviour
 {
     [Header("Needle Settings")]
-    public RectTransform needle;  // Assign your needle object here
-    public float minAngle = -90f; // Leftmost angle
-    public float maxAngle = 90f;  // Rightmost angle
-    public float speed = 1f;      // Speed of movement
+    public RectTransform needle;
+    public float minAngle = -90f; 
+    public float maxAngle = 90f; 
+    public float speed = 1f;    
 
     [Header("Auto Ping-Pong")]
-    public bool pingPong = true;  // Should the needle move back and forth?
+    public bool pingPong = true;
 
     private float t = 0f;
     private bool forward = true;

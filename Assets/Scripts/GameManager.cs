@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text crowdHypeText;
     public GameObject completeLevelUI;
     public GameObject UICanvas;
+    public GameObject Player;
     [SerializeField] UpgradeManager upgrader;
 
 
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
     {
         ammoDisplay.value = ammo;
         AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
+        Player = GameObject.Find("Player");
     }
 
     void Update()
