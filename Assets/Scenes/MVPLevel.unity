@@ -500,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 6896004327914255067, guid: b1537571185186449ac0cf46d47614b9, type: 3}
       propertyPath: 'spawnGroups.Array.data[0].queue.Array.data[0]'
       value: 
-      objectReference: {fileID: 6348757875583023632, guid: 845132aab8fe00344b003b22a75831c1, type: 3}
+      objectReference: {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
     - target: {fileID: 6896004327914255067, guid: b1537571185186449ac0cf46d47614b9, type: 3}
       propertyPath: 'spawnGroups.Array.data[0].queue.Array.data[1]'
       value: 
