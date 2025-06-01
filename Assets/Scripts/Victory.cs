@@ -5,7 +5,7 @@ public class Victory : MonoBehaviour
 {
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Credits");
         //UnityEngine.SceneManagement.SceneManager:LoadScene()
     }
 }
