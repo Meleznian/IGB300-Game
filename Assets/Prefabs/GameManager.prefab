@@ -291,6 +291,7 @@ MonoBehaviour:
   crowdHypeText: {fileID: 1334253665117281990}
   completeLevelUI: {fileID: 2743665091204896469}
   UICanvas: {fileID: 4829286838370569723}
+  Player: {fileID: 0}
   upgrader: {fileID: 6939304625285668413}
   boltText: {fileID: 0}
   _BoltCount: 0
@@ -299,8 +300,8 @@ MonoBehaviour:
   crowdHype: 0
   cashMult: 0
   steamGauge: 0
-  ammo: 4
-  maxAmmo: 4
+  ammo: 5
+  maxAmmo: 5
   parryMult: 1.2
   steamSlider: {fileID: 1540245765535838074}
   hypeSlider: {fileID: 7391088710861397707}
@@ -347,7 +348,7 @@ MonoBehaviour:
   healthIncrease: 10
   attackSpeedIncrease: 0.03
   damageIncrease: 3
-  bulletSpeedIncrease: 1
+  bulletSpeedIncrease: 2
   bulletCoolIncrease: 0.1
   bulletDamageIncrease: 1
   moveSpeedIncrease: 0.5
