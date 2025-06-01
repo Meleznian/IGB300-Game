@@ -10739,6 +10739,30 @@ PrefabInstance:
       value: PlatformManager
       objectReference: {fileID: 0}
     - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: platformRemoveSets.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: platformRemoveSets.Array.data[4].wave
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: platformRemoveSets.Array.data[5].wave
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: platformRemoveSets.Array.data[6].wave
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: platformRemoveSets.Array.data[8].wave
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: platformRemoveSets.Array.data[8].Platforms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: platformAddSets.Array.data[0].Platforms.Array.data[0].platform
       value: 
       objectReference: {fileID: 618553534}
@@ -10801,17 +10825,21 @@ PrefabInstance:
     - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: platformRemoveSets.Array.data[4].Platforms.Array.data[0].platform
       value: 
-      objectReference: {fileID: 1068567728}
+      objectReference: {fileID: 618553534}
     - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: platformRemoveSets.Array.data[5].Platforms.Array.data[0].platform
       value: 
-      objectReference: {fileID: 1818025989}
+      objectReference: {fileID: 1068567728}
     - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: platformRemoveSets.Array.data[6].Platforms.Array.data[0].platform
       value: 
       objectReference: {fileID: 1818025989}
     - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: platformRemoveSets.Array.data[7].Platforms.Array.data[0].platform
+      value: 
+      objectReference: {fileID: 1818025989}
+    - target: {fileID: 7177536969973406706, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: platformRemoveSets.Array.data[8].Platforms.Array.data[0].platform
       value: 
       objectReference: {fileID: 1818025989}
     m_RemovedComponents: []
