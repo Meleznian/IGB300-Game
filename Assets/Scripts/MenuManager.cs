@@ -73,6 +73,7 @@ public class MenuManager : MonoBehaviour
 
     public void ReturnHome()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Start Scene");
     }
 
