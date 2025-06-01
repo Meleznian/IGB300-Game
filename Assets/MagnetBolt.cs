@@ -29,4 +29,12 @@ public class MagnetBolt : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, MagnetRange);
     }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Wall")
+        {
+            Debug.Log("Bounce");
+        }
+    }
 }
