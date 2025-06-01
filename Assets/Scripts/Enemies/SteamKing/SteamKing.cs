@@ -138,40 +138,40 @@ public class SteamKing : EnemyBase
         else if (damagedRecently)
         {
             damagedRecently = false;
-            if(nextAction == 1)
-            {
-                if (logConsoleMessages)
-                    print("Kicking");
-                anim.SetTrigger("Kick");
-            }
-            else
-            {
+            //if(nextAction == 1)
+            //{
+            //    if (logConsoleMessages)
+            //        print("Kicking");
+            //    anim.SetTrigger("Kick");
+            //}
+            //else
+            //{
                 if (logConsoleMessages)
                     print("Dodge Shooting");
                 anim.SetTrigger("DodgeShoot");  
                 StartDodge();
-            }
+            //}
         }
         else
         {
-            if (nextAction == 1)
-            {
+            //if (nextAction == 1)
+            //{
                 if (logConsoleMessages)
                     print("Thrusting");
                 anim.SetTrigger("Thrust");
-            }
-            else
-            {
-                if (logConsoleMessages)
-                    print("Slashing");
-                anim.SetTrigger("Slash");         
-            }
+            //}
+            //else
+            //{
+            //    if (logConsoleMessages)
+            //        print("Slashing");
+            //    anim.SetTrigger("Slash");         
+            //}
         }
     }
 
     void GetEdgeAttack()
     {
-        int nextAction = UnityEngine.Random.Range(0, 5);
+        int nextAction = UnityEngine.Random.Range(0, 4);
         switch(nextAction)
         {
             case 0:
@@ -184,7 +184,7 @@ public class SteamKing : EnemyBase
                     print("Diving");
                 StartDive();
                 return;
-            case 2:
+            case 4:
                 if (logConsoleMessages)
                     print("Aiming");
                 anim.SetTrigger("AimedShot");
@@ -194,7 +194,7 @@ public class SteamKing : EnemyBase
                     print("Whipping");
                 anim.SetTrigger("ChainWhip");
                 return;
-            case 4:
+            case 2:
                 if (logConsoleMessages)
                     print("Dashing");
                 StartDash();
@@ -204,7 +204,7 @@ public class SteamKing : EnemyBase
 
     void GetCentreAttack()
     {
-        int nextAction = UnityEngine.Random.Range(0, 3);
+        int nextAction = UnityEngine.Random.Range(0, 2);
         switch (nextAction)
         {
             case 0:

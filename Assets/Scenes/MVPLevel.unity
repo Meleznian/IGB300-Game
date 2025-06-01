@@ -9653,8 +9653,8 @@ Transform:
   - {fileID: 305250218}
   - {fileID: 1068567729}
   - {fileID: 1818025990}
-  - {fileID: 1137298917}
   - {fileID: 680346183}
+  - {fileID: 1137298917}
   - {fileID: 1083688462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10733,8 +10733,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3391736034248691711, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391736034248691711, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: bottomBorder
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3391736034248691711, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
+      propertyPath: grounds.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6715006091545116589, guid: 12a0eae849f5b0446a0547969cf72e0b, type: 3}
       propertyPath: m_LocalPosition.x
