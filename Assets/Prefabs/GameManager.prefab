@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 3299265388130979234}
   - component: {fileID: 3772905961492147548}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: DeathPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   killCountVictoryText: {fileID: 443273602477746849}
   crowdHypeText: {fileID: 1334253665117281990}
   completeLevelUI: {fileID: 2743665091204896469}
-  UICanvas: {fileID: 0}
+  UICanvas: {fileID: 4829286838370569723}
   upgrader: {fileID: 6939304625285668413}
   boltText: {fileID: 0}
   _BoltCount: 0
@@ -1202,7 +1202,7 @@ GameObject:
   - component: {fileID: 8533791534436004391}
   - component: {fileID: 3415786305363603279}
   m_Layer: 5
-  m_Name: Death Panel
+  m_Name: DeathCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1522,6 +1522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 8954339612945064669}
   deathPanel: {fileID: 4989178912908870611}
+  UICanvas: {fileID: 4829286838370569723}
   openSound: {fileID: 8300000, guid: b5645e115e3fc9b439f180aabdb2faaf, type: 3}
   closeSound: {fileID: 8300000, guid: b5645e115e3fc9b439f180aabdb2faaf, type: 3}
 --- !u!82 &3505549910927626046
@@ -1638,8 +1639,7 @@ MonoBehaviour:
   - Even legends fall
   - Try again... if you dare.
   - "You were close \u2014 but not close enough."
-  deathCanvas: {fileID: 0}
-  deathPanel: {fileID: 4989178912908870611}
+  deathPanel: {fileID: 670640505612683000}
   messageText: {fileID: 5521027538033697745}
 --- !u!114 &5383364612074732608
 MonoBehaviour:
@@ -3025,6 +3025,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4829286838370569723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6699709823408339045, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+  m_PrefabInstance: {fileID: 2305619106360915358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5383047197967753256 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6146103678303032758, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
