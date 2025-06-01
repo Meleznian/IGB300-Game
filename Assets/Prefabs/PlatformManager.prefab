@@ -1,5 +1,76 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1313075348907199931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7879761367256025550}
+  - component: {fileID: 3391736034248691711}
+  - component: {fileID: 5540337222522331442}
+  m_Layer: 0
+  m_Name: NodeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7879761367256025550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313075348907199931}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5802844, y: 0.96455026, z: 0.0065983674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6715006091545116589}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3391736034248691711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313075348907199931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff002458ca961d498ee89cb7e7c9c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Node: {fileID: 1633162831647237319, guid: 3a27c97894e2f9e43b1be6045e0f43c0, type: 3}
+  distance: 1
+  radius: 1
+  Nodes: []
+  leftBorder: -17
+  rightBorder: 17
+  topBorder: 10
+  bottomBorder: -3.5
+  SafeToSpawn: 0
+  grounds:
+    serializedVersion: 2
+    m_Bits: 0
+  graph: {fileID: 0}
+--- !u!114 &5540337222522331442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313075348907199931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ebc258d4914504ebed084745a36f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphNodes: []
 --- !u!1 &6939360305520653043
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +100,8 @@ Transform:
   m_LocalPosition: {x: -0.14454329, y: 2.5059137, z: -0.0022636023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7879761367256025550}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7177536969973406706
@@ -50,9 +122,58 @@ MonoBehaviour:
     wave: 1
   - Platforms:
     - platform: {fileID: 0}
-    wave: 2
+    wave: 3
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 6
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 9
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 10
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 11
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 16
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 16
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 19
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 21
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 23
   platformRemoveSets:
   - Platforms:
     - platform: {fileID: 0}
     wave: 2
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 4
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 5
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 11
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 14
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 18
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 20
+  - Platforms:
+    - platform: {fileID: 0}
+    wave: 20
   platformMoveSpeed: 10
+  nodeManager: {fileID: 3391736034248691711}

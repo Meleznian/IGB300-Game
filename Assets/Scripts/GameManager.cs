@@ -132,7 +132,6 @@ public class GameManager : MonoBehaviour
     {
         crowdHype++;
         crowdHype = Mathf.Clamp(crowdHype, 0, 10);
-        crowdHypeText.text = crowdHype.ToString();
         hypeSlider.value = crowdHype;
 
         CalcMult();
@@ -169,7 +168,7 @@ public class GameManager : MonoBehaviour
             cashMult = 1f;
         }
 
-        crowdHypeText.text = crowdHype+ "x";
+        crowdHypeText.text = "x"+ cashMult;
     }
 
     public void IncreaseGauge()

@@ -222,10 +222,4 @@ public class KamikazeAgent : BehaviourAgent
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explodeRadius);
     }
-
-    public void Killed()
-    {
-        print("Kamikaze Killed");
-        EnemyManager.instance.EnemyKilled(gameObject);
-    }
 }

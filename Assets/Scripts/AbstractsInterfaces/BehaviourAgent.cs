@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BehaviourAgent : NavigationAgent, IDamageable
 {
     public bool assignGraph;
+    public bool grounded;
     public State currentState;
     private State _oldState;
     public GameObject target;
@@ -195,5 +196,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
             Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
             Instantiate(g, transform.position + (Vector3)spawnOffset, Quaternion.identity);
         }
+    }
+
+    public void Killed()
+    {
+        EnemyManager.instance.EnemyKilled(gameObject);
     }
 }

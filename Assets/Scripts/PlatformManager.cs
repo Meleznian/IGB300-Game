@@ -103,6 +103,7 @@ public class PlatformManager : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] float platformMoveSpeed;
+    [SerializeField] NodeManager nodeManager;
 
     //Start
     private void Start()
@@ -127,9 +128,14 @@ public class PlatformManager : MonoBehaviour
 
             if(removeFinished && addFinished)
             {
+                StartRefresh();
                 print("Platform Arrangement Finished");
-                EnemyManager.instance.StartWave();
-                moving = false;
+                if (nodeManager.SafeToSpawn)
+                {
+                    EnemyManager.instance.StartWave();
+                    moving = false;
+                    refreshing = false;
+                }
             }
         }
     }
@@ -244,6 +250,16 @@ public class PlatformManager : MonoBehaviour
                 pf.SetUpPlatform();
                 pf.platform.transform.position = new Vector3(pf.platform.transform.position.x, -11, pf.platform.transform.position.z);
             }
+        }
+    }
+
+    bool refreshing;
+    void StartRefresh()
+    {
+        if (!refreshing)
+        {
+            refreshing = true;
+            nodeManager.RefreshGraph();
         }
     }
 }

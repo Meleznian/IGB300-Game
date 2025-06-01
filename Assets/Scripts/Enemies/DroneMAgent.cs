@@ -129,6 +129,7 @@ public class DroneMAgent : BehaviourAgent
         attacking = true;
         //Perform action
         Debug.Log("Charging");
+        parriable = true;
         Vector2 targetPos = target.transform.position - transform.position;
         targetPos /= targetPos.magnitude;
         targetPos *= chargeTravel;
@@ -140,6 +141,7 @@ public class DroneMAgent : BehaviourAgent
             yield return null;
         }
         Debug.Log("Charge End");
+        parriable = false;
         attacking = false;
         yield return new WaitForSeconds(chargeCooldown);
         chargeAvailable = true;

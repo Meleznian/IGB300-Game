@@ -83,7 +83,14 @@ public class EnemyManager : MonoBehaviour
 
             if (b.assignGraph)
             {
-                b.graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
+                if (b.grounded)
+                {
+                    b.graphNodes = GameObject.Find("ChargerNodes").GetComponent<WaypointGraph>();
+                }
+                else
+                {
+                    b.graphNodes = GameObject.Find("NodeManager").GetComponent<WaypointGraph>();
+                }
             }
         }
 
