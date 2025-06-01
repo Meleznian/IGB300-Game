@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     public void Init(Vector2 direction)
     {
         moveDir = direction.normalized;
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, -direction);
         //Destroy(gameObject, lifetime);
     }
 
