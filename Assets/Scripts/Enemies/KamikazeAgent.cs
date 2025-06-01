@@ -130,7 +130,7 @@ public class KamikazeAgent : BehaviourAgent
         }
         else
         {
-            if (target.transform.position.x >= transform.position.x)
+            if (GameManager.instance.Player.transform.position.x >= transform.position.x)
             {
                 transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
 

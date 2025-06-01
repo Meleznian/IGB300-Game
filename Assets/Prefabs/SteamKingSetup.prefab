@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6019268654907744953, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: health
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6019268654907744953, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: sprite

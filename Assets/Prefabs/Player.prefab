@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 2885941554445413653}
   - component: {fileID: 1062696313977331800}
   - component: {fileID: 6634533313941947140}
+  - component: {fileID: 7097120519612959138}
   m_Layer: 3
   m_Name: Animation
   m_TagString: Untagged
@@ -426,6 +427,18 @@ MonoBehaviour:
   health: {fileID: 742170538021214693}
   parry: {fileID: 7063704676244302266}
   shoulder: {fileID: 2942565711873893426}
+--- !u!114 &7097120519612959138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702446297921196607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6acb75f54f07a46818daa37db88194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4807269087759845624
 GameObject:
   m_ObjectHideFlags: 0
