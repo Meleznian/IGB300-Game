@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,13 +9,14 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal float knockback;
     [SerializeField] internal bool playerOwned;
     [SerializeField] internal bool originallyEnemy;
+    [SerializeField] internal Transform visual;
 
     Vector2 moveDir;
 
     public void Init(Vector2 direction)
     {
         moveDir = direction.normalized;
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, -direction);
+        visual.rotation = Quaternion.FromToRotation(Vector3.up, direction);
         //Destroy(gameObject, lifetime);
     }
 
