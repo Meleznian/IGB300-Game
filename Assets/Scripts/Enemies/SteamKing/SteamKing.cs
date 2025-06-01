@@ -55,6 +55,7 @@ public class SteamKing : EnemyBase
         phaseTransition = health / 2;
         state = KingStates.Entering;
         anim.SetBool("Dashing", true);
+        AudioManager.PlayMusic(SoundType.BOSS_MUSIC);
     }
 
     private void Update()

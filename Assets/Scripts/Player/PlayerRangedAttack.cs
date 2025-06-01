@@ -50,6 +50,7 @@ public class PlayerRangedAttack : MonoBehaviour
             bullet.damage = bulletDamage;
             bullet.speed = bulletSpeed;
             bullet.knockback = bulletKnockback;
+            AudioManager.PlayEffect(SoundType.PLAYER_SHOOT);
         }
     }
 

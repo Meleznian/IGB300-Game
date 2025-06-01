@@ -34,7 +34,7 @@ public class MagnetBolt : MonoBehaviour
     {
         if (other.gameObject.tag == "Wall")
         {
-            Debug.Log("Bounce");
+            AudioManager.PlayEffect(SoundType.BOLTS, 0.2f);
         }
     }
 }
