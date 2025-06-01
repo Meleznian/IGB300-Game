@@ -16,9 +16,12 @@ public class MeterNeedleController : MonoBehaviour
 
     void Update()
     {
+        // The needle will still continue animating even when the game is paused
+        float delta = Time.unscaledDeltaTime; 
+
         if (pingPong)
         {
-            t += Time.deltaTime * speed * (forward ? 1 : -1);
+            t += delta * speed * (forward ? 1 : -1);
             if (t > 1f)
             {
                 t = 1f;
@@ -32,11 +35,12 @@ public class MeterNeedleController : MonoBehaviour
         }
         else
         {
-            t += Time.deltaTime * speed;
+            t += delta * speed;
             t = Mathf.Clamp01(t);
         }
 
         float angle = Mathf.Lerp(minAngle, maxAngle, t);
         needle.localRotation = Quaternion.Euler(0, 0, angle);
     }
+
 }
