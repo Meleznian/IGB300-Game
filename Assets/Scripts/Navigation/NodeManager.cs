@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class NodeManager : MonoBehaviour
     public float rightBorder;
     public float topBorder;
     public float bottomBorder;
+    public bool SafeToSpawn = false;
     
     [SerializeField] private LayerMask grounds;
 
@@ -30,7 +32,7 @@ public class NodeManager : MonoBehaviour
         {
             for (float j = leftBorder - (0.5f * distance); j <= rightBorder; j += distance)
             {
-                Debug.Log(Physics2D.OverlapCircle(new Vector2(j, i), radius, grounds));
+                //Debug.Log(Physics2D.OverlapCircle(new Vector2(j, i), radius, grounds));
                 if (!Physics2D.OverlapCircle(new Vector2(j, i), radius, grounds))
                 {
                     Nodes.Add(Instantiate(Node, new Vector3(j, i, 0), Quaternion.identity, transform));
@@ -51,6 +53,7 @@ public class NodeManager : MonoBehaviour
             }
         }
         //canDrawGizmos = true;
+        SafeToSpawn = true;
     }
 
     void ConnectNodes(GameObject from, GameObject to)
@@ -78,6 +81,8 @@ public class NodeManager : MonoBehaviour
 
     public void RefreshGraph()
     {
+        SafeToSpawn = false;
+        SafeToSpawn = false;
         graph.graphNodes.Clear();
         for(int i = 0; i < Nodes.Count; i++)
         {
