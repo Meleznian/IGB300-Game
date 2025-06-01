@@ -122,7 +122,12 @@ public class SettingsMenu : MonoBehaviour
     }
     public void CloseSettings()
     {
-        SceneManager.LoadScene("Start Scene");
-        Time.timeScale = 1f;
+        // Fallback if PlayerPrefs is empty
+        string lastScene = PlayerPrefs.GetString("LastScene", "MVPLevel");
+
+        SceneManager.LoadScene(lastScene);
+        Time.timeScale = 1f; 
     }
+
+
 }

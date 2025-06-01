@@ -16,7 +16,6 @@ public class SettingsManager : MonoBehaviour
         popupPanel.SetActive(false);
         TutorialPanel.SetActive(false);
     }
-
     public void Tutorial()
     {
         TutorialPanel.SetActive(true);
@@ -27,6 +26,7 @@ public class SettingsManager : MonoBehaviour
     }
     public void OpenSettings()
     {
+        PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene("Setting Scene");
     }
     public void ShowLoadPanel()
