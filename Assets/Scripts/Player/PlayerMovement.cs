@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -228,5 +229,10 @@ public class PlayerMovement : MonoBehaviour
     {
         _speed += amount;
         _sprintSpeed += amount;
+    }
+
+    internal void Die()
+    {
+        _speed = 0;
     }
 }

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Gear-Driven Gladiator logo_0: 2335886840045997799
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

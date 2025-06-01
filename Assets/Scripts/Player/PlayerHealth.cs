@@ -58,6 +58,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             {
                 currentHealth = 0;
                 anim.SetTrigger("Killed");
+                GetComponent<PlayerMovement>().Die();
                 dead = true;
             }
         }
