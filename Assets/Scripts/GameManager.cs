@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI killCountVictoryText;
     public TMP_Text crowdHypeText;
     public GameObject completeLevelUI;
+    public GameObject UICanvas;
     [SerializeField] UpgradeManager upgrader;
 
 
@@ -63,11 +64,11 @@ public class GameManager : MonoBehaviour
 
         //DisplayBoltCount();//why was this remove? //If you have questions put them in the chat. There are several reasons this was removed 
 
-        if (_killCount >= KillTarget & gameHasWon == false)
-        {
-            gameHasWon = true;
-            CompleteLevel();
-        }
+        //if (_killCount >= KillTarget & gameHasWon == false)
+        //{
+        //    gameHasWon = true;
+        //    CompleteLevel();
+        //}
     }
 
     public void KillCount()
@@ -112,19 +113,18 @@ public class GameManager : MonoBehaviour
     {
         if(gameHasEnded == false)
         {
+            print("Ending Game");
             gameHasEnded = true;
-            Debug.Log("GAME OVER!!!");
-            YouDiedtxt.gameObject.SetActive(true);//for gameObject
-            //YouDiedtxt.enabled = true;//for component only 
-            Invoke("Restart", restartDelay);
-            //Restart();
+
+            UICanvas.SetActive(false);
+            MenuManager.instance.PlayerDead();
+            //Debug.Log("GAME OVER!!!");
+            //YouDiedtxt.gameObject.SetActive(true);//for gameObject
+            ////YouDiedtxt.enabled = true;//for component only 
+            //Invoke("Restart", restartDelay);
+            ////Restart();
         }
         
-    }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);//return the name of the current scene
     }
 
 
@@ -141,7 +141,6 @@ public class GameManager : MonoBehaviour
     public void DecreaseHype()
     {
         crowdHype /= 2;
-        crowdHypeText.text = crowdHype.ToString();
         hypeSlider.value = crowdHype;
 
         CalcMult();
@@ -169,6 +168,8 @@ public class GameManager : MonoBehaviour
         {
             cashMult = 1f;
         }
+
+        crowdHypeText.text = crowdHype+ "x";
     }
 
     public void IncreaseGauge()

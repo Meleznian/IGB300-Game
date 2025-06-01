@@ -23,7 +23,7 @@ public class SettingsManager : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("DemoScene");
+        SceneManager.LoadScene("MVPLevel");
     }
     public void OpenSettings()
     {

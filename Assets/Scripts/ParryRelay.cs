@@ -41,4 +41,9 @@ public class ParryRelay : MonoBehaviour
             anim.SetInteger("Slashes", 0);
         }
     }
+    public void Die()
+    {
+        Debug.Log("Player died... Activating Death Panel");
+        GameManager.instance.EndGame();
+    }
 }

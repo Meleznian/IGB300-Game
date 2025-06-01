@@ -264,6 +264,6 @@ public class SteamKingAttacks : MonoBehaviour
 
     public void TransitionToCredits()
     {
-        SceneManager.LoadScene("Credits");
+        GameManager.instance.CompleteLevel();
     }
 }

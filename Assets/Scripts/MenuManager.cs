@@ -3,8 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager instance { get; private set; }
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     public GameObject menuPanel;
     public GameObject deathPanel;
+    public GameObject UICanvas;
     public AudioClip openSound;
     public AudioClip closeSound;
     private AudioSource audioSource;
@@ -20,7 +34,7 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleMenu();
         }
@@ -33,10 +47,14 @@ public class MenuManager : MonoBehaviour
 
         if (isOpen && openSound != null)
         {
+            Time.timeScale = 0f;
+            UICanvas.SetActive(false);
             audioSource.PlayOneShot(openSound);
         }
         else if (!isOpen && closeSound != null)
         {
+            Time.timeScale = 1.0f;
+            UICanvas.SetActive(true);  
             audioSource.PlayOneShot(closeSound);
         }
     }
@@ -56,5 +74,17 @@ public class MenuManager : MonoBehaviour
     public void ReturnHome()
     {
         SceneManager.LoadScene("Start Scene");
+    }
+
+    public void PlayerDead()
+    {
+        deathPanel.SetActive(true);
+        GetComponent<DeathMessageManager>().ShowDeathPanel();
+    }
+
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);//return the name of the current scene
     }
 }

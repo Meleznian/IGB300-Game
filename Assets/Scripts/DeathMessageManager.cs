@@ -7,25 +7,21 @@ public class DeathMessageManager : MonoBehaviour
     [TextArea(2, 4)]
     public string[] deathMessages;
 
-    public GameObject deathPanel;    
-    public TMP_Text messageText;
+    public GameObject deathPanel;
 
-    void Start()
-    {
-        deathPanel.SetActive(false);   
-    }
+    public TMP_Text messageText;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            ShowDeathPanel();
+            //ShowDeathPanel();
         }
     }
 
     public void ShowDeathPanel()
     {
-        deathPanel.SetActive(true);
+        deathPanel.GetComponent<Animator>().SetTrigger("Enter");
         ShowRandomDeathMessage();
     }
 

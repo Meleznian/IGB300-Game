@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     internal bool parrying;
     bool iframing;
+    bool dead;
+
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] ParticleSystem healStart;
     [SerializeField] ParticleSystem healing;
@@ -26,7 +28,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     void Start()
     {
         currentHealth = maxHealth;       // Maximize HP at the start of the game
-        anim = GetComponent<Animator>();
+        anim = sprite.GetComponent<Animator>();
     }
 
     private Animator anim;
@@ -44,7 +46,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
-        if (!iframing)
+        if (!iframing && !dead)
         {
             currentHealth -= amount;
             StartCoroutine(ChangeColour());
@@ -55,8 +57,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
-                Die();
                 anim.SetTrigger("Killed");
+                dead = true;
             }
         }
     }
@@ -78,12 +80,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         isHealing = false;
         healing.Stop();
-    }
-
-    void Die()
-    {
-        Debug.Log("Player died. Reset to Wave 1...");
-        FindFirstObjectByType<GameManager>().EndGame();
     }
 
     public void IncreaseMax(int amount)
