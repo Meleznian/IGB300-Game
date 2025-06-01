@@ -18,6 +18,7 @@ public class CameraFollow : MonoBehaviour
         Camera cam = Camera.main;
         camHalfHeight = cam.orthographicSize;
         camHalfWidth = camHalfHeight * cam.aspect;
+        target = GameObject.Find("Player").transform;
     }
 
     void LateUpdate()
