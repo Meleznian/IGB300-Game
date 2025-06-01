@@ -18,6 +18,11 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         meleeCooldownTimer -= Time.deltaTime;
 
+        if (meleeCooldownTimer < -0.7f) 
+        {
+            anim.SetInteger("Slashes", 0);
+        }
+
         // Gamepad input: Left stick + R1 button
         if (Input.GetKeyDown(KeyCode.JoystickButton5) && meleeCooldownTimer <= 0f)
         {
@@ -74,6 +79,8 @@ public class PlayerMeleeAttack : MonoBehaviour
     void DealDamage(Vector2 origin)
     {
         var hits = Physics2D.OverlapCircleAll(origin, range, enemyLayer);
+
+
         foreach (var h in hits)
         {
             var enemy = h.GetComponent<IDamageable>();
@@ -93,9 +100,10 @@ public class PlayerMeleeAttack : MonoBehaviour
     void SpawnEffect(Vector2 pos, Quaternion rot)
     {
         if (flashFX)
-            anim.SetTrigger("Slash");
             Instantiate(flashFX, pos, rot);
         AudioManager.PlayEffect(SoundType.SLASH);
+
+        anim.SetTrigger("Slash");
     }
 
     void OnDrawGizmosSelected()

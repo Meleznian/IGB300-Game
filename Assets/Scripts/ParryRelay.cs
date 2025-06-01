@@ -5,6 +5,12 @@ public class ParryRelay : MonoBehaviour
     [SerializeField] PlayerHealth health;
     [SerializeField] Parry parry;
     [SerializeField] GameObject shoulder;
+    Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void StartParry()
     {
@@ -24,5 +30,15 @@ public class ParryRelay : MonoBehaviour
     public void EnableShoulder()
     {
         shoulder.SetActive(true);
+    }
+
+    public void IncrementSlash()
+    {
+        anim.SetInteger("Slashes", anim.GetInteger("Slashes") + 1);
+
+        if (anim.GetInteger("Slashes") == 3)
+        {
+            anim.SetInteger("Slashes", 0);
+        }
     }
 }
