@@ -2093,7 +2093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 558276488312956840, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: m_Volume
-      value: 1
+      value: 0.149
       objectReference: {fileID: 0}
     - target: {fileID: 558276488312956840, guid: 781eefa3ce4bc2b41b43860980cd7514, type: 3}
       propertyPath: m_Enabled
@@ -10946,6 +10946,10 @@ PrefabInstance:
     - target: {fileID: 6769114238069615058, guid: 84d3843f2a1d79e41bd2842b76e71516, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567997590183402151, guid: 84d3843f2a1d79e41bd2842b76e71516, type: 3}
+      propertyPath: parallax
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
