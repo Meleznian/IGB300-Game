@@ -20,10 +20,11 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     public bool flipped;
     public float lastX;
-
+    
     [Header("Animation")]
     public GameObject animation;
     public Animator anim;
+    internal bool dead;
 
 
     public Transform attackPoint;
@@ -73,7 +74,10 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
             lastX = transform.position.x;
         }
 
-        animation.transform.localScale = flipped ? new Vector3(-0.1f, 0.1f, 0.1f) : new Vector3(0.1f, 0.1f, 0.1f);
+        if (!dead)
+        {
+            animation.transform.localScale = flipped ? new Vector3(-0.1f, 0.1f, 0.1f) : new Vector3(0.1f, 0.1f, 0.1f);
+        }
 
         if (currentState != _oldState)
         {
@@ -141,8 +145,12 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
 
     private void Death()
     {
-        anim.SetTrigger("Dead");
-        SpawnCurrency();
+        if (!dead)
+        {
+            dead = true;
+            anim.SetTrigger("Dead");
+            SpawnCurrency();
+        }
     }
 
     public IEnumerator Invincible()

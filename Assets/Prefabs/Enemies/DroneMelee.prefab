@@ -150,7 +150,7 @@ MonoBehaviour:
   currentState: 0
   target: {fileID: 0}
   stunned: 0
-  stunTime: 0
+  stunTime: 5
   health: 15
   iFrames: 0
   hasIFrames: 0
