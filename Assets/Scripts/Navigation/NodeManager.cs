@@ -15,13 +15,14 @@ public class NodeManager : MonoBehaviour
     [SerializeField] private LayerMask grounds;
 
     private bool canDrawGizmos;
-    private WaypointGraph graph;
+    [SerializeField] private WaypointGraph graph;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         graph = GetComponent<WaypointGraph>();
          CreateNodes();
     }
+
 
     void CreateNodes()
     {
@@ -33,7 +34,7 @@ public class NodeManager : MonoBehaviour
                 if (!Physics2D.OverlapCircle(new Vector2(j, i), radius, grounds))
                 {
                     Nodes.Add(Instantiate(Node, new Vector3(j, i, 0), Quaternion.identity, transform));
-                    //graph.AddNodes(Nodes[Nodes.Count - 1]);
+                    graph.AddNodes(Nodes[Nodes.Count - 1]);
                 }
             }
         }
@@ -73,6 +74,17 @@ public class NodeManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void RefreshGraph()
+    {
+        graph.graphNodes.Clear();
+        for(int i = 0; i < Nodes.Count; i++)
+        {
+            Destroy(Nodes[i]);
+        }
+        Nodes.Clear();
+        CreateNodes();
     }
 
 }
