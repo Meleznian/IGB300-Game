@@ -147,10 +147,6 @@ public class DroneMAgent : BehaviourAgent
         chargeAvailable = true;
     }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player")) other.gameObject.GetComponent<IDamageable>().TakeDamage(contactDamage);
-    }
 
 
 }
