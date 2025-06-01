@@ -145,6 +145,7 @@ MonoBehaviour:
   greedyPaintList: 
   currentPathIndex: 0
   currentNodeIndex: 0
+  assignGraph: 0
   currentState: 0
   target: {fileID: 0}
   stunned: 0
@@ -153,6 +154,16 @@ MonoBehaviour:
   iFrames: 0
   hasIFrames: 0
   parriable: 0
+  flipped: 0
+  lastX: 0
+  animation: {fileID: 0}
+  anim: {fileID: 0}
+  attackPoint: {fileID: 0}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  currencyPrefab: {fileID: 0}
+  dropAmount: 20
   moveSpeed: 1
   minDistance: 0
   chargeDistance: 0
@@ -181,7 +192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lodgedbullets: 0
-  floorBullet: {fileID: 918802385275866056, guid: e2b8a258f7406f54ea667de099b55cfa, type: 3}
 --- !u!1 &6894781992262527531
 GameObject:
   m_ObjectHideFlags: 0

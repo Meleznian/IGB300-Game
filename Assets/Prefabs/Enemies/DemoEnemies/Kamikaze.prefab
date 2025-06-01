@@ -273,7 +273,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   currencyPrefab: {fileID: 0}
-  dropAmount: 1
+  dropAmount: 15
   moveSpeed: 5
   minDistance: 1
   chargeDistance: 0

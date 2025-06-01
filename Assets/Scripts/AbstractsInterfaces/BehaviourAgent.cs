@@ -174,15 +174,26 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     void SpawnCurrency()
     {
 
-        if (currencyPrefab == null) return;
+        //if (currencyPrefab == null) return;
+        //
+        //Debug.Log("Drop bolt");
+        //
+        //for (int i = 0; i < dropAmount; i++)
+        //{
+        //    // Random offset to spread them a bit
+        //    Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
+        //    Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
+        //}
+
+        GameObject[] money = GameManager.instance.GenerateMoney(dropAmount);
 
         Debug.Log("Drop bolt");
 
-        for (int i = 0; i < dropAmount; i++)
+        foreach (GameObject g in money)
         {
             // Random offset to spread them a bit
             Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
-            Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
+            Instantiate(g, transform.position + (Vector3)spawnOffset, Quaternion.identity);
         }
     }
 }
