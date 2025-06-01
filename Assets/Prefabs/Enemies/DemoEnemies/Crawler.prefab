@@ -269,7 +269,6 @@ MonoBehaviour:
   attackSpeed: 0
   stunTime: 0
   knockbackResist: 0
-  currencyPrefab: {fileID: 678814081965962704, guid: 0c7596ec65a85474aa8d2476fdfe133a, type: 3}
   dropAmount: 10
   attacks: []
   grounds:
@@ -312,6 +311,7 @@ GameObject:
   - component: {fileID: 4508590416403824797}
   - component: {fileID: 8788563616757656013}
   - component: {fileID: 2141759001426234036}
+  - component: {fileID: 3120914793105674914}
   m_Layer: 8
   m_Name: Animation
   m_TagString: Untagged
@@ -411,3 +411,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3120914793105674914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467031131712941437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797ef600de41cdc4cb2d3b8eb87fb240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

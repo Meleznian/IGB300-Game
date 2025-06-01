@@ -134,7 +134,7 @@ public class ChargerAgent : BehaviourAgent
 
         if (isBashing) return;
         if (attacking) return;
-        AudioManager.PlayEffect(SoundType.CHARGER_WALK);
+        //AudioManager.PlayEffect(SoundType.CHARGER_WALK);
     }
 
 
@@ -149,7 +149,7 @@ public class ChargerAgent : BehaviourAgent
         //Perform action
         Debug.Log("Charging");
         anim.SetBool("Charging", true);
-        AudioManager.PlayEffect(SoundType.CHARGER_CHARGING);
+        //AudioManager.PlayEffect(SoundType.CHARGER_CHARGING);
 
         float targetXPos = target.transform.position.x;
         bool cancelled = false;

@@ -120,6 +120,8 @@ public class UpgradeManager : MonoBehaviour
             if (currentOptions[i].icon == null)
                 Debug.LogWarning("Missing sprite for upgrade: " + currentOptions[i].upgradeName);
 
+            AudioManager.PlayMusic(SoundType.UPGRADE_MUSIC);
+
         }
 
 
@@ -145,6 +147,7 @@ public class UpgradeManager : MonoBehaviour
 
             upgradePanel.SetActive(false);
             Time.timeScale = 1f;
+            AudioManager.PlayMusic(SoundType.MAIN_MUSIC, 0.3f);
         }
     }
 

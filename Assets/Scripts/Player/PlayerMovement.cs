@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("Jumping", false);
         _isGrounded = true;
         _airJump = false;
-        AudioManager.PlayEffect(SoundType.LANDED);
+        AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
     }
 
     public void LeftGround()

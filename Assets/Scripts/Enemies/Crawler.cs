@@ -16,7 +16,6 @@ public class Crawler : EnemyBase
     {
         transform.position += _moveDirection * actingMoveSpeed;
         if (isAttacking) return;
-        AudioManager.PlayEffect(SoundType.CRAWLER_WALK);
 
         CheckFloor();
         //rb.AddForce(moveDirection * moveSpeed,  ForceMode2D.Impulse);
@@ -41,7 +40,7 @@ public class Crawler : EnemyBase
             isAttacking = true;
             other.GetComponent<PlayerHealth>().TakeDamage(defaultDamage);
             _lastDamageTime = Time.time;
-            AudioManager.PlayEffect(SoundType.CRAWLER_ATTACK);
+            //AudioManager.PlayEffect(SoundType.CRAWLER_ATTACK);
             isAttacking = false;
         }
     }

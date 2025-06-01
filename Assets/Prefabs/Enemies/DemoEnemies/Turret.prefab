@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 424686993063752177}
   - component: {fileID: 5836698436215640670}
   - component: {fileID: 2587356124162131862}
+  - component: {fileID: 8691032291984363421}
   m_Layer: 8
   m_Name: Animation
   m_TagString: Untagged
@@ -136,6 +137,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f85174c317fc86e4fbfbe98373ac03d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8691032291984363421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352704246549503024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbc8c4a291f3e141bbbeac1ac56a561, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4776701277106610882
@@ -283,7 +296,6 @@ MonoBehaviour:
   attackSpeed: 2.5
   stunTime: 0
   knockbackResist: 0
-  currencyPrefab: {fileID: 0}
   dropAmount: 25
   attacks: []
   firePoint: {fileID: 2886474492072802165}

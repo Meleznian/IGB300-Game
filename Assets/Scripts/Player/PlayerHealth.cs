@@ -50,6 +50,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             StartCoroutine(ChangeColour());
 
             GameManager.instance.DecreaseHype();
+            AudioManager.PlayEffect(SoundType.TAKE_DAMAGE, 0.7f);
 
             if (currentHealth <= 0)
             {

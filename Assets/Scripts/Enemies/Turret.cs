@@ -72,7 +72,7 @@ public class Turret : EnemyBase
         newBullet.Init(dir);
         newBullet.damage = defaultDamage;
         newBullet.originallyEnemy = true;
-        AudioManager.PlayEffect(SoundType.TURRET_SHOOT);
+        AudioManager.PlayEffect(SoundType.TURRET_SHOOT, 0.5f);
     }
 
     public override void ExtraSetup()
@@ -106,7 +106,6 @@ public class Turret : EnemyBase
             anim.SetBool("Aiming", true);
             laserSight.enabled = true;
             aiming = true;
-            AudioManager.PlayEffect(SoundType.TURRET_LOCKON);
         }
     }
 
