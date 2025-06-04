@@ -24,6 +24,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     [Header("Animation")]
     public GameObject animation;
     public Animator anim;
+    public ParticleSystem damageEffect;
     internal bool dead;
 
 
@@ -140,6 +141,7 @@ public abstract class BehaviourAgent : NavigationAgent, IDamageable
     {
         if (hasIFrames) return;
         health -= damage;
+        damageEffect.Play();
         if (health <= 0) Death();
     }
 
