@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 9e860a4e72bd78644b9b173e0c35c40b
+guid: 739633a1b11f7b04d99a3f10394217a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4697700252402776333
-    second: Basic Slash0_0
+      213: 6327750293442453003
+    second: SmallBolts_0
+  - first:
+      213: -4459181166878255033
+    second: SmallBolts_1
+  - first:
+      213: -7325121373557338580
+    second: SmallBolts_2
+  - first:
+      213: 8062722123007963513
+    second: SmallBolts_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basic Slash0_0
+      name: SmallBolts_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 29
-        width: 56
-        height: 35
+        y: 46
+        width: 18
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d09fab57d75913140800000000000000
-      internalID: 4697700252402776333
+      spriteID: b0ed204bd5fa0d750800000000000000
+      internalID: 6327750293442453003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallBolts_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 39
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7481c1fba5ecd12c0800000000000000
+      internalID: -4459181166878255033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallBolts_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e4e70cbe0f75a90800000000000000
+      internalID: -7325121373557338580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SmallBolts_3
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 11
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 971b2908d0b84ef60800000000000000
+      internalID: 8062722123007963513
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Basic Slash0_0: 4697700252402776333
+      SmallBolts_0: 6327750293442453003
+      SmallBolts_1: -4459181166878255033
+      SmallBolts_2: -7325121373557338580
+      SmallBolts_3: 8062722123007963513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

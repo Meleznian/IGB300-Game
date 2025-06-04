@@ -47,6 +47,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     internal Rigidbody2D rb;
     internal float actingMoveSpeed;
+    [SerializeField] ParticleSystem damageEffect;
 
 
     private void Start()
@@ -82,8 +83,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
         }
 
         health -= damage;
+        damageEffect.Play();
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Die();
         }

@@ -5,6 +5,8 @@ public class BoltCollected : MonoBehaviour
     //public bool isboltCount = false;
     //private float _value;
 
+    [SerializeField] ParticleSystem collectEffect;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("Collided with: " + collision.gameObject.name);
@@ -38,6 +40,7 @@ public class BoltCollected : MonoBehaviour
 
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Bolt")
         {
+            collectEffect.Play();
             //Debug.Log("value " + _value);
             Debug.Log("Bolt collected");
             //GameManager.instance.BoltCount(_value);
