@@ -36,7 +36,8 @@ public class SettingsMenu : MonoBehaviour
             SetMixerVolume("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
             SetMixerVolume("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
             SetMixerVolume("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
-            muteToggle.isOn = PlayerPrefs.GetInt("Muted", 0) == 1;
+            muteToggle.isOn = false; // Always start unmuted
+            SetMute(false);     
             SetSliders();
         }
         else
@@ -96,13 +97,12 @@ public class SettingsMenu : MonoBehaviour
         }
         else
         {
-
             SetMixerVolume("MasterVolume", lastMasterVolume);
             SetMixerVolume("MusicVolume", lastMusicVolume);
             SetMixerVolume("SFXVolume", lastSFXVolume);
         }
-        PlayerPrefs.SetInt("Muted", isMuted ? 1 : 0);
     }
+
 
     private void SetMixerVolume(string parameterName, float value)
     {
