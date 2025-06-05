@@ -50,6 +50,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem damageEffect;
 
 
+
     private void Start()
     {
         SetUp();

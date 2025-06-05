@@ -4508,6 +4508,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8716705615099458124, guid: c53d603c895b50c4ba353ce8ffce5427, type: 3}
+      propertyPath: enemyDeathEffect
+      value: 
+      objectReference: {fileID: 8297608615447593002, guid: efa7ac75630f30046bdd55173d33dfdc, type: 3}
+    - target: {fileID: 8716705615099458124, guid: c53d603c895b50c4ba353ce8ffce5427, type: 3}
       propertyPath: waves.Array.size
       value: 24
       objectReference: {fileID: 0}
