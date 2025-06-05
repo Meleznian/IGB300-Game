@@ -51,6 +51,10 @@ public class EnemyManager : MonoBehaviour
 
     public GameObject[] enemyList;
 
+    [Header("Misc")]
+    [SerializeField] GameObject enemyDeathEffect;
+
+
     bool done;
     bool inWave;
     bool generate;
@@ -170,6 +174,7 @@ public class EnemyManager : MonoBehaviour
             GameManager.instance.SpawnBullets(b, enemy.transform.position);
         }
 
+        Instantiate(enemyDeathEffect, enemy.transform.position, Quaternion.identity);
         Destroy(enemy);
 
         GameManager.instance.IncreaseHype();
