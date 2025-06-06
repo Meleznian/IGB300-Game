@@ -190,6 +190,7 @@ public class KamikazeAgent : BehaviourAgent
     public void Explode()
     {
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        AudioManager.PlayEffect(SoundType.KAMIKAZE_EXPLODE);
 
         var hits = Physics2D.OverlapCircleAll(transform.position, explodeRadius, layersToHit); 
         foreach (var h in hits)
