@@ -195,7 +195,7 @@ public class SteamKing : EnemyBase
                     print("Whipping");
                 anim.SetTrigger("ChainWhip");
                 return;
-            case 2:
+            case 5:
                 if (logConsoleMessages)
                     print("Dashing");
                 StartDash();
@@ -251,17 +251,30 @@ public class SteamKing : EnemyBase
 
     public void Dash()
     {
-        transform.position = Vector3.MoveTowards(transform.position, nextLocation, moveSpeed * Time.deltaTime);
-
-        if(transform.position.x == nextLocation.x && transform.position.y == nextLocation.y)
+        if (state != KingStates.Diving)
         {
-            currentLocation = nextLocation;
-            anim.SetBool("Dashing",false);
-            state = KingStates.Idle;
+            transform.position = Vector3.MoveTowards(transform.position, nextLocation, moveSpeed * Time.deltaTime);
 
-            if (anim.GetCurrentAnimatorStateInfo(0).IsName("KingCharge"))
+            if (transform.position.x == nextLocation.x)
             {
-                EndCharge();
+                currentLocation = nextLocation;
+
+                if (anim.GetBool("Dashing"))
+                {
+                    anim.SetBool("Dashing", false);
+                }
+
+                state = KingStates.Idle;
+
+                if (logConsoleMessages)
+                {
+                    print("Dash Finished");
+                }
+
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("KingCharge"))
+                {
+                    EndCharge();
+                }
             }
         }
     }
@@ -393,6 +406,7 @@ public class SteamKing : EnemyBase
 
     void EndCharge()
     {
+        print("Charge Finished");
         ChargeCollider.enabled = false;
         anim.SetBool("Charging", false);
     }

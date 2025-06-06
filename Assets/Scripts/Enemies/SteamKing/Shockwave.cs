@@ -7,6 +7,7 @@ public class Shockwave : MonoBehaviour
     [SerializeField] float knockBack;
     internal Vector3 direction;
 
+
     private void Update()
     {
         transform.position += (direction * speed)*Time.deltaTime;

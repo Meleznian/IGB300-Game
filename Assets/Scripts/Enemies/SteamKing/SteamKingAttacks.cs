@@ -255,7 +255,7 @@ public class SteamKingAttacks : MonoBehaviour
 
     public void DiveSlam()
     {
-        Shockwave wave = Instantiate(slamWave, slamPoint.position, Quaternion.identity).GetComponent<Shockwave>();
+        Shockwave wave = Instantiate(slamWave, slamPoint.position, Quaternion.Euler(new Vector3(0, 180, 0))).GetComponent<Shockwave>();
         wave.Setup(slamDamage,slamSpeed,slamKnockback, Vector2.left);
         wave = Instantiate(slamWave, slamPoint.position, Quaternion.identity).GetComponent<Shockwave>();
         wave.Setup(slamDamage, slamSpeed, slamKnockback, Vector2.right);
