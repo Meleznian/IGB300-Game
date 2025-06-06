@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -48,6 +49,22 @@ public class SettingsMenu : MonoBehaviour
         muteToggle.onValueChanged.AddListener(SetMute);
     }
 
+    void Update()
+    {
+        GameObject selected = EventSystem.current.currentSelectedGameObject;
+        if (selected == null) return;
+
+        Slider selectedSlider = selected.GetComponent<Slider>();
+        if (selectedSlider != null)
+        {
+            // Prevent Unity's automatic slider update by disabling interaction temporarily
+            selectedSlider.interactable = false;
+
+            float step = selectedSlider.wholeNumbers ? 1f : 0.01f;
+
+            selectedSlider.interactable = true;
+        }
+    }
 
     public void ShowPanel(GameObject panel)
     {

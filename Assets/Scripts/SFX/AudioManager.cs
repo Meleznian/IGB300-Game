@@ -5,7 +5,9 @@ using System;
 //using this tutorial "https://www.youtube.com/watch?v=g5WT91Sn3hg"
 public enum SoundType
 {
-    JUMP,DOUBLEJUMP, DASH, SLASH,WALK,TAKE_DAMAGE, LANDED,MAIN_MUSIC, PAUSE_MUSIC, START_MUSIC, BOSS_MUSIC, BOLTS, CHARGER_WALK, CHARGER_CHARGING, CHARGER_DIE, CHARGER_BLOCK, CHARGER_ATTACK, TURRET_DIE, TURRET_LOCKON, TURRET_SHOOT, CRAWLER_WALK, CRAWLER_DIE, CRAWLER_HIT, CRAWLER_ATTACK, UPGRADE_MUSIC, PLAYER_SHOOT
+    JUMP,DOUBLEJUMP, DASH, SLASH,WALK,TAKE_DAMAGE, LANDED,MAIN_MUSIC, PAUSE_MUSIC, START_MUSIC, BOSS_MUSIC, BOLTS, CHARGER_WALK, CHARGER_CHARGING, CHARGER_DIE, 
+    CHARGER_BLOCK, CHARGER_ATTACK, TURRET_DIE, TURRET_LOCKON, TURRET_SHOOT, CRAWLER_WALK, CRAWLER_DIE, CRAWLER_HIT, CRAWLER_ATTACK, UPGRADE_MUSIC, PLAYER_SHOOT,
+    COLLECT_BOLT,ENEMY_DAMAGE, KAMIKAZE_WARNING, KAMIKAZE_EXPLODE, ENEMY_DEATH, PLAYER_DEATH
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
@@ -41,6 +43,16 @@ public class AudioManager : MonoBehaviour
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
         instance.musicSource.clip = randomClip;
         instance.musicSource.volume = volume;
+        instance.musicSource.Play();
+    }
+
+    public static void PauseMusic()
+    {
+        instance.musicSource.Pause();
+    }
+
+    public static void resumeMusic()
+    {
         instance.musicSource.Play();
     }
 

@@ -56,6 +56,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
             if (currentHealth <= 0)
             {
+                AudioManager.PlayEffect(SoundType.PLAYER_DEATH);
                 currentHealth = 0;
                 anim.SetTrigger("Killed");
                 GetComponent<PlayerMovement>().Die();

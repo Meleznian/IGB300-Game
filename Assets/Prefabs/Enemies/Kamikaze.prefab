@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5455014072984151801}
   - component: {fileID: 1227780263026103394}
   - component: {fileID: 2469778998233502791}
+  - component: {fileID: 7243444052486352899}
+  - component: {fileID: 8077960295835889743}
   m_Layer: 8
   m_Name: Animation
   m_TagString: Untagged
@@ -171,6 +173,30 @@ MonoBehaviour:
   functionToRelay3:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7243444052486352899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453854599463326146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87047a2f6186cd846ba1eaaee3a13ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8077960295835889743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453854599463326146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ced74652572cf4882180ac14f648ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7175027469317663787
 GameObject:
   m_ObjectHideFlags: 0

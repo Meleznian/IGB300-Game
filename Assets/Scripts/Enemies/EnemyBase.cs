@@ -97,6 +97,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         Debug.Log("Die here");
 
         SpawnCurrency();
+        AudioManager.PlayEffect(SoundType.ENEMY_DEATH);
 
         if (EnemyManager.instance != null)
         {

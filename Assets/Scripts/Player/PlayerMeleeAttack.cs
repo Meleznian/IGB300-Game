@@ -79,7 +79,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     void DealDamage(Vector2 origin)
     {
         var hits = Physics2D.OverlapCircleAll(origin, range, enemyLayer);
-
+        
 
         foreach (var h in hits)
         {
@@ -88,6 +88,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             {
                 print(h.gameObject.name);
                 enemy.TakeDamage(damage);
+                AudioManager.PlayEffect(SoundType.ENEMY_DAMAGE);
                 if (h.GetComponent<Rigidbody2D>() != null)
                 {
                     h.GetComponent<Rigidbody2D>().AddForce(knockDirection*knockback, ForceMode2D.Impulse);

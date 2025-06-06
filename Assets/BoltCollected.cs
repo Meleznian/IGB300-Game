@@ -48,6 +48,7 @@ public class BoltCollected : MonoBehaviour
 
             //collision.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Collected");
             //Debug.Log("Destroy it");
+            AudioManager.PlayEffect(SoundType.COLLECT_BOLT, 1f);
             Destroy(collision.gameObject);
             
         }

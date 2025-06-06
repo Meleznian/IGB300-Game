@@ -26,6 +26,8 @@ public class UpgradeManager : MonoBehaviour
     private List<Upgrade> allUpgrades = new List<Upgrade>();
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
     private Upgrade[] currentOptions = new Upgrade[3];
+    [SerializeField] private AudioSource upgradeMusicSource;
+   
 
     void Start()
     {
@@ -120,7 +122,8 @@ public class UpgradeManager : MonoBehaviour
             if (currentOptions[i].icon == null)
                 Debug.LogWarning("Missing sprite for upgrade: " + currentOptions[i].upgradeName);
 
-            AudioManager.PlayMusic(SoundType.UPGRADE_MUSIC);
+            AudioManager.PauseMusic();
+            upgradeMusicSource.Play();
 
         }
 
@@ -147,7 +150,8 @@ public class UpgradeManager : MonoBehaviour
 
             upgradePanel.SetActive(false);
             Time.timeScale = 1f;
-            AudioManager.PlayMusic(SoundType.MAIN_MUSIC, 0.3f);
+            upgradeMusicSource.Stop();
+            AudioManager.resumeMusic();
         }
     }
 
