@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 2032332198373209648}
   - component: {fileID: 1713302219049553729}
   - component: {fileID: 21554078416679358}
+  - component: {fileID: 7674870378605763326}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -406,6 +407,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   cooldown: 1
+--- !u!114 &7674870378605763326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894781992262527531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4160faf3eeab614d8d55383e1250b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &446021597784273238
 PrefabInstance:
   m_ObjectHideFlags: 0
