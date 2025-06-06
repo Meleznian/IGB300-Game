@@ -425,8 +425,10 @@ public class SteamKing : EnemyBase
 
         if(transform.position.y == nextLocation.y)
         {
+            print("Dive Height Reached");
             anim.SetTrigger("DiveDown");
             nextLocation = GetRandomLocation();
+            print("Location Selected: " + nextLocation);
             transform.position = new Vector2 (nextLocation.x, transform.position.y);
             hovering = true;
             StartCoroutine(Hover());
@@ -438,6 +440,7 @@ public class SteamKing : EnemyBase
         yield return new WaitForSeconds(1);
         up = true;
         hovering = false;
+        print("Starting Dive Down");
     }
 
     void DiveDown()
@@ -446,6 +449,7 @@ public class SteamKing : EnemyBase
 
         if (transform.position.y <= nextLocation.y)
         {
+            print("Finished Dive");
             anim.SetBool("Diving", false);
             attackScript.DiveSlam();
             currentLocation = nextLocation;
@@ -461,6 +465,7 @@ public class SteamKing : EnemyBase
 
     Vector2 GetRandomLocation()
     {
+        print("Getting dive Target, current location is " + currentLocation);
         return arenaPoints[UnityEngine.Random.Range(0,5)].position;
     }
 
