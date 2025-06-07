@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 4099135770826844460}
   - component: {fileID: 4573819921395826135}
   - component: {fileID: 7050018728340063729}
+  - component: {fileID: 6838435327046536990}
   m_Layer: 8
   m_Name: Animation
   m_TagString: Untagged
@@ -619,6 +620,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f85174c317fc86e4fbfbe98373ac03d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6838435327046536990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709074883709959403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f6dbcc1bd2e674292e561ff219881e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4854264307227399303

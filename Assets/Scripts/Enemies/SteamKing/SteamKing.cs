@@ -55,7 +55,8 @@ public class SteamKing : EnemyBase
         phaseTransition = health / 2;
         state = KingStates.Entering;
         anim.SetBool("Dashing", true);
-        AudioManager.PlayMusic(SoundType.BOSS_MUSIC);
+        AudioManager.PlayMusic(SoundType.BOSS_MUSIC,0.6f);
+        AudioManager.PlayEffect(SoundType.STEAM_KING_LAUGH);
     }
 
     private void Update()
@@ -241,10 +242,12 @@ public class SteamKing : EnemyBase
         anim.SetBool("Dashing", true);
         print("Dashing");
         state = KingStates.Dashing;
+        AudioManager.PlayEffect(SoundType.STEAM_KING_DASH);
     }
     public void StartDodge()
     {
         ChooseDodgeLocation();
+        AudioManager.PlayEffect(SoundType.STEAM_KING_DASH);
         state = KingStates.Dashing;
     }
 
@@ -399,6 +402,7 @@ public class SteamKing : EnemyBase
     internal void StartCharge()
     {
         anim.SetTrigger("Charge");
+        AudioManager.PlayEffect(SoundType.STEAM_KING_DASH);
         state = KingStates.Dashing;
         ChargeCollider.enabled = true;
     }
@@ -429,6 +433,7 @@ public class SteamKing : EnemyBase
     void StartDive()
     {
         anim.SetBool("Diving", true);
+        AudioManager.PlayEffect(SoundType.STEAM_KING_JUMP);
         state = KingStates.Diving;
         nextLocation = new Vector2(currentLocation.x,currentLocation.y + 15);
     }

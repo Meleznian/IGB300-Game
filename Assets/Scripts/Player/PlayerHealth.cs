@@ -38,6 +38,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         // Q key to recover (when charged and not in recovery)
         if (Input.GetKeyDown(KeyCode.Q) && GameManager.instance.DecreaseGauge(10) && !isHealing)
         {
+            AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
             healStart.Play();
             healing.Play();
             StartCoroutine(HealOverTime());

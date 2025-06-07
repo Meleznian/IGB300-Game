@@ -22,6 +22,10 @@ gatling gun close - https://pixabay.com/sound-effects/gatling-gun-close-86198/
 Metal Footsteps - https://pixabay.com/sound-effects/metal-footsteps-14727/
 Wood and metal impact - https://opengameart.org/content/metal-and-wood-impact-sound-effects
 8bit sound pack - https://opengameart.org/content/8-bit-sound-effect-pack
+muffled explosion - https://opengameart.org/content/muffled-distant-explosion
+evil laugh - https://opengameart.org/content/evil-laugh
+player sounds - https://opengameart.org/content/playersounds-1-by-emopreben
+punches, swords, and squishes - https://opengameart.org/content/punches-hits-swords-and-squishes
 
 MUSIC
 air release - https://pixabay.com/sound-effects/air-or-steam-pressure-release-29600/
