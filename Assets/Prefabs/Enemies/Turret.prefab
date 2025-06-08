@@ -301,7 +301,7 @@ MonoBehaviour:
   attacks: []
   damageEffect: {fileID: 778541660023735269}
   firePoint: {fileID: 2886474492072802165}
-  bulletPrefab: {fileID: 918802385275866056, guid: 7102462c2cb5e8f4d9106e380257dc70, type: 3}
+  bulletPrefab: {fileID: 918802385275866056, guid: f8627dce041d83043a11ab80165c40a8, type: 3}
   Gun: {fileID: 7063505483439512389}
   player: {fileID: 0}
   sightRange: 20
