@@ -272,6 +272,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1342962074211682124, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342962074211682124, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.28
+      objectReference: {fileID: 0}
     - target: {fileID: 1751150773830703968, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
       propertyPath: m_Name
       value: SteamKing
@@ -296,6 +304,10 @@ PrefabInstance:
       propertyPath: 'arenaPoints.Array.data[4]'
       value: 
       objectReference: {fileID: 2711535007308590045}
+    - target: {fileID: 7981555174075534934, guid: f16a87f7ed1959a4e9b3365a7be82b18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.74
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
