@@ -127,6 +127,9 @@ MonoBehaviour:
   exit: 0
   NPC: {fileID: 7508291226925342388}
   player: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+  checkLayers:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!114 &7508291226925342388
 MonoBehaviour:
   m_ObjectHideFlags: 0
