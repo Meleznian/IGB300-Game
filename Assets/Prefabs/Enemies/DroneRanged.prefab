@@ -158,9 +158,9 @@ MonoBehaviour:
   parriable: 0
   flipped: 0
   lastX: 0
-  animation: {fileID: 0}
-  anim: {fileID: 0}
-  damageEffect: {fileID: 0}
+  animation: {fileID: 4434796727706413673}
+  anim: {fileID: 658321562300953238}
+  damageEffect: {fileID: 5630356828822487576}
   attackPoint: {fileID: 0}
   playerLayer:
     serializedVersion: 2
@@ -231,7 +231,7 @@ Animator:
   m_GameObject: {fileID: 4434796727706413673}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d4b2ad5c5098bb4795057b5c4efa968, type: 2}
+  m_Controller: {fileID: 9100000, guid: 142763f1520be934290c336e80c326de, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -287,7 +287,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7087218209076380520, guid: 1b11bb66b189f8249a309345656ade8c, type: 3}
+  m_Sprite: {fileID: 5811509864160163980, guid: b7e89c9d473eba4418f659731ccb493c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -470,6 +470,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e7b2d741ad3de439b7e5947f4482ed, type: 3}
+--- !u!198 &5630356828822487576 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6922806724857937827, guid: 63e7b2d741ad3de439b7e5947f4482ed, type: 3}
+  m_PrefabInstance: {fileID: 3328665615828221371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9148929399003097634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5820424700610369433, guid: 63e7b2d741ad3de439b7e5947f4482ed, type: 3}

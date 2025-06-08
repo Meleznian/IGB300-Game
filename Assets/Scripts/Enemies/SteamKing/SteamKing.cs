@@ -140,34 +140,34 @@ public class SteamKing : EnemyBase
         else if (damagedRecently)
         {
             damagedRecently = false;
-            //if(nextAction == 1)
-            //{
-            //    if (logConsoleMessages)
-            //        print("Kicking");
-            //    anim.SetTrigger("Kick");
-            //}
-            //else
-            //{
+            if(nextAction == 1)
+            {
                 if (logConsoleMessages)
-                    print("Dodge Shooting");
-                anim.SetTrigger("DodgeShoot");  
-                StartDodge();
-            //}
+                    print("Kicking");
+                anim.SetTrigger("Kick");
+            }
+            else
+            {
+              if (logConsoleMessages)
+                  print("Dodge Shooting");
+              anim.SetTrigger("DodgeShoot");  
+              StartDodge();
+            }
         }
         else
         {
-            //if (nextAction == 1)
-            //{
+            if (nextAction == 1)
+            {
+              if (logConsoleMessages)
+                  print("Thrusting");
+              anim.SetTrigger("Thrust");
+            }
+            else
+            {
                 if (logConsoleMessages)
-                    print("Thrusting");
-                anim.SetTrigger("Thrust");
-            //}
-            //else
-            //{
-            //    if (logConsoleMessages)
-            //        print("Slashing");
-            //    anim.SetTrigger("Slash");         
-            //}
+                    print("Slashing");
+                anim.SetTrigger("Slash");         
+            }
         }
     }
 
@@ -186,7 +186,7 @@ public class SteamKing : EnemyBase
                     print("Diving");
                 StartDive();
                 return;
-            case 4:
+            case 2:
                 if (logConsoleMessages)
                     print("Aiming");
                 anim.SetTrigger("AimedShot");

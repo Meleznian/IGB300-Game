@@ -150,7 +150,7 @@ public class DroneRAgent : BehaviourAgent
 
     public void Shoot()
     {
-
+        anim.SetTrigger("Attack");
     }
 
 
