@@ -20,6 +20,9 @@ public class DroneRAgent : BehaviourAgent
     public List<GameObject> nodes;
     public float shootCooldown;
     public bool shootAvailable = true;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject bulletPrefab;
+    public int bulletDamage;
 
     /*[Header("Charge Variables")]
     public float chargeSpeed;
@@ -114,6 +117,7 @@ public class DroneRAgent : BehaviourAgent
 
     public override void Flee()
     {
+        if (shootAvailable) StartCoroutine(Shoot());
         if (currentPath.Count > 0)
         {
 
@@ -179,7 +183,15 @@ public class DroneRAgent : BehaviourAgent
     {
         anim.SetTrigger("Attack");
         shootAvailable = false;
+        Debug.Log("Shot");
+        Vector2 dir = (GameManager.instance.Player.transform.position - firePoint.position).normalized;
+        Bullet newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();
+        newBullet.Init(dir);
+        newBullet.damage = bulletDamage;
+        newBullet.originallyEnemy = true;
+        Debug.Log("Waiting");
         yield return new WaitForSeconds(shootCooldown);
+        Debug.Log("Available");
         shootAvailable = true;
     }
 
