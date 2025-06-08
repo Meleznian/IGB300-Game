@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 895477469233132743}
   - component: {fileID: 2181037098740290654}
   - component: {fileID: 8022899052691007119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DroneRanged
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a8f536948f5b14485822310e277f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enter: 1
+  enter: 3
   exit: 0
   NPC: {fileID: 2181037098740290654}
   player: {fileID: 5717839705087557153, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
@@ -146,7 +146,7 @@ MonoBehaviour:
   greedyPaintList: 
   currentPathIndex: 0
   currentNodeIndex: 0
-  assignGraph: 0
+  assignGraph: 1
   grounded: 0
   currentState: 0
   target: {fileID: 0}
@@ -164,13 +164,19 @@ MonoBehaviour:
   attackPoint: {fileID: 0}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   currencyPrefab: {fileID: 0}
   dropAmount: 1
   moveSpeed: 0
   minDistance: 0
   yLevelError: 0
   attacking: 0
+  nodeExclusionDistance: 0
+  fleeRange: 0
+  nodeLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  nodes: []
 --- !u!114 &8022899052691007119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +203,6 @@ GameObject:
   - component: {fileID: 3402705003170856159}
   - component: {fileID: 1320640544104493645}
   - component: {fileID: 585854930235311463}
-  - component: {fileID: 6971014154187515076}
   - component: {fileID: 8236252340537836942}
   m_Layer: 0
   m_Name: Animation
@@ -355,20 +360,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -1}
   m_Radius: 4
---- !u!114 &6971014154187515076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4434796727706413673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d30c72f84141749bd60e5b4886ba54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
-  cooldown: 1
 --- !u!114 &8236252340537836942
 MonoBehaviour:
   m_ObjectHideFlags: 0

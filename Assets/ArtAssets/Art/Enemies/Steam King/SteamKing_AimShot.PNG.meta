@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SteamKing_AimShot_0: -4070331476019537718
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

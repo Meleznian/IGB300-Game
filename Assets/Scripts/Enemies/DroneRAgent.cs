@@ -17,6 +17,9 @@ public class DroneRAgent : BehaviourAgent
     public float fleeRange;
     public LayerMask nodeLayer;
 
+    public List<GameObject> nodes;
+    public float shootCooldown;
+    public bool shootAvailable = true;
 
     /*[Header("Charge Variables")]
     public float chargeSpeed;
@@ -125,6 +128,7 @@ public class DroneRAgent : BehaviourAgent
                     viableNodes.Add(node);
                 }
             }
+            nodes = viableNodes;
             if (Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
             {
                     if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
@@ -134,7 +138,28 @@ public class DroneRAgent : BehaviourAgent
 
             Move();
         }
-        else { currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target)); }
+        else {
+
+
+            var hits = Physics2D.OverlapCircleAll(GameManager.instance.Player.transform.position, fleeRange, nodeLayer);
+            List<GameObject> viableNodes = new List<GameObject>();
+
+            foreach (var h in hits)
+            {
+                GameObject node = h.gameObject;
+                if (Vector2.Distance(GameManager.instance.Player.transform.position, node.transform.position) < nodeExclusionDistance)
+                {
+                    viableNodes.Add(node);
+                }
+            }
+            nodes = viableNodes;
+
+
+
+            currentPath = AStarSearch(currentNodeIndex, findClosestWayPoint(target));
+        
+        
+        }
     }
 
 
@@ -148,9 +173,12 @@ public class DroneRAgent : BehaviourAgent
 
     }
 
-    public void Shoot()
+    public IEnumerator Shoot()
     {
         anim.SetTrigger("Attack");
+        shootAvailable = false;
+        yield return new WaitForSeconds(shootCooldown);
+        shootAvailable = true;
     }
 
 
