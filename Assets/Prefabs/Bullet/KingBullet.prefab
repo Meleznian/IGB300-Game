@@ -116,6 +116,12 @@ MonoBehaviour:
   playerOwned: 0
   originallyEnemy: 0
   visual: {fileID: 7815666176661713892}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6528666581115377656
 GameObject:
   m_ObjectHideFlags: 0

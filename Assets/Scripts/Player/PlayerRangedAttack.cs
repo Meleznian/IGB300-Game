@@ -44,12 +44,12 @@ public class PlayerRangedAttack : MonoBehaviour
         if (!bulletPrefab || !firePoint) return;
         if (GameManager.instance.DecreaseAmmo(1))
         {
-            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();
-            bullet.Init(dir);
+            Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();         
             bullet.playerOwned = true;
             bullet.damage = bulletDamage;
             bullet.speed = bulletSpeed;
             bullet.knockback = bulletKnockback;
+            bullet.Init(dir);
             AudioManager.PlayEffect(SoundType.PLAYER_SHOOT);
         }
     }

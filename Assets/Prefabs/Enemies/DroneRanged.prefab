@@ -175,11 +175,11 @@ MonoBehaviour:
   minDistance: 0
   yLevelError: 0
   attacking: 0
-  nodeExclusionDistance: 0
-  fleeRange: 5
+  nodeExclusionDistance: 5
+  fleeRange: 6.5
   nodeLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   nodes: []
   shootCooldown: 3
   shootAvailable: 1
@@ -326,7 +326,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   functionToRelay1:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2181037098740290654}
+        m_TargetAssemblyTypeName: BehaviourAgent, Assembly-CSharp
+        m_MethodName: Killed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   functionToRelay2:
     m_PersistentCalls:
       m_Calls: []

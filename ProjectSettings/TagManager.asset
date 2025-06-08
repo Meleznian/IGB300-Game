@@ -17,6 +17,8 @@ TagManager:
   - IronNut
   - SteelBolt
   - SilverBolt
+  - Node
+  - Undefined
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - EnemyProjectile
   - Feet
   - Bolt
-  - 
+  - Node
   - 
   - 
   - 

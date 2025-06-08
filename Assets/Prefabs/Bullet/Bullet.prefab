@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 918802385275866056}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9171476, y: -1.7800202, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -203,3 +203,9 @@ MonoBehaviour:
   playerOwned: 0
   originallyEnemy: 0
   visual: {fileID: 6389117583567527859}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256

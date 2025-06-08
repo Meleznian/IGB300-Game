@@ -11,13 +11,19 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal bool originallyEnemy;
     [SerializeField] internal Transform visual;
 
+    public LayerMask playerLayer;
+    public LayerMask enemyLayer;
+
     Vector2 moveDir;
 
     public void Init(Vector2 direction)
     {
+        Debug.Log("Bullet Setup");
         moveDir = direction.normalized;
         visual.rotation = Quaternion.FromToRotation(Vector3.up, direction);
         //Destroy(gameObject, lifetime);
+
+        SetIgnore();
     }
 
     void Update()
@@ -77,13 +83,26 @@ public class Bullet : MonoBehaviour
 
         //if (playerOwned)
         //{
-        gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
-        GetComponent<CircleCollider2D>().excludeLayers &= ~(1 << LayerMask.NameToLayer("Enemy"));
-        GetComponent<CircleCollider2D>().excludeLayers |= (1 << LayerMask.NameToLayer("Player"));
+        SetIgnore();
+
         //}
         //else
         //{
         //    gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
         //}
+    }
+
+    void SetIgnore()
+    {
+        if (playerOwned)
+        {
+            GetComponent<Collider2D>().excludeLayers = playerLayer;
+            gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
+        }
+        else
+        {
+            GetComponent<Collider2D>().excludeLayers = enemyLayer;
+            gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
+        }
     }
 }
