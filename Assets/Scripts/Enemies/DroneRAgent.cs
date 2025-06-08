@@ -123,8 +123,8 @@ public class DroneRAgent : BehaviourAgent
 
             if (Vector2.Distance(transform.position, graphNodes.graphNodes[currentPath[currentPathIndex]].transform.position) <= minDistance)
             {
-                    if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
-                    else {
+                if (currentPathIndex < currentPath.Count - 1) currentPathIndex++;
+                else {
                     var hits = Physics2D.OverlapCircleAll(GameManager.instance.Player.transform.position, fleeRange, nodeLayer);
                     List<GameObject> viableNodes = new List<GameObject>();
 
@@ -138,8 +138,15 @@ public class DroneRAgent : BehaviourAgent
                     }
                     nodes = viableNodes;
 
+
+                    if (viableNodes.Count <= 0)
+                    {
+                        Debug.Log("No viable Nodes? Perhaps make variables less restricting?");
+                        return;
+                    }
+
                     currentPath = AStarSearch(currentNodeIndex, viableNodes[Random.Range(0, viableNodes.Count)].GetComponent<LinkedNodes>().index); currentPathIndex = 0; }
-                    //else { currentPath.Clear(); currentPathIndex = 0; }
+                //else { currentPath.Clear(); currentPathIndex = 0; }
             }
 
             Move();
@@ -160,7 +167,11 @@ public class DroneRAgent : BehaviourAgent
             }
             nodes = viableNodes;
 
-
+            if (viableNodes.Count <= 0)
+            {
+                Debug.Log("No viable Nodes? Perhaps make variables less restricting?");
+                return;
+            }
 
             currentPath = AStarSearch(currentNodeIndex, viableNodes[Random.Range(0, viableNodes.Count)].GetComponent<LinkedNodes>().index);
         
