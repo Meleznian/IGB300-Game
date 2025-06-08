@@ -15,6 +15,8 @@ public class Sight_Trigger : MonoBehaviour
     //Player to look for
     public GameObject player;
 
+    public LayerMask checkLayers;
+
     //private float MaxDistance = Mathf.Infinity;
 
     // Start is called before the first frame update
@@ -28,7 +30,7 @@ public class Sight_Trigger : MonoBehaviour
     {
         //Debug.Log("Running");
 
-        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, player.transform.position - transform.position, Mathf.Infinity, checkLayers);
         if(ray.collider != null)
         {
             if (ray.collider.CompareTag("Player"))
