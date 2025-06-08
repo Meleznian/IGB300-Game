@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SteamKing_SlashAnimation_5_0: -850175072562022045
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
