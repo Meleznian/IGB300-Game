@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dcb0d49436ba0594bbbe1f4740461349
+guid: 49313cc75b90c92488bb62c965948b1b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2335886840045997799
-    second: Gear-Driven Gladiator logo_0
+      213: 8964661091737676349
+    second: Gear-Driven Gladaiator_logo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gear-Driven Gladiator logo_0
+      name: Gear-Driven Gladaiator_logo_0
       rect:
         serializedVersion: 2
-        x: 310
-        y: 132
-        width: 1015
-        height: 821
+        x: 16
+        y: 390
+        width: 1008
+        height: 631
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7ee837874bcba6020800000000000000
-      internalID: 2335886840045997799
+      spriteID: d3a2ac024cfd86c70800000000000000
+      internalID: 8964661091737676349
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Gear-Driven Gladiator logo_0: 2335886840045997799
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
