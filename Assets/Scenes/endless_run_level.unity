@@ -670,26 +670,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6753488690363329677, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
-      propertyPath: enemyCap
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6753488690363329677, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
-      propertyPath: maxSpawnGroup
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6753488690363329677, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
-      propertyPath: minSpawnGroup
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6753488690363329677, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
-      propertyPath: enemies.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6753488690363329677, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
-      propertyPath: enemies.Array.data[0].enemyPrefab
-      value: 
-      objectReference: {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
     - target: {fileID: 8395225134216261521, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.415847
