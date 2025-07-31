@@ -133,7 +133,7 @@ public class PlatformManager : MonoBehaviour
                 print("Platform Arrangement Finished");
                 if (nodeManager.SafeToSpawn)
                 {
-                    EnemyManager.instance.StartWave();
+                    LegacyEnemyManager.instance.StartWave();
                     moving = false;
                     refreshing = false;
                 }
@@ -202,7 +202,7 @@ public class PlatformManager : MonoBehaviour
 
         foreach (PlatformAddSet p in platformAddSets)
         {
-            if(p.wave == EnemyManager.instance.currentWave)
+            if(p.wave == LegacyEnemyManager.instance.currentWave)
             {
                 setToAdd = p;
                 foreach(Platform pf in setToAdd.Platforms)
@@ -217,7 +217,7 @@ public class PlatformManager : MonoBehaviour
 
         foreach (PlatformRemoveSet p in platformRemoveSets)
         {
-            if (p.wave == EnemyManager.instance.currentWave)
+            if (p.wave == LegacyEnemyManager.instance.currentWave)
             {
                 setToRemove = p;
                 foreach (Platform pf in setToRemove.Platforms)

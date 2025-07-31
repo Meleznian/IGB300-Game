@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
     {
         groupIndex++;
 
-        if(EnemyManager.instance.LogSpawnerStates)
+        if(LegacyEnemyManager.instance.LogSpawnerStates)
             print(name + " moving onto spawn group " + groupIndex);
 
         if (groupIndex < spawnGroups.Count)
@@ -57,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             spawnerExhausted = true;
-            if (EnemyManager.instance.LogSpawnerStates)
+            if (LegacyEnemyManager.instance.LogSpawnerStates)
                 print(name + " is Exhausted");
         }
     
@@ -70,18 +70,18 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        if (EnemyManager.instance.currentWave == currentGroup.wave)
+        if (LegacyEnemyManager.instance.currentWave == currentGroup.wave)
         {
             if (!currentGroup.queueFinished)
             {
                 if (nextEnemy != null)
                 {
-                    if (EnemyManager.instance.LogEnemySpawns)
+                    if (LegacyEnemyManager.instance.LogEnemySpawns)
                     {
                         print("Spawning " + nextEnemy.name + " at " + name);
                     }
 
-                    prev = EnemyManager.instance.Spawn(transform, nextEnemy);
+                    prev = LegacyEnemyManager.instance.Spawn(transform, nextEnemy);
                 }
 
                 nextEnemy = currentGroup.GetEnemy();
@@ -111,5 +111,10 @@ public class EnemySpawner : MonoBehaviour
         }
 
         spawnGroups.Add(group);
+    }
+
+    void IncreaseDifficulty()
+    {
+        
     }
 }

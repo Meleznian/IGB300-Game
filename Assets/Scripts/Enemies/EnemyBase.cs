@@ -78,7 +78,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     public virtual void TakeDamage(int damage)
     {
-        if (EnemyManager.instance != null && EnemyManager.instance.LogEnemyDamage)
+        if (LegacyEnemyManager.instance != null && LegacyEnemyManager.instance.LogEnemyDamage)
         {
             print(enemyName + " Has taken " + damage + " Damage");
         }

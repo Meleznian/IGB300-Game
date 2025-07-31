@@ -341,7 +341,7 @@ public class SteamKing : EnemyBase
     {
         if (state != KingStates.Entering && state != KingStates.Leaping)
         {
-            if (EnemyManager.instance != null && EnemyManager.instance.LogEnemyDamage)
+            if (EnemyManager.instance != null && LegacyEnemyManager.instance.LogEnemyDamage)
             {
                 print(enemyName + " Has taken " + damage + " Damage");
             }
