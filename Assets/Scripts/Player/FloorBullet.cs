@@ -8,7 +8,7 @@ public class FloorBullet : MonoBehaviour
         print("Bullet Triggered");
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.IncreaseAmmo(1);
+            //GameManager.instance.IncreaseAmmo(1);
             Destroy(transform.parent.gameObject);
         }
     }

@@ -64,10 +64,10 @@ public class Bullet : MonoBehaviour
         }
         else if (!other.isTrigger)
         {
-            if (playerOwned && !originallyEnemy)
-            {
-                GameManager.instance.SpawnBullets(1, transform.position);
-            }
+            //if (playerOwned && !originallyEnemy)
+            //{
+            //    GameManager.instance.SpawnBullets(1, transform.position);
+            //}
             Destroy(gameObject);
         }
     }

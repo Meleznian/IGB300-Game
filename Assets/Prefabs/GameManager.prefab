@@ -343,6 +343,7 @@ MonoBehaviour:
   - {fileID: 1120410713885797693}
   - {fileID: 5626209272273471459}
   anim: {fileID: 553448338386562973}
+  upgradeMusicSource: {fileID: 0}
   cashGoal: 100
   playerLevel: 1
   healthIncrease: 10
@@ -354,7 +355,7 @@ MonoBehaviour:
   moveSpeedIncrease: 0.5
   knockbackIncrease: 1
   parryMultIncrease: 0.1
-  maxAmmoIncrease: 1
+  heatIncrease: 1
   specialCoolIncrease: 0
   movement: {fileID: 0}
   melee: {fileID: 0}
@@ -2420,11 +2421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2307737494299569644, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.12903225
       objectReference: {fileID: 0}
     - target: {fileID: 2307737494299569644, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2330426395651647141, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2452,6 +2453,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3437338744111390178, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3633951870541383256, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3901402990032867139, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}

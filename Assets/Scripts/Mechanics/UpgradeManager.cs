@@ -62,13 +62,9 @@ public class UpgradeManager : MonoBehaviour
                 effectDescription = "Increase Move Speed", 
                 icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "MoveSpeed" },
 
-            new Upgrade { upgradeName = "Analyse Opponents", 
-                effectDescription = "Increase Parry Multiplier", 
-                icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "Parry" },
-
-                        new Upgrade { upgradeName = "Lengthen Clip",
-                effectDescription = "Increase Maximum Ammunition",
-                icon = Resources.Load<Sprite>("Sprite/IncreaseAmmo"), id = "MaxAmmo" },
+                        new Upgrade { upgradeName = "Improve Heat Sink",
+                effectDescription = "Reduces gun's heat buildup",
+                icon = Resources.Load<Sprite>("Sprite/IncreaseAmmo"), id = "Heat" },
 
         };
 
@@ -169,7 +165,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] float moveSpeedIncrease = 0.5f;
     [SerializeField] float knockbackIncrease = 1;
     [SerializeField] float parryMultIncrease = 0.1f;
-    [SerializeField] int maxAmmoIncrease = 1;
+    [SerializeField] int heatIncrease = 1;
     [SerializeField] float specialCoolIncrease;
 
     [Header("Components")]
@@ -225,13 +221,13 @@ public class UpgradeManager : MonoBehaviour
         {
             movement.IncreaseSpeed(moveSpeedIncrease);
         }
-        else if (stat == "Parry")
+        //else if (stat == "Parry")
+        //{
+        //    GameManager.instance.IncreaseParryMult(parryMultIncrease);
+        //}
+        else if (stat == "Heat")
         {
-            GameManager.instance.IncreaseParryMult(parryMultIncrease);
-        }
-        else if (stat == "MaxAmmo")
-        {
-            GameManager.instance.IncreaseMaxAmmo(maxAmmoIncrease);
+            ranged.IncreaseHeat(heatIncrease);
         }
         else if (stat == "SpecCool")
         {

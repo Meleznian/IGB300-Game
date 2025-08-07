@@ -168,16 +168,16 @@ public class LegacyEnemyManager : MonoBehaviour
 
         currentlyAlive--;
 
-        int b = enemy.GetComponent<BulletLodging>().Lodgedbullets;
-        if (b >= 1)
-        {
-            GameManager.instance.SpawnBullets(b, enemy.transform.position);
-        }
+        //int b = enemy.GetComponent<BulletLodging>().Lodgedbullets;
+        //if (b >= 1)
+        //{
+        //    GameManager.instance.SpawnBullets(b, enemy.transform.position);
+        //}
 
         Instantiate(enemyDeathEffect, enemy.transform.position, Quaternion.identity);
         Destroy(enemy);
 
-        GameManager.instance.IncreaseHype();
+        //GameManager.instance.IncreaseHype();
         GameManager.instance.KillCount();
 
         if(currentlyAlive < 0)
