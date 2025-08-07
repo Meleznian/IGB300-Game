@@ -698,7 +698,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start Game
+  m_text: 'START
+
+    GAME'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
   m_sharedMaterial: {fileID: 3063773877846905308, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
@@ -834,7 +836,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit Game
+  m_text: 'EXIT
+
+    GAME'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
   m_sharedMaterial: {fileID: 3063773877846905308, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
@@ -2395,7 +2399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Credits
+  m_text: CREDITS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
   m_sharedMaterial: {fileID: 3063773877846905308, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
@@ -3694,7 +3698,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Setting
+  m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
   m_sharedMaterial: {fileID: 3063773877846905308, guid: 88e47a56d0cb0c74c8e141d1028d8604, type: 2}
