@@ -80,7 +80,7 @@ public class EnemyManager : MonoBehaviour
 
                 if (e.level <= currentLevel)
                 {
-                    Instantiate(e.enemyPrefab, spawnPosition, Quaternion.identity);
+                    Instantiate(e.enemyPrefab, transform.position, Quaternion.identity);
                     currentlyAlive += 1;
                     i++;
                 }
@@ -108,6 +108,7 @@ public class EnemyManager : MonoBehaviour
 
     internal void EnemyHurt(GameObject enemy)
     {
+        print("Enemy Hurt");
         Instantiate(enemyHurtEffect, enemy.transform.position, Quaternion.identity);
     }
 }

@@ -84,7 +84,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         }
 
         health -= damage;
-        damageEffect.Play();
+        EnemyManager.instance.EnemyHurt(gameObject);
 
         if (health <= 0)
         {

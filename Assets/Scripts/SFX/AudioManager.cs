@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Unity.VisualScripting;
 //using this tutorial "https://www.youtube.com/watch?v=g5WT91Sn3hg"
 public enum SoundType
 {
@@ -33,6 +34,11 @@ public class AudioManager : MonoBehaviour
 
     public static void PlayEffect(SoundType sound, float volume = 1)
     {
+        if (instance.soundList[(int)sound].Sounds == null)
+        {
+            return;
+        }
+
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
         instance.effectsSource.PlayOneShot(randomClip, volume);
