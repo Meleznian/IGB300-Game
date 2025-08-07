@@ -194,47 +194,41 @@ public class GameManager : MonoBehaviour
         }  
     }
 
-    public void IncreaseAmmo(int amount)
-    {
-        ammo += amount;
-        ammo = Mathf.Clamp(ammo, 0, maxAmmo);
-        ammoDisplay.value = ammo;
-    }
+    
+    //public bool DecreaseHeat(int amount)
+    //{
+    //    if (ammo - amount >= 0)
+    //    {
+    //        ammo -= amount;
+    //        ammoDisplay.value = ammo;
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
+    //}
 
-    public bool DecreaseAmmo(int amount)
-    {
-        if (ammo - amount >= 0)
-        {
-            ammo -= amount;
-            ammoDisplay.value = ammo;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    //internal void SpawnBullets(int b, Vector3 position)
+    //{
+    //    while (b > 0)
+    //    {
+    //        var bullet = Instantiate(floorBullet, position, transform.rotation);
+    //        bullet.GetComponent<Rigidbody2D>().AddForce(new Vector3(UnityEngine.Random.Range(-2.0f,3.0f), 0, 0), ForceMode2D.Impulse);
+    //        b--;
+    //    }
+    //}
 
-    internal void SpawnBullets(int b, Vector3 position)
-    {
-        while (b > 0)
-        {
-            var bullet = Instantiate(floorBullet, position, transform.rotation);
-            bullet.GetComponent<Rigidbody2D>().AddForce(new Vector3(UnityEngine.Random.Range(-2.0f,3.0f), 0, 0), ForceMode2D.Impulse);
-            b--;
-        }
-    }
-
-    internal void IncreaseParryMult(float amount)
-    {
-        parryMult += amount;
-    }
-
-    public void IncreaseMaxAmmo(int amount)
-    {
-        maxAmmo += amount;
-        IncreaseAmmo(maxAmmo - ammo);
-    }
+    //internal void IncreaseParryMult(float amount)
+    //{
+    //    parryMult += amount;
+    //}
+    //
+    //public void IncreaseMaxAmmo(int amount)
+    //{
+    //    maxAmmo += amount;
+    //    IncreaseAmmo(maxAmmo - ammo);
+    //}
 
     [Header("Bolts")]
     [SerializeField] GameObject bolt1;
