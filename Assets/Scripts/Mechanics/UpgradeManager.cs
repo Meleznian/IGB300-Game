@@ -22,6 +22,7 @@ public class UpgradeManager : MonoBehaviour
     public TMP_Text[] upgradeEffectTexts;
     public Image[] UpgradeIcon;
     [SerializeField] Animator anim;
+    [SerializeField] ParticleSystem richesRain;
 
     private List<Upgrade> allUpgrades = new List<Upgrade>();
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
@@ -89,6 +90,7 @@ public class UpgradeManager : MonoBehaviour
 
     internal void ShowUpgradeOptions()
     {
+        richesRain.Play();
         //if (availableUpgrades.Count < 3)
         //{
         //    Debug.LogWarning("Not enough upgrades left!");
@@ -145,6 +147,7 @@ public class UpgradeManager : MonoBehaviour
             DoUpgrade(chosen.id);
 
             upgradePanel.SetActive(false);
+            richesRain.Stop();
             Time.timeScale = 1f;
             upgradeMusicSource.Stop();
             AudioManager.resumeMusic();
