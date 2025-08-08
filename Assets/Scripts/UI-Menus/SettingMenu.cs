@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class SettingsMenu : MonoBehaviour
 {
     public GameObject GraphicsPanel;
-    public GameObject controlsPanel;
     public GameObject audioPanel;
 
     public AudioMixer mixer;
@@ -70,7 +69,6 @@ public class SettingsMenu : MonoBehaviour
     {
         audioPanel.SetActive(false);
         GraphicsPanel.SetActive(false);
-        controlsPanel.SetActive(false);
 
         panel.SetActive(true);
     }
