@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kamikaze-1.png_0: 5040298786649873365
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

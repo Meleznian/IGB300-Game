@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      New Crawler-1.png_0: 1840312179265774997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

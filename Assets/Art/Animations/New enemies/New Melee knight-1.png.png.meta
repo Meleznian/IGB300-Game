@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      New Melee knight-1.png_0: -8464991623288343839
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
