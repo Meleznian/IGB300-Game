@@ -7,19 +7,21 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SteamCloud
-  m_Shader: {fileID: 4800000, guid: e260cfa7296ee7642b167f1eb5be5023, type: 3}
+  m_Name: PlayerBolts
+  m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_ValidKeywords:
   - _ALPHATEST_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
+  disabledShaderPasses:
+  - GRABPASS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -37,14 +39,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cd53123ae97e4bc41a579369131568d6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9437f2d985947f246800a5267027b1d4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -70,9 +68,7 @@ Material:
     - _EmissionEnabled: 0
     - _EnableExternalAlpha: 0
     - _FlipbookMode: 0
-    - _Glossiness: 0.5
     - _LightingEnabled: 0
-    - _Metallic: 0
     - _Mode: 1
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1

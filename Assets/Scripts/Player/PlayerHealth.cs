@@ -23,6 +23,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] ParticleSystem healStart;
     [SerializeField] ParticleSystem healing;
+    [SerializeField] ParticleSystem damaged;
+    [SerializeField] ParticleSystem lowhealth;
 
 
     void Start()
@@ -50,7 +52,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (!iframing && !dead)
         {
             currentHealth -= amount;
+            damaged.Play();
             StartCoroutine(ChangeColour());
+
+            if(currentHealth <= currentHealth * 0.3)
+            {
+                lowhealth.Play();
+            }
 
             GameManager.instance.DecreaseHype();
             AudioManager.PlayEffect(SoundType.TAKE_DAMAGE, 0.7f);
@@ -74,6 +82,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         for (int i = 0; i < totalHealTicks; i++)
         {
             currentHealth += healAmountPerTick;
+
+            if (currentHealth >= currentHealth * 0.3)
+            {
+                lowhealth.Stop();
+            }
 
             if (currentHealth > maxHealth)
                 currentHealth = maxHealth;
