@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             damaged.Play();
             StartCoroutine(ChangeColour());
 
-            if(currentHealth <= currentHealth * 0.3)
+            if(currentHealth <= maxHealth * 0.4)
             {
                 lowhealth.Play();
             }
