@@ -41,33 +41,36 @@ public class PlayerRangedAttack : MonoBehaviour
 
     void Update()
     {
-        rangedCooldownTimer -= Time.deltaTime;
-
-        
-
-        if (!disabled)
+        if (!GameManager.instance.playerDead)
         {
-            // Right click with mouse
-            if (Input.GetKeyDown(KeyCode.LeftShift) && rangedCooldownTimer <= 0f)
-            {
-                Vector2 dir = aimCursor.position - firePoint.position;
-                FireBullet(dir.normalized);
-                rangedCooldownTimer = rangedCooldown;
-                heat += heatPerShot;
-                print("updating heat value to: " + heat);
+            rangedCooldownTimer -= Time.deltaTime;
 
+
+
+            if (!disabled)
+            {
+                // Right click with mouse
+                if (Input.GetKeyDown(KeyCode.LeftShift) && rangedCooldownTimer <= 0f)
+                {
+                    Vector2 dir = aimCursor.position - firePoint.position;
+                    FireBullet(dir.normalized);
+                    rangedCooldownTimer = rangedCooldown;
+                    heat += heatPerShot;
+                    print("updating heat value to: " + heat);
+
+                }
+
+                // Controller: press R2
+                //if (Input.GetKeyDown(KeyCode.JoystickButton7) && rangedCooldownTimer <= 0f)
+                //{
+                //    Vector2 dir = aimCursor.position - firePoint.position;
+                //    FireBullet(dir.normalized);
+                //    rangedCooldownTimer = rangedCooldown;
+                //}
             }
 
-            // Controller: press R2
-            //if (Input.GetKeyDown(KeyCode.JoystickButton7) && rangedCooldownTimer <= 0f)
-            //{
-            //    Vector2 dir = aimCursor.position - firePoint.position;
-            //    FireBullet(dir.normalized);
-            //    rangedCooldownTimer = rangedCooldown;
-            //}
+            UpdateHeat();
         }
-
-        UpdateHeat();
 
     }
 

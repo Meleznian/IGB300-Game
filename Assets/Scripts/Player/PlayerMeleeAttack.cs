@@ -16,31 +16,35 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     void Update()
     {
-        meleeCooldownTimer -= Time.deltaTime;
+        if (!GameManager.instance.playerDead)
+        { 
 
-        if (meleeCooldownTimer < -0.7f) 
-        {
-            anim.SetInteger("Slashes", 0);
-        }
+            meleeCooldownTimer -= Time.deltaTime;
 
-        // Gamepad input: Left stick + R1 button
-        if (Input.GetKeyDown(KeyCode.JoystickButton5) && meleeCooldownTimer <= 0f)
-        {
-            Vector2 stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            if (stick.magnitude > 0.5f)
+            if (meleeCooldownTimer < -0.7f)
             {
-                TryAttack(stick.normalized);
+                anim.SetInteger("Slashes", 0);
+            }
+
+            // Gamepad input: Left stick + R1 button
+            if (Input.GetKeyDown(KeyCode.JoystickButton5) && meleeCooldownTimer <= 0f)
+            {
+                Vector2 stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                if (stick.magnitude > 0.5f)
+                {
+                    TryAttack(stick.normalized);
+                    meleeCooldownTimer = meleeCooldown;
+                }
+            }
+
+            // Mouse input: left click
+            if (Input.GetMouseButtonDown(0) && meleeCooldownTimer <= 0f)
+            {
+                Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 dir = (mouse - (Vector2)transform.position).normalized;
+                TryAttack(dir);
                 meleeCooldownTimer = meleeCooldown;
             }
-        }
-
-        // Mouse input: left click
-        if (Input.GetMouseButtonDown(0) && meleeCooldownTimer <= 0f)
-        {
-            Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 dir = (mouse - (Vector2)transform.position).normalized;
-            TryAttack(dir);
-            meleeCooldownTimer = meleeCooldown;
         }
     }
 

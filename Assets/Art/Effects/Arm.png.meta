@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5f4961b1e16c7db4e969ae4f9c5f9d0d
+guid: 0e413305f417c1b4dacdda902bebb7fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -304678014589555228
-    second: Refined Button_0
+      213: -5241291705561067677
+    second: Arm_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Refined Button_0
+      name: Arm_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 72
-        width: 1414
-        height: 896
+        x: 4
+        y: 3
+        width: 10
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4eda481c5f095cbf0800000000000000
-      internalID: -304678014589555228
+      spriteID: 36fc4dd96f03347b0800000000000000
+      internalID: -5241291705561067677
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Refined Button_0: -304678014589555228
+      Arm_0: -5241291705561067677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

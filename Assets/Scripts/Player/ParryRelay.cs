@@ -12,16 +12,16 @@ public class ParryRelay : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void StartParry()
-    {
-        health.StartParry();
-        parry.StartParry();
-    }
-    public void EndParry()
-    {
-        health.EndParry();
-        parry.EndParry();   
-    }
+    //public void StartParry()
+    //{
+    //    health.StartParry();
+    //    parry.StartParry();
+    //}
+    //public void EndParry()
+    //{
+    //    health.EndParry();
+    //    parry.EndParry();   
+    //}
 
     public void DisableShoulder()
     {

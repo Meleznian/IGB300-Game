@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     bool gameHasEnded = false;
     bool gameHasWon = false;
+    internal bool playerDead;
     public float restartDelay = 0.5f;
     private int _killCount = 0;
 

@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem healing;
     [SerializeField] ParticleSystem damaged;
     [SerializeField] ParticleSystem lowhealth;
+    [SerializeField] ParticleSystem death;
 
 
     void Start()
@@ -45,6 +46,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             healing.Play();
             StartCoroutine(HealOverTime());
         }
+
+        if(dead)
+        {
+            DeathTimer();
+        }
+
     }
 
     public void TakeDamage(int amount)
@@ -67,7 +74,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             {
                 AudioManager.PlayEffect(SoundType.PLAYER_DEATH);
                 currentHealth = 0;
-                anim.SetTrigger("Killed");
+                //anim.SetTrigger("Killed");
+                sprite.enabled = false;
+                GameManager.instance.playerDead = true;
+                Instantiate(death,transform.position, transform.rotation);
                 GetComponent<PlayerMovement>().Die();
                 dead = true;
             }
@@ -103,14 +113,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         maxHealth +=+ amount;
     }
 
-    internal void StartParry()
-    {
-        parrying = true;
-    }
-    internal void EndParry()
-    {
-        parrying = false;
-    }
+    //internal void StartParry()
+    //{
+    //    parrying = true;
+    //}
+    //internal void EndParry()
+    //{
+    //    parrying = false;
+    //}
 
     IEnumerator ChangeColour()
     {
@@ -153,5 +163,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         iframing = false;
         //print("Colour Changed Finished");
+    }
+
+
+    float deathTimer;
+    void DeathTimer()
+    {
+        deathTimer += Time.deltaTime;
+        if(deathTimer > 3)
+        {
+            GameManager.instance.EndGame();
+        }
     }
 }
