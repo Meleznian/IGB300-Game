@@ -22,6 +22,7 @@ public class PlayerRangedAttack : MonoBehaviour
     [SerializeField] GameObject shoulder;
     [SerializeField] Slider heatGauge;
     [SerializeField] Image heatGaugeFill;
+    [SerializeField] ParticleSystem coolEffect;
     Color heatColor;
 
     bool disabled;
@@ -104,22 +105,19 @@ public class PlayerRangedAttack : MonoBehaviour
         else
         {
             heatGauge.gameObject.SetActive(false);
-            if (disabled)
-            {
-                disabled = false;
-                heatGaugeFill.color = heatColor;
-            }
         }
 
         if (disabled && heat <= 0)
         {
             disabled = false;
+            coolEffect.Stop();
             heatGaugeFill.color = heatColor;
         }
 
         if (heat >= maxHeat)
         {
             disabled = true;
+            coolEffect.Play();
             heatGaugeFill.color = Color.red;
         }
     }
