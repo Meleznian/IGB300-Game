@@ -4,6 +4,8 @@ public class FeetCollisions : MonoBehaviour
 {
 
     [SerializeField] private PlayerMovement _movementScript;
+    [SerializeField] ParticleSystem landEffect;
+    //[SerializeField] Vector3 feetPos;
 
 
     /// <summary>
@@ -12,6 +14,7 @@ public class FeetCollisions : MonoBehaviour
     /// <param name="collision">The Collider that the player has triggered</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y -0.8f, transform.position.z), transform.rotation);
         _movementScript.LandedOnGround();
     }
 

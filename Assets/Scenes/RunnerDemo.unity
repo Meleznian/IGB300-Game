@@ -1037,6 +1037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1079083694576831271, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8395225134216261521, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.4
@@ -6244,6 +6248,14 @@ PrefabInstance:
     - target: {fileID: 5787040890782132878, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213564584013395944, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: landEffect
+      value: 
+      objectReference: {fileID: 6922806724857937827, guid: a7fea805504b48747848caa2ef06ff71, type: 3}
+    - target: {fileID: 7836168156307212374, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 8837223900107501713, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_Name
