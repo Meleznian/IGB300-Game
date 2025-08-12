@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
             cashMult = 1f;
         }
 
-        crowdHypeText.text = "x"+ cashMult;
+        //crowdHypeText.text = "x"+ cashMult;
     }
 
     public void IncreaseGauge()
