@@ -59,7 +59,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         if (!iframing && !dead)
         {
             currentHealth -= amount;
-            damaged.Play();
+            Instantiate(damaged,transform.position, Quaternion.identity);
             StartCoroutine(ChangeColour());
 
             if(currentHealth <= maxHealth * 0.4)
