@@ -25,6 +25,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] int enemyCap;
     [SerializeField] int minSpawnGroup;
     [SerializeField] int maxSpawnGroup;
+    [SerializeField] float spawnVariationX;
+    [SerializeField] float spawnVariationY;
 
 
 
@@ -80,7 +82,12 @@ public class EnemyManager : MonoBehaviour
 
                 if (e.level <= currentLevel)
                 {
-                    Instantiate(e.enemyPrefab, transform.position, Quaternion.identity);
+                    float x = UnityEngine.Random.Range(-spawnVariationX, spawnVariationX);
+                    float y = UnityEngine.Random.Range(-spawnVariationY, spawnVariationY);
+
+                    Vector2 spawnPos = new Vector2(transform.position.x + x, transform.position.y + y);
+
+                    Instantiate(e.enemyPrefab, spawnPos, Quaternion.identity);
                     currentlyAlive += 1;
                     i++;
                 }

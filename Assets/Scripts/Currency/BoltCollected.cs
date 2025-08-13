@@ -45,6 +45,7 @@ public class BoltCollected : MonoBehaviour
             Debug.Log("Bolt collected");
             //GameManager.instance.BoltCount(_value);
             GameManager.instance.BoltCount(collision.gameObject.GetComponent<MagnetBolt>().value);
+            ScoreManager.instance.AddScore(50, transform.position);
 
             //collision.gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Collected");
             //Debug.Log("Destroy it");

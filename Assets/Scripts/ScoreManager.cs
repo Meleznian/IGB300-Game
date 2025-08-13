@@ -1,15 +1,23 @@
 using UnityEngine;
 using TMPro;
+using System.Drawing;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
     public int currentScore = 0;
+    [SerializeField] int pointsPerSecond;
     private int highScore = 0;
 
+    [SerializeField] TMP_Text textPrefab;
+    [SerializeField] Transform textCanvas;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+
+    int point;
+
 
     private void Awake()
     {
@@ -29,11 +37,22 @@ public class ScoreManager : MonoBehaviour
         // Load saved high score
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         UpdateScoreUI();
+
+        point = pointsPerSecond / 60;
     }
 
-    public void AddScore(int value)
+    private void FixedUpdate()
+    {
+        currentScore += point;
+        UpdateScoreUI();
+    }
+
+    public void AddScore(int value, Vector2 textPos)
     {
         currentScore += value;
+
+        TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
+        text.text = "+" + value;
 
         // Update high score if needed
         if (currentScore > highScore)
