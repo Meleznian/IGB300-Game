@@ -5463,6 +5463,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3579715915885456711, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: deathMessages.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579715915885456711, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'deathMessages.Array.data[4]'
+      value: Is that what you got?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579715915885456711, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'deathMessages.Array.data[5]'
+      value: Your journey ends here
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579715915885456711, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'deathMessages.Array.data[6]'
+      value: That was the tutorial, right? Right?
+      objectReference: {fileID: 0}
     - target: {fileID: 4466451172532343845, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_SizeDelta.x
       value: 61.1423
