@@ -24,7 +24,8 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] ParticleSystem richesRain;
 
-    private List<Upgrade> allUpgrades = new List<Upgrade>();
+    public List<Upgrade> allUpgrades = new List<Upgrade>();
+
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
     private Upgrade[] currentOptions = new Upgrade[3];
     [SerializeField] private AudioSource upgradeMusicSource;
@@ -33,41 +34,41 @@ public class UpgradeManager : MonoBehaviour
     void Start()
     {
         SetupPlayer();
-        allUpgrades = new List<Upgrade>()
-        {
-            new Upgrade { upgradeName = "Sharpen Blade", 
-                effectDescription = "Increase Melee Damage", 
-                icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "MeleeDamage"},
-
-            new Upgrade { upgradeName = "Polish Blade", 
-                effectDescription = "Increase Melee Speed", 
-                icon = Resources.Load<Sprite>("Sprite/Polish Blade"), id = "MeleeSpeed" },
-
-            new Upgrade { upgradeName = "Reinforced Shield",
-                effectDescription = "Increase Health", 
-                icon = Resources.Load<Sprite>("Sprite/Reinforced Shield"),id = "MaxHealth" },
-
-            new Upgrade { upgradeName = "Streamline Casings", 
-                effectDescription = "Increase Projectile Speed / Range", 
-                icon = Resources.Load<Sprite>("Sprite/Streamline Casings"), id = "BulletSpeed" },
-
-            new Upgrade { upgradeName = "Sharpen Casings", 
-                effectDescription = "Increase Projectile Damage", 
-                icon = Resources.Load<Sprite>("Sprite/Sharpen Casings"), id = "BulletDamage" },
-
-            new Upgrade { upgradeName = "Strengthen Arm", 
-                effectDescription = "Increase Knockback", 
-                icon = Resources.Load<Sprite>("Sprite/Strengthen Arm"), id = "Knockback" },
-
-            new Upgrade { upgradeName = "Oil Limbs", 
-                effectDescription = "Increase Move Speed", 
-                icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "MoveSpeed" },
-
-                        new Upgrade { upgradeName = "Improve Heat Sink",
-                effectDescription = "Reduces gun's heat buildup",
-                icon = Resources.Load<Sprite>("Sprite/IncreaseAmmo"), id = "Heat" },
-
-        };
+        //allUpgrades = new List<Upgrade>()
+        //{
+        //    new Upgrade { upgradeName = "Sharpen Blade", 
+        //        effectDescription = "Increase Melee Damage", 
+        //        icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "MeleeDamage"},
+        //
+        //    new Upgrade { upgradeName = "Polish Blade", 
+        //        effectDescription = "Increase Melee Speed", 
+        //        icon = Resources.Load<Sprite>("Sprite/Polish Blade"), id = "MeleeSpeed" },
+        //
+        //    new Upgrade { upgradeName = "Reinforced Shield",
+        //        effectDescription = "Increase Health", 
+        //        icon = Resources.Load<Sprite>("Sprite/Reinforced Shield"),id = "MaxHealth" },
+        //
+        //    new Upgrade { upgradeName = "Streamline Casings", 
+        //        effectDescription = "Increase Projectile Speed / Range", 
+        //        icon = Resources.Load<Sprite>("Sprite/Streamline Casings"), id = "BulletSpeed" },
+        //
+        //    new Upgrade { upgradeName = "Sharpen Casings", 
+        //        effectDescription = "Increase Projectile Damage", 
+        //        icon = Resources.Load<Sprite>("Sprite/Sharpen Casings"), id = "BulletDamage" },
+        //
+        //    new Upgrade { upgradeName = "Strengthen Arm", 
+        //        effectDescription = "Increase Knockback", 
+        //        icon = Resources.Load<Sprite>("Sprite/Strengthen Arm"), id = "Knockback" },
+        //
+        //    new Upgrade { upgradeName = "Oil Limbs", 
+        //        effectDescription = "Increase Move Speed", 
+        //        icon = Resources.Load<Sprite>("Sprite/Sharpen Blade"), id = "MoveSpeed" },
+        //
+        //                new Upgrade { upgradeName = "Improve Heat Sink",
+        //        effectDescription = "Reduces gun's heat buildup",
+        //        icon = Resources.Load<Sprite>("Sprite/IncreaseAmmo"), id = "Heat" },
+        //
+        //};
 
         availableUpgrades = new List<Upgrade>(allUpgrades);
 
@@ -139,7 +140,7 @@ public class UpgradeManager : MonoBehaviour
             Debug.Log($"Selected: {chosen.upgradeName}");
 
 
-            availableUpgrades.RemoveAll(u => u.upgradeName == chosen.upgradeName);
+            //availableUpgrades.RemoveAll(u => u.upgradeName == chosen.upgradeName);
 
             playerLevel++;
             levelText.text = playerLevel.ToString();
@@ -165,11 +166,14 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] float bulletSpeedIncrease = 1;
     [SerializeField] float bulletCoolIncrease = 1;
     [SerializeField] int bulletDamageIncrease = 1;
+    [SerializeField] int bulletPierceIncrease = 1;
     [SerializeField] float moveSpeedIncrease = 0.5f;
     [SerializeField] float knockbackIncrease = 1;
     [SerializeField] float parryMultIncrease = 0.1f;
     [SerializeField] int heatIncrease = 1;
-    [SerializeField] float specialCoolIncrease;
+    [SerializeField] float rangedSizeIncrease;
+    [SerializeField] float meleeSizeIncrease;
+
 
     [Header("Components")]
     [SerializeField] PlayerMovement movement;
@@ -194,33 +198,30 @@ public class UpgradeManager : MonoBehaviour
 
     public void DoUpgrade(string stat)
     {
-        if (stat == "MeleeDamage")
+        if (stat == "Damage")
         {
             melee.IncreaseDamage(damageIncrease);
+            melee.IncreaseKnockback(knockbackIncrease);
         }
-        else if (stat == "MeleeSpeed")
+        else if (stat == "Speed")
         {
-            melee.IncreaseSpeed(attackSpeedIncrease);
+            melee.IncreaseSpeed(bulletSpeedIncrease);
+            ranged.IncreaseSpeed(bulletSpeedIncrease, bulletCoolIncrease);
         }
         else if (stat == "MaxHealth")
         {
             health.IncreaseMax(healthIncrease);
             healthUI.UpdateMax();
         }
-        else if (stat == "BulletSpeed")
+        else if (stat == "Heat")
         {
-            ranged.IncreaseSpeed(bulletSpeedIncrease, bulletCoolIncrease);
+            ranged.IncreaseHeat(heatIncrease);
         }
         else if (stat == "BulletDamage")
         {
-            ranged.IncreaseDamage(bulletDamageIncrease);
+            ranged.IncreaseDamage(bulletDamageIncrease, bulletPierceIncrease);
         }
-        else if (stat == "Knockback")
-        {
-            melee.IncreaseKnockback(knockbackIncrease);
-            ranged.IncreaseKnockback(knockbackIncrease);
-        }
-        else if (stat == "MoveSpeed")
+        else if (stat == "Move")
         {
             movement.IncreaseSpeed(moveSpeedIncrease);
         }
@@ -232,9 +233,10 @@ public class UpgradeManager : MonoBehaviour
         {
             ranged.IncreaseHeat(heatIncrease);
         }
-        else if (stat == "SpecCool")
+        else if (stat == "Size")
         {
-
+            ranged.IncreaseSize(rangedSizeIncrease);
+            melee.IncreaseSize(meleeSizeIncrease);
         }
         else
         {

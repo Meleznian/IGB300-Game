@@ -8,6 +8,8 @@ public class PlayerRangedAttack : MonoBehaviour
     [SerializeField] float bulletSpeed;
     [SerializeField] int bulletDamage;
     [SerializeField] float bulletKnockback;
+    [SerializeField] int bulletPierce;
+    [SerializeField] float bulletSize = 1;
     [SerializeField] float heatPerShot;
     [SerializeField] float maxHeat;
     [SerializeField] float coolModifier = 1;
@@ -87,6 +89,8 @@ public class PlayerRangedAttack : MonoBehaviour
         bullet.damage = bulletDamage;
         bullet.speed = bulletSpeed;
         bullet.knockback = bulletKnockback;
+        bullet.pierce = bulletPierce;
+        bullet.transform.localScale = new Vector3(bulletSize, bulletSize, bulletSize);
         bullet.Init(dir);
         AudioManager.PlayEffect(SoundType.PLAYER_SHOOT);
 
@@ -124,9 +128,10 @@ public class PlayerRangedAttack : MonoBehaviour
 
 
 
-    internal void IncreaseDamage(int amount)
+    internal void IncreaseDamage(int damageAmount, int pierceAmount)
     {
-        bulletDamage += amount;
+        bulletDamage += damageAmount;
+        bulletPierce += pierceAmount;
     }
     internal void IncreaseSpeed(float move, float cool)
     {
@@ -141,5 +146,10 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         maxHeat += amount;
         heatGauge.maxValue = maxHeat;
+    }
+
+    public void IncreaseSize(float amount)
+    {
+        bulletSize += amount;
     }
 }

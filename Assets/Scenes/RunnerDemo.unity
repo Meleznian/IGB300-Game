@@ -5366,6 +5366,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1885519247420598914, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: bulletSize
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.99
@@ -5443,18 +5451,18 @@ PrefabInstance:
       propertyPath: textCanvas
       value: 
       objectReference: {fileID: 1345539104}
-    - target: {fileID: 6904265280506163872, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: textPrefab
-      value: 
-      objectReference: {fileID: 6337040031794903453, guid: 623711c254d7b3e4697e7a3c1a1b2dbe, type: 3}
-    - target: {fileID: 6904265280506163872, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: pointsPerSecond
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: richesRain
       value: 
       objectReference: {fileID: 292840969}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: meleeSizeIncrease
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: rangedSizeIncrease
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: upgradeMusicSource
       value: 

@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal float speed = 10f;
     //[SerializeField] float lifetime = 2f;
     [SerializeField] internal int damage = 1;
+    [SerializeField] internal int pierce = 1;
+
     [SerializeField] internal float knockback;
     [SerializeField] internal bool playerOwned;
     [SerializeField] internal bool originallyEnemy;
@@ -13,6 +15,8 @@ public class Bullet : MonoBehaviour
 
     public LayerMask playerLayer;
     public LayerMask enemyLayer;
+
+    int pierced;
 
     Vector2 moveDir;
 
@@ -38,30 +42,31 @@ public class Bullet : MonoBehaviour
 
         if (playerOwned && damageable != null)
         {
-            if (!originallyEnemy)
-            {
-                other.GetComponent<BulletLodging>().LodgeBullet();
-            }
             damageable.TakeDamage(damage);
             if(other.GetComponent<Rigidbody2D>() != null)
             {
                 other.GetComponent<Rigidbody2D>().AddForce(moveDir*knockback, ForceMode2D.Impulse);
             }
 
-            Destroy(gameObject);
-        }
-        else if(!playerOwned && player != null)
-        {
-            if (player.parrying)
+            pierced++;
+
+            if (pierced > pierce)
             {
-                GetParried();
-            }
-            else
-            {
-                player.TakeDamage(damage);
                 Destroy(gameObject);
             }
         }
+        //else if(!playerOwned && player != null)
+        //{
+        //    if (player.parrying)
+        //    {
+        //        GetParried();
+        //    }
+        //    else
+        //    {
+        //        player.TakeDamage(damage);
+        //        Destroy(gameObject);
+        //    }
+        //}
         else if (!other.isTrigger)
         {
             //if (playerOwned && !originallyEnemy)
@@ -72,25 +77,25 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    internal void GetParried()
-    {
-        playerOwned = true;
-
-        Vector2 newDirection = Input.mousePosition;
-        newDirection = Camera.main.ScreenToWorldPoint(newDirection);
-        newDirection = newDirection - new Vector2(transform.position.x,transform.position.y);
-        moveDir = newDirection.normalized;
-
-        //if (playerOwned)
-        //{
-        SetIgnore();
-
-        //}
-        //else
-        //{
-        //    gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
-        //}
-    }
+    //internal void GetParried()
+    //{
+    //    playerOwned = true;
+    //
+    //    Vector2 newDirection = Input.mousePosition;
+    //    newDirection = Camera.main.ScreenToWorldPoint(newDirection);
+    //    newDirection = newDirection - new Vector2(transform.position.x,transform.position.y);
+    //    moveDir = newDirection.normalized;
+    //
+    //    //if (playerOwned)
+    //    //{
+    //    SetIgnore();
+    //
+    //    //}
+    //    //else
+    //    //{
+    //    //    gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
+    //    //}
+    //}
 
     void SetIgnore()
     {

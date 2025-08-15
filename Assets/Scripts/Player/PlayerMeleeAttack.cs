@@ -105,7 +105,11 @@ public class PlayerMeleeAttack : MonoBehaviour
     void SpawnEffect(Vector2 pos, Quaternion rot)
     {
         if (flashFX)
-            Instantiate(flashFX, pos, rot);
+        {
+            var effect = Instantiate(flashFX, pos, rot);
+            effect.transform.localScale = new Vector3(range,range,range);
+        }
+
         AudioManager.PlayEffect(SoundType.SLASH);
 
         anim.SetTrigger("Slash");
@@ -131,6 +135,10 @@ public class PlayerMeleeAttack : MonoBehaviour
     internal void IncreaseKnockback(float amount)
     {
         knockback += amount;
+    }
+    public void IncreaseSize(float amount)
+    {
+        range += amount;
     }
 
 }
