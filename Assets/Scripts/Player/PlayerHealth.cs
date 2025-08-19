@@ -141,4 +141,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         iframing = false;
         //print("Colour Changed Finished");
     }
+
+    public void Kill()
+    {
+        if (!dead)
+        {
+            currentHealth = 0;
+            anim.SetTrigger("Killed");
+            AudioManager.PlayEffect(SoundType.PLAYER_DEATH);
+            GetComponent<PlayerMovement>().Die();
+            dead = true;
+        }
+    }
 }
