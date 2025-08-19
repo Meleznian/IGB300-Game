@@ -67,19 +67,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
                 lowhealth.Play();
             }
 
-            GameManager.instance.DecreaseHype();
+            //GameManager.instance.DecreaseHype();
             AudioManager.PlayEffect(SoundType.TAKE_DAMAGE, 0.7f);
 
             if (currentHealth <= 0)
             {
-                AudioManager.PlayEffect(SoundType.PLAYER_DEATH);
-                currentHealth = 0;
-                //anim.SetTrigger("Killed");
-                sprite.enabled = false;
-                GameManager.instance.playerDead = true;
-                Instantiate(death,transform.position, transform.rotation);
-                GetComponent<PlayerMovement>().Die();
-                dead = true;
+                Kill();
             }
         }
     }
@@ -180,9 +173,18 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         if (!dead)
         {
-            currentHealth = 0;
-            anim.SetTrigger("Killed");
+            //currentHealth = 0;
+            //anim.SetTrigger("Killed");
+            //AudioManager.PlayEffect(SoundType.PLAYER_DEATH);
+            //GetComponent<PlayerMovement>().Die();
+            //dead = true;
+
             AudioManager.PlayEffect(SoundType.PLAYER_DEATH);
+            currentHealth = 0;
+            //anim.SetTrigger("Killed");
+            sprite.enabled = false;
+            GameManager.instance.playerDead = true;
+            Instantiate(death, transform.position, transform.rotation);
             GetComponent<PlayerMovement>().Die();
             dead = true;
         }

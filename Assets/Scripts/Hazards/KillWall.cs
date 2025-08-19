@@ -36,7 +36,7 @@ public class KillWall : MonoBehaviour
 
         if (playerHealth != null)
         {
-            playerHealth.TakeDamage(10000); // Set HP to 0 and kill
+            playerHealth.Kill(); // Set HP to 0 and kill
             Debug.Log("[KillWall] Player killed.");
         }
         else
