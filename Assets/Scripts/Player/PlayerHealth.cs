@@ -175,4 +175,16 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             GameManager.instance.EndGame();
         }
     }
+
+    public void Kill()
+    {
+        if (!dead)
+        {
+            currentHealth = 0;
+            anim.SetTrigger("Killed");
+            AudioManager.PlayEffect(SoundType.PLAYER_DEATH);
+            GetComponent<PlayerMovement>().Die();
+            dead = true;
+        }
+    }
 }
