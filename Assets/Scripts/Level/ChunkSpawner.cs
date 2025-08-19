@@ -7,7 +7,7 @@ public class ChunkSpawner : MonoBehaviour
     [SerializeField] private float _chunkWidth = 20f;
     [SerializeField] private int _chunksAhead = 3;
 
-    private float _spawnX = 0f;
+    private float _spawnX = 20f;
 
     void Start()
     {

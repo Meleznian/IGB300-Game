@@ -411,7 +411,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2423135187542213491}
-  - component: {fileID: 6919536438158672001}
   - component: {fileID: 8814939670925395934}
   m_Layer: 0
   m_Name: Level_Chunk_06
@@ -440,19 +439,6 @@ Transform:
   - {fileID: 8963754396773761038}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6919536438158672001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5249241490176251230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507ae9c11e8b19b40a81465af7ab8f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ScrollSpeed: 5
 --- !u!114 &8814939670925395934
 MonoBehaviour:
   m_ObjectHideFlags: 0
