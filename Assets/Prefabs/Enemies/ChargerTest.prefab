@@ -202,7 +202,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -220,7 +220,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -230,7 +230,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.154, y: 1.826}
+  m_Size: {x: 0.7, y: 1.826}
   m_EdgeRadius: 0
 --- !u!114 &8676973816004458006
 MonoBehaviour:
@@ -259,6 +259,9 @@ MonoBehaviour:
   enemyName: Charger
   health: 10
   defaultDamage: 5
-  moveSpeed: 2
-  dropAmount: 1
-  damageEffect: {fileID: 0}
+  moveSpeed: 1.5
+  money:
+  - {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+  - {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
+  - {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
+  - {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}

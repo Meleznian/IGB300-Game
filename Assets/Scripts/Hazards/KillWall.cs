@@ -8,6 +8,7 @@ public class KillWall : MonoBehaviour
 
     [Header("Filter")]
     [SerializeField] string playerTag = "Player";
+    [SerializeField] string enemyTag = "Enemy";
 
     void Reset()
     {
@@ -27,21 +28,28 @@ public class KillWall : MonoBehaviour
         Debug.Log($"[KillWall] Trigger with {other.name}");
 
         // Player judgment (filter by tag)
-        if (!other.CompareTag(playerTag)) return;
-
-        // Search for PlayerHealth directly or from parent
-        var playerHealth = other.GetComponent<PlayerHealth>();
-        if (playerHealth == null)
-            playerHealth = other.GetComponentInParent<PlayerHealth>();
-
-        if (playerHealth != null)
+        if (other.CompareTag(playerTag))
         {
-            playerHealth.Kill(); // Set HP to 0 and kill
-            Debug.Log("[KillWall] Player killed.");
+
+            // Search for PlayerHealth directly or from parent
+            var playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth == null)
+                playerHealth = other.GetComponentInParent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.Kill(); // Set HP to 0 and kill
+                Debug.Log("[KillWall] Player killed.");
+            }
+            else
+            {
+                Debug.LogWarning($"[KillWall] PlayerHealth not found on {other.name} or its parents.");
+            }
         }
-        else
+        if (other.CompareTag(enemyTag))
         {
-            Debug.LogWarning($"[KillWall] PlayerHealth not found on {other.name} or its parents.");
+            var enemy = other.GetComponent<EnemyBase>();
+            enemy.Die(false);
         }
     }
 }

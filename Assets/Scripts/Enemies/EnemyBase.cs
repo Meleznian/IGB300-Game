@@ -26,7 +26,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     //public GameObject currencyPrefab;
 
     [Tooltip("Number of currency drops to spawn")]
-    public int dropAmount = 1;
+    public GameObject[] money;
 
     //[Header("Attacks")]
     //[Tooltip("List of attacks the enemy can do")]
@@ -88,15 +88,19 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            Die();
+            Die(true);
         }
     }
 
-    public virtual void Die()
+    public virtual void Die(bool spawn)
     {
         Debug.Log("Die here");
 
-        SpawnCurrency();
+        if (spawn)
+        {
+            SpawnCurrency();
+        }
+
         AudioManager.PlayEffect(SoundType.ENEMY_DEATH);
 
         if (EnemyManager.instance != null)
@@ -138,8 +142,6 @@ public class EnemyBase : MonoBehaviour, IDamageable
         //    Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
         //    Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
         //}
-
-        GameObject[] money = GameManager.instance.GenerateMoney(dropAmount);
         
         Debug.Log("Drop bolt");
         

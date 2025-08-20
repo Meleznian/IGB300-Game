@@ -765,7 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_Enabled
@@ -1228,9 +1228,17 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: enemies.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: enemies.Array.data[0].enemyPrefab
       value: 
       objectReference: {fileID: 3010242644535729339, guid: 8ca18332781ef794eb65299983859ca2, type: 3}
+    - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: enemies.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
     - target: {fileID: 2102013744089027055, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: m_Name
       value: Main Camera
