@@ -6,37 +6,44 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 5f;
     public Vector3 offset;
 
-    [Header("Stage Bounds")]
+    [Header("Stage Bounds (Only Y)")]
     public Transform stageBoundsTopLeft;
     public Transform stageBoundsBottomRight;
 
-    private float camHalfHeight;
-    private float camHalfWidth;
+    float camHalfHeight, camHalfWidth;
+    float maxCamX; // Maximum X reach to the right
 
     void Start()
     {
-        Camera cam = Camera.main;
+        var cam = Camera.main;
         camHalfHeight = cam.orthographicSize;
         camHalfWidth = camHalfHeight * cam.aspect;
-        target = GameObject.Find("Player").transform;
+
+        if (!target) target = GameObject.Find("Player")?.transform;
+
+        // Initialize maximum X at initial position reference
+        var startDesired = (target ? target.position : transform.position) + offset;
+        maxCamX = Mathf.Max(transform.position.x, startDesired.x);
     }
 
     void LateUpdate()
     {
-        if (target == null || stageBoundsTopLeft == null || stageBoundsBottomRight == null) return;
+        if (!target) return;
 
-        Vector3 desiredPosition = target.position + offset;
+        Vector3 desired = target.position + offset;
 
-        float minX = stageBoundsTopLeft.position.x + camHalfWidth;
-        float maxX = stageBoundsBottomRight.position.x - camHalfWidth;
-        float minY = stageBoundsBottomRight.position.y + camHalfHeight;
-        float maxY = stageBoundsTopLeft.position.y - camHalfHeight;
+        // It is acceptable to update to the right (update to a maximum of X).
+        if (desired.x > maxCamX) maxCamX = desired.x;
 
-        float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
-        float clampedY = Mathf.Clamp(desiredPosition.y, minY, maxY);
+        // X is fixed at the maximum value (does not return to the left).
+        float lockedX = maxCamX;
 
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, new Vector3(clampedX, clampedY, desiredPosition.z), smoothSpeed * Time.deltaTime);
-        transform.position = smoothedPosition;
+        // Y is the same as before Clamp
+        float minY = stageBoundsBottomRight ? stageBoundsBottomRight.position.y + camHalfHeight : -Mathf.Infinity;
+        float maxY = stageBoundsTopLeft ? stageBoundsTopLeft.position.y - camHalfHeight : Mathf.Infinity;
+        float clampedY = Mathf.Clamp(desired.y, minY, maxY);
+
+        Vector3 targetPos = new Vector3(lockedX, clampedY, desired.z);
+        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
     }
 }
-
