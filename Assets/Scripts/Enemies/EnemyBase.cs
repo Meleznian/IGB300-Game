@@ -101,6 +101,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         if (spawn)
         {
             SpawnCurrency();
+            ScoreManager.instance.AddScore(200, transform.position);
         }
 
         AudioManager.PlayEffect(SoundType.ENEMY_DEATH);
