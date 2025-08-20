@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     //Required Components
     private Rigidbody2D rb;
     private TrailRenderer tr;
-    [SerializeField ]private Animator anim;
+    [SerializeField] private Animator anim;
 
     //Input Actions
     InputAction moveAction;
@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int verticalMove;
     [SerializeField] private bool _isGrounded;
     [SerializeField] private int _lastDirection = 1;
-
 
     //Variables that only relate to default movement (WASD)
     [Header("Movement Variables")]
@@ -49,9 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float gravScale;
 
-
-
-
+    // Components for synthesizing external forces (such as knockback)
+    [Header("External Impulse (Knockback)")]
+    [SerializeField] private float impulseDamping = 6f; // Rate of attenuation (the higher the value, the faster it disappears)
+    private Vector2 externalImpulse;                    //ÅgSuperimposed velocityÅh component of the external force applied
 
     // Start is called before the first frame update
     void Start()
@@ -66,67 +66,50 @@ public class PlayerMovement : MonoBehaviour
         dashAction = InputSystem.actions.FindAction("Sprint");
 
         gravScale = rb.gravityScale;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(moveAction.ReadValue<Vector2>());
-        //int oldHMove = horizontalMove;
         horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
         horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
         verticalMove = moveAction.ReadValue<Vector2>().y > 0 ? 1 : 0;
         verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
 
-        if (horizontalMove != 0)
-        {
-            anim.SetBool("Running", true);
-        }
-        else
-        {
-            anim.SetBool("Running", false);
-        }
-
-        //if (horizontalMove != oldHMove) velocityAdded = false;
-        //Debug.Log(moveAction.ReadValue<Vector2>().y);
-        //Debug.Log(verticalMove);
-        //horizontalMove = Convert.ToInt32(Input.GetKey(KeyCode.D)) - Convert.ToInt32(Input.GetKey(KeyCode.A));
-        //verticalMove = Convert.ToInt32(Input.GetKey(KeyCode.W)) - Convert.ToInt32(Input.GetKey(KeyCode.S));
-
-        //Resets Jump Counter if Grounded
-        //jumps = isGrounded ? 0 : jumps;
-        //jumped = isGrounded ? false : jumped;
+        anim.SetBool("Running", horizontalMove != 0);
 
         _lastDirection = Input.GetKeyDown(KeyCode.D) ? 1 : _lastDirection;
         _lastDirection = Input.GetKeyDown(KeyCode.A) ? -1 : _lastDirection;
 
-        if(_isGrounded && !_sprinting) _sprintAvailable = true;
+        if (_isGrounded && !_sprinting) _sprintAvailable = true;
 
-        //if(!shouldJump || jumped) shouldJump = Input.GetKeyDown(KeyCode.Space);
         if (jumpAction.WasPressedThisFrame() && (_isGrounded || !_isGrounded && !_airJump)) Jump();
 
         //Makes the player sprint if able to
-        if (dashAction.WasPressedThisFrame() && _sprintAvailable) StartCoroutine(Sprint(horizontalMove == 0 && verticalMove == 0 ? _lastDirection : horizontalMove, verticalMove));
-
-        //sprintReleased = !dashAction.IsPressed();
-        //jumpReleased = !jumpAction.IsPressed();
+        if (dashAction.WasPressedThisFrame() && _sprintAvailable)
+            StartCoroutine(Sprint(horizontalMove == 0 && verticalMove == 0 ? _lastDirection : horizontalMove, verticalMove));
     }
 
     private void FixedUpdate()
     {
-        if(!_sprinting) Move(horizontalMove, verticalMove);
-        //if (shouldJump) Jump();
+        if (!_sprinting) Move(horizontalMove, verticalMove);
+
+        // Reflect vertical external forces here (horizontal forces are synthesized within Move).
+        if (Mathf.Abs(externalImpulse.y) > 0.0001f)
+            rb.linearVelocityY = rb.linearVelocityY + externalImpulse.y;
+
+        // Decay of external forces (towards 0 over time)
+        if (externalImpulse.sqrMagnitude > 0.0001f)
+            externalImpulse = Vector2.MoveTowards(externalImpulse, Vector2.zero, impulseDamping * Time.fixedDeltaTime);
+        else
+            externalImpulse = Vector2.zero;
     }
 
     void Jump()
     {
         Debug.Log("Jumping");
-        //isGrounded = false;
         rb.linearVelocityY = 0;
         rb.AddForce(transform.up * _jumpSpeed, ForceMode2D.Impulse);
-        
-        
 
         if (!_isGrounded)
         {
@@ -137,68 +120,44 @@ public class PlayerMovement : MonoBehaviour
         {
             AudioManager.PlayEffect(SoundType.JUMP);
         }
-        //jumped = true;
-
-        //Adds to the Jump Counter
-        //jumps++;
     }
 
     void Move(int x, int y)
     {
-        //Debug.Log($"Moving: {x}, {y}");
-        //Moves the Player Horizontally
-        //if(!sprinting) rb.AddForce((transform.right * x * speed) - new Vector3(rb.linearVelocity.x, 0, 0), ForceMode2D.Impulse);
-        //if (x != 0) rb.AddForce((transform.right * x * speed) - new Vector3(rb.linearVelocity.x, 0, 0), ForceMode2D.Impulse);
-        //transform.position = new Vector3(transform.position.x + (x * speed), transform.position.y, 0);
-        //rb.linearVelocityX += x * speed;
-        //velocityAdded = true;
-
+        // Lateral velocity of the foundation based on input
         float newVelocity = Mathf.Clamp(Mathf.Abs(rb.linearVelocityX), _speed, int.MaxValue);
-        rb.linearVelocityX = newVelocity * x;
+        float baseX = newVelocity * x;
 
-
-
-        /*//Handles Jumping
-        if ((isGrounded || jumps < 2) && shouldJump) Jump();
-        */
-
+        // The lateral force is synthesized and converted into the final velocity.
+        float finalX = baseX + externalImpulse.x;
+        rb.linearVelocityX = finalX;
     }
 
-
-    
     /// <summary>
     /// The function handling the player sprint mechanics
     /// </summary>
     /// <param name="x">The X direction to sprint in (-1 = left, 0 = none, 1 = right)</param>
     /// <param name="y">The Y direction to sprint in (-1 = down, 0 = none, 1 = up)</param>
-    /// <returns>N/A (handled in corouting)</returns>
+    /// <returns>N/A (handled in coroutine)</returns>
     private IEnumerator Sprint(int x, int y)
     {
-        //Debug.Log("Sprinting");
-
-        //Sets state variables related to a sprint
         _sprintAvailable = false;
         _sprinting = true;
         tr.emitting = true;
 
-        //Sets the velocity to sprint
+        // Dash sets the speed directly.
         rb.linearVelocity = new Vector2(x * _sprintSpeed, y * _sprintSpeed);
 
-        //Turns off physics Components
         rb.linearDamping = 0;
         rb.gravityScale = 0;
 
-        //play sound
         AudioManager.PlayEffect(SoundType.DASH);
 
-        //Waits for Sprint to conclude
         yield return new WaitForSeconds(_sprintTime);
-        
-        //Resets state variables
+
         _sprinting = false;
         tr.emitting = false;
 
-        //Resets physics components (which will slow and stop the player's motion)
         rb.linearDamping = _friction;
         rb.gravityScale = gravScale;
     }
@@ -219,7 +178,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Collectable")
+        if (other.gameObject.tag == "Collectable")
         {
             other.gameObject.GetComponent<ICollectable>().Collect();
         }
@@ -234,5 +193,18 @@ public class PlayerMovement : MonoBehaviour
     internal void Die()
     {
         _speed = 0;
+    }
+
+    // API that applies knockback, etc. from outside
+    public void ApplyExternalImpulse(Vector2 impulse)
+    {
+        externalImpulse += impulse;
+    }
+
+    // For determining the knockback direction based on position
+    public void ApplyKnockbackFrom(Vector2 sourcePosition, float power)
+    {
+        Vector2 dir = ((Vector2)transform.position - sourcePosition).normalized;
+        externalImpulse += dir * power;
     }
 }
