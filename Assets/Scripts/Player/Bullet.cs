@@ -53,6 +53,7 @@ public class Bullet : MonoBehaviour
             if (pierced > pierce)
             {
                 Destroy(gameObject);
+                EnemyManager.instance.BulletHit(transform.position);
             }
         }
         //else if(!playerOwned && player != null)
@@ -74,6 +75,7 @@ public class Bullet : MonoBehaviour
             //    GameManager.instance.SpawnBullets(1, transform.position);
             //}
             Destroy(gameObject);
+            EnemyManager.instance.BulletWall(transform.position);
         }
     }
 

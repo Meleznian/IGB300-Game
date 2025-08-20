@@ -48,6 +48,9 @@ public class EnemyManager : MonoBehaviour
     [Header("Visuals")]
     [SerializeField] GameObject enemyDeathEffect;
     [SerializeField] GameObject enemyHurtEffect;
+    [SerializeField] GameObject bulletWallEffect;
+    [SerializeField] GameObject bulletHitEffect;
+
 
 
 
@@ -113,9 +116,21 @@ public class EnemyManager : MonoBehaviour
         GameManager.instance.KillCount();
     }
 
-    internal void EnemyHurt(GameObject enemy)
+    internal void EnemyHurt(Vector3 pos)
     {
         print("Enemy Hurt");
-        Instantiate(enemyHurtEffect, enemy.transform.position, Quaternion.identity);
+        Instantiate(enemyHurtEffect, pos, Quaternion.identity);
+    }
+
+    internal void BulletWall(Vector3 pos)
+    {
+        //print("Enemy Hurt");
+        Instantiate(bulletWallEffect, pos, Quaternion.identity);
+    }
+
+    internal void BulletHit(Vector3 pos)
+    {
+        //print("Enemy Hurt");
+        Instantiate(bulletHitEffect, pos, Quaternion.identity);
     }
 }

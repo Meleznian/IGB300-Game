@@ -13,6 +13,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public int defaultDamage;
     [Tooltip("How fast does the enemy move")]
     public float moveSpeed;
+    public float speedVariance = 1;
+
     //[Tooltip("How long between each attack")]
     //public float attackSpeed;
     //[Tooltip("How long is it stunned after being parried")]
@@ -84,7 +86,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         //}
 
         health -= damage;
-        EnemyManager.instance.EnemyHurt(gameObject);
+        EnemyManager.instance.EnemyHurt(transform.position);
 
         if (health <= 0)
         {
@@ -119,6 +121,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
     void SetUp()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        moveSpeed += UnityEngine.Random.Range(-speedVariance, speedVariance);
+
         actingMoveSpeed = moveSpeed /20;
 
         ExtraSetup();
