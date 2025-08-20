@@ -105,7 +105,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 0b8cb75bb63fc7c4fbce67feaddbfd4a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MagnetRange: 3
   MagnetSpeed: 4
-  value: 10
+  value: 5
   player: {fileID: 0}
   inRange: 0
 --- !u!58 &6970564716278901016

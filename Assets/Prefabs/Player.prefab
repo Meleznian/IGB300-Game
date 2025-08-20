@@ -178,7 +178,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   right: {fileID: 7132780285115553264}
   range: 1
   damage: 5
-  knockback: 4
+  knockback: 10
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -1153,6 +1153,8 @@ MonoBehaviour:
   bulletSpeed: 12
   bulletDamage: 10
   bulletKnockback: 3
+  bulletPierce: 0
+  bulletSize: 0.5
   heatPerShot: 1
   maxHeat: 2
   coolModifier: 0.5
@@ -1183,14 +1185,15 @@ MonoBehaviour:
   verticalMove: 0
   _isGrounded: 0
   _lastDirection: 1
-  _speed: 7
+  _speed: 6
   _sprintAvailable: 0
-  _sprintSpeed: 13
+  _sprintSpeed: 12
   _sprintTime: 0.1
   _friction: 4
   jumped: 0
   _jumpSpeed: 30
   _airJump: 0
+  impulseDamping: 6
 --- !u!50 &803783820872400899
 Rigidbody2D:
   serializedVersion: 5

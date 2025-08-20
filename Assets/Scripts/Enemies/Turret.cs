@@ -26,7 +26,7 @@ public class Turret : EnemyBase
             {
                 anim.SetTrigger("Shoot");
                 //Fire();
-                fireCooldown = attackSpeed;
+                //fireCooldown = attackSpeed;
             }
 
             fireCooldown -= Time.deltaTime;
@@ -118,7 +118,7 @@ public class Turret : EnemyBase
             laserSight.startColor = Color.red;
             laserSight.endColor = Color.red;
             laserSight.enabled = false;
-            fireCooldown = attackSpeed;
+            //fireCooldown = attackSpeed;
             aiming = false;
         }
     }
