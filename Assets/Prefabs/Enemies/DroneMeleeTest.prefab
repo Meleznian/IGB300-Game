@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8898742859081505710}
   - component: {fileID: 4604354957782654345}
   - component: {fileID: 1944717912842723637}
-  - component: {fileID: 8321897178124793479}
+  - component: {fileID: -4111859471530392909}
   m_Layer: 8
   m_Name: DroneMeleeTest
   m_TagString: Enemy
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8321897178124793479
+--- !u!114 &-4111859471530392909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,19 +118,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6348757875583023632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94df6e9c44fd4964bb2949778017823f, type: 3}
+  m_Script: {fileID: 11500000, guid: dd0753f5c79e44b40a39548653933fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: 
   health: 0
   defaultDamage: 0
-  moveSpeed: 1
-  attackSpeed: 0
-  stunTime: 0
-  knockbackResist: 0
-  dropAmount: 1
-  attacks: []
-  damageEffect: {fileID: 0}
+  moveSpeed: 1.2
+  speedVariance: 1
+  money: []
+  A: 0.5
+  B: 1
+  C: 2
 --- !u!1 &6894781992262527531
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +142,6 @@ GameObject:
   - component: {fileID: 363992796402207549}
   - component: {fileID: 378493818688190579}
   - component: {fileID: 7350022684874943434}
-  - component: {fileID: 2032332198373209648}
   - component: {fileID: 1713302219049553729}
   - component: {fileID: 21554078416679358}
   - component: {fileID: 7674870378605763326}
@@ -279,20 +277,6 @@ MonoBehaviour:
   functionToRelay3:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2032332198373209648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894781992262527531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff1db9b960fb49d4e8b2093a2b65a8e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parriable: 0
-  agent: {fileID: 0}
 --- !u!58 &1713302219049553729
 CircleCollider2D:
   m_ObjectHideFlags: 0
