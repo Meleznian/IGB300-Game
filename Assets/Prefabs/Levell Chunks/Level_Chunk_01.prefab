@@ -338,8 +338,13 @@ BoxCollider2D:
   m_Size: {x: 20.48, y: 16.99}
   m_EdgeRadius: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &9044265851901454151
 GameObject:
+=======
+--- !u!114 &1846768973726100389
+MonoBehaviour:
+>>>>>>> Stashed changes
 =======
 --- !u!114 &1846768973726100389
 MonoBehaviour:
@@ -348,6 +353,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   serializedVersion: 6
   m_Component:
@@ -478,12 +484,17 @@ BoxCollider2D:
   m_Size: {x: 20, y: 1}
   m_EdgeRadius: 0
 =======
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 7052990726726601033}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c356adcf8415f094c96d75fb25defc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1001 &743620404905587225
 PrefabInstance:
@@ -672,7 +683,10 @@ Transform:
   m_PrefabInstance: {fileID: 1648093545757749475}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &4300505394113617571
 PrefabInstance:
   m_ObjectHideFlags: 0
