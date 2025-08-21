@@ -20,7 +20,7 @@ public class RunningEnemy : EnemyBase
         {
             print("Triggered: " + other.gameObject.name);
             player.TakeDamage(defaultDamage);
-            Vector2 direction = ((-_moveDirection + Vector3.up)*actingMoveSpeed)*10;
+            Vector2 direction = ((-_moveDirection + Vector3.up))*5;
             rb.AddForce(direction, ForceMode2D.Impulse);
         }
     }

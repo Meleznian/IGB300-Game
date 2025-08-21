@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: 
-  health: 0
-  defaultDamage: 0
+  health: 10
+  defaultDamage: 5
   moveSpeed: 1.2
   speedVariance: 1
   money: []
