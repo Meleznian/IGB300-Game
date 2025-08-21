@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94df6e9c44fd4964bb2949778017823f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyName: 
+  enemyName: Crawler
   health: 5
   defaultDamage: 5
   moveSpeed: 1
