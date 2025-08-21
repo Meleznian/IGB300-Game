@@ -1,16 +1,17 @@
+
 using UnityEngine;
 
-public class FlyingEnemy : MonoBehaviour
+public class FlyingEnemy : EnemyBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Vector3 _moveDirection = Vector3.left;
+    public float A, B, C;
+    public override void Move()
     {
-        
-    }
+        transform.position += _moveDirection * actingMoveSpeed;
+        transform.position = new Vector3(transform.position.x, A * Mathf.Sin(transform.position.x - B) + C, transform.position.z);
+        transform.localScale = new Vector3(_moveDirection.x, 1, 1);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (transform.position.x < GameManager.instance.Player.transform.position.x) _moveDirection = Vector3.right;
+        else _moveDirection = Vector3.left;
     }
 }
