@@ -943,6 +943,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: soundList.Array.data[30].sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[4].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c9f2307062857be449620d93e467f87f, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[4].sounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 87b3103f6d4d92340be7e8cae79649c6, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[4].sounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cf35639df64880342b13b53d54ec31f7, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[4].sounds.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f1ca0f99f2f11094fb79fefd01a9066c, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[4].sounds.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: c9f2307062857be449620d93e467f87f, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[7].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 0071caa38fdd4c541955a6a1615e80a5, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[24].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 50449d2816848b246b57472a4393ad10, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[30].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d070248e3e05c740af04de24c60ab92, type: 3}
     - target: {fileID: 2465129241250098991, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: stageBoundsTopLeft
       value: 
