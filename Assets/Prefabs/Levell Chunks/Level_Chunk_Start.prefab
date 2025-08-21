@@ -311,6 +311,7 @@ Transform:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &3531137714014985819
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +720,8 @@ BoxCollider2D:
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!1 &7708215924544653165
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +856,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 1.0009766}
   m_EdgeRadius: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -1077,6 +1081,8 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20.48, y: 16.99}
   m_EdgeRadius: 0
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
