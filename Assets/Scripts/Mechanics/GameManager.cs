@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
             gameHasEnded = true;
 
             UICanvas.SetActive(false);
+            ScoreManager.instance.StopScoring();
             MenuManager.instance.PlayerDead();
             //Debug.Log("GAME OVER!!!");
             //YouDiedtxt.gameObject.SetActive(true);//for gameObject

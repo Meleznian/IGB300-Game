@@ -15,9 +15,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Transform textCanvas;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI deathScoreText;
 
     int point;
-
+    private bool isAlive = true;
 
     private void Awake()
     {
@@ -43,6 +44,7 @@ public class ScoreManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isAlive) return;  // The score should be stop counting if dead
         currentScore += point;
         UpdateScoreUI();
     }
@@ -68,10 +70,17 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score: " + currentScore.ToString();
         highScoreText.text = "High Score: " + highScore.ToString();
+        deathScoreText.text = "Score: " + currentScore.ToString();
     }
 
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("HighScore", highScore);
+    }
+
+    public void StopScoring()
+    {
+        isAlive = false;
+        UpdateScoreUI();
     }
 }
