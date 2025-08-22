@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using EasyTextEffects;
 using System.Drawing;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -19,6 +20,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI deathHighScoreText;
     int point;
     private bool isAlive = true;
+    private TextEffect effect;
 
     private void Awake()
     {
@@ -78,7 +80,9 @@ public class ScoreManager : MonoBehaviour
             }
             else
             {
+
                 deathScoreText.text = "Score: " + currentScore.ToString();
+
             }
         }
         deathHighScoreText.text = "High Score: " + highScore.ToString();
