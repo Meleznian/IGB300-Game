@@ -26,7 +26,7 @@ public class SettingsManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("MVPLevel");
+        SceneManager.LoadScene("RunnerDemo");
     }
 
     public void OpenSettings()
