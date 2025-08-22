@@ -6,14 +6,12 @@ public class SettingsManager : MonoBehaviour
 {
     public GameObject mainMenuPanel;
     public GameObject TutorialPanel;
-    public GameObject ScoreboardPanel;
 
     private GameObject currentOpenPanel;
 
     public void Start()
     {
         TutorialPanel.SetActive(false);
-        ScoreboardPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 
@@ -24,12 +22,7 @@ public class SettingsManager : MonoBehaviour
         currentOpenPanel = TutorialPanel;
     }
 
-    public void Scoreboard()
-    {
-        CloseCurrentPanel();
-        ScoreboardPanel.SetActive(true);
-        currentOpenPanel = ScoreboardPanel;
-    }
+
 
     public void StartGame()
     {
