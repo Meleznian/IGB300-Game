@@ -187,24 +187,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 100db5e91cafc224885dc615e9aca1df, type: 3}
---- !u!1 &183858647 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7161487078540124941, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-  m_PrefabInstance: {fileID: 1818541285}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &183858651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 183858647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e6cc0de238fcf94091e43504719ce62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: {x: 0, y: 0, z: 100}
 --- !u!198 &292840969 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4223598137173593221, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
@@ -615,7 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_Sprite
@@ -650,14 +632,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2117736800459837374, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787040890782132878, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.79
@@ -973,6 +947,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1350274150}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: cashGoal
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: richesRain
       value: 
       objectReference: {fileID: 292840969}
@@ -1138,10 +1116,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1795477592853154, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1967195199}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7161487078540124941, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 183858651}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
 --- !u!82 &1888206803 stripped
 AudioSource:
@@ -1231,6 +1206,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: enemies.Array.data[0].level
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: enemies.Array.data[2].level
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: enemies.Array.data[3].level
+      value: 6000
+      objectReference: {fileID: 0}
     - target: {fileID: 2102013744089027055, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: m_Name
       value: Main Camera
