@@ -122,7 +122,7 @@ public class UpgradeManager : MonoBehaviour
                 Debug.LogWarning("Missing sprite for upgrade: " + currentOptions[i].upgradeName);
 
             AudioManager.PauseMusic();
-            AudioManager.PlayEffect(SoundType.UPGRADE_MUSIC);
+            AudioManager.PlayEffect(SoundType.UPGRADE_MUSIC, 0.6f);
             upgradeMusicSource.Play();
 
         }

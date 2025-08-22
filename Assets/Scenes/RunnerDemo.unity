@@ -597,7 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_Sprite
@@ -1393,6 +1393,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: soundList.Array.data[25].sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: soundList.Array.data[26].sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[24].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 36918d49b4fb46042a7c15f4827846c1, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[25].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b1bb9fa2da7a7ee42a90b566c67ae2b9, type: 3}
+    - target: {fileID: 2302318497564506728, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: 'soundList.Array.data[26].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d9292a009066f840acae40f462a7c94, type: 3}
     - target: {fileID: 2465129241250098991, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: stageBoundsTopLeft
       value: 
