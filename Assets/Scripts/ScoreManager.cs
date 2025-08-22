@@ -81,11 +81,11 @@ public class ScoreManager : MonoBehaviour
             else
             {
 
-                deathScoreText.text = "Score: " + currentScore.ToString();
+                deathScoreText.text = "<link=red+shake>Score:" + currentScore.ToString() + "</link>";
 
             }
         }
-        deathHighScoreText.text = "High Score: " + highScore.ToString();
+        deathHighScoreText.text = "<link=blue+shake>High Score:" + highScore.ToString() + "</link>";
     }
 
     private void OnApplicationQuit()
