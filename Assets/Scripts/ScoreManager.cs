@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI deathScoreText;
-
+    public TextMeshProUGUI deathHighScoreText;
     int point;
     private bool isAlive = true;
 
@@ -70,7 +70,18 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score: " + currentScore.ToString();
         highScoreText.text = "High Score: " + highScore.ToString();
-        deathScoreText.text = "Score: " + currentScore.ToString();
+        if (deathScoreText != null)
+        {
+            if (currentScore >= highScore)
+            {
+                deathScoreText.text = "NEW HIGH SCORE: " + currentScore.ToString();
+            }
+            else
+            {
+                deathScoreText.text = "Score: " + currentScore.ToString();
+            }
+        }
+        deathHighScoreText.text = "High Score: " + highScore.ToString();
     }
 
     private void OnApplicationQuit()
