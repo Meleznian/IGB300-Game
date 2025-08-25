@@ -39,14 +39,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     void Update()
     {
         // Q key to recover (when charged and not in recovery)
-        if (Input.GetKeyDown(KeyCode.Q) && GameManager.instance.DecreaseGauge(10) && !isHealing)
-        {
-            AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
-            healStart.Play();
-            healing.Play();
-            StartCoroutine(HealOverTime());
-        }
-
         if(dead)
         {
             DeathTimer();
@@ -188,5 +180,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             GetComponent<PlayerMovement>().Die();
             dead = true;
         }
+    }
+
+    internal void StartHealing()
+    {
+        AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
+        healStart.Play();
+        healing.Play();
+        StartCoroutine(HealOverTime());
     }
 }
