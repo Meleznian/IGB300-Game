@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("External Impulse (Knockback)")]
     [SerializeField] private float impulseDamping = 6f; // Rate of attenuation (the higher the value, the faster it disappears)
     private Vector2 externalImpulse;                    //ÅgSuperimposed velocityÅh component of the external force applied
+    [SerializeField] bool autoRun;
 
     // Start is called before the first frame update
     void Start()
@@ -66,13 +67,21 @@ public class PlayerMovement : MonoBehaviour
         dashAction = InputSystem.actions.FindAction("Sprint");
 
         gravScale = rb.gravityScale;
+
+        if (autoRun)
+        {
+            horizontalMove = 1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
-        horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
+        if (!autoRun)
+        {
+            horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
+            horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
+        }
         verticalMove = moveAction.ReadValue<Vector2>().y > 0 ? 1 : 0;
         verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
 
