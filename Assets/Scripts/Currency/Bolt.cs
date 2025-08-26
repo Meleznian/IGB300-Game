@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class MagnetBolt : MonoBehaviour
+public class Bolt : MonoBehaviour
 {
     public float MagnetRange = 3f;
     public float MagnetSpeed = 4f;
     public int value;
     public Transform player;
     public bool inRange = false;
+    //Transform parent;
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
+        //parent = transform.parent;
     }
     void Update()
     {
@@ -30,11 +32,19 @@ public class MagnetBolt : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, MagnetRange);
     }
 
-    public void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Wall")
+        print("Money Triggered");
+        if (other.CompareTag("Wall"))
         {
             AudioManager.PlayEffect(SoundType.BOLTS, 0.2f);
+        }
+        if(other.CompareTag("Player"))
+        {
+            GameManager.instance.BoltCount(value);
+            ScoreManager.instance.AddScore(50, transform.position);
+            AudioManager.PlayEffect(SoundType.COLLECT_BOLT, 1f);
+            Destroy(gameObject);
         }
     }
 }

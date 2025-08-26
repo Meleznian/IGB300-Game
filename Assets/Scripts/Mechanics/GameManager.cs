@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     public void BoltCount(float amount)
     {
         Debug.Log("_BoltCount " + _BoltCount);
+        playerHealth.getBolt.Play();
         _BoltCount += amount;
         levelProgress.value = _BoltCount;
         

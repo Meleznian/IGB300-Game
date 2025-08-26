@@ -1113,6 +1113,7 @@ MonoBehaviour:
   damaged: {fileID: 6922806724857937827, guid: a57b36457e820574ea6552742a7e8b5b, type: 3}
   lowhealth: {fileID: 8685299860267206843}
   death: {fileID: 3586236644348328300, guid: e7f23bc6173f29c4b8292d1c5245e32a, type: 3}
+  getBolt: {fileID: 4450762566908111422}
 --- !u!114 &1885519247420598914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1137,7 +1138,8 @@ MonoBehaviour:
     m_Bits: 256
   flashFX: {fileID: 8653696390555176814, guid: 3cfd563972d54814e9156bbacd832532, type: 3}
   anim: {fileID: 1389103851451260586}
-  meleeCooldown: 0.4
+  autoAttack: 1
+  meleeCooldown: 0.6
 --- !u!114 &2982133742907216294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,6 +1196,7 @@ MonoBehaviour:
   _jumpSpeed: 30
   _airJump: 0
   impulseDamping: 6
+  autoRun: 1
 --- !u!50 &803783820872400899
 Rigidbody2D:
   serializedVersion: 5
