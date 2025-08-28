@@ -172,7 +172,10 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.O))
         {
             autoAttack = !autoAttack;
-            autoing = !autoing;
+            if (autoing)
+            {
+                autoing = false;
+            }
         }
     }
 }

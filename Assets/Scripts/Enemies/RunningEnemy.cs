@@ -1,4 +1,5 @@
-using System.Security.Cryptography;
+using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class RunningEnemy : EnemyBase
@@ -13,15 +14,43 @@ public class RunningEnemy : EnemyBase
         else _moveDirection = Vector3.left;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    bool canDamage;
+    float timer;
+
+    private void Update()
     {
-        var player = other.gameObject.GetComponent<PlayerHealth>();
-        if (player != null)
+        if (!canDamage)
         {
-            print("Triggered: " + other.gameObject.name);
-            player.TakeDamage(defaultDamage);
-            Vector2 direction = ((-_moveDirection + Vector3.up))*5;
-            rb.AddForce(direction, ForceMode2D.Impulse);
+            Cooldown();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (canDamage)
+        {
+            var player = other.GetComponent<PlayerHealth>();
+            if (player != null)
+            {
+                print("Triggered: " + other.name);
+                player.TakeDamage(defaultDamage);
+                Vector2 direction = ((-_moveDirection + Vector3.up)) * 4;
+                rb.AddForce(direction, ForceMode2D.Impulse);
+                canDamage = false;
+                timer = 1;
+            }
+        }
+    }
+
+    void Cooldown()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            canDamage = true;
         }
     }
 }

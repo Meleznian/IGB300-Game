@@ -43,7 +43,7 @@ public class CameraFollow : MonoBehaviour
         float maxY = stageBoundsTopLeft ? stageBoundsTopLeft.position.y - camHalfHeight : Mathf.Infinity;
         float clampedY = Mathf.Clamp(desired.y, minY, maxY);
 
-        Vector3 targetPos = new Vector3(lockedX, clampedY, desired.z);
+        Vector3 targetPos = new Vector3(lockedX, transform.position.y, desired.z);
         transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
     }
 }
