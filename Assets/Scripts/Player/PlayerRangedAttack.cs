@@ -50,11 +50,15 @@ public class PlayerRangedAttack : MonoBehaviour
 
     void Update()
     {
+
+        ToggleAuto();
+
         if (autoAttack && !autoing)
         {
             autoing = true;
             StartCoroutine(AutoAttack());
         }
+
         if (!GameManager.instance.playerDead)
         {
             rangedCooldownTimer -= Time.deltaTime;
@@ -176,6 +180,15 @@ public class PlayerRangedAttack : MonoBehaviour
                 heat += heatPerShot;
             }
             yield return new WaitForSeconds(rangedCooldown);
+        }
+    }
+
+    void ToggleAuto()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            autoAttack = !autoAttack;
+            autoing = !autoing;
         }
     }
 }

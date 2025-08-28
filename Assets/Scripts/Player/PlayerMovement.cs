@@ -77,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ToggleAutoRun();
+
         if (!autoRun)
         {
             horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
@@ -216,4 +218,18 @@ public class PlayerMovement : MonoBehaviour
         Vector2 dir = ((Vector2)transform.position - sourcePosition).normalized;
         externalImpulse += dir * power;
     }
+
+    void ToggleAutoRun()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            autoRun = !autoRun;
+
+            if (autoRun)
+            {
+                horizontalMove = 1;
+            }
+        }
+    }
+
 }

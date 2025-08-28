@@ -26,6 +26,8 @@ public class PlayerMeleeAttack : MonoBehaviour
             StartCoroutine(AutoAttack());
         }
 
+        ToggleAuto();
+
         if (!GameManager.instance.playerDead)
         { 
 
@@ -165,4 +167,12 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
     }
 
+    void ToggleAuto()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            autoAttack = !autoAttack;
+            autoing = !autoing;
+        }
+    }
 }
