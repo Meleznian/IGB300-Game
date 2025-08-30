@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 726135f386bb9ae419e7d9c52581a167
+guid: 76289a7ec6ee82f4faf2f69ddfcf964b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3853129968952380162
-    second: SteamKing_Head_0
+      213: -6570561837541687440
+    second: Health 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamKing_Head_0
+      name: Health 1_0
       rect:
         serializedVersion: 2
-        x: 88
-        y: 48
-        width: 524
-        height: 604
+        x: 0
+        y: 0
+        width: 216
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef47e2f35bee68ac0800000000000000
-      internalID: -3853129968952380162
+      spriteID: 07ff69232dca0d4a0800000000000000
+      internalID: -6570561837541687440
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      SteamKing_Head_0: -3853129968952380162
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
