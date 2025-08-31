@@ -569,14 +569,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2237224150534357530, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.14725037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237224150534357530, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.14217694
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237224150534357530, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.76862746
+      objectReference: {fileID: 0}
     - target: {fileID: 2334671606798691541, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5248078998331049634, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 333616868015944023, guid: 9cffb6a0f99dbae46a45abaa476b7384, type: 3}
     - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6030697695442763332, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 333616868015944023, guid: 9cffb6a0f99dbae46a45abaa476b7384, type: 3}
     - target: {fileID: 6904265280506163872, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: textCanvas
       value: 
