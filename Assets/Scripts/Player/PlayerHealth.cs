@@ -119,15 +119,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         while (!done)
         {
-            if (!reverse && sprite.color != Color.red)
+            if (!reverse && sprite.color != new Color (0.5f, 0f, 0f))
             {
                 //print("Red");
-                sprite.color = Color.Lerp(sprite.color, Color.red, t);
+                sprite.color = Color.Lerp(sprite.color, new Color(0.5f, 0f, 0f), t);
                 t += Time.deltaTime;
 
                 yield return null;
             }
-            else if (!reverse && sprite.color == Color.red)
+            else if (!reverse && sprite.color == new Color(0.5f, 0f, 0f))
             {
                 //print("Neither");
                 reverse = true;
