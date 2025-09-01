@@ -158,4 +158,12 @@ public class EnemyBase : MonoBehaviour, IDamageable
             Instantiate(g, transform.position + (Vector3)spawnOffset, Quaternion.identity);
         }
     }
+
+    void CheckWall()
+    {
+        if(GameManager.instance.killWall.position.x > transform.position.x)
+        {
+            Die(false);
+        }
+    }
 }

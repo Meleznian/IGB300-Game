@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject completeLevelUI;
     public GameObject UICanvas;
     public GameObject Player;
+    internal Transform killWall;
     [SerializeField] UpgradeManager upgrader;
 
 
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         ammoDisplay.value = ammo;
         AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
         Player = GameObject.Find("Player");
+        killWall = GameObject.Find("KillWall").transform;
         steamSlider.maxValue = maxSteam;
         playerHealth = Player.GetComponent<PlayerHealth>(); 
     }

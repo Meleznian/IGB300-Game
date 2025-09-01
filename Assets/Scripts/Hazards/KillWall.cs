@@ -1,10 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class KillWall : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float moveSpeed;
+    float defaultSpeed;
+    [SerializeField] float rubberbandDistance;
+    Transform player;
 
     [Header("Filter")]
     [SerializeField] string playerTag = "Player";
@@ -17,10 +21,18 @@ public class KillWall : MonoBehaviour
         if (col) col.isTrigger = true;
     }
 
+    private void Start()
+    {
+        defaultSpeed = moveSpeed;
+        player = GameObject.Find("Player").transform;
+    }
+
     void Update()
     {
         // Move at a constant speed to the right
         transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+
+        //Rubberband();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -52,4 +64,18 @@ public class KillWall : MonoBehaviour
             enemy.Die(false);
         }
     }
+
+    //void Rubberband()
+    //{
+    //    if((player.position.x - transform.position.x) > rubberbandDistance)
+    //    {
+    //        moveSpeed = 5f;
+    //        print("Run: " + moveSpeed);
+    //    }
+    //    else
+    //    {
+    //        moveSpeed = defaultSpeed;
+    //        print("Walk: " + moveSpeed);
+    //    }
+    //}
 }
