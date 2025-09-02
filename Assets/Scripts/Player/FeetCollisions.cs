@@ -15,6 +15,7 @@ public class FeetCollisions : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y -0.8f, transform.position.z), transform.rotation);
+        print("Player Entered Ground");
         _movementScript.LandedOnGround();
     }
 
@@ -24,6 +25,7 @@ public class FeetCollisions : MonoBehaviour
     /// <param name="collision">The Collider the player is no longer triggering</param>
     private void OnTriggerExit2D(Collider2D collision)
     {
+        print("Player Left Ground");
         _movementScript.LeftGround();
     }
 }

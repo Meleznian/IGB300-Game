@@ -88,7 +88,10 @@ public class PlayerRangedAttack : MonoBehaviour
                 //}
             }
 
-            UpdateHeat();
+            if (!autoAttack)
+            {
+                UpdateHeat();
+            }
         }
 
     }
