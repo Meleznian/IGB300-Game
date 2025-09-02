@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool jumped;
     [SerializeField] private float _jumpSpeed;
     //[SerializeField] private int jumps;
-    [SerializeField] private bool _airJump;
+    [SerializeField] private bool _airJump = true;
     private bool _jumpReleased;
 
     private float gravScale;
@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetBool("Jumping", false);
         _isGrounded = true;
-        _airJump = false;
+        _airJump = true;
         AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
     }
 
