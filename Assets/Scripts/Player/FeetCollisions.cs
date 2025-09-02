@@ -1,3 +1,4 @@
+using UnityEditor.Build;
 using UnityEngine;
 
 public class FeetCollisions : MonoBehaviour
@@ -6,6 +7,8 @@ public class FeetCollisions : MonoBehaviour
     [SerializeField] private PlayerMovement _movementScript;
     [SerializeField] ParticleSystem landEffect;
     [SerializeField] LayerMask groundLayer;
+    [SerializeField] float raycastDistance;
+    [SerializeField] bool doDebugRay;
     //[SerializeField] Vector3 feetPos;
 
 
@@ -38,9 +41,25 @@ public class FeetCollisions : MonoBehaviour
     void CheckGround()
     {
         //RaycastHit hit;
-        Debug.DrawRay(transform.position, Vector3.down, Color.red, 0.1f);
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, raycastDistance);
 
-        if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f, groundLayer))
+        if (doDebugRay)
+        {
+            RaycastHit2D hit;
+
+            hit = Physics2D.Raycast(transform.position, Vector3.down, raycastDistance);
+
+            if (hit.collider == null)
+            {
+                Debug.LogError("Nothing Detected");
+            }
+            else
+            {
+                print(hit.collider.name);
+            }
+        }
+
+        if (Physics2D.Raycast(transform.position, Vector3.down, raycastDistance, groundLayer))
         {
             print("Detecting Ground");
             _movementScript.LandedOnGround();
