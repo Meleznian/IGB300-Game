@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using EasyTextEffects;
 using System.Drawing;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -15,9 +16,11 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] Transform textCanvas;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
-
+    public TextMeshProUGUI deathScoreText;
+    public TextMeshProUGUI deathHighScoreText;
     int point;
-
+    private bool isAlive = true;
+    private TextEffect effect;
 
     private void Awake()
     {
@@ -43,6 +46,7 @@ public class ScoreManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isAlive) return;  // The score should be stop counting if dead
         currentScore += point;
         UpdateScoreUI();
     }
@@ -68,10 +72,30 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score: " + currentScore.ToString();
         highScoreText.text = "High Score: " + highScore.ToString();
+        if (deathScoreText != null)
+        {
+            if (currentScore >= highScore)
+            {
+                deathScoreText.text = "NEW HIGH SCORE: " + currentScore.ToString();
+            }
+            else
+            {
+
+                deathScoreText.text = "<link=red+shake>Score:" + currentScore.ToString() + "</link>";
+
+            }
+        }
+        deathHighScoreText.text = "<link=blue+shake>High Score:" + highScore.ToString() + "</link>";
     }
 
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("HighScore", highScore);
+    }
+
+    public void StopScoring()
+    {
+        isAlive = false;
+        UpdateScoreUI();
     }
 }

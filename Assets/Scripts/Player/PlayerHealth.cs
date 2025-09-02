@@ -26,6 +26,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem damaged;
     [SerializeField] ParticleSystem lowhealth;
     [SerializeField] ParticleSystem death;
+    [SerializeField] internal ParticleSystem getBolt;
+
 
 
     void Start()
@@ -39,14 +41,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     void Update()
     {
         // Q key to recover (when charged and not in recovery)
-        if (Input.GetKeyDown(KeyCode.Q) && GameManager.instance.DecreaseGauge(10) && !isHealing)
-        {
-            AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
-            healStart.Play();
-            healing.Play();
-            StartCoroutine(HealOverTime());
-        }
-
         if(dead)
         {
             DeathTimer();
@@ -125,15 +119,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         while (!done)
         {
-            if (!reverse && sprite.color != Color.red)
+            if (!reverse && sprite.color != new Color (0.5f, 0f, 0f))
             {
                 //print("Red");
-                sprite.color = Color.Lerp(sprite.color, Color.red, t);
+                sprite.color = Color.Lerp(sprite.color, new Color(0.5f, 0f, 0f), t);
                 t += Time.deltaTime;
 
                 yield return null;
             }
-            else if (!reverse && sprite.color == Color.red)
+            else if (!reverse && sprite.color == new Color(0.5f, 0f, 0f))
             {
                 //print("Neither");
                 reverse = true;
@@ -188,5 +182,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             GetComponent<PlayerMovement>().Die();
             dead = true;
         }
+    }
+
+    internal void StartHealing()
+    {
+        AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
+        healStart.Play();
+        healing.Play();
+        StartCoroutine(HealOverTime());
     }
 }

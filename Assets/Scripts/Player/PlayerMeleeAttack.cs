@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
@@ -9,13 +10,24 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] LayerMask enemyLayer;
     [SerializeField] GameObject flashFX;
     [SerializeField] Animator anim;
+    [SerializeField] bool autoAttack;
     Vector2 knockDirection;
 
     [SerializeField] float meleeCooldown = 0.5f;
     float meleeCooldownTimer = 0f;
 
+    bool autoing;
+    
     void Update()
     {
+        if (autoAttack && !autoing)
+        {
+            autoing = true;
+            StartCoroutine(AutoAttack());
+        }
+
+        ToggleAuto();
+
         if (!GameManager.instance.playerDead)
         { 
 
@@ -26,24 +38,27 @@ public class PlayerMeleeAttack : MonoBehaviour
                 anim.SetInteger("Slashes", 0);
             }
 
-            // Gamepad input: Left stick + R1 button
-            if (Input.GetKeyDown(KeyCode.JoystickButton5) && meleeCooldownTimer <= 0f)
+            if (!autoAttack)
             {
-                Vector2 stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-                if (stick.magnitude > 0.5f)
+                // Gamepad input: Left stick + R1 button
+                if (Input.GetKeyDown(KeyCode.JoystickButton5) && meleeCooldownTimer <= 0f)
                 {
-                    TryAttack(stick.normalized);
+                    Vector2 stick = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                    if (stick.magnitude > 0.5f)
+                    {
+                        TryAttack(stick.normalized);
+                        meleeCooldownTimer = meleeCooldown;
+                    }
+                }
+
+                // Mouse input: left click
+                if (Input.GetMouseButtonDown(0) && meleeCooldownTimer <= 0f)
+                {
+                    Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Vector2 dir = (mouse - (Vector2)transform.position).normalized;
+                    TryAttack(dir);
                     meleeCooldownTimer = meleeCooldown;
                 }
-            }
-
-            // Mouse input: left click
-            if (Input.GetMouseButtonDown(0) && meleeCooldownTimer <= 0f)
-            {
-                Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 dir = (mouse - (Vector2)transform.position).normalized;
-                TryAttack(dir);
-                meleeCooldownTimer = meleeCooldown;
             }
         }
     }
@@ -141,4 +156,26 @@ public class PlayerMeleeAttack : MonoBehaviour
         range += amount;
     }
 
+    IEnumerator AutoAttack()
+    {
+        while (autoAttack)
+        {
+            Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 dir = (mouse - (Vector2)transform.position).normalized;
+            TryAttack(dir);
+            yield return new WaitForSeconds(meleeCooldown);
+        }
+    }
+
+    void ToggleAuto()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            autoAttack = !autoAttack;
+            if (autoing)
+            {
+                autoing = false;
+            }
+        }
+    }
 }

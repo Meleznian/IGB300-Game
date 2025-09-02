@@ -83,7 +83,7 @@ public class EnemyManager : MonoBehaviour
             {
                 Enemy e = enemies[UnityEngine.Random.Range(0, enemies.Length)];
 
-                if (e.level <= currentLevel)
+                if (e.level <= ScoreManager.instance.currentScore)
                 {
                     float x = UnityEngine.Random.Range(-spawnVariationX, spawnVariationX);
                     float y = UnityEngine.Random.Range(-spawnVariationY, spawnVariationY);

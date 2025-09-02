@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool jumped;
     [SerializeField] private float _jumpSpeed;
     //[SerializeField] private int jumps;
-    [SerializeField] private bool _airJump;
+    [SerializeField] private bool _airJump = true;
     private bool _jumpReleased;
 
     private float gravScale;
@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("External Impulse (Knockback)")]
     [SerializeField] private float impulseDamping = 6f; // Rate of attenuation (the higher the value, the faster it disappears)
     private Vector2 externalImpulse;                    //ÅgSuperimposed velocityÅh component of the external force applied
+    [SerializeField] bool autoRun;
 
     // Start is called before the first frame update
     void Start()
@@ -66,13 +67,23 @@ public class PlayerMovement : MonoBehaviour
         dashAction = InputSystem.actions.FindAction("Sprint");
 
         gravScale = rb.gravityScale;
+
+        if (autoRun)
+        {
+            horizontalMove = 1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
-        horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
+        ToggleAutoRun();
+
+        if (!autoRun)
+        {
+            horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
+            horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
+        }
         verticalMove = moveAction.ReadValue<Vector2>().y > 0 ? 1 : 0;
         verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
 
@@ -164,16 +175,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void LandedOnGround()
     {
-        anim.SetBool("Jumping", false);
-        _isGrounded = true;
-        _airJump = false;
-        AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
+        if (!_isGrounded)
+        {
+            anim.SetBool("Jumping", false);
+            _isGrounded = true;
+            _airJump = true;
+            AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
+        }
     }
 
     public void LeftGround()
     {
-        anim.SetBool("Jumping", true);
-        _isGrounded = false;
+        if (_isGrounded)
+        {
+            anim.SetBool("Jumping", true);
+            _isGrounded = false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -207,4 +224,18 @@ public class PlayerMovement : MonoBehaviour
         Vector2 dir = ((Vector2)transform.position - sourcePosition).normalized;
         externalImpulse += dir * power;
     }
+
+    void ToggleAutoRun()
+    {
+        if (Input.GetKeyUp(KeyCode.P))
+        {
+            autoRun = !autoRun;
+
+            if (autoRun)
+            {
+                horizontalMove = 1;
+            }
+        }
+    }
+
 }

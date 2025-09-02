@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject completeLevelUI;
     public GameObject UICanvas;
     public GameObject Player;
+    internal Transform killWall;
     [SerializeField] UpgradeManager upgrader;
 
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     public int crowdHype;
     public float cashMult;
     public int steamGauge;
+    public int maxSteam;
     public int ammo;
     public int maxAmmo;
     public float parryMult = 1.2f;
@@ -52,12 +54,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider ammoDisplay;
     [SerializeField] Slider levelProgress;
     [SerializeField] GameObject floorBullet;
+    PlayerHealth playerHealth;
 
     private void Start()
     {
         ammoDisplay.value = ammo;
         AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
         Player = GameObject.Find("Player");
+        killWall = GameObject.Find("KillWall").transform;
+        steamSlider.maxValue = maxSteam;
+        playerHealth = Player.GetComponent<PlayerHealth>(); 
     }
 
     void Update()
@@ -85,6 +91,7 @@ public class GameManager : MonoBehaviour
     public void BoltCount(float amount)
     {
         Debug.Log("_BoltCount " + _BoltCount);
+        playerHealth.getBolt.Play();
         _BoltCount += amount;
         levelProgress.value = _BoltCount;
         
@@ -120,6 +127,7 @@ public class GameManager : MonoBehaviour
             gameHasEnded = true;
 
             UICanvas.SetActive(false);
+            ScoreManager.instance.StopScoring();
             MenuManager.instance.PlayerDead();
             //Debug.Log("GAME OVER!!!");
             //YouDiedtxt.gameObject.SetActive(true);//for gameObject
@@ -177,8 +185,14 @@ public class GameManager : MonoBehaviour
     public void IncreaseGauge()
     {
         steamGauge++;
-        steamGauge = Mathf.Clamp(steamGauge, 0, 10);
+        steamGauge = Mathf.Clamp(steamGauge, 0, maxSteam);
         steamSlider.value = steamGauge;
+
+        if(steamGauge == maxSteam && !playerHealth.isHealing)
+        {
+            playerHealth.StartHealing();
+            steamGauge = 0;
+        }
     }
 
     public bool DecreaseGauge(int amount)

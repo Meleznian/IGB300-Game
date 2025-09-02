@@ -1,6 +1,7 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerRangedAttack : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class PlayerRangedAttack : MonoBehaviour
     [SerializeField] Slider heatGauge;
     [SerializeField] Image heatGaugeFill;
     [SerializeField] ParticleSystem coolEffect;
+    [SerializeField] bool autoAttack;
     Color heatColor;
 
     bool disabled;
@@ -40,19 +42,33 @@ public class PlayerRangedAttack : MonoBehaviour
         heatColor = heatGaugeFill.color;
         heatGauge.maxValue = maxHeat;
         print(heatGauge.maxValue);
+
+
     }
+
+    bool autoing;
 
     void Update()
     {
+
+        ToggleAuto();
+
+        if (autoAttack && !autoing)
+        {
+            autoing = true;
+            StartCoroutine(AutoAttack());
+        }
+
         if (!GameManager.instance.playerDead)
         {
             rangedCooldownTimer -= Time.deltaTime;
 
 
 
-            if (!disabled)
+            if (!disabled && !autoAttack)
             {
                 // Right click with mouse
+                 
                 if (Input.GetKeyDown(KeyCode.LeftShift) && rangedCooldownTimer <= 0f)
                 {
                     Vector2 dir = aimCursor.position - firePoint.position;
@@ -72,7 +88,10 @@ public class PlayerRangedAttack : MonoBehaviour
                 //}
             }
 
-            UpdateHeat();
+            if (!autoAttack)
+            {
+                UpdateHeat();
+            }
         }
 
     }
@@ -151,5 +170,31 @@ public class PlayerRangedAttack : MonoBehaviour
     public void IncreaseSize(float amount)
     {
         bulletSize += amount;
+    }
+
+    IEnumerator AutoAttack()
+    {
+        while (autoAttack)
+        {
+            if (!disabled)
+            {
+                Vector2 dir = aimCursor.position - firePoint.position;
+                FireBullet(dir.normalized);
+                heat += heatPerShot;
+            }
+            yield return new WaitForSeconds(rangedCooldown);
+        }
+    }
+
+    void ToggleAuto()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            autoAttack = !autoAttack;
+            if (autoing)
+            {
+                autoing = false;
+            }
+        }
     }
 }

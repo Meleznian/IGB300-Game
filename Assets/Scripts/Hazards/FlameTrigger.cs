@@ -4,7 +4,7 @@ public class FlameTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Something entered the flame: " + other.name);
+        //Debug.Log("Something entered the flame: " + other.name);
 
         if (other.CompareTag("Player"))
         {
@@ -12,7 +12,7 @@ public class FlameTrigger : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(10);
-                Debug.Log("Damage applied to player.");
+                //Debug.Log("Damage applied to player.");
             }
             else
             {

@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Setting Scene.unity
     guid: f9e57ce9b4432024d88040331dc483d0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MVPLevel.unity
     guid: ae832873954acc74a851e36887be1be0
+  - enabled: 1
+    path: Assets/Scenes/RunnerDemo.unity
+    guid: 0c6923ed285b6084eac1277b313652b7
   - enabled: 1
     path: Assets/Scenes/Main Game.unity
     guid: 9a36a42e4c0742a4999eb9a3ab20529e
