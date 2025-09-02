@@ -150,5 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 1
-  stopTime: 0.7
+  stopTime: 0.1
   riseSpeed: 1
+  fadeSpeed: 1
+  text: {fileID: 6337040031794903453}
