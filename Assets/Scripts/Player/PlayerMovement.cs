@@ -175,16 +175,22 @@ public class PlayerMovement : MonoBehaviour
 
     public void LandedOnGround()
     {
-        anim.SetBool("Jumping", false);
-        _isGrounded = true;
-        _airJump = true;
-        AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
+        if (!_isGrounded)
+        {
+            anim.SetBool("Jumping", false);
+            _isGrounded = true;
+            _airJump = true;
+            AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
+        }
     }
 
     public void LeftGround()
     {
-        anim.SetBool("Jumping", true);
-        _isGrounded = false;
+        if (_isGrounded)
+        {
+            anim.SetBool("Jumping", true);
+            _isGrounded = false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
