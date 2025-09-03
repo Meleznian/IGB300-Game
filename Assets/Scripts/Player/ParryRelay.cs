@@ -3,7 +3,7 @@ using UnityEngine;
 public class ParryRelay : MonoBehaviour
 {
     [SerializeField] PlayerHealth health;
-    [SerializeField] Parry parry;
+    //[SerializeField] Parry parry;
     [SerializeField] GameObject shoulder;
     Animator anim;
 

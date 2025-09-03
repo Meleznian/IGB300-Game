@@ -22,10 +22,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI YouDiedtxt;
     public TextMeshProUGUI killCountText;
     public TextMeshProUGUI killCountVictoryText;
-    public TMP_Text crowdHypeText;
+    //public TMP_Text crowdHypeText;
     public GameObject completeLevelUI;
     public GameObject UICanvas;
     public GameObject Player;
+    [SerializeField] PlayerHealth playerHealth;
+   
     internal Transform killWall;
     [SerializeField] UpgradeManager upgrader;
 
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public int KillTarget = 10;
 
-    public int crowdHype;
+    //public int crowdHype;
     public float cashMult;
     public int steamGauge;
     public int maxSteam;
@@ -50,20 +52,19 @@ public class GameManager : MonoBehaviour
     public float parryMult = 1.2f;
 
     [SerializeField] Slider steamSlider;
-    [SerializeField] Slider hypeSlider;
+    //[SerializeField] Slider hypeSlider;
     [SerializeField] Slider ammoDisplay;
     [SerializeField] Slider levelProgress;
     [SerializeField] GameObject floorBullet;
-    PlayerHealth playerHealth;
 
     private void Start()
     {
         ammoDisplay.value = ammo;
         AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
         Player = GameObject.Find("Player");
+        playerHealth = Player.GetComponent<PlayerHealth>();
         killWall = GameObject.Find("KillWall").transform;
         steamSlider.maxValue = maxSteam;
-        playerHealth = Player.GetComponent<PlayerHealth>(); 
     }
 
     void Update()
@@ -139,48 +140,48 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void IncreaseHype()
-    {
-        crowdHype++;
-        crowdHype = Mathf.Clamp(crowdHype, 0, 10);
-        hypeSlider.value = crowdHype;
+    //public void IncreaseHype()
+    //{
+    //    crowdHype++;
+    //    crowdHype = Mathf.Clamp(crowdHype, 0, 10);
+    //    hypeSlider.value = crowdHype;
+    //
+    //    CalcMult();
+    //}
+    //
+    //public void DecreaseHype()
+    //{
+    //    crowdHype /= 2;
+    //    hypeSlider.value = crowdHype;
+    //
+    //    CalcMult();
+    //}
 
-        CalcMult();
-    }
-
-    public void DecreaseHype()
-    {
-        crowdHype /= 2;
-        hypeSlider.value = crowdHype;
-
-        CalcMult();
-    }
-
-    void CalcMult()
-    {
-        if(crowdHype == 10)
-        {
-            cashMult = 2;
-        }
-        else if(crowdHype >= 7)
-        {
-            cashMult = 1.7f;
-        }
-        else if (crowdHype >= 5)
-        {
-            cashMult = 1.5f;
-        }
-        else if (crowdHype >= 3)
-        {
-            cashMult = 1.2f;
-        }
-        else
-        {
-            cashMult = 1f;
-        }
-
-        //crowdHypeText.text = "x"+ cashMult;
-    }
+    //void CalcMult()
+    //{
+    //    if(crowdHype == 10)
+    //    {
+    //        cashMult = 2;
+    //    }
+    //    else if(crowdHype >= 7)
+    //    {
+    //        cashMult = 1.7f;
+    //    }
+    //    else if (crowdHype >= 5)
+    //    {
+    //        cashMult = 1.5f;
+    //    }
+    //    else if (crowdHype >= 3)
+    //    {
+    //        cashMult = 1.2f;
+    //    }
+    //    else
+    //    {
+    //        cashMult = 1f;
+    //    }
+    //
+    //    //crowdHypeText.text = "x"+ cashMult;
+    //}
 
     public void IncreaseGauge()
     {
@@ -245,54 +246,54 @@ public class GameManager : MonoBehaviour
     //    IncreaseAmmo(maxAmmo - ammo);
     //}
 
-    [Header("Bolts")]
-    [SerializeField] GameObject bolt1;
-    [SerializeField] GameObject bolt5;
-    [SerializeField] GameObject bolt10;
-    [SerializeField] GameObject bolt15;
-    [SerializeField] GameObject bolt25;
-
-    public GameObject[] GenerateMoney(float amount)
-    {
-        amount = Mathf.Round(amount*cashMult);
-        List<GameObject> cashList = new();
-
-        while(amount > 0)
-        {
-            if(amount >= 75)
-            {
-                cashList.Add(bolt25);
-                amount -= 25;
-            }
-            else if(amount >= 60 && amount >= 40)
-            {
-                cashList.Add(bolt15);
-                amount -= 15;
-            }
-            else if (amount <= 40 && amount >= 20)
-            {
-                cashList.Add(bolt10);
-                amount -= 10;
-            }
-            else if (amount <= 20 && amount >= 5)
-            {
-                cashList.Add(bolt5);
-                amount -= 5;
-            }
-            else if (amount <= 5)
-            {
-                cashList.Add(bolt1);
-                amount -= 1;
-            }
-            else
-            {
-                print(amount);
-                break;
-            }
-        }
-        print(cashList.ToArray());
-        return cashList.ToArray();
-    }
+    //[Header("Bolts")]
+    //[SerializeField] GameObject bolt1;
+    //[SerializeField] GameObject bolt5;
+    //[SerializeField] GameObject bolt10;
+    //[SerializeField] GameObject bolt15;
+    //[SerializeField] GameObject bolt25;
+    //
+    //public GameObject[] GenerateMoney(float amount)
+    //{
+    //    amount = Mathf.Round(amount*cashMult);
+    //    List<GameObject> cashList = new();
+    //
+    //    while(amount > 0)
+    //    {
+    //        if(amount >= 75)
+    //        {
+    //            cashList.Add(bolt25);
+    //            amount -= 25;
+    //        }
+    //        else if(amount >= 60 && amount >= 40)
+    //        {
+    //            cashList.Add(bolt15);
+    //            amount -= 15;
+    //        }
+    //        else if (amount <= 40 && amount >= 20)
+    //        {
+    //            cashList.Add(bolt10);
+    //            amount -= 10;
+    //        }
+    //        else if (amount <= 20 && amount >= 5)
+    //        {
+    //            cashList.Add(bolt5);
+    //            amount -= 5;
+    //        }
+    //        else if (amount <= 5)
+    //        {
+    //            cashList.Add(bolt1);
+    //            amount -= 1;
+    //        }
+    //        else
+    //        {
+    //            print(amount);
+    //            break;
+    //        }
+    //    }
+    //    print(cashList.ToArray());
+    //    return cashList.ToArray();
+    //}
 }
 
 

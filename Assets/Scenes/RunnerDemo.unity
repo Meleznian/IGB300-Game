@@ -436,10 +436,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2160569617568736537, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: landEffect
-      value: 
-      objectReference: {fileID: 6922806724857937827, guid: a7fea805504b48747848caa2ef06ff71, type: 3}
     - target: {fileID: 5765494503337787885, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.79
