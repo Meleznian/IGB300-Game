@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class RunningEnemy : EnemyBase
 {
@@ -26,10 +27,10 @@ public class RunningEnemy : EnemyBase
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (canDamage)
+        var player = other.GetComponent<PlayerHealth>();
+        if (player != null)
         {
-            var player = other.GetComponent<PlayerHealth>();
-            if (player != null)
+            if (canDamage)
             {
                 print("Triggered: " + other.name);
                 player.TakeDamage(defaultDamage);
@@ -38,7 +39,10 @@ public class RunningEnemy : EnemyBase
                 canDamage = false;
                 timer = 1;
             }
+            rb.AddForce(-_moveDirection/4, ForceMode2D.Impulse);
+
         }
+
     }
 
     void Cooldown()
