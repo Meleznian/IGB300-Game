@@ -1,10 +1,13 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class RunningEnemy : EnemyBase
 {
     private Vector3 _moveDirection = Vector3.left;
+    [SerializeField] bool canJump;
+    [SerializeField] float jumpForce;
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
@@ -12,6 +15,8 @@ public class RunningEnemy : EnemyBase
 
         if (transform.position.x < GameManager.instance.Player.transform.position.x) _moveDirection = Vector3.right;
         else _moveDirection = Vector3.left;
+
+        Jump();
     }
 
     bool canDamage;
@@ -54,6 +59,21 @@ public class RunningEnemy : EnemyBase
         else
         {
             canDamage = true;
+        }
+    }
+
+    float jumpTimer;
+    void Jump()
+    {
+        if (canJump)
+        {
+            if(jumpTimer <= 0)
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                jumpTimer = UnityEngine.Random.Range(1.0f,2.0f);
+            }
+
+            jumpTimer -= Time.deltaTime;
         }
     }
 }
