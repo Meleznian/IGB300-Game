@@ -18,6 +18,8 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI deathScoreText;
     public TextMeshProUGUI deathHighScoreText;
+    [SerializeField] TMP_Text newHighScore;
+    [SerializeField] ParticleSystem scoreEffect;
     int point;
     private bool isAlive = true;
     private TextEffect effect;
@@ -76,16 +78,18 @@ public class ScoreManager : MonoBehaviour
         {
             if (currentScore >= highScore)
             {
-                deathScoreText.text = "NEW HIGH SCORE: " + currentScore.ToString();
+                deathScoreText.text = "<link=red+shake>Score: " + currentScore.ToString() + "</link>";
+                newHighScore.gameObject.SetActive(true);
+                scoreEffect.Play();
             }
             else
             {
 
-                deathScoreText.text = "<link=red+shake>Score:" + currentScore.ToString() + "</link>";
+                deathScoreText.text = "<link=red+shake>Score: " + currentScore.ToString() + "</link>";
 
             }
         }
-        deathHighScoreText.text = "<link=blue+shake>High Score:" + highScore.ToString() + "</link>";
+        deathHighScoreText.text = "<link=blue+shake>High Score: " + highScore.ToString() + "</link>";
     }
 
     private void OnApplicationQuit()
@@ -97,5 +101,18 @@ public class ScoreManager : MonoBehaviour
     {
         isAlive = false;
         UpdateScoreUI();
+    }
+
+    private void Update()
+    {
+        ResetScore();
+    }
+
+    void ResetScore()
+    {
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            PlayerPrefs.SetInt("HighScore", 0);
+        }
     }
 }
