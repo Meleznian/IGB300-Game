@@ -1,81 +1,70 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class KillWall : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField] float moveSpeed;
-    float defaultSpeed;
-    [SerializeField] float rubberbandDistance;
-    Transform player;
-
-    [Header("Filter")]
+    [Header("Refs")]
+    [SerializeField] Transform player;
     [SerializeField] string playerTag = "Player";
     [SerializeField] string enemyTag = "Enemy";
 
+    [Header("Speed Mapping")]
+    [SerializeField] float minSpeed = 1f;    // Near speed
+    [SerializeField] float maxSpeed = 8f;    // Speed at Far
+    [SerializeField] float nearDist = 10f;   // Below thisÅ®min
+    [SerializeField] float farDist = 18f;   // No moreÅ®max
+
+    [Header("Smoothing")]
+    [SerializeField] float accel = 10f;      // Speed following target speed
+
+    float currentSpeed;
+
     void Reset()
     {
-        // Convert the 2D colliders attached to KillWall to Triggers.
         var col = GetComponent<Collider2D>();
         if (col) col.isTrigger = true;
     }
 
-    private void Start()
+    void Awake()
     {
-        defaultSpeed = moveSpeed;
-        player = GameObject.Find("Player").transform;
+        if (!player)
+        {
+            var tagged = GameObject.FindGameObjectWithTag(playerTag);
+            if (tagged) player = tagged.transform;
+        }
+        currentSpeed = minSpeed;
     }
 
     void Update()
     {
-        // Move at a constant speed to the right
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        // Distance (wall Å® player's X difference). Forward is positive.
+        float dx = player ? (player.position.x - transform.position.x) : 0f;
 
-        //Rubberband();
+        // Linear map: NearÅ®0, FarÅ®1 (automatically clamps values outside range)
+        float t = Mathf.InverseLerp(nearDist, farDist, dx);
+
+        // Interpolate speed between min..max 
+        float targetSpeed = Mathf.Lerp(minSpeed, maxSpeed, t);
+
+        // Smoothing
+        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accel * Time.deltaTime);
+
+        // Horizontal movement
+        transform.position += Vector3.right * (currentSpeed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log($"[KillWall] Trigger with {other.name}");
-
-        // Player judgment (filter by tag)
         if (other.CompareTag(playerTag))
         {
-
-            // Search for PlayerHealth directly or from parent
-            var playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth == null)
-                playerHealth = other.GetComponentInParent<PlayerHealth>();
-
-            if (playerHealth != null)
-            {
-                playerHealth.Kill(); // Set HP to 0 and kill
-                Debug.Log("[KillWall] Player killed.");
-            }
-            else
-            {
-                Debug.LogWarning($"[KillWall] PlayerHealth not found on {other.name} or its parents.");
-            }
+            var hp = other.GetComponent<PlayerHealth>() ?? other.GetComponentInParent<PlayerHealth>();
+            if (hp) hp.Kill();
+            return;
         }
         if (other.CompareTag(enemyTag))
         {
             var enemy = other.GetComponent<EnemyBase>();
-            enemy.Die(false);
+            if (enemy) enemy.Die(false);
         }
     }
-
-    //void Rubberband()
-    //{
-    //    if((player.position.x - transform.position.x) > rubberbandDistance)
-    //    {
-    //        moveSpeed = 5f;
-    //        print("Run: " + moveSpeed);
-    //    }
-    //    else
-    //    {
-    //        moveSpeed = defaultSpeed;
-    //        print("Walk: " + moveSpeed);
-    //    }
-    //}
 }
