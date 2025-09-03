@@ -3,17 +3,35 @@ using UnityEngine;
 
 public class FireJet : MonoBehaviour
 {
+
     [Header("Timing Settings")]
+    [SerializeField] int damage;
     [SerializeField] private float activeDuration = 1.5f;
     [SerializeField] private float inactiveDuration = 2.0f;
+    [SerializeField] float damageInterval;
 
     [Header("Flame Settings")]
     [SerializeField] private ParticleSystem flameParticles;
     [SerializeField] private Collider2D damageTrigger;
 
+    bool canDamage;
+    float timer;
+
     private void Start()
     {
         StartCoroutine(FireCycle());
+    }
+
+    private void Update()
+    {
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+        else if (timer <= 0 && !canDamage)
+        {
+            canDamage = true;
+        }
     }
 
     private IEnumerator FireCycle()
@@ -44,25 +62,22 @@ public class FireJet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        Debug.Log("Something entered the flame: " + other.name);
+        if (other.CompareTag("Player") && canDamage)
+        {
+            var playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(Mathf.RoundToInt(damage));
+            timer = damageInterval; // Allow time between the first damage.
+            canDamage = false;
+        }
+    }
 
-        if (!damageTrigger.enabled) return;
-
+    private void OnTriggerExit2D(Collider2D other)
+    {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player entered flame!");
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(10);
-                Debug.Log("Damage applied to player.");
-            }
-            else
-            {
-                Debug.LogWarning("PlayerHealth not found on player!");
-            }
+            timer = 0;
         }
     }
 
