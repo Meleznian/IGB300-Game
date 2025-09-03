@@ -379,30 +379,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 910836574033150263, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1482717153836232119, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1885519247420598914, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: autoAttack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2160569617568736537, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: autoRun
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: autoAttack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: rangedCooldown
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.79
@@ -442,26 +418,6 @@ PrefabInstance:
     - target: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787040890782132878, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213564584013395944, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: doDebugRay
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213564584013395944, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: raycastDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7213564584013395944, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 7836168156307212374, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 8837223900107501713, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: m_Name
