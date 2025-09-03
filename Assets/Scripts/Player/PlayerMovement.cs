@@ -54,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 externalImpulse;                    //ÅgSuperimposed velocityÅh component of the external force applied
     [SerializeField] bool autoRun;
 
+    [SerializeField] ParticleSystem landEffect;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -181,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _airJump = true;
             AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
+            Instantiate(landEffect, new Vector3(transform.position.x,transform.position.y - 1, transform.position.z), Quaternion.identity);
         }
     }
 

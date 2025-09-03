@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6205144194309265570}
   - component: {fileID: 4981298342530400430}
   - component: {fileID: 7829965397762249140}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Spike
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  canDamage: 0
+  timer: 0
 --- !u!1 &7414125359809659515
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +163,7 @@ GameObject:
   - component: {fileID: 119180558215521959}
   m_Layer: 6
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
