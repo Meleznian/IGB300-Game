@@ -11,7 +11,7 @@ public class OneWayPlatform : MonoBehaviour
     {
         c = GetComponent<BoxCollider2D>();
         player = GameManager.instance.Player.transform;
-        solid = true;
+        solid = false;
     }
 
     // Update is called once per frame
@@ -40,7 +40,6 @@ public class OneWayPlatform : MonoBehaviour
 
             solid = false;
         }
-
     }
 
 }
