@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem healing;
     [SerializeField] ParticleSystem damaged;
     [SerializeField] ParticleSystem lowhealth;
-    [SerializeField] ParticleSystem death;
+    [SerializeField] GameObject death;
     [SerializeField] internal ParticleSystem getBolt;
 
 
