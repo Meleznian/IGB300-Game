@@ -407,7 +407,7 @@ RectTransform:
   m_Father: {fileID: 7245082047280643541}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -2.0131378, y: 2.169}
   m_SizeDelta: {x: -2.85, y: -5.967}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -596,7 +596,6 @@ GameObject:
   - component: {fileID: 1389103851451260586}
   - component: {fileID: 2885941554445413653}
   - component: {fileID: 1062696313977331800}
-  - component: {fileID: 6634533313941947140}
   - component: {fileID: 7097120519612959138}
   m_Layer: 3
   m_Name: Animation
@@ -714,21 +713,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 803783820872400899}
   useVelocity: 1
---- !u!114 &6634533313941947140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4702446297921196607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405cd7fb5282d6649bc44ffdce1688d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 742170538021214693}
-  parry: {fileID: 7063704676244302266}
-  shoulder: {fileID: 2942565711873893426}
 --- !u!114 &7097120519612959138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,7 +1003,6 @@ GameObject:
   - component: {fileID: 803783820872400899}
   - component: {fileID: 2117736800459837374}
   - component: {fileID: 6978071326035807399}
-  - component: {fileID: 7722755983110565033}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1336,19 +1319,6 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &7722755983110565033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8837223900107501713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832188da56fa4c84b91bcdb577647cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectEffect: {fileID: 4450762566908111422}
 --- !u!1 &8878762065042313836
 GameObject:
   m_ObjectHideFlags: 0
