@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c8b4f11a179c83e4ba4af1b894d9b017
+guid: 12baa2f25ad65aa4abd0761f409d04fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1837544581073675596
-    second: LongPipe_0
+      213: -7811755799624043977
+    second: MVP_TitleScreen_BG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LongPipe_0
+      name: MVP_TitleScreen_BG_0
       rect:
         serializedVersion: 2
-        x: 28
+        x: 0
         y: 0
-        width: 74
+        width: 1920
         height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bad82270fabf76e0800000000000000
-      internalID: -1837544581073675596
+      spriteID: 732bf4b1d71179390800000000000000
+      internalID: -7811755799624043977
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      LongPipe_0: -1837544581073675596
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

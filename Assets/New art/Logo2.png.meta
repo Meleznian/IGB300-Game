@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c8b4f11a179c83e4ba4af1b894d9b017
+guid: 491622e06622b2f48bd3227f62c6146b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1837544581073675596
-    second: LongPipe_0
+      213: 5989905459889153336
+    second: Logo2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LongPipe_0
+      name: Logo2_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 0
-        width: 74
-        height: 1080
+        x: 11
+        y: 71
+        width: 326
+        height: 188
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4bad82270fabf76e0800000000000000
-      internalID: -1837544581073675596
+      spriteID: 835add6a74b602350800000000000000
+      internalID: 5989905459889153336
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      LongPipe_0: -1837544581073675596
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
