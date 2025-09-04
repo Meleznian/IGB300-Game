@@ -208,7 +208,7 @@ public class UpgradeManager : MonoBehaviour
         }
         else if (stat == "Speed")
         {
-            melee.IncreaseSpeed(bulletSpeedIncrease);
+            melee.IncreaseSpeed(attackSpeedIncrease);
             ranged.IncreaseSpeed(bulletSpeedIncrease, bulletCoolIncrease);
         }
         else if (stat == "MaxHealth")

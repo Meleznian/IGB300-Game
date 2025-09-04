@@ -231,8 +231,8 @@ MonoBehaviour:
   player: {fileID: 0}
   playerTag: Player
   enemyTag: Enemy
-  minSpeed: 1
-  maxSpeed: 3.5
+  minSpeed: 0.7
+  maxSpeed: 3
   nearDist: 5
   farDist: 8
   accel: 8
