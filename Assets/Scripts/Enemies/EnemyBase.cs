@@ -120,7 +120,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         }
     }
 
-
+    Transform killWall;
     void SetUp()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -128,6 +128,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
         moveSpeed += UnityEngine.Random.Range(-speedVariance, speedVariance);
 
         actingMoveSpeed = moveSpeed /20;
+
+        killWall = GameManager.instance.killWall.transform.GetChild(0);
 
         ExtraSetup();
     }
@@ -166,9 +168,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
         }
     }
 
-    void CheckWall()
+    internal void CheckWall()
     {
-        if(GameManager.instance.killWall.position.x > transform.position.x)
+        if(killWall.position.x > transform.position.x)
         {
             Die(false);
         }

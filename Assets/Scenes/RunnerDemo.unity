@@ -324,22 +324,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 643613002308500909, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 643613002308500909, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_Size.y
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 643613002308500909, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 643613002308500909, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 14.4
-      objectReference: {fileID: 0}
     - target: {fileID: 1217495970487130342, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.4
@@ -380,53 +364,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4005338707354385433, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4005338707354385433, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4005338707354385433, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: moveSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: rubberbandDistance
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_Name
       value: KillWall
-      objectReference: {fileID: 0}
-    - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1144419442784466605, guid: 378d002cbf685cb4e93b30d79a4ad5f3, type: 3}
-    - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
