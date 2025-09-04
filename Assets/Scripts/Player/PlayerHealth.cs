@@ -97,7 +97,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void IncreaseMax(int amount)
     {
-        maxHealth +=+ amount;
+        maxHealth += amount;
+        currentHealth += amount;
     }
 
     //internal void StartParry()

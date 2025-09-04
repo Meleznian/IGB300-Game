@@ -25,6 +25,7 @@ public class ScoreManager : MonoBehaviour
     private TextEffect effect;
 
     [SerializeField] int multIncrease;
+    [SerializeField] float increaseAmount;
     int increaseBy;
 
     private void Awake()
@@ -63,7 +64,7 @@ public class ScoreManager : MonoBehaviour
 
         if(currentScore >= multIncrease)
         {
-            GameManager.instance.cashMult += 0.5f;
+            GameManager.instance.cashMult += increaseAmount;
             multIncrease += increaseBy;
         } 
 
