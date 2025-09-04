@@ -1094,7 +1094,7 @@ MonoBehaviour:
     m_Bits: 256
   flashFX: {fileID: 8653696390555176814, guid: 3cfd563972d54814e9156bbacd832532, type: 3}
   anim: {fileID: 1389103851451260586}
-  autoAttack: 0
+  autoAttack: 1
   meleeCooldown: 0.6
 --- !u!114 &2982133742907216294
 MonoBehaviour:
@@ -1126,7 +1126,7 @@ MonoBehaviour:
   heatGauge: {fileID: 5176581856120467377}
   heatGaugeFill: {fileID: 5486033635308626774}
   coolEffect: {fileID: 5654828875256382587}
-  autoAttack: 0
+  autoAttack: 1
 --- !u!114 &2160569617568736537
 MonoBehaviour:
   m_ObjectHideFlags: 0

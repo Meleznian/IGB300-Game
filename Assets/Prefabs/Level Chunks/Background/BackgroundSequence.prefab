@@ -64,6 +64,7 @@ MonoBehaviour:
   - {fileID: 2278698855755552773, guid: f204858acc3dfbe42ac4ad718f79df09, type: 3}
   - {fileID: 8913592963186038582, guid: 80a6872031ca3b04392426d2206d4876, type: 3}
   - {fileID: 6033860899845413173, guid: 06594d01e93934e4c8b9ee14bbaa1cf8, type: 3}
+  pipe: {fileID: 4274469455694890615, guid: 769572dd0ca29d44488c8fa5b0331c07, type: 3}
   totalSegments: 12
   stopAfterGoal: 1
   keepActiveSegments: 4
