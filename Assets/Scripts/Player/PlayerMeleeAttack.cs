@@ -11,6 +11,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] GameObject flashFX;
     [SerializeField] Animator anim;
     [SerializeField] bool autoAttack;
+    internal bool shooting;
     Vector2 knockDirection;
 
     [SerializeField] float meleeCooldown = 0.5f;
@@ -65,34 +66,37 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     void TryAttack(Vector2 dir)
     {
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        angle = (angle + 360f) % 360f;
-
-        Transform point = right;
-        knockDirection = Vector2.right;
-        Quaternion rot = Quaternion.identity;
-
-        if (angle >= 45f && angle < 135f)
+        if (!shooting)
         {
-            point = up;
-            knockDirection = Vector2.up;
-            rot = Quaternion.Euler(0, 0, 90);
-        }
-        else if (angle >= 135f && angle < 225f)
-        {
-            point = left;
-            knockDirection = Vector2.left;
-            rot = Quaternion.Euler(0, 0, 180);
-        }
-        else if (angle >= 225f && angle < 315f)
-        {
-            point = down;
-            knockDirection = Vector2.down;
-            rot = Quaternion.Euler(0, 0, 270);
-        }
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            angle = (angle + 360f) % 360f;
 
-        SpawnEffect(point.position, rot);
-        DealDamage(point.position);
+            Transform point = right;
+            knockDirection = Vector2.right;
+            Quaternion rot = Quaternion.identity;
+
+            if (angle >= 45f && angle < 135f)
+            {
+                point = up;
+                knockDirection = Vector2.up;
+                rot = Quaternion.Euler(0, 0, 90);
+            }
+            else if (angle >= 135f && angle < 225f)
+            {
+                point = left;
+                knockDirection = Vector2.left;
+                rot = Quaternion.Euler(0, 0, 180);
+            }
+            else if (angle >= 225f && angle < 315f)
+            {
+                point = down;
+                knockDirection = Vector2.down;
+                rot = Quaternion.Euler(0, 0, 270);
+            }
+
+            SpawnEffect(point.position, rot);
+            DealDamage(point.position);
+        }
     }
 
     void DealDamage(Vector2 origin)

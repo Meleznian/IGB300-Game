@@ -3,6 +3,7 @@ using UnityEngine;
 public class ParryRelay : MonoBehaviour
 {
     [SerializeField] PlayerHealth health;
+    [SerializeField] PlayerMeleeAttack attack;
     //[SerializeField] Parry parry;
     [SerializeField] GameObject shoulder;
     Animator anim;
@@ -26,10 +27,12 @@ public class ParryRelay : MonoBehaviour
     public void DisableShoulder()
     {
         shoulder.SetActive(false);
+        attack.shooting = false;
     }
     public void EnableShoulder()
     {
         shoulder.SetActive(true);
+        attack.shooting = true;
     }
 
     public void IncrementSlash()

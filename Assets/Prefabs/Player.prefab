@@ -738,6 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 742170538021214693}
+  attack: {fileID: 1885519247420598914}
   shoulder: {fileID: 2942565711873893426}
 --- !u!1 &4807269087759845624
 GameObject:
@@ -1067,7 +1068,7 @@ MonoBehaviour:
   healing: {fileID: 1920858891800524291}
   damaged: {fileID: 6922806724857937827, guid: a57b36457e820574ea6552742a7e8b5b, type: 3}
   lowhealth: {fileID: 8685299860267206843}
-  death: {fileID: 3586236644348328300, guid: e7f23bc6173f29c4b8292d1c5245e32a, type: 3}
+  death: {fileID: 880611387118510160, guid: e7f23bc6173f29c4b8292d1c5245e32a, type: 3}
   getBolt: {fileID: 4450762566908111422}
 --- !u!114 &1885519247420598914
 MonoBehaviour:
@@ -1115,7 +1116,7 @@ MonoBehaviour:
   heatPerShot: 1
   maxHeat: 2
   coolModifier: 0.5
-  rangedCooldown: 0.7
+  rangedCooldown: 3
   heat: 0
   bulletPrefab: {fileID: 918802385275866056, guid: f8627dce041d83043a11ab80165c40a8, type: 3}
   firePoint: {fileID: 644258332658440463}
