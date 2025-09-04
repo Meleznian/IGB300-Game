@@ -57,8 +57,8 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += value;
 
-        TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
-        text.text = "+" + value;
+        //TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
+        //text.text = "+" + value;
 
         // Update high score if needed
         if (currentScore > highScore)

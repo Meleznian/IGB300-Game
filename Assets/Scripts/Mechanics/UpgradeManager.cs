@@ -33,6 +33,8 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
+        progressSlider.maxValue = cashGoal;
+
         SetupPlayer();
         //allUpgrades = new List<Upgrade>()
         //{

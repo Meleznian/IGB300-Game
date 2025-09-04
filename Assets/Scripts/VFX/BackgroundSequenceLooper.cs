@@ -16,6 +16,7 @@ public class BackgroundSequenceLooper : MonoBehaviour
     [SerializeField] GameObject firstPrefab;        // Always at the top
     [SerializeField] GameObject goalPrefab;         // Always the end (goal)
     [SerializeField] List<GameObject> betweenPool;  // Insert 2 to 6
+    [SerializeField] GameObject pipe;               // To hide seams
 
     // ===== Sequence Length =====
     [Header("Sequence Length")]
@@ -144,6 +145,9 @@ public class BackgroundSequenceLooper : MonoBehaviour
         var pos = go.transform.position;
         pos.x = (pixelSnap && unitPx > 0f) ? Snap(centerX) : centerX;
         go.transform.position = pos;
+        var newPipe = Instantiate(pipe, go.transform);
+        newPipe.transform.localPosition = new Vector2(9.5f, 0);
+
 
         return new Segment { t = go.transform, width = GetWidth(go) };
     }

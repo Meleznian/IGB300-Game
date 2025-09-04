@@ -11,7 +11,7 @@ public class OneWayPlatform : MonoBehaviour
     {
         c = GetComponent<BoxCollider2D>();
         player = GameManager.instance.Player.transform;
-        solid = false;
+        StartCheck();
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class OneWayPlatform : MonoBehaviour
         if (player == null)
         {
             player = GameManager.instance.Player.transform;
+            StartCheck();
         }
 
         CheckPlayerPosition();
@@ -35,6 +36,21 @@ public class OneWayPlatform : MonoBehaviour
             solid = true;
         }
         else if(player.position.y - 0.9f <= transform.position.y && solid)
+        {
+            c.excludeLayers |= (1 << 3);
+
+            solid = false;
+        }
+    }
+
+    void StartCheck()
+    {
+        if (player.position.y - 0.9f > transform.position.y)
+        {
+            c.excludeLayers &= ~(1 << 3);
+            solid = true;
+        }
+        else if (player.position.y - 0.9f <= transform.position.y)
         {
             c.excludeLayers |= (1 << 3);
 

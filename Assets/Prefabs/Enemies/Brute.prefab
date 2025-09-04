@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Brute
-  health: 10
+  health: 15
   defaultDamage: 5
   moveSpeed: 1
   speedVariance: 0.5

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6462204525631659493}
   - component: {fileID: 3989788131302290773}
-  - component: {fileID: 1777772256263554226}
   m_Layer: 0
   m_Name: BG_2
   m_TagString: Untagged
@@ -88,16 +87,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1777772256263554226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6564855699840686739}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f716f1cc9b0a5246b83faabd357af9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallax: 1.15

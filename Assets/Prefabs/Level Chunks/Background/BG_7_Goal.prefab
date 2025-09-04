@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5909901584580464771}
   - component: {fileID: 1856333915361107254}
-  - component: {fileID: 6457680105617769524}
   m_Layer: 0
   m_Name: BG_7_Goal
   m_TagString: Untagged
@@ -88,16 +87,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6457680105617769524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4274469455694890615}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f716f1cc9b0a5246b83faabd357af9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallax: 1

@@ -11,6 +11,10 @@ public class Bolt : MonoBehaviour
     [SerializeField] float collectionDelay;
     bool canBeCollected;
     bool tagged;
+    bool floating;
+
+    Rigidbody2D rb;
+    CircleCollider2D c;
     //Transform parent;
 
     private void Start()
@@ -18,6 +22,8 @@ public class Bolt : MonoBehaviour
         player = GameObject.Find("Player").transform;
         StartCoroutine(CollectDelay());
         //parent = transform.parent;
+        rb = GetComponent<Rigidbody2D>();
+        c = transform.GetChild(0).GetComponent<CircleCollider2D>();
     }
     void Update()
     {
@@ -35,6 +41,13 @@ public class Bolt : MonoBehaviour
 
             if (tagged)
             {
+                if (!floating)
+                {
+                    rb.gravityScale = 0;
+                    c.excludeLayers |= (1 << 6);
+                    floating = true;
+                }
+
                 transform.position = Vector2.MoveTowards(transform.position, player.position, MagnetSpeed * Time.deltaTime);
             }
         }
