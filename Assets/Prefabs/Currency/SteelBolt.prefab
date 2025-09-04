@@ -167,10 +167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MagnetRange: 3
-  MagnetSpeed: 4
+  MagnetSpeed: 10
   value: 1
   player: {fileID: 0}
   inRange: 0
+  collectionDelay: 1
 --- !u!1 &4250506129095389571
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +220,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1983
+    m_Bits: 4031
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

@@ -155,7 +155,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
         {
             // Random offset to spread them a bit
             Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
-            Instantiate(g, transform.position + (Vector3)spawnOffset, Quaternion.identity);
+            Rigidbody2D rb = Instantiate(g, transform.position + (Vector3)spawnOffset, Quaternion.identity).GetComponent<Rigidbody2D>();
+
+            Vector2 direction = new Vector2(UnityEngine.Random.Range(-1f,1f), UnityEngine.Random.Range(-1f,1f));
+            rb.AddForce(direction*5, ForceMode2D.Impulse);
         }
     }
 

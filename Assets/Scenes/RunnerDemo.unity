@@ -855,6 +855,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 292840969}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: healthIncrease
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: meleeSizeIncrease
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: rangedSizeIncrease
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: upgradeMusicSource
       value: 
       objectReference: {fileID: 1888206803}
