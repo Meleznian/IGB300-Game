@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Data.SqlTypes;
 
 public class EnemyBase : MonoBehaviour, IDamageable
 {
@@ -28,7 +29,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     //public GameObject currencyPrefab;
 
     [Tooltip("Number of currency drops to spawn")]
-    public GameObject[] money;
+    [SerializeField] float value;
+    //public GameObject[] money;
 
     //[Header("Attacks")]
     //[Tooltip("List of attacks the enemy can do")]
@@ -137,7 +139,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     void SpawnCurrency()
     {
-        
+
         //if (currencyPrefab == null) return;
         //
         //Debug.Log("Drop bolt");
@@ -148,6 +150,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
         //    Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
         //    Instantiate(currencyPrefab, transform.position + (Vector3)spawnOffset, Quaternion.identity);
         //}
+
+        GameObject[] money = GameManager.instance.GenerateMoney(value);
         
         Debug.Log("Drop bolt");
         

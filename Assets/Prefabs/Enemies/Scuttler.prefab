@@ -135,12 +135,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Scuttler
-  health: 5
+  health: 6
   defaultDamage: 5
   moveSpeed: 1.5
   speedVariance: 0.5
-  money:
-  - {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+  value: 10
   canJump: 1
   jumpForce: 4
 --- !u!1 &4833173571841026522

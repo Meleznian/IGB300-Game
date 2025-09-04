@@ -61,7 +61,7 @@ public class Bolt : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("Money Triggered");
+        //print("Money Triggered");
         if (other.CompareTag("Wall"))
         {
             AudioManager.PlayEffect(SoundType.BOLTS, 0.2f);

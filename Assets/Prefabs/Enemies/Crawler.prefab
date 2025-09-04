@@ -135,14 +135,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Crawler
-  health: 5
+  health: 4
   defaultDamage: 5
   moveSpeed: 0.6
   speedVariance: 0.2
-  money:
-  - {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
-  - {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
-  - {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
+  value: 5
+  canJump: 0
+  jumpForce: 0
 --- !u!1 &4833173571841026522
 GameObject:
   m_ObjectHideFlags: 0

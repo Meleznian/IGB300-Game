@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void BoltCount(float amount)
     {
-        Debug.Log("_BoltCount " + _BoltCount);
+        //Debug.Log("_BoltCount " + _BoltCount);
         playerHealth.getBolt.Play();
         _BoltCount += amount;
         levelProgress.value = _BoltCount;
@@ -246,54 +246,49 @@ public class GameManager : MonoBehaviour
     //    IncreaseAmmo(maxAmmo - ammo);
     //}
 
-    //[Header("Bolts")]
-    //[SerializeField] GameObject bolt1;
-    //[SerializeField] GameObject bolt5;
-    //[SerializeField] GameObject bolt10;
-    //[SerializeField] GameObject bolt15;
-    //[SerializeField] GameObject bolt25;
-    //
-    //public GameObject[] GenerateMoney(float amount)
-    //{
-    //    amount = Mathf.Round(amount*cashMult);
-    //    List<GameObject> cashList = new();
-    //
-    //    while(amount > 0)
-    //    {
-    //        if(amount >= 75)
-    //        {
-    //            cashList.Add(bolt25);
-    //            amount -= 25;
-    //        }
-    //        else if(amount >= 60 && amount >= 40)
-    //        {
-    //            cashList.Add(bolt15);
-    //            amount -= 15;
-    //        }
-    //        else if (amount <= 40 && amount >= 20)
-    //        {
-    //            cashList.Add(bolt10);
-    //            amount -= 10;
-    //        }
-    //        else if (amount <= 20 && amount >= 5)
-    //        {
-    //            cashList.Add(bolt5);
-    //            amount -= 5;
-    //        }
-    //        else if (amount <= 5)
-    //        {
-    //            cashList.Add(bolt1);
-    //            amount -= 1;
-    //        }
-    //        else
-    //        {
-    //            print(amount);
-    //            break;
-    //        }
-    //    }
-    //    print(cashList.ToArray());
-    //    return cashList.ToArray();
-    //}
+    [Header("Bolts")]
+    [SerializeField] GameObject bolt1;
+    [SerializeField] GameObject bolt5;
+    [SerializeField] GameObject bolt10;
+    [SerializeField] GameObject bolt20;
+    
+    public GameObject[] GenerateMoney(float amount)
+    {
+        amount = Mathf.Round(amount*cashMult);
+        print("Cash After Mult: " + amount);
+        List<GameObject> cashList = new();
+    
+        while(amount > 0)
+        {
+            if(amount >= 60 && amount > 40)
+            {
+                cashList.Add(bolt20);
+                amount -= 20;
+            }
+            else if (amount <= 40 && amount > 20)
+            {
+                cashList.Add(bolt10);
+                amount -= 10;
+            }
+            else if (amount <= 20 && amount > 5)
+            {
+                cashList.Add(bolt5);
+                amount -= 5;
+            }
+            else if (amount <= 5)
+            {
+                cashList.Add(bolt1);
+                amount -= 1;
+            }
+            else
+            {
+                print(amount);
+                break;
+            }
+        }
+        print(cashList.ToArray());
+        return cashList.ToArray();
+    }
 }
 
 

@@ -24,6 +24,9 @@ public class ScoreManager : MonoBehaviour
     private bool isAlive = true;
     private TextEffect effect;
 
+    [SerializeField] int multIncrease;
+    int increaseBy;
+
     private void Awake()
     {
         // Singleton pattern
@@ -44,6 +47,7 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreUI();
 
         point = pointsPerSecond / 60;
+        increaseBy = multIncrease;
     }
 
     private void FixedUpdate()
@@ -56,6 +60,12 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int value, Vector2 textPos)
     {
         currentScore += value;
+
+        if(currentScore >= multIncrease)
+        {
+            GameManager.instance.cashMult += 0.5f;
+            multIncrease += increaseBy;
+        } 
 
         //TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
         //text.text = "+" + value;

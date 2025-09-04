@@ -50,7 +50,7 @@ public class FeetCollisions : MonoBehaviour
 
             if (hit.collider == null)
             {
-                Debug.LogError("Nothing Detected");
+                //Debug.LogError("Nothing Detected");
             }
             else
             {
@@ -60,12 +60,12 @@ public class FeetCollisions : MonoBehaviour
 
         if (Physics2D.Raycast(transform.position, Vector3.down, raycastDistance, groundLayer))
         {
-            print("Detecting Ground");
+            //print("Detecting Ground");
             _movementScript.LandedOnGround();
         }
         else
         {
-            print("Not Detecting Ground");
+            //print("Not Detecting Ground");
             _movementScript.LeftGround();
         }
     }
