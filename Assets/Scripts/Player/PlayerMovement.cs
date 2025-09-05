@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private TrailRenderer tr;
     [SerializeField] private Animator anim;
+    public float maxVerticalVelocity;
 
     //Input Actions
     InputAction moveAction;
@@ -107,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (!_sprinting) Move(horizontalMove, verticalMove);
-
+        externalImpulse.y = Mathf.Clamp(externalImpulse.y, 0, maxVerticalVelocity);
         // Reflect vertical external forces here (horizontal forces are synthesized within Move).
         if (Mathf.Abs(externalImpulse.y) > 0.0001f)
             rb.linearVelocityY = rb.linearVelocityY + externalImpulse.y;

@@ -1140,6 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1389103851451260586}
+  maxVerticalVelocity: 3
   horizontalMove: 0
   verticalMove: 0
   _isGrounded: 0
