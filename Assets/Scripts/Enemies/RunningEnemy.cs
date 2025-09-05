@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +9,7 @@ public class RunningEnemy : EnemyBase
     private Vector3 _moveDirection = Vector3.left;
     [SerializeField] bool canJump;
     [SerializeField] float jumpForce;
+    [SerializeField] float knockback = 2f;
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
@@ -35,12 +37,14 @@ public class RunningEnemy : EnemyBase
     private void OnTriggerStay2D(Collider2D other)
     {
         var player = other.GetComponent<PlayerHealth>();
+        var knockbackApply = other.GetComponent<PlayerMovement>();
         if (player != null)
         {
             if (canDamage)
             {
                 print("Triggered: " + other.name);
                 player.TakeDamage(defaultDamage);
+                knockbackApply.ApplyKnockbackFrom(transform.position + new Vector3(1f,0, 0), knockback);
                 Vector2 direction = ((-_moveDirection + Vector3.up)) * 4;
                 rb.AddForce(direction, ForceMode2D.Impulse);
                 canDamage = false;

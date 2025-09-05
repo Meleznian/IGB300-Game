@@ -343,3 +343,4 @@ MonoBehaviour:
   value: 15
   canJump: 0
   jumpForce: 0
+  knockback: 3
