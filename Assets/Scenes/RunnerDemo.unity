@@ -507,6 +507,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1144326441101686927, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7f28cc7eccf472045a0f587439439746, type: 2}
+    - target: {fileID: 1144326441101686927, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1354585238773915636, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -515,9 +523,49 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2837124617243764530, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSize
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837124617243764530, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185591132106623996, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].effect
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bc3421164974484b8d10a0bc480dde6, type: 2}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[1].effect
+      value: 
+      objectReference: {fileID: 11400000, guid: c63db70a7ce774948891aa5789db6e2c, type: 2}
+    - target: {fileID: 3885741605702327724, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSize
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3885741605702327724, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493159851502018491, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSize
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493159851502018491, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6904265280506163872, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: textCanvas
@@ -535,6 +583,14 @@ PrefabInstance:
       propertyPath: upgradeMusicSource
       value: 
       objectReference: {fileID: 1888206803}
+    - target: {fileID: 7599125371285672385, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSize
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7599125371285672385, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 7770075731551800961, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 35.600098
