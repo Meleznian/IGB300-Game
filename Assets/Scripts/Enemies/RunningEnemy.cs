@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Security.Cryptography;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
