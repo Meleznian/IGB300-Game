@@ -142,7 +142,7 @@ MonoBehaviour:
   value: 5
   canJump: 0
   jumpForce: 0
-  knockback: 6
+  knockback: 3
 --- !u!1 &4833173571841026522
 GameObject:
   m_ObjectHideFlags: 0

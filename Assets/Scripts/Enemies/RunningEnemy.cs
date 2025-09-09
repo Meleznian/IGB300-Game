@@ -43,8 +43,8 @@ public class RunningEnemy : EnemyBase
             if (canDamage)
             {
                 print("Triggered: " + other.name);
-                knockbackApply.ApplyKnockbackFrom(transform.position, knockback);
                 player.TakeDamage(defaultDamage);
+                knockbackApply.ApplyKnockbackFrom(transform.position + new Vector3(1f,0, 0), knockback);
                 Vector2 direction = ((-_moveDirection + Vector3.up)) * 4;
                 rb.AddForce(direction, ForceMode2D.Impulse);
                 canDamage = false;

@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool autoRun;
 
     [SerializeField] ParticleSystem landEffect;
-    [SerializeField] PlayerHealth health;
 
 
     // Start is called before the first frame update
@@ -64,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
-        health = GetComponent<PlayerHealth>();
 
         rb.linearDamping = _friction;
 
@@ -112,14 +110,14 @@ public class PlayerMovement : MonoBehaviour
         if (!_sprinting) Move(horizontalMove, verticalMove);
         externalImpulse.y = Mathf.Clamp(externalImpulse.y, 0, maxVerticalVelocity);
         // Reflect vertical external forces here (horizontal forces are synthesized within Move).
-        //if (Mathf.Abs(externalImpulse.y) > 0.0001f)
-        //    rb.linearVelocityY = rb.linearVelocityY + externalImpulse.y;
+        if (Mathf.Abs(externalImpulse.y) > 0.0001f)
+            rb.linearVelocityY = rb.linearVelocityY + externalImpulse.y;
 
         // Decay of external forces (towards 0 over time)
-        //if (externalImpulse.sqrMagnitude > 0.0001f)
-        //    externalImpulse = Vector2.MoveTowards(externalImpulse, Vector2.zero, impulseDamping * Time.fixedDeltaTime);
-        //else
-        //    externalImpulse = Vector2.zero;
+        if (externalImpulse.sqrMagnitude > 0.0001f)
+            externalImpulse = Vector2.MoveTowards(externalImpulse, Vector2.zero, impulseDamping * Time.fixedDeltaTime);
+        else
+            externalImpulse = Vector2.zero;
     }
 
     void Jump()
@@ -146,11 +144,8 @@ public class PlayerMovement : MonoBehaviour
         float baseX = newVelocity * x;
 
         // The lateral force is synthesized and converted into the final velocity.
-
-        //float finalX = baseX + externalImpulse.x;
-        //rb.linearVelocityX = finalX;
-
-        transform.position += new Vector3(baseX*Time.deltaTime, 0, 0);
+        float finalX = baseX + externalImpulse.x;
+        rb.linearVelocityX = finalX;
     }
 
     /// <summary>
@@ -231,16 +226,8 @@ public class PlayerMovement : MonoBehaviour
     // For determining the knockback direction based on position
     public void ApplyKnockbackFrom(Vector2 sourcePosition, float power)
     {
-        print("Player Knocked");
-
-        if (!health.iframing)
-        {
-            Vector2 dir = ((Vector2)transform.position - sourcePosition).normalized;
-            //externalImpulse += dir * power;
-            rb.AddForce((dir + Vector2.up)*power, ForceMode2D.Impulse);
-
-            print("Player Knockback Applied");
-        }
+        Vector2 dir = ((Vector2)transform.position - sourcePosition).normalized;
+        externalImpulse += dir * power;
     }
 
     void ToggleAutoRun()
