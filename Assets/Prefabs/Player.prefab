@@ -1147,15 +1147,16 @@ MonoBehaviour:
   _lastDirection: 1
   _speed: 6
   _sprintAvailable: 0
-  _sprintSpeed: 12
+  _sprintSpeed: 9
   _sprintTime: 0.1
   _friction: 4
   jumped: 0
   _jumpSpeed: 37
   _airJump: 0
-  impulseDamping: 6
+  impulseDamping: 10
   autoRun: 0
   landEffect: {fileID: 6922806724857937827, guid: a7fea805504b48747848caa2ef06ff71, type: 3}
+  health: {fileID: 0}
 --- !u!50 &803783820872400899
 Rigidbody2D:
   serializedVersion: 5
