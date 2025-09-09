@@ -540,10 +540,6 @@ MonoBehaviour:
     effectDescription: Increase move speed
     icon: {fileID: 2442818145047964957, guid: 02c9d4357077d4048a042635363a21f9, type: 3}
     id: Move
-  - upgradeName: Improve Heat Sink
-    effectDescription: Increase ranged overheat threshold
-    icon: {fileID: -7837940847499627902, guid: 7b5347172a341764e89410a2789f2648, type: 3}
-    id: Heat
   - upgradeName: Thermal Expansion
     effectDescription: Increase attack and bullet size
     icon: {fileID: 8522422916469138456, guid: d64543d623f32a84abe6d2bc4985c70e, type: 3}
@@ -553,7 +549,7 @@ MonoBehaviour:
     icon: {fileID: -1467345839121930361, guid: 04ddff5345126a54f94d30f158cefb03, type: 3}
     id: BulletDamage
   upgradeMusicSource: {fileID: 0}
-  cashGoal: 150
+  cashGoal: 100
   playerLevel: 1
   healthIncrease: 20
   attackSpeedIncrease: 0.06

@@ -520,10 +520,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1505754056}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: cashGoal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: richesRain
       value: 
       objectReference: {fileID: 292840969}
