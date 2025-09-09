@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour
 
     public GameObject menuPanel;
     public GameObject deathPanel;
+    public GameObject detailPanel;
     public GameObject UICanvas;
     public AudioClip openSound;
     public AudioClip closeSound;
@@ -30,6 +31,7 @@ public class MenuManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         menuPanel.SetActive(false);
         deathPanel.SetActive(false);
+        detailPanel.SetActive(false);
     }
 
     void Update()
@@ -80,6 +82,7 @@ public class MenuManager : MonoBehaviour
     public void PlayerDead()
     {
         deathPanel.SetActive(true);
+        detailPanel.SetActive(true);
         GetComponent<DeathMessageManager>().ShowDeathPanel();
     }
 

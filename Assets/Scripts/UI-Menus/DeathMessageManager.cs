@@ -8,6 +8,7 @@ public class DeathMessageManager : MonoBehaviour
     public string[] deathMessages;
 
     public GameObject deathPanel;
+    public GameObject detailPanel;
 
     public TMP_Text messageText;
 
@@ -25,6 +26,11 @@ public class DeathMessageManager : MonoBehaviour
         ShowRandomDeathMessage();
     }
 
+    public void ShowDeathDetailPanel()
+    {
+        detailPanel.GetComponent<Animator>().SetTrigger("Enter");
+    }
+    
     void ShowRandomDeathMessage()
     {
         if (deathMessages.Length == 0)
