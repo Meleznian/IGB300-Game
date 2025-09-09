@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public bool isHealing = false;       // Currently recovering?
 
     internal bool parrying;
-    bool iframing;
+    internal bool iframing;
     bool dead;
 
     [SerializeField] SpriteRenderer sprite;
