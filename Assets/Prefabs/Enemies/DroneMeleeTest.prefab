@@ -84,6 +84,7 @@ MonoBehaviour:
   A: 0.5
   B: 1
   C: 2
+  knockback: 6
 --- !u!58 &639610546315166609
 CircleCollider2D:
   m_ObjectHideFlags: 0
