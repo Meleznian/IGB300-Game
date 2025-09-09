@@ -330,7 +330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1217495970487130342, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 1217495970487130342, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -367,10 +367,6 @@ PrefabInstance:
     - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_Name
       value: KillWall
-      objectReference: {fileID: 0}
-    - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

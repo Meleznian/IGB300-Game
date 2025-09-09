@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class TurnSprite : MonoBehaviour
@@ -7,6 +8,13 @@ public class TurnSprite : MonoBehaviour
     //[SerializeField] float velocity;
     [SerializeField] bool useVelocity;
     bool right;
+
+    InputAction moveAction;
+
+    private void Start()
+    {
+        moveAction = InputSystem.actions.FindAction("Move");
+    }
 
     private void Update()
     {
@@ -18,11 +26,13 @@ public class TurnSprite : MonoBehaviour
 
     void CheckMovement()
     {
-        if (Vector3.Dot(rb.linearVelocity, Vector3.right) > 0.1)
+        float horizontalMove = moveAction.ReadValue<Vector2>().x;
+
+        if (horizontalMove > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (Vector3.Dot(rb.linearVelocity, Vector3.right) < -0.1)
+        else if (horizontalMove < -0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
