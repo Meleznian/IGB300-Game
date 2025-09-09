@@ -32,7 +32,7 @@ public class ParryRelay : MonoBehaviour
     public void EnableShoulder()
     {
         shoulder.SetActive(true);
-        attack.shooting = true;
+        //attack.shooting = true;
     }
 
     public void IncrementSlash()
