@@ -613,6 +613,10 @@ PrefabInstance:
       propertyPath: stageBoundsBottomRight
       value: 
       objectReference: {fileID: 1422920955}
+    - target: {fileID: 5323310852015263743, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6096276881201933616, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
