@@ -151,7 +151,7 @@ public class UpgradeManager : MonoBehaviour
             DoUpgrade(chosen.id);
 
             upgradePanel.SetActive(false);
-            richesRain.Stop();
+            richesRain.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             Time.timeScale = 1f;
             upgradeMusicSource.Stop();
             AudioManager.resumeMusic();
