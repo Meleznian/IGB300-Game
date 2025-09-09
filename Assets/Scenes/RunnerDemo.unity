@@ -520,10 +520,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1505754056}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: cashGoal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: richesRain
       value: 
       objectReference: {fileID: 292840969}
@@ -531,42 +527,6 @@ PrefabInstance:
       propertyPath: upgradeMusicSource
       value: 
       objectReference: {fileID: 1888206803}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[4].id
-      value: Size
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[5].id
-      value: BulletDamage
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[4].icon
-      value: 
-      objectReference: {fileID: 8522422916469138456, guid: d64543d623f32a84abe6d2bc4985c70e, type: 3}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[5].icon
-      value: 
-      objectReference: {fileID: -1467345839121930361, guid: 04ddff5345126a54f94d30f158cefb03, type: 3}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[4].upgradeName
-      value: Thermal Expansion
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[5].upgradeName
-      value: Sharpen Casing
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[4].effectDescription
-      value: Increase attack and bullet size
-      objectReference: {fileID: 0}
-    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
-      propertyPath: allUpgrades.Array.data[5].effectDescription
-      value: Increase ranged damage and pierce
-      objectReference: {fileID: 0}
     - target: {fileID: 7835850529534847684, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.6564524
