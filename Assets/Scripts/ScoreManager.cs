@@ -66,6 +66,8 @@ public class ScoreManager : MonoBehaviour
         {
             GameManager.instance.cashMult += increaseAmount;
             multIncrease += increaseBy;
+
+            EnemyManager.instance.IncreaseDifficulty();
         } 
 
         //TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);

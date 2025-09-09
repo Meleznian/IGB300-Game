@@ -133,4 +133,15 @@ public class EnemyManager : MonoBehaviour
         //print("Enemy Hurt");
         Instantiate(bulletHitEffect, pos, Quaternion.identity);
     }
+
+    internal void IncreaseDifficulty()
+    {
+        spawnSpeed -= 0.5f;
+        spawnSpeed = Mathf.Clamp(spawnSpeed, 1, 5);
+
+        enemyCap += 1;
+        maxSpawnGroup += 1;
+
+        maxSpawnGroup = Mathf.Clamp(maxSpawnGroup, 1, 5);
+    }
 }
