@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MagnetRange: 3
-  MagnetSpeed: 10
+  MagnetSpeed: 15
   value: 10
   player: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
   inRange: 0

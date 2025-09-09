@@ -30,12 +30,12 @@ public class OneWayPlatform : MonoBehaviour
 
     void CheckPlayerPosition()
     {
-        if (player.position.y - 0.9f > transform.position.y && !solid)
+        if (player.position.y - 0.8f > transform.position.y && !solid)
         {
             c.excludeLayers &= ~(1 << 3);
             solid = true;
         }
-        else if(player.position.y - 0.9f <= transform.position.y && solid)
+        else if(player.position.y - 0.8f <= transform.position.y && solid)
         {
             c.excludeLayers |= (1 << 3);
 
