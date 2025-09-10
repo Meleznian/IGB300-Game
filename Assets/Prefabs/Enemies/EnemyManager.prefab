@@ -44,15 +44,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729ae568f8b60d3448073760465c2b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnSpeed: 1
+  spawnSpeed: 3
   currentlyAlive: 0
-  enemyCap: 10
+  enemyCap: 5
   minSpawnGroup: 1
-  maxSpawnGroup: 3
+  maxSpawnGroup: 2
+  spawnVariationX: 2
+  spawnVariationY: 2
+  speedIncrease: 0.5
+  capIncrease: 1
+  groupIncrease: 1
+  speedClamp: 1
+  capClamp: 20
+  groupClamp: 5
   spawnPosition: {x: 0, y: 0}
   currentLevel: 0
   enemies:
   - enemyPrefab: {fileID: 3846183097623824491, guid: eb3ed55a6984354488ff093a2353c77d, type: 3}
     level: 0
+  - enemyPrefab: {fileID: 3846183097623824491, guid: ddc854a81dfdb974289c9571562fa4e4, type: 3}
+    level: 5000
+  - enemyPrefab: {fileID: 3010242644535729339, guid: 8ca18332781ef794eb65299983859ca2, type: 3}
+    level: 10000
+  - enemyPrefab: {fileID: 6348757875583023632, guid: e4daa9fbb8ba1854f82b52a527fa681a, type: 3}
+    level: 15000
+  - enemyPrefab: {fileID: 3010242644535729339, guid: d7547523f349db141a6680cef6b197e1, type: 3}
+    level: 20000
+  - enemyPrefab: {fileID: 6348757875583023632, guid: 922262bf79eed474cb850c06a3804cb1, type: 3}
+    level: 25000
   enemyDeathEffect: {fileID: 8297608615447593002, guid: efa7ac75630f30046bdd55173d33dfdc, type: 3}
   enemyHurtEffect: {fileID: 8297608615447593002, guid: 63e7b2d741ad3de439b7e5947f4482ed, type: 3}
+  bulletWallEffect: {fileID: 8297608615447593002, guid: e60cf663398a61744bd018ba88381228, type: 3}
+  bulletHitEffect: {fileID: 8297608615447593002, guid: f10b7f9d2ce7b294aac75587df83ca7e, type: 3}
