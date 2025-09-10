@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     public int maxSteam;
     public int ammo;
     public int maxAmmo;
-    public float parryMult = 1.2f;
+    //public float parryMult = 1.2f;
 
     [SerializeField] Slider steamSlider;
     //[SerializeField] Slider hypeSlider;

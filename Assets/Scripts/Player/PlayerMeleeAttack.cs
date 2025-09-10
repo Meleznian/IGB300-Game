@@ -18,13 +18,14 @@ public class PlayerMeleeAttack : MonoBehaviour
     float meleeCooldownTimer = 0f;
 
     bool autoing;
-    
+
+    Coroutine attack;
     void Update()
     {
         if (autoAttack && !autoing)
         {
             autoing = true;
-            StartCoroutine(AutoAttack());
+            attack = StartCoroutine(AutoAttack());
         }
 
         ToggleAuto();
@@ -169,6 +170,11 @@ public class PlayerMeleeAttack : MonoBehaviour
             TryAttack(dir);
             yield return new WaitForSeconds(meleeCooldown);
         }
+    }
+
+    internal void Die()
+    {
+        StopCoroutine(attack);
     }
 
     void ToggleAuto()

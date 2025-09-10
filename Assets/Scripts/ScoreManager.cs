@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text newHighScore;
     [SerializeField] ParticleSystem scoreEffect;
     int point;
-    private bool isAlive = true;
+    //private bool isAlive = true;
     private TextEffect effect;
 
     [SerializeField] int multIncrease;
@@ -53,22 +53,24 @@ public class ScoreManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isAlive) return;  // The score should be stop counting if dead
+        if (GameManager.instance.playerDead) return;  // The score should be stop counting if dead
         currentScore += point;
         UpdateScoreUI();
     }
 
     public void AddScore(int value, Vector2 textPos)
     {
+
         currentScore += value;
 
-        if(currentScore >= multIncrease)
+        if (currentScore >= multIncrease)
         {
             GameManager.instance.cashMult += increaseAmount;
             multIncrease += increaseBy;
 
             EnemyManager.instance.IncreaseDifficulty();
-        } 
+        }
+        
 
         //TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
         //text.text = "+" + value;
@@ -113,7 +115,7 @@ public class ScoreManager : MonoBehaviour
 
     public void StopScoring()
     {
-        isAlive = false;
+        //isAlive = false;
         UpdateScoreUI();
     }
 

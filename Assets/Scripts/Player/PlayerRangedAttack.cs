@@ -31,6 +31,8 @@ public class PlayerRangedAttack : MonoBehaviour
 
     bool disabled;
 
+    Coroutine attack;
+
     
 
 
@@ -56,7 +58,7 @@ public class PlayerRangedAttack : MonoBehaviour
         if (autoAttack && !autoing)
         {
             autoing = true;
-            StartCoroutine(AutoAttack());
+            attack = StartCoroutine(AutoAttack());
         }
 
         if (!GameManager.instance.playerDead)
@@ -184,6 +186,12 @@ public class PlayerRangedAttack : MonoBehaviour
             }
             yield return new WaitForSeconds(rangedCooldown);
         }
+    }
+
+    internal void Die()
+    {
+        StopCoroutine(attack);
+        aimCursor.gameObject.SetActive(false);
     }
 
     void ToggleAuto()

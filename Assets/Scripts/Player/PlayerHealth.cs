@@ -181,7 +181,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             GameManager.instance.playerDead = true;
             Instantiate(death, transform.position, transform.rotation);
             GetComponent<PlayerMovement>().Die();
+            GetComponent<PlayerRangedAttack>().Die();
+            GetComponent<PlayerMeleeAttack>().Die();
             dead = true;
+            
+            print("Player Killed");
         }
     }
 

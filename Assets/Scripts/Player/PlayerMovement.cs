@@ -124,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        if(GameManager.instance.playerDead) return;
+
         Debug.Log("Jumping");
         rb.linearVelocityY = 0;
         rb.AddForce(transform.up * _jumpSpeed, ForceMode2D.Impulse);
