@@ -7,14 +7,19 @@ public class FlyingEnemy : EnemyBase
     private Vector3 _moveDirection = Vector3.left;
     public float A, B, C;
     [SerializeField] float knockback = 2f;
+    [SerializeField] float offsetRange;
+    [SerializeField] float heightRandomness;
+
+    float offset = 1;
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
         transform.position = new Vector3(transform.position.x, A * Mathf.Sin(transform.position.x - B) + C, transform.position.z);
         transform.localScale = new Vector3(_moveDirection.x, 1, 1);
 
-        if (transform.position.x < GameManager.instance.Player.transform.position.x) _moveDirection = Vector3.right;
+        if (transform.position.x < GameManager.instance.Player.transform.position.x + offset) _moveDirection = Vector3.right;
         else _moveDirection = Vector3.left;
+        SetTarget();
     }
 
     bool canDamage;
@@ -59,5 +64,22 @@ public class FlyingEnemy : EnemyBase
         {
             canDamage = true;
         }
+    }
+
+    void SetTarget()
+    {
+        if(_moveDirection == Vector3.right)
+        {
+            offset = offsetRange;
+        }
+        else
+        {
+            offset = -offsetRange;
+        }
+    }
+
+    public override void ExtraSetup()
+    {
+        C += UnityEngine.Random.Range(-heightRandomness, heightRandomness);
     }
 }

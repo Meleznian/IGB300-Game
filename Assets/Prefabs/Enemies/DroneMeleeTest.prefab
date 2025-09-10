@@ -79,12 +79,14 @@ MonoBehaviour:
   health: 10
   defaultDamage: 5
   moveSpeed: 1.2
-  speedVariance: 0.5
+  speedVariance: 0.3
   value: 10
   A: 0.5
   B: 1
-  C: 2
+  C: 0.5
   knockback: 6
+  offsetRange: 2.5
+  heightRandomness: 1
 --- !u!58 &639610546315166609
 CircleCollider2D:
   m_ObjectHideFlags: 0
