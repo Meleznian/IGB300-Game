@@ -25,15 +25,28 @@ public class GameManager : MonoBehaviour
     //public TMP_Text crowdHypeText;
     public GameObject completeLevelUI;
     public GameObject UICanvas;
+
     public GameObject Player;
     [SerializeField] PlayerHealth playerHealth;
-   
+    private Vector3 startPosition;
+    private float distanceTravelled;
+
+
     internal Transform killWall;
     [SerializeField] UpgradeManager upgrader;
 
+    [SerializeField] private DetailPanel detailPanel;
+
+
+    [Header("Bolt Counters")]
+    public int steelBolts;
+    public int brassBolts;
+    public int silverBolts;
+    public int goldBolts;
 
     public TextMeshProUGUI boltText;
     [SerializeField] internal float _BoltCount = 0;
+
 
     bool gameHasEnded = false;
     bool gameHasWon = false;
@@ -61,8 +74,13 @@ public class GameManager : MonoBehaviour
     {
         ammoDisplay.value = ammo;
         AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
+
+        //Player
         Player = GameObject.Find("Player");
         playerHealth = Player.GetComponent<PlayerHealth>();
+        // Store starting position
+        startPosition = Player.transform.position;
+
         killWall = GameObject.Find("KillWall").transform;
         steamSlider.maxValue = maxSteam;
     }
@@ -79,28 +97,65 @@ public class GameManager : MonoBehaviour
         //    gameHasWon = true;
         //    CompleteLevel();
         //}
+
+        // Distance travelled
+        distanceTravelled = Player.transform.position.x - startPosition.x;
+        distanceTravelled = Mathf.Max(0, distanceTravelled); // Shouldn't count the negative value such as -0.1meter etc
+
+        if (detailPanel != null)
+        {
+            detailPanel.UpdateDistance(distanceTravelled);
+        }
+
+
     }
 
     public void KillCount()
     {
-        _killCount = _killCount + 1;
+        _killCount++;
         killCountText.text = "Kills: " + DisplayKillCount();
-        Debug.Log("killCount " + _killCount);
 
+        if (detailPanel != null)
+        {
+            detailPanel.UpdateKills(_killCount);
+        }
+
+        Debug.Log("killCount " + _killCount);
     }
+
 
     public void BoltCount(float amount)
     {
-        //Debug.Log("_BoltCount " + _BoltCount);
         playerHealth.getBolt.Play();
         _BoltCount += amount;
         levelProgress.value = _BoltCount;
-        
-        if(_BoltCount >= upgrader.cashGoal)
+
+        // Track the correct bolt type
+        if (amount == 1)
+            steelBolts++;
+        else if (amount == 5)
+            brassBolts++;
+        else if (amount == 10)
+            silverBolts++;
+        else if (amount == 20)
+            goldBolts++;
+
+        // Update DetailPanel UI
+        if (detailPanel != null)
+        {
+            detailPanel.UpdateBoltCount(0, steelBolts);
+            detailPanel.UpdateBoltCount(1, brassBolts);
+            detailPanel.UpdateBoltCount(2, silverBolts);
+            detailPanel.UpdateBoltCount(3, goldBolts);
+        }
+
+        // Check for upgrade condition
+        if (_BoltCount >= upgrader.cashGoal)
         {
             upgrader.ShowUpgradeOptions();
         }
     }
+
 
     public void CompleteLevel()
     {
@@ -135,6 +190,7 @@ public class GameManager : MonoBehaviour
             ////YouDiedtxt.enabled = true;//for component only 
             //Invoke("Restart", restartDelay);
             ////Restart();
+       
         }
         
     }
