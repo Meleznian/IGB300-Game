@@ -28,6 +28,15 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] float spawnVariationX;
     [SerializeField] float spawnVariationY;
 
+    [Header("Scaling Variables")]
+    [SerializeField] float speedIncrease = 0.5f;
+    [SerializeField] int capIncrease = 1;
+    [SerializeField] int groupIncrease = 1;
+    [Header("Scaling Clamps")]
+    [SerializeField] float speedClamp = 1;
+    [SerializeField] int capClamp = 20;
+    [SerializeField] int groupClamp = 5;
+
 
 
     [SerializeField] Vector2 spawnPosition;
@@ -136,12 +145,12 @@ public class EnemyManager : MonoBehaviour
 
     internal void IncreaseDifficulty()
     {
-        spawnSpeed -= 0.5f;
-        spawnSpeed = Mathf.Clamp(spawnSpeed, 1, 5);
+        spawnSpeed -= speedIncrease;
+        spawnSpeed = Mathf.Clamp(spawnSpeed, speedClamp, 5);
 
-        enemyCap += 1;
-        maxSpawnGroup += 1;
+        enemyCap += capIncrease;
+        maxSpawnGroup += groupIncrease;
 
-        maxSpawnGroup = Mathf.Clamp(maxSpawnGroup, 1, 5);
+        maxSpawnGroup = Mathf.Clamp(maxSpawnGroup, 1, groupClamp);
     }
 }
