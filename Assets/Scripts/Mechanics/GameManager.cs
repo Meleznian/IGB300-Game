@@ -175,6 +175,7 @@ public class GameManager : MonoBehaviour
         return _BoltCount;
     }
 
+    
     public void EndGame()
     {
         if(gameHasEnded == false)
@@ -182,7 +183,7 @@ public class GameManager : MonoBehaviour
             print("Ending Game");
             gameHasEnded = true;
 
-            UICanvas.SetActive(false);
+            //UICanvas.SetActive(false);
             ScoreManager.instance.StopScoring();
             MenuManager.instance.PlayerDead();
             //Debug.Log("GAME OVER!!!");
@@ -190,11 +191,11 @@ public class GameManager : MonoBehaviour
             ////YouDiedtxt.enabled = true;//for component only 
             //Invoke("Restart", restartDelay);
             ////Restart();
-       
+            
         }
         
     }
-
+ 
 
     //public void IncreaseHype()
     //{
