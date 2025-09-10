@@ -122,7 +122,7 @@ public class EnemyManager : MonoBehaviour
         Instantiate(enemyDeathEffect, enemy.transform.position, Quaternion.identity);
         Destroy(enemy);
 
-        GameManager.instance.KillCount();
+        
     }
 
     internal void EnemyHurt(Vector3 pos)
