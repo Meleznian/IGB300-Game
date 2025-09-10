@@ -1444,6 +1444,10 @@ PrefabInstance:
       propertyPath: detailPanel
       value: 
       objectReference: {fileID: 2101008922}
+    - target: {fileID: 841771440294224464, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1354585238773915636, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1472,10 +1476,54 @@ PrefabInstance:
       propertyPath: 'boltTypeCounts.Array.data[3]'
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].effect
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3579715915885456711, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: detailPanel
       value: 
       objectReference: {fileID: 2101008922}
+    - target: {fileID: 4384087678758541085, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384087678758541085, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].effect
+      value: 
+      objectReference: {fileID: 11400000, guid: c63db70a7ce774948891aa5789db6e2c, type: 2}
+    - target: {fileID: 4384087678758541085, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[1].effect
+      value: 
+      objectReference: {fileID: 11400000, guid: 4094e1df38fbd2246aafd4b8d666728f, type: 2}
+    - target: {fileID: 4384087678758541085, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384087678758541085, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384087678758541085, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

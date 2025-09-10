@@ -92,6 +92,7 @@ public class ScoreManager : MonoBehaviour
             if (currentScore >= highScore)
             {
                 deathScoreText.text = "<link=red+shake>Score: " + currentScore.ToString() + "</link>";
+                //New High Score
                 newHighScore.gameObject.SetActive(true);
                 scoreEffect.Play();
             }
