@@ -4,7 +4,7 @@ using System.Collections;
 
 public class FlyingEnemy : EnemyBase
 {
-    private Vector3 _moveDirection = Vector3.left;
+    internal Vector3 _moveDirection = Vector3.left;
     public float A, B, C;
     [SerializeField] float knockback = 2f;
     [SerializeField] float offsetRange;
@@ -75,7 +75,7 @@ public class FlyingEnemy : EnemyBase
         else
         {
             offset = -offsetRange;
-        }
+        }       
     }
 
     public override void ExtraSetup()
