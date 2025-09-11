@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public float smoothSpeed = 5f;
     public Vector3 offset;
+    Vector3 velocity = Vector3.zero;
 
     [Header("Stage Bounds (Only Y)")]
     public Transform stageBoundsTopLeft;
@@ -19,14 +20,14 @@ public class CameraFollow : MonoBehaviour
         camHalfHeight = cam.orthographicSize;
         camHalfWidth = camHalfHeight * cam.aspect;
 
-        if (!target) target = GameObject.Find("Player")?.transform;
+        if (!target) target = GameObject.Find("Player").transform;
 
         // Initialize maximum X at initial position reference
         var startDesired = (target ? target.position : transform.position) + offset;
         maxCamX = Mathf.Max(transform.position.x, startDesired.x);
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (!target) return;
 
@@ -43,7 +44,9 @@ public class CameraFollow : MonoBehaviour
         float maxY = stageBoundsTopLeft ? stageBoundsTopLeft.position.y - camHalfHeight : Mathf.Infinity;
         float clampedY = Mathf.Clamp(desired.y, minY, maxY);
 
-        Vector3 targetPos = new Vector3(lockedX, transform.position.y, desired.z);
-        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
+        Vector3 targetPos = new Vector3(lockedX + 3, transform.position.y, desired.z);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothSpeed);
+        //transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
+
     }
 }

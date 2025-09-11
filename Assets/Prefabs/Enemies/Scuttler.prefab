@@ -141,7 +141,7 @@ MonoBehaviour:
   speedVariance: 0.5
   value: 10
   canJump: 1
-  jumpForce: 4
+  jumpForce: 13
   knockback: 3
 --- !u!1 &4833173571841026522
 GameObject:
