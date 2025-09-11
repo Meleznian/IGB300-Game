@@ -6,7 +6,7 @@ public class FlyingEnemy : EnemyBase
 {
     internal Vector3 _moveDirection = Vector3.left;
     public float A, B, C;
-    [SerializeField] float knockback = 2f;
+    [SerializeField] internal float knockback = 2f;
     [SerializeField] float offsetRange;
     [SerializeField] float heightRandomness;
 
@@ -22,8 +22,8 @@ public class FlyingEnemy : EnemyBase
         SetTarget();
     }
 
-    bool canDamage;
-    float timer;
+    internal bool canDamage;
+    internal float timer;
 
     private void Update()
     {
@@ -40,16 +40,10 @@ public class FlyingEnemy : EnemyBase
         if (canDamage)
         {
             var player = other.GetComponent<PlayerHealth>();
-            var knockbackApply = other.GetComponent<PlayerMovement>();
+
             if (player != null)
             {
-                print("Triggered: " + other.name);
-                player.TakeDamage(defaultDamage); 
-                knockbackApply.ApplyKnockbackFrom(transform.position + new Vector3(1f, 0, 0), knockback);
-                Vector2 direction = ((-_moveDirection + Vector3.up)) * 4;
-                rb.AddForce(direction, ForceMode2D.Impulse);
-                canDamage = false;
-                timer = 1;
+                Attack(player);
             }
         }
     }
@@ -81,5 +75,17 @@ public class FlyingEnemy : EnemyBase
     public override void ExtraSetup()
     {
         C += UnityEngine.Random.Range(-heightRandomness, heightRandomness);
+    }
+
+    public override void Attack(PlayerHealth player)
+    {
+        var knockbackApply = player.GetComponent<PlayerMovement>();
+        print("Triggered: " + player.name);
+        player.TakeDamage(defaultDamage);
+        knockbackApply.ApplyKnockbackFrom(transform.position + new Vector3(1f, 0, 0), knockback);
+        Vector2 direction = ((-_moveDirection + Vector3.up)) * 4;
+        rb.AddForce(direction, ForceMode2D.Impulse);
+        canDamage = false;
+        timer = 1;
     }
 }

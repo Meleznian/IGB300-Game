@@ -171,7 +171,7 @@ MonoBehaviour:
   value: 1
   player: {fileID: 0}
   inRange: 0
-  collectionDelay: 1
+  collectionDelay: 0.7
 --- !u!1 &4250506129095389571
 GameObject:
   m_ObjectHideFlags: 0

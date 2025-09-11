@@ -203,7 +203,7 @@ MonoBehaviour:
   value: 10
   player: {fileID: 5765494503337787885, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
   inRange: 0
-  collectionDelay: 1
+  collectionDelay: 0.7
 --- !u!58 &6970564716278901016
 CircleCollider2D:
   m_ObjectHideFlags: 0

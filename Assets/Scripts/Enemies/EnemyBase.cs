@@ -70,7 +70,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void DoAttack()
+    public virtual void Attack(PlayerHealth player)
     {
 
     }

@@ -48,8 +48,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 0.5
+  m_LinearDamping: 3
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -98,7 +98,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
+  m_Radius: 0.6
 --- !u!114 &8810793268647023742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,16 +114,17 @@ MonoBehaviour:
   enemyName: Hoverboy
   health: 15
   defaultDamage: 5
-  moveSpeed: 1.5
+  moveSpeed: 10
   speedVariance: 0
   value: 10
   A: 0
   B: 0
   C: 0
-  knockback: 2
+  knockback: 15
   offsetRange: 0
   heightRandomness: 0
   targetY: -0.5
+  maxDist: 1
 --- !u!1 &6894781992262527531
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 6894781992262527531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000023841858, y: 0.17, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -273,7 +274,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8270270273322148454}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -301,4 +302,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
+  m_Radius: 0.6

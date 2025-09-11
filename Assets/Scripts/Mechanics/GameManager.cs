@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
         else
         {
             instance = this;
-            Player = GameObject.Find("Player");
         }
     }
 
@@ -77,6 +76,7 @@ public class GameManager : MonoBehaviour
         AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
 
         //Player
+        Player = GameObject.Find("Player");
         playerHealth = Player.GetComponent<PlayerHealth>();
         // Store starting position
         startPosition = Player.transform.position;
