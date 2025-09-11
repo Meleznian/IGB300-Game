@@ -619,7 +619,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: spawnSpeed
-      value: 300
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1912559338963649687, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: enemies.Array.size
