@@ -548,9 +548,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: globalEffects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: globalEffects.Array.data[0].effect
       value: 
-      objectReference: {fileID: 11400000, guid: f03d28220ae72b34495dedd42708a26a, type: 2}
+      objectReference: {fileID: 11400000, guid: d9c02d2dab50c4f439c3817dd756eff3, type: 2}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: globalEffects.Array.data[2].effect
+      value: 
+      objectReference: {fileID: 11400000, guid: eb9cb3f5e9c66274d9ed88d228ca49fc, type: 2}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: globalEffects.Array.data[0].triggerWhen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3378084698233252505, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: globalEffects.Array.data[0].onEffectCompleted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3772905961492147548, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_Controller
       value: 
@@ -559,6 +583,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 1.63
       objectReference: {fileID: 0}
+    - target: {fileID: 4384087678758541085, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: tagEffects.Array.data[1].effect
+      value: 
+      objectReference: {fileID: 11400000, guid: 4094e1df38fbd2246aafd4b8d666728f, type: 2}
     - target: {fileID: 4592554270129465555, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_text
       value: 'Kills: 999'

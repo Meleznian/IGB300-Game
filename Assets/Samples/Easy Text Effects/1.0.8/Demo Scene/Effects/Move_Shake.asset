@@ -12,38 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f8a5a04a3b145299afb77db9d03c233, type: 3}
   m_Name: Move_Shake
   m_EditorClassIdentifier: 
-  effectName: shake
+  effectTag: shake
   startCharIndex: 0
   charLength: 132
   animationType: 2
   fixedDuration: 0
-  durationPerChar: 0.07
-  noDelayForChars: 1
-  timeBetweenChars: 0.045
+  durationPerChar: 0.2
+  timeBetweenChars: 0.1
+  noDelayForChars: 0
   reverseCharOrder: 0
   easingCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
+      time: -0.020834606
+      value: 1.1627492
+      inSlope: -1.5676085
+      outSlope: -1.5676085
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
+      time: 0.46406478
+      value: 0.4026168
+      inSlope: -0.04001192
+      outSlope: -0.04001192
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33209106
+    - serializedVersion: 3
+      time: 0.9958191
+      value: 0.04716873
+      inSlope: -0.66844416
+      outSlope: -0.66844416
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startOffset: {x: 5, y: -5}
-  endOffset: {x: -5, y: 5}
+  clampBetween0And1: 0
+  timeType: 0
+  startOffset: {x: 8, y: -8}
+  endOffset: {x: -8, y: 8}
