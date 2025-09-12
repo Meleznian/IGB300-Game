@@ -84,6 +84,8 @@ public class MenuManager : MonoBehaviour
         deathPanel.SetActive(true);
         detailPanel.SetActive(true);
         GetComponent<DeathMessageManager>().ShowDeathPanel();
+        GetComponent<DeathMessageManager>().ShowDeathDetailPanel();
+
     }
 
 
