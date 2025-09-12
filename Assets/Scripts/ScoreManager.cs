@@ -3,6 +3,7 @@ using TMPro;
 using EasyTextEffects;
 using System.Drawing;
 using UnityEngine.SocialPlatforms.Impl;
+using System.Collections;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class ScoreManager : MonoBehaviour
     int point;
     //private bool isAlive = true;
     private TextEffect effect;
+    private Vector3 baseScale;
 
     [SerializeField] int multIncrease;
     [SerializeField] float increaseAmount;
@@ -49,6 +51,7 @@ public class ScoreManager : MonoBehaviour
 
         point = pointsPerSecond / 60;
         increaseBy = multIncrease;
+        baseScale = scoreText.transform.localScale;
     }
 
     private void FixedUpdate()
@@ -58,22 +61,40 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreUI();
     }
 
+
     public void AddScore(int value, Vector2 textPos)
     {
-
         currentScore += value;
 
+        // Check multiplier/difficulty
         if (currentScore >= multIncrease)
         {
             GameManager.instance.cashMult += increaseAmount;
             multIncrease += increaseBy;
-
             EnemyManager.instance.IncreaseDifficulty();
         }
-        
 
-        //TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
-        //text.text = "+" + value;
+        // Spawn floating score text
+        TMP_Text text = Instantiate(textPrefab, textCanvas); // parent first
+        text.transform.position = textPos;                   // canvas-space position
+        text.text = "+" + value;
+
+        // Optional: make it fly to score UI (if you have RisingText)
+        RisingText rising = text.GetComponent<RisingText>();
+        if (rising != null)
+        {
+            rising.Init(scoreText.transform.position, () =>
+            {
+                // When it arrives, update UI and trigger bounce
+                UpdateScoreUI();
+                StartCoroutine(BounceEffect());
+            });
+        }
+        else
+        {
+            // If no flying animation, just trigger bounce immediately
+            StartCoroutine(BounceEffect());
+        }
 
         // Update high score if needed
         if (currentScore > highScore)
@@ -84,6 +105,32 @@ public class ScoreManager : MonoBehaviour
 
         UpdateScoreUI();
     }
+
+
+    public IEnumerator BounceEffect()
+{
+    Vector3 originalScale = baseScale;         
+    Vector3 targetScale = baseScale * 1.2f;          
+
+    // Grow
+    float t = 0;
+    while (t < 1)
+    {
+        t += Time.deltaTime * 8f;
+        scoreText.transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
+        yield return null;
+    }
+
+    // Shrink back
+    t = 0;
+    while (t < 1)
+    {
+        t += Time.deltaTime * 8f;
+        scoreText.transform.localScale = Vector3.Lerp(targetScale, originalScale, t);
+        yield return null;
+    }
+}
+
 
     private void UpdateScoreUI()
     {
