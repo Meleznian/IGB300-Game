@@ -66,37 +66,24 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += value;
 
-        // Check multiplier/difficulty
-        if (currentScore >= multIncrease)
-        {
-            GameManager.instance.cashMult += increaseAmount;
-            multIncrease += increaseBy;
-            EnemyManager.instance.IncreaseDifficulty();
-        }
-
-        // Spawn floating score text
-        TMP_Text text = Instantiate(textPrefab, textCanvas); // parent first
-        text.transform.position = textPos;                   // canvas-space position
+        // Spawn floating score text under canvas (works!)
+        TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
         text.text = "+" + value;
 
-        // Optional: make it fly to score UI (if you have RisingText)
+        // Hook up RisingText animation
         RisingText rising = text.GetComponent<RisingText>();
         if (rising != null)
         {
-            rising.Init(scoreText.transform.position, () =>
+            // Fly to score UI text
+            Vector2 scoreUIPos = scoreText.transform.position;
+            rising.Init(scoreUIPos, () =>
             {
-                // When it arrives, update UI and trigger bounce
                 UpdateScoreUI();
                 StartCoroutine(BounceEffect());
             });
         }
-        else
-        {
-            // If no flying animation, just trigger bounce immediately
-            StartCoroutine(BounceEffect());
-        }
 
-        // Update high score if needed
+        // Update high score
         if (currentScore > highScore)
         {
             highScore = currentScore;
@@ -107,12 +94,13 @@ public class ScoreManager : MonoBehaviour
     }
 
 
+
     public IEnumerator BounceEffect()
 {
     Vector3 originalScale = baseScale;         
     Vector3 targetScale = baseScale * 1.2f;          
 
-    // Grow
+
     float t = 0;
     while (t < 1)
     {

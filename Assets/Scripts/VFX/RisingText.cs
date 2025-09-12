@@ -16,18 +16,23 @@ public class RisingText : MonoBehaviour
 
     float timer;
 
-    private Vector3 targetPos;
+    private Vector2 targetPos;
     private Action onArrive;
+    private bool isFlying = false;
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
 
-        //if (timer >= stopTime)
-        //{
-        //    riseSpeed = 0;
-        //}
+
+        if (!isFlying)
+        {
+            Vector2 pos = transform.position;
+            pos.y += riseSpeed * Time.deltaTime;
+            transform.position = pos;
+        }
+
         if (timer >= lifeTime)
         {
             Fade();
@@ -40,10 +45,11 @@ public class RisingText : MonoBehaviour
         transform.position = new Vector2(transform.position.x, transform.position.y + (riseSpeed * Time.deltaTime));
     }
 
-    public void Init(Vector3 target, Action callback)
+    public void Init(Vector2 target, Action callback)
     {
         targetPos = target;
         onArrive = callback;
+        isFlying = true;
         StartCoroutine(MoveToTarget());
     }
 
@@ -55,7 +61,7 @@ public class RisingText : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime / moveDuration;
-            transform.position = Vector3.Lerp(startPos, targetPos, moveCurve.Evaluate(t));
+            transform.position = Vector2.Lerp(startPos, targetPos, moveCurve.Evaluate(t));
             yield return null;
         }
 
