@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Kill Wall 2-2.png_0: -959965356946477848
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

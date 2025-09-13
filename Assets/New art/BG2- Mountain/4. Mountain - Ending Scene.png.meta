@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: de210b1c5b489c74a9e6fa1c63f30345
+guid: 4a7908b68513c2942912aa8b0d733ec0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8064945424214246321
-    second: Kill Wall 2-1.png_0
+      213: -6669988583155023979
+    second: 4. Mountain - Ending Scene_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kill Wall 2-1.png_0
+      name: 4. Mountain - Ending Scene_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 55
-        height: 359
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4c3cc8ddde831090800000000000000
-      internalID: -8064945424214246321
+      spriteID: 59f322509b07f63a0800000000000000
+      internalID: -6669988583155023979
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Kill Wall 2-1.png_0: -8064945424214246321
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

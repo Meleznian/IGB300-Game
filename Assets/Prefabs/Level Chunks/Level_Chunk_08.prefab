@@ -59,6 +59,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolIndex: 0
   _despawnX: -30
+  _killWall: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+  _thisChunk: {fileID: 3664248506165738467}
 --- !u!1001 &743620404905587225
 PrefabInstance:
   m_ObjectHideFlags: 0
