@@ -146,7 +146,7 @@ public class BackgroundSequenceLooper : MonoBehaviour
         pos.x = (pixelSnap && unitPx > 0f) ? Snap(centerX) : centerX;
         go.transform.position = pos;
         var newPipe = Instantiate(pipe, go.transform);
-        newPipe.transform.localPosition = new Vector2(9.5f, 0);
+        newPipe.transform.localPosition = new Vector2(9.4f, 0);
 
 
         return new Segment { t = go.transform, width = GetWidth(go) };

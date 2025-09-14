@@ -66,6 +66,13 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += value;
 
+        if (currentScore >= multIncrease)
+        {
+            GameManager.instance.cashMult += increaseAmount;
+            multIncrease += increaseBy;
+            EnemyManager.instance.IncreaseDifficulty();
+        }
+
         // Spawn floating score text under canvas (works!)
         TMP_Text text = Instantiate(textPrefab, textPos, Quaternion.identity, textCanvas);
         text.text = "+" + value;
