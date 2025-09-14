@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     [SerializeField] PlayerHealth playerHealth;
     private Vector3 startPosition;
-    private float distanceTravelled;
+    internal float distanceTravelled;
 
 
     internal Transform killWall;
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     bool gameHasWon = false;
     internal bool playerDead;
     public float restartDelay = 0.5f;
-    private int _killCount = 0;
+    public int _killCount = 0;
 
     public int KillTarget = 10;
 
@@ -102,10 +102,10 @@ public class GameManager : MonoBehaviour
         distanceTravelled = Player.transform.position.x - startPosition.x;
         distanceTravelled = Mathf.Max(0, distanceTravelled); // Shouldn't count the negative value such as -0.1meter etc
 
-        if (detailPanel != null)
-        {
-            detailPanel.UpdateDistance(distanceTravelled);
-        }
+        //if (detailPanel != null)
+        //{
+        //    detailPanel.UpdateDistance(distanceTravelled);
+        //}
 
 
     }
@@ -115,10 +115,10 @@ public class GameManager : MonoBehaviour
         _killCount++;
         killCountText.text = "Kills: " + DisplayKillCount();
 
-        if (detailPanel != null)
-        {
-            detailPanel.UpdateKills(_killCount);
-        }
+        //if (detailPanel != null)
+        //{
+        //    detailPanel.UpdateKills(_killCount);
+        //}
 
         Debug.Log("killCount " + _killCount);
     }
@@ -141,13 +141,13 @@ public class GameManager : MonoBehaviour
             goldBolts++;
 
         // Update DetailPanel UI
-        if (detailPanel != null)
-        {
-            detailPanel.UpdateBoltCount(0, steelBolts);
-            detailPanel.UpdateBoltCount(1, brassBolts);
-            detailPanel.UpdateBoltCount(2, silverBolts);
-            detailPanel.UpdateBoltCount(3, goldBolts);
-        }
+        //if (detailPanel != null)
+        //{
+        //    detailPanel.UpdateBoltCount(0, steelBolts);
+        //    detailPanel.UpdateBoltCount(1, brassBolts);
+        //    detailPanel.UpdateBoltCount(2, silverBolts);
+        //    detailPanel.UpdateBoltCount(3, goldBolts);
+        //}
 
         // Check for upgrade condition
         if (_BoltCount >= upgrader.cashGoal)

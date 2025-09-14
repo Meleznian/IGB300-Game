@@ -28,7 +28,7 @@ public class DeathMessageManager : MonoBehaviour
 
     public void ShowDeathDetailPanel()
     {
-        detailPanel.GetComponent<Animator>().SetTrigger("Enter");
+        //detailPanel.GetComponent<Animator>().SetTrigger("Enter");
     }
     
     void ShowRandomDeathMessage()
