@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //Required Components
     private Rigidbody2D rb;
-    private TrailRenderer tr;
+    //private TrailRenderer tr;
     [SerializeField] private Animator anim;
     public float maxVerticalVelocity;
 
@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool autoRun;
 
     [SerializeField] ParticleSystem landEffect;
+    [SerializeField] ParticleSystem dashEffect;
     [SerializeField] PlayerHealth health;
 
 
@@ -63,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        tr = GetComponent<TrailRenderer>();
+        //tr = GetComponent<TrailRenderer>();
         health = GetComponent<PlayerHealth>();
 
         rb.linearDamping = _friction;
@@ -165,7 +166,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _sprintAvailable = false;
         _sprinting = true;
-        tr.emitting = true;
+        //tr.emitting = true;
+        Instantiate(dashEffect, anim.transform);
 
         // Dash sets the speed directly.
         rb.linearVelocity = new Vector2(x * _sprintSpeed, y * _sprintSpeed);
@@ -178,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(_sprintTime);
 
         _sprinting = false;
-        tr.emitting = false;
+        //tr.emitting = false;
 
         rb.linearDamping = _friction;
         rb.gravityScale = gravScale;
