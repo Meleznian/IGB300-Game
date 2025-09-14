@@ -129,7 +129,7 @@ public class DetailsPanel : MonoBehaviour
         {
             return (int)GameManager.instance.distanceTravelled;
         }
-        else if (name == "Enemies killed")
+        else if (name == "KillCount")
         {
             return GameManager.instance._killCount;
         }
