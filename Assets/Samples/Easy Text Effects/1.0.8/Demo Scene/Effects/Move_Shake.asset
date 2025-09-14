@@ -56,5 +56,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   clampBetween0And1: 0
   timeType: 0
-  startOffset: {x: 8, y: -8}
-  endOffset: {x: -8, y: 8}
+  startOffset: {x: 1, y: -1}
+  endOffset: {x: -1, y: 1}

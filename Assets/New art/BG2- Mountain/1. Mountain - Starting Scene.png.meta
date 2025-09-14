@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      1. Mountain - Starting Scene_0: -5645117893669546898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
