@@ -72,12 +72,18 @@ public class DetailsPanel : MonoBehaviour
         print("Current Goal is: " + goal);
         current = 0;
         currentText = text;
+        currentText.text = current.ToString();
         summing = true;
     }
 
     void SumNum()
     {
-        if (timer > sumDelay)
+        if (current == goal)
+        {
+            summing = false;
+            DoText();
+        }
+        else if (timer > sumDelay)
         {
             current += 1;
             currentText.text = current.ToString();
@@ -89,11 +95,7 @@ public class DetailsPanel : MonoBehaviour
 
             timer = 0;
         }
-        if(current == goal)
-        { 
-            summing = false;
-            DoText();
-        }
+
     }
 
     int GetGoal(string name)
