@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -259004789
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f1c60307accf5ed42a823d67c7a0c529, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47fc91965d3c07a4385b47339100a317, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 847fb3dce6b4ed14da82343473441bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 0.1
+  lifeTime: 0.15
 --- !u!95 &647820999211641908
 Animator:
   serializedVersion: 7
@@ -110,7 +110,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8653696390555176814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b3a6056c93c6a74449c6b96f58cda042, type: 2}
   m_CullingMode: 0
