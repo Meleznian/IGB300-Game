@@ -3,16 +3,13 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     [SerializeField] int damage;
-    [SerializeField] bool canDamage;
+    [SerializeField] internal bool canDamage;
     [SerializeField] float timer;
     [SerializeField] float knockback;
 
     private void Update()
     {
-        if (!canDamage)
-        {
-            Cooldown();
-        }
+        DoUpdate();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -34,7 +31,7 @@ public class Spike : MonoBehaviour
         }
     }
 
-    void Cooldown()
+    internal void Cooldown()
     {
         if (timer > 0)
         {
@@ -43,6 +40,14 @@ public class Spike : MonoBehaviour
         else
         {
             canDamage = true;
+        }
+    }
+
+    public virtual void DoUpdate()
+    {
+        if (!canDamage)
+        {
+            Cooldown();
         }
     }
 }

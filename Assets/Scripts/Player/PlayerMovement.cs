@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
             _isGrounded = true;
             _airJump = true;
             AudioManager.PlayEffect(SoundType.LANDED, 0.2f);
-            Instantiate(landEffect, new Vector3(transform.position.x,transform.position.y - 1, transform.position.z), Quaternion.identity);
+            //Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), Quaternion.identity);
         }
     }
 
@@ -212,6 +212,10 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "Collectable")
         {
             other.gameObject.GetComponent<ICollectable>().Collect();
+        }
+        if (other.gameObject.tag == "Ground" && _isGrounded)
+        {
+            Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), Quaternion.identity);
         }
     }
 
