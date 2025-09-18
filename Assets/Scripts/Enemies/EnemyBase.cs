@@ -171,9 +171,12 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     internal void CheckWall()
     {
-        if(killWall.position.x > transform.position.x)
+        if (killWall != null)
         {
-            Die(false);
+            if (killWall.position.x > transform.position.x)
+            {
+                Die(false);
+            }
         }
     }
 }

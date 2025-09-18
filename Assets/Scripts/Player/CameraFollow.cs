@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 5f;
     public Vector3 offset;
     Vector3 velocity = Vector3.zero;
+    public bool tutorial;
 
     [Header("Stage Bounds (Only Y)")]
     public Transform stageBoundsTopLeft;
@@ -45,7 +46,14 @@ public class CameraFollow : MonoBehaviour
         float clampedY = Mathf.Clamp(desired.y, minY, maxY);
 
         Vector3 targetPos = new Vector3(lockedX + 3, transform.position.y, desired.z);
-        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothSpeed);
+        if (!tutorial)
+        {
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothSpeed);
+        }
+        else
+        {
+
+        }
         //transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
 
     }

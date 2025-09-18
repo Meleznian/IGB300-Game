@@ -1,10 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
     [SerializeField] Transform up, down, left, right;
     [SerializeField] float range = 1f;
+    [SerializeField] float detectRadius;
     [SerializeField] int damage = 1;
     [SerializeField] float knockback = 5f;
     [SerializeField] LayerMask enemyLayer;
@@ -12,6 +14,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] bool autoAttack;
     internal bool shooting;
+    //public bool attacking;
     Vector2 knockDirection;
 
     [SerializeField] float meleeCooldown = 0.5f;
@@ -62,6 +65,11 @@ public class PlayerMeleeAttack : MonoBehaviour
                     meleeCooldownTimer = meleeCooldown;
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            IncreaseSize(0.5f);
         }
     }
 
@@ -142,6 +150,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         if (down) Gizmos.DrawWireSphere(down.position, range);
         if (left) Gizmos.DrawWireSphere(left.position, range);
         if (right) Gizmos.DrawWireSphere(right.position, range);
+        Gizmos.DrawWireSphere(transform.position, detectRadius);
     }
 
     internal void IncreaseDamage(int amount)
@@ -159,16 +168,28 @@ public class PlayerMeleeAttack : MonoBehaviour
     public void IncreaseSize(float amount)
     {
         range += amount;
+        up.position += new Vector3(0, amount, 0);
+        down.position -= new Vector3(0, amount, 0);
+        right.position += new Vector3(amount, 0, 0);
+        left.position -= new Vector3(amount, 0, 0);
+        detectRadius += amount*2;
     }
 
     IEnumerator AutoAttack()
     {
         while (autoAttack)
         {
-            Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 dir = (mouse - (Vector2)transform.position).normalized;
-            TryAttack(dir);
-            yield return new WaitForSeconds(meleeCooldown);
+            if (CheckForEnemy())
+            {
+                Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 dir = (mouse - (Vector2)transform.position).normalized;
+                TryAttack(dir);
+                yield return new WaitForSeconds(meleeCooldown);
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 
@@ -187,5 +208,19 @@ public class PlayerMeleeAttack : MonoBehaviour
                 autoing = false;
             }
         }
+    }
+
+    bool CheckForEnemy()
+    {
+        var hits = Physics2D.OverlapCircleAll(transform.position, detectRadius, enemyLayer);
+        foreach (var h in hits)
+        {
+            if (h.CompareTag("Enemy"))
+            {
+                return true;
+            }
+        }
+        //print("No Enemy");
+        return false;
     }
 }

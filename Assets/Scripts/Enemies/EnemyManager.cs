@@ -72,7 +72,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer >= spawnSpeed)
+        if (spawnTimer >= spawnSpeed && spawnSpeed != 0)
         {
             numToSpawn = UnityEngine.Random.Range(minSpawnGroup, maxSpawnGroup + 1);
             SpawnEnemies();
