@@ -164,6 +164,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public void Heal(int healAmount)
+    {
+        currentHealth += healAmount;
+        if(currentHealth > maxHealth) currentHealth = maxHealth;
+    }
+
     public void Kill()
     {
         if (!dead)
