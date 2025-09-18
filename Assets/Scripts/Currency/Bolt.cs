@@ -73,7 +73,10 @@ public class Bolt : MonoBehaviour
         if (other.CompareTag("Player") && canBeCollected)
         {
             GameManager.instance.BoltCount(value);
-            ScoreManager.instance.AddScore(50, transform.position);
+            if (GameManager.instance.tutorial == false)
+            {
+                ScoreManager.instance.AddScore(50, transform.position);
+            }
             AudioManager.PlayEffect(SoundType.COLLECT_BOLT, 1f);
             Destroy(gameObject);
         }

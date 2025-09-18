@@ -103,7 +103,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
         if (spawn)
         {
             SpawnCurrency();
-            ScoreManager.instance.AddScore(200, transform.position);
+            if (GameManager.instance.tutorial == false)
+            {
+                ScoreManager.instance.AddScore(200, transform.position);
+            }
             GameManager.instance.KillCount();
         }
 
@@ -130,7 +133,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         actingMoveSpeed = moveSpeed /20;
 
-        killWall = GameManager.instance.killWall.transform.GetChild(0);
+        if (GameManager.instance.tutorial == false)
+        {
+            killWall = GameManager.instance.killWall.transform.GetChild(0);
+        }
 
         ExtraSetup();
     }

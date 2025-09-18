@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] UpgradeManager upgrader;
 
     [SerializeField] private DetailPanel detailPanel;
+    [SerializeField] internal bool tutorial;
 
 
     [Header("Bolt Counters")]
@@ -81,8 +82,12 @@ public class GameManager : MonoBehaviour
         // Store starting position
         startPosition = Player.transform.position;
 
-        killWall = GameObject.Find("KillWall").transform;
+        if (!tutorial)
+        {
+            killWall = GameObject.Find("KillWall").transform;
+        }
         steamSlider.maxValue = maxSteam;
+
     }
 
     void Update()
@@ -183,14 +188,24 @@ public class GameManager : MonoBehaviour
             print("Ending Game");
             gameHasEnded = true;
 
-            //UICanvas.SetActive(false);
-            ScoreManager.instance.StopScoring();
-            MenuManager.instance.PlayerDead();
-            //Debug.Log("GAME OVER!!!");
-            //YouDiedtxt.gameObject.SetActive(true);//for gameObject
-            ////YouDiedtxt.enabled = true;//for component only 
-            //Invoke("Restart", restartDelay);
-            ////Restart();
+            if (tutorial)
+            {
+                SceneManager.LoadScene("Start Scene");
+            }
+            else
+            {
+                ScoreManager.instance.StopScoring();
+                MenuManager.instance.PlayerDead();
+
+                //UICanvas.SetActive(false);
+
+                //Debug.Log("GAME OVER!!!");
+                //YouDiedtxt.gameObject.SetActive(true);//for gameObject
+                ////YouDiedtxt.enabled = true;//for component only 
+                //Invoke("Restart", restartDelay);
+                ////Restart();
+                ///
+            }
             
         }
         

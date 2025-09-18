@@ -43,7 +43,7 @@ public class RunningEnemy : EnemyBase
                 print("Triggered: " + other.name);
                 knockbackApply.ApplyKnockbackFrom(transform.position, knockback);
                 player.TakeDamage(defaultDamage);
-                Vector2 direction = ((-_moveDirection + Vector3.up)) * 4;
+                Vector2 direction = ((-_moveDirection + Vector3.up)) * 6;
                 rb.AddForce(direction, ForceMode2D.Impulse);
                 canDamage = false;
                 timer = 1;

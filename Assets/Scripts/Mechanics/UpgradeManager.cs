@@ -172,6 +172,7 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] internal float cashGoal;
+    [SerializeField] float goalIncreaseMultiplier;
     [SerializeField] int playerLevel = 1;
 
     [Header("Stat Increases")]
@@ -263,7 +264,7 @@ public class UpgradeManager : MonoBehaviour
 
     void increaseGoal()
     {
-        cashGoal *= 1.5f;
+        cashGoal *= goalIncreaseMultiplier;
         progressSlider.maxValue = cashGoal;
         progressSlider.value = 0;
         GameManager.instance._BoltCount = 0;

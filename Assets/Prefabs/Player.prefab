@@ -1086,8 +1086,9 @@ MonoBehaviour:
   left: {fileID: 7268190204200944197}
   right: {fileID: 7132780285115553264}
   range: 1
+  detectRadius: 2.5
   damage: 5
-  knockback: 10
+  knockback: 15
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256

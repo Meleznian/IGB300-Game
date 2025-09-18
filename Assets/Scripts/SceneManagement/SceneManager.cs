@@ -17,9 +17,11 @@ public class SettingsManager : MonoBehaviour
 
     public void Tutorial()
     {
-        CloseCurrentPanel();
-        TutorialPanel.SetActive(true);
-        currentOpenPanel = TutorialPanel;
+        //CloseCurrentPanel();
+        //TutorialPanel.SetActive(true);
+        //currentOpenPanel = TutorialPanel;
+        SceneManager.LoadScene("Tutorial");
+
     }
 
 

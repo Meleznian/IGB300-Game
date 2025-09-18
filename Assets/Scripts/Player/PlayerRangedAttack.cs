@@ -190,7 +190,10 @@ public class PlayerRangedAttack : MonoBehaviour
 
     internal void Die()
     {
-        StopCoroutine(attack);
+        if (attack != null)
+        {
+            StopCoroutine(attack);
+        }
         aimCursor.gameObject.SetActive(false);
     }
 
