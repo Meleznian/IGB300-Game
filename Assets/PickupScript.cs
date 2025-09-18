@@ -27,6 +27,10 @@ public class PickupScript : MonoBehaviour, ICollectable
                 //Money
                 GameManager.instance.BoltCount((float)(GameManager.instance.gameObject.GetComponent<UpgradeManager>().cashGoal * 0.3));
                 break;
+            case 5:
+                //SuperCharge
+                GameManager.instance.Player.GetComponent<PlayerMeleeAttack>().RunSuperCharge();
+                break;
             default:
                 Debug.Log("Not Implemented Exception");
                 break;

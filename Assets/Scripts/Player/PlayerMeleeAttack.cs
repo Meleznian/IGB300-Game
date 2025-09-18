@@ -17,7 +17,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     //public bool attacking;
     Vector2 knockDirection;
 
-    [SerializeField] float meleeCooldown = 0.5f;
+    [SerializeField] public float meleeCooldown = 0.5f;
     float meleeCooldownTimer = 0f;
 
     bool autoing;
@@ -222,5 +222,18 @@ public class PlayerMeleeAttack : MonoBehaviour
         }
         //print("No Enemy");
         return false;
+    }
+
+    IEnumerator SuperCharge()
+    {
+        float beforeCooldown = meleeCooldown;
+        meleeCooldown = 0.1f;
+        yield return new WaitForSeconds(5f);
+        meleeCooldown = beforeCooldown;
+    }
+
+    public void RunSuperCharge()
+    {
+        StartCoroutine(SuperCharge());
     }
 }
