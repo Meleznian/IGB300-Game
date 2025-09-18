@@ -52,6 +52,10 @@ MonoBehaviour:
   - {fileID: 5249241490176251230, guid: bf293055d5b5f7244a35519a3c040f0a, type: 3}
   - {fileID: 5249241490176251230, guid: f5afc529b1fa7a44e83ea1ce558feba8, type: 3}
   - {fileID: 5249241490176251230, guid: 88eee117af4474d408b1ceddd4398e0a, type: 3}
+  - {fileID: 3664248506165738467, guid: 79ac1ff45a4f4874f957ab39ae20e3ae, type: 3}
+  - {fileID: 3664248506165738467, guid: 186fe16610e72d4459690bfd1473781f, type: 3}
+  - {fileID: 3664248506165738467, guid: a40c9d2b12f03dd43871fededc1dd069, type: 3}
+  - {fileID: 3664248506165738467, guid: b2a2a289e8c21d8439ca150585e9a977, type: 3}
   _chunkWidth: 20
   _chunksAhead: 20
 --- !u!114 &5855779943685971297
@@ -78,4 +82,12 @@ MonoBehaviour:
   - chunkPrefab: {fileID: 5249241490176251230, guid: f5afc529b1fa7a44e83ea1ce558feba8, type: 3}
     poolSize: 2
   - chunkPrefab: {fileID: 5249241490176251230, guid: 88eee117af4474d408b1ceddd4398e0a, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 3664248506165738467, guid: 79ac1ff45a4f4874f957ab39ae20e3ae, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 3664248506165738467, guid: 186fe16610e72d4459690bfd1473781f, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 3664248506165738467, guid: a40c9d2b12f03dd43871fededc1dd069, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 3664248506165738467, guid: b2a2a289e8c21d8439ca150585e9a977, type: 3}
     poolSize: 2

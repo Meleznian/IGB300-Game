@@ -464,6 +464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChunkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7784479869937542948, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
