@@ -12,6 +12,13 @@ public class PickupScript : MonoBehaviour, ICollectable
                 PlayerHealth healScript = GameManager.instance.Player.GetComponent<PlayerHealth>();
                 healScript.Heal((int)(healScript.maxHealth * 0.4));
                 break;
+            case 2:
+                //Nuke
+                for(int i = 0; i < EnemyManager.instance.livingEnemiesList.Count; i++)
+                {
+                    EnemyManager.instance.livingEnemiesList[0].GetComponent<EnemyBase>().Die(true);
+                }
+                break;
             case 3:
                 //Slow Kill Wall
                 break;
