@@ -46,6 +46,7 @@ public class EnemyManager : MonoBehaviour
     float spawnTimer;
 
     public Enemy[] enemies;
+    public List<GameObject> livingEnemiesList = new List<GameObject>();
 
     [Serializable]
     public class Enemy
@@ -99,7 +100,7 @@ public class EnemyManager : MonoBehaviour
 
                     Vector2 spawnPos = new Vector2(transform.position.x + x, transform.position.y + y);
 
-                    Instantiate(e.enemyPrefab, spawnPos, Quaternion.identity);
+                    livingEnemiesList.Add(Instantiate(e.enemyPrefab, spawnPos, Quaternion.identity));
                     currentlyAlive += 1;
                     i++;
                 }
@@ -120,6 +121,7 @@ public class EnemyManager : MonoBehaviour
         currentlyAlive--;
 
         Instantiate(enemyDeathEffect, enemy.transform.position, Quaternion.identity);
+        livingEnemiesList.Remove(enemy);
         Destroy(enemy);
 
         
