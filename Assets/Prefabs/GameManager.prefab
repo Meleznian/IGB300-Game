@@ -4219,7 +4219,7 @@ MonoBehaviour:
   - {fileID: 6656485516189889148}
   - {fileID: 456677939729185276}
   - {fileID: 1459150723547244993}
-  sumDelay: 0.01
+  sumDelay: 0.001
   textDelay: 0
   begun: 0
 --- !u!1 &7729944062450911193
