@@ -1182,6 +1182,7 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   upgrader: {fileID: 6939304625285668413}
   detailPanel: {fileID: 0}
+  tutorial: 0
   steelBolts: 0
   brassBolts: 0
   silverBolts: 0
@@ -1200,6 +1201,12 @@ MonoBehaviour:
   ammoDisplay: {fileID: 3016185820096805597}
   levelProgress: {fileID: 7840611494678022742}
   floorBullet: {fileID: 918802385275866056, guid: e2b8a258f7406f54ea667de099b55cfa, type: 3}
+  pickups:
+  - {fileID: 4477324071463915010, guid: 6f10c102151a47143adde286de3835bc, type: 3}
+  - {fileID: 4477324071463915010, guid: d40a91b9f480b6e4e9364786d07b1285, type: 3}
+  - {fileID: 4477324071463915010, guid: a38cf1fd62bebb34a8543a5be2570184, type: 3}
+  - {fileID: 4477324071463915010, guid: d73380fb871a70c44b71b37894e29dbc, type: 3}
+  - {fileID: 4477324071463915010, guid: 251d2799b88bda94897aacc7c178f5a1, type: 3}
   bolt1: {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
   bolt5: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
   bolt10: {fileID: 678814081965962704, guid: 3a8dc92e1dfe6fd448922a8b3108aabf, type: 3}
@@ -1274,6 +1281,7 @@ MonoBehaviour:
     removeAfterSelection: 0
   upgradeMusicSource: {fileID: 0}
   cashGoal: 100
+  goalIncreaseMultiplier: 0
   playerLevel: 1
   healthIncrease: 20
   attackSpeedIncrease: 0.06

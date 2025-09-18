@@ -27,6 +27,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [Header("Currency Drop")]
     //[Tooltip("Prefab to spawn when the enemy dies")]
     //public GameObject currencyPrefab;
+    public float PickupDropPercent = 0.2f;
 
     [Tooltip("Number of currency drops to spawn")]
     [SerializeField] float value;
@@ -103,6 +104,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         if (spawn)
         {
             SpawnCurrency();
+            if (UnityEngine.Random.Range(0f, 1f) > PickupDropPercent) SpawnPickup();
             if (GameManager.instance.tutorial == false)
             {
                 ScoreManager.instance.AddScore(200, transform.position);
@@ -184,5 +186,14 @@ public class EnemyBase : MonoBehaviour, IDamageable
                 Die(false);
             }
         }
+    }
+
+    void SpawnPickup()
+    {
+        Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
+        Rigidbody2D rb = Instantiate(GameManager.instance.pickups[UnityEngine.Random.Range(0,GameManager.instance.pickups.Length)], transform.position + (Vector3)spawnOffset, Quaternion.identity).GetComponent<Rigidbody2D>();
+
+        Vector2 direction = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
+        rb.AddForce(direction * 5, ForceMode2D.Impulse);
     }
 }

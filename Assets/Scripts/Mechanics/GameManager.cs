@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider ammoDisplay;
     [SerializeField] Slider levelProgress;
     [SerializeField] GameObject floorBullet;
+    [SerializeField] public GameObject[] pickups;
 
     private void Start()
     {
