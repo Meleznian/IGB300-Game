@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Full Steam Logo_0: 4696134167551406813
+      Full Steam Logo_1: -1318841670429308612
+      Full Steam Logo_2: 6792676033807958265
+      Full Steam Logo_3: -562372821866312807
+      Full Steam Logo_4: -8437919864956798803
+      Full Steam Logo_5: 8739293156396343819
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

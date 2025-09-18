@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Timeline.Actions;
 
 public class UpgradeManager : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class UpgradeManager : MonoBehaviour
         public string effectDescription;
         public Sprite icon;
         public string id;
+        public bool avaliableAtStart;
+        public bool removeAfterSelection;
     }
 
 
@@ -25,8 +29,9 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] ParticleSystem richesRain;
 
     public List<Upgrade> allUpgrades = new List<Upgrade>();
-
     private List<Upgrade> availableUpgrades = new List<Upgrade>();
+
+
     private Upgrade[] currentOptions = new Upgrade[3];
     [SerializeField] private AudioSource upgradeMusicSource;
    
@@ -72,8 +77,13 @@ public class UpgradeManager : MonoBehaviour
         //
         //};
 
-        availableUpgrades = new List<Upgrade>(allUpgrades);
-
+        foreach(Upgrade upgrade in allUpgrades)
+        {
+            if (upgrade.avaliableAtStart)
+            {
+                availableUpgrades.Add(upgrade);
+            }
+        }
         upgradePanel.SetActive(false);
 
         for (int i = 0; i < upgradeButtons.Length; i++)
@@ -142,13 +152,15 @@ public class UpgradeManager : MonoBehaviour
             Upgrade chosen = currentOptions[index];
             Debug.Log($"Selected: {chosen.upgradeName}");
 
-
-            //availableUpgrades.RemoveAll(u => u.upgradeName == chosen.upgradeName);
-
             playerLevel++;
             levelText.text = playerLevel.ToString();
 
             DoUpgrade(chosen.id);
+
+            if (chosen.removeAfterSelection)
+            {
+                availableUpgrades.Remove(chosen);
+            }
 
             upgradePanel.SetActive(false);
             richesRain.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
@@ -199,44 +211,44 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    public void DoUpgrade(string stat)
+    public void DoUpgrade(string id)
     {
-        if (stat == "Damage")
+        if (id == "Damage")
         {
             melee.IncreaseDamage(damageIncrease);
             melee.IncreaseKnockback(knockbackIncrease);
         }
-        else if (stat == "Speed")
+        else if (id == "Speed")
         {
             melee.IncreaseSpeed(attackSpeedIncrease);
             ranged.IncreaseSpeed(bulletSpeedIncrease, bulletCoolIncrease);
         }
-        else if (stat == "MaxHealth")
+        else if (id == "MaxHealth")
         {
             health.IncreaseMax(healthIncrease);
             healthUI.UpdateMax();
         }
-        else if (stat == "Heat")
+        else if (id == "Heat")
         {
             ranged.IncreaseHeat(heatIncrease);
         }
-        else if (stat == "BulletDamage")
+        else if (id == "BulletDamage")
         {
             ranged.IncreaseDamage(bulletDamageIncrease, bulletPierceIncrease);
         }
-        else if (stat == "Move")
+        else if (id == "Move")
         {
             movement.IncreaseSpeed(moveSpeedIncrease);
         }
-        //else if (stat == "Parry")
+        //else if (id == "Parry")
         //{
         //    GameManager.instance.IncreaseParryMult(parryMultIncrease);
         //}
-        else if (stat == "Heat")
+        else if (id == "Heat")
         {
             ranged.IncreaseHeat(heatIncrease);
         }
-        else if (stat == "Size")
+        else if (id == "Size")
         {
             ranged.IncreaseSize(rangedSizeIncrease);
             melee.IncreaseSize(meleeSizeIncrease);
@@ -255,5 +267,17 @@ public class UpgradeManager : MonoBehaviour
         progressSlider.maxValue = cashGoal;
         progressSlider.value = 0;
         GameManager.instance._BoltCount = 0;
+    }
+
+    void AddUpgrade(string id)
+    {
+        foreach (Upgrade upgrade in allUpgrades)
+        {
+            if (upgrade.id == id)
+            {
+                availableUpgrades.Add(upgrade);
+                break;
+            }
+        }
     }
 }
