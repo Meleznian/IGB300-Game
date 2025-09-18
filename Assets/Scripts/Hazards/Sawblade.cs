@@ -52,8 +52,8 @@ public class Sawblade : Spike
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(new Vector3(-horizontalRange, transform.position.y, 0) , 0.5f);
-        Gizmos.DrawWireSphere(new Vector3(horizontalRange, transform.position.y, 0), 0.5f);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x-horizontalRange, transform.position.y, 0) , 0.5f);
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x+horizontalRange, transform.position.y, 0), 0.5f);
     }
 
     //void AdjustSpeed()
