@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 643613002308500909}
   - component: {fileID: 8155255167896737401}
   - component: {fileID: 1954925602468072038}
-  - component: {fileID: 5865763844461302979}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -80,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de210b1c5b489c74a9e6fa1c63f30345, type: 3}
+  m_Sprite: {fileID: -1144419442784466605, guid: 378d002cbf685cb4e93b30d79a4ad5f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.4, y: 3.6}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -129,8 +128,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 12}
-    newSize: {x: 6.4, y: 3.6}
+    oldSize: {x: 2.2, y: 14.4}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -188,28 +187,6 @@ MonoBehaviour:
   accel: 10
   currentSpeed: 0
   slowed: 0
---- !u!95 &5865763844461302979
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4926895817482089505}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0be634dce8e84644a8bf1eb6f85ad052, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7380162842883351911
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +238,7 @@ MonoBehaviour:
   minSpeed: 0.7
   slowMinSpeed: 0.01
   maxSpeed: 3
-  slowMaxSpeed: 1
+  slowMaxSpeed: 1.5
   nearDist: 5
   farDist: 8
   accel: 8
