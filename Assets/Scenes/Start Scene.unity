@@ -3062,7 +3062,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &938271104
@@ -6428,11 +6428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6067975051689085192, guid: 5f5fceda5cf458c4d8746de52d04f96c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -55
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 6067975051689085192, guid: 5f5fceda5cf458c4d8746de52d04f96c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -238
+      value: -149
       objectReference: {fileID: 0}
     - target: {fileID: 6897819690803856508, guid: 5f5fceda5cf458c4d8746de52d04f96c, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -6449,6 +6449,14 @@ PrefabInstance:
     - target: {fileID: 6919802347016167361, guid: 5f5fceda5cf458c4d8746de52d04f96c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377615666340490864, guid: 5f5fceda5cf458c4d8746de52d04f96c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -47
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377615666340490864, guid: 5f5fceda5cf458c4d8746de52d04f96c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7810468076080197586, guid: 5f5fceda5cf458c4d8746de52d04f96c, type: 3}
       propertyPath: m_Pivot.x
