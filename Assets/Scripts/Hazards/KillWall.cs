@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
@@ -10,14 +11,17 @@ public class KillWall : MonoBehaviour
 
     [Header("Speed Mapping")]
     [SerializeField] float minSpeed = 1f;    // Near speed
+    [SerializeField] float slowMinSpeed = 0.01f; //Min Speed when Near
     [SerializeField] float maxSpeed = 8f;    // Speed at Far
+    [SerializeField] float slowMaxSpeed = 2f; //Max Speed when far
     [SerializeField] float nearDist = 10f;   // Below thisÅ®min
     [SerializeField] float farDist = 18f;   // No moreÅ®max
 
     [Header("Smoothing")]
     [SerializeField] float accel = 10f;      // Speed following target speed
 
-    float currentSpeed;
+    [SerializeField] float currentSpeed;
+    [SerializeField] private bool slowed = false;
 
     void Reset()
     {
@@ -44,7 +48,7 @@ public class KillWall : MonoBehaviour
         float t = Mathf.InverseLerp(nearDist, farDist, dx);
 
         // Interpolate speed between min..max 
-        float targetSpeed = Mathf.Lerp(minSpeed, maxSpeed, t);
+        float targetSpeed = slowed ? Mathf.Lerp(slowMinSpeed, slowMaxSpeed, t) : Mathf.Lerp(minSpeed, maxSpeed, t);
 
         // Smoothing
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accel * Time.deltaTime);
@@ -66,5 +70,17 @@ public class KillWall : MonoBehaviour
             var enemy = other.GetComponent<EnemyBase>();
             if (enemy) enemy.Die(false);
         }
+    }
+
+    IEnumerator slowKillWallCooldown()
+    {
+        slowed = true;
+        yield return new WaitForSeconds(10f);
+        slowed = false;
+    }
+
+    public void SlowKillWallPickup()
+    {
+        StartCoroutine(slowKillWallCooldown());
     }
 }

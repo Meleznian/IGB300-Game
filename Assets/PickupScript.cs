@@ -21,6 +21,7 @@ public class PickupScript : MonoBehaviour, ICollectable
                 break;
             case 3:
                 //Slow Kill Wall
+                GameManager.instance.killWall.gameObject.GetComponent<KillWall>().SlowKillWallPickup();
                 break;
             case 4:
                 //Money
