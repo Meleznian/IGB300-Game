@@ -21,6 +21,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     float meleeCooldownTimer = 0f;
 
     bool autoing;
+    public bool superCharge = false;
 
     Coroutine attack;
     void Update()
@@ -184,7 +185,7 @@ public class PlayerMeleeAttack : MonoBehaviour
                 Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 dir = (mouse - (Vector2)transform.position).normalized;
                 TryAttack(dir);
-                yield return new WaitForSeconds(meleeCooldown);
+                yield return new WaitForSeconds(superCharge ? 0.1f: meleeCooldown);
             }
             else
             {
@@ -226,10 +227,9 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     IEnumerator SuperCharge()
     {
-        float beforeCooldown = meleeCooldown;
-        meleeCooldown = 0.1f;
+        superCharge = true;
         yield return new WaitForSeconds(5f);
-        meleeCooldown = beforeCooldown;
+        superCharge = false;
     }
 
     public void RunSuperCharge()
