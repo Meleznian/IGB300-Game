@@ -549,6 +549,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1497031563150605439, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: sumDelay
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2334671606798691541, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
