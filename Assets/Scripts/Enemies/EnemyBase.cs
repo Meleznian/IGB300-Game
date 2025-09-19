@@ -27,7 +27,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [Header("Currency Drop")]
     //[Tooltip("Prefab to spawn when the enemy dies")]
     //public GameObject currencyPrefab;
-    public float PickupDropPercent = 0.2f;
+    public float PickupDropPercent = 0.02f;
 
     [Tooltip("Number of currency drops to spawn")]
     [SerializeField] float value;
@@ -104,7 +104,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         if (spawn)
         {
             SpawnCurrency();
-            if (UnityEngine.Random.Range(0f, 1f) > PickupDropPercent) SpawnPickup();
+            if (UnityEngine.Random.Range(0f, 1f) < PickupDropPercent) SpawnPickup();
             if (GameManager.instance.tutorial == false)
             {
                 ScoreManager.instance.AddScore(200, transform.position);
