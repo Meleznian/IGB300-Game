@@ -1,6 +1,9 @@
 using System;
-using UnityEngine;
 using System.Collections.Generic;
+using System.ComponentModel;
+using UnityEngine;
+using static EnemyManager;
+using static UnityEngine.Rendering.DebugUI;
 
 
 public class EnemyManager : MonoBehaviour
@@ -44,6 +47,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] int currentLevel;
     int numToSpawn;
     float spawnTimer;
+    float totalWeight;
 
     public Enemy[] enemies;
     public List<GameObject> livingEnemiesList = new List<GameObject>();
@@ -53,6 +57,8 @@ public class EnemyManager : MonoBehaviour
     {
         public GameObject enemyPrefab;
         public int level;
+        public float spawnWeight;
+        public string spawnPercentage;
     }
 
     [Header("Visuals")]
@@ -67,7 +73,23 @@ public class EnemyManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        foreach (Enemy enemy in enemies)
+        {
+            totalWeight += enemy.spawnWeight;
+        }
 
+        foreach (Enemy enemy in enemies)
+        {
+            GetSpawnPercentage(enemy);
+        }
+    }
+
+    float GetSpawnPercentage(Enemy e)
+    {
+        float s = e.spawnWeight / totalWeight;
+        s *= 100;
+        e.spawnPercentage = s + "%";
+        return s;
     }
 
     // Update is called once per frame
@@ -91,7 +113,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (currentlyAlive < enemyCap)
             {
-                Enemy e = enemies[UnityEngine.Random.Range(0, enemies.Length)];
+                Enemy e = ChooseEnemy();
 
                 if (e.level <= ScoreManager.instance.currentScore)
                 {
@@ -154,5 +176,24 @@ public class EnemyManager : MonoBehaviour
         maxSpawnGroup += groupIncrease;
 
         maxSpawnGroup = Mathf.Clamp(maxSpawnGroup, 1, groupClamp);
+    }
+
+    Enemy ChooseEnemy()
+    {
+        float roll = UnityEngine.Random.Range(0, totalWeight);
+        int i = 0;
+
+        foreach (Enemy e in enemies)
+        {
+            roll -= enemies[i].spawnWeight;
+
+            if (roll < 0)
+            {
+                return enemies[i];
+            }
+            i++;
+        }
+
+        return enemies[0];
     }
 }

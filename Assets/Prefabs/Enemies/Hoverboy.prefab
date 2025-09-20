@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Hoverboy
-  health: 15
+  health: 10
   defaultDamage: 5
-  moveSpeed: 10
+  moveSpeed: 3
   speedVariance: 0
   PickupDropPercent: 0.02
   value: 10
