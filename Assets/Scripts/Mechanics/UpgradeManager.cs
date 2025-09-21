@@ -15,6 +15,7 @@ public class UpgradeManager : MonoBehaviour
         public string id;
         public bool avaliableAtStart;
         public bool removeAfterSelection;
+        public int timesChosen;
     }
 
 
@@ -155,6 +156,7 @@ public class UpgradeManager : MonoBehaviour
             levelText.text = playerLevel.ToString();
 
             DoUpgrade(chosen.id);
+            chosen.timesChosen += 1;
 
             if (chosen.removeAfterSelection)
             {

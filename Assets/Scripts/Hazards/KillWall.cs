@@ -22,6 +22,7 @@ public class KillWall : MonoBehaviour
 
     [SerializeField] float currentSpeed;
     [SerializeField] private bool slowed = false;
+    [SerializeField] Animator anim;
 
     void Reset()
     {
@@ -39,7 +40,7 @@ public class KillWall : MonoBehaviour
         currentSpeed = minSpeed;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Distance (wall Å® player's X difference). Forward is positive.
         float dx = player ? (player.position.x - transform.position.x) : 0f;
@@ -62,6 +63,7 @@ public class KillWall : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             var hp = other.GetComponent<PlayerHealth>() ?? other.GetComponentInParent<PlayerHealth>();
+            anim.SetTrigger("Attack");
             if (hp) hp.Kill();
             return;
         }

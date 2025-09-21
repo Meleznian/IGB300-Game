@@ -1249,39 +1249,45 @@ MonoBehaviour:
     id: Damage
     avaliableAtStart: 1
     removeAfterSelection: 0
+    timesChosen: 0
   - upgradeName: Polish Steel
     effectDescription: Increases attack speed
     icon: {fileID: -1008057698658163829, guid: e1e1d451e92e95247b6e8757eb11362b, type: 3}
     id: Speed
     avaliableAtStart: 1
     removeAfterSelection: 0
+    timesChosen: 0
   - upgradeName: Reinforce Shell
     effectDescription: Increase Health
     icon: {fileID: -400721343562681642, guid: 69d6bbfc586deb74886895d1a4416b81, type: 3}
     id: Health
     avaliableAtStart: 1
     removeAfterSelection: 0
+    timesChosen: 0
   - upgradeName: Optimize Limbs
     effectDescription: Increase move speed
     icon: {fileID: 2442818145047964957, guid: 02c9d4357077d4048a042635363a21f9, type: 3}
     id: Move
     avaliableAtStart: 1
     removeAfterSelection: 0
+    timesChosen: 0
   - upgradeName: Thermal Expansion
     effectDescription: Increase attack size
     icon: {fileID: 8522422916469138456, guid: d64543d623f32a84abe6d2bc4985c70e, type: 3}
     id: Size
     avaliableAtStart: 1
     removeAfterSelection: 0
+    timesChosen: 0
   - upgradeName: Sharpen Casing
     effectDescription: Increase ranged damage and pierce
     icon: {fileID: -1467345839121930361, guid: 04ddff5345126a54f94d30f158cefb03, type: 3}
     id: BulletDamage
     avaliableAtStart: 1
     removeAfterSelection: 0
+    timesChosen: 0
   upgradeMusicSource: {fileID: 0}
   cashGoal: 100
-  goalIncreaseMultiplier: 0
+  goalIncreaseMultiplier: 1.6
   playerLevel: 1
   healthIncrease: 20
   attackSpeedIncrease: 0.06
@@ -4227,8 +4233,7 @@ MonoBehaviour:
   - {fileID: 6656485516189889148}
   - {fileID: 456677939729185276}
   - {fileID: 1459150723547244993}
-  sumDelay: 0.001
-  textDelay: 0
+  sumSpeed: 3
   begun: 0
 --- !u!1 &7729944062450911193
 GameObject:
