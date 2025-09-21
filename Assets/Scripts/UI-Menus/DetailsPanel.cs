@@ -10,17 +10,19 @@ public class DetailsPanel : MonoBehaviour
     [SerializeField] TMP_Text[] texts;
     [SerializeField] Image[] bolts;
 
-    [SerializeField] float sumDelay;
-    [SerializeField] float textDelay;
+    [SerializeField] float sumSpeed;
+    //[SerializeField] float textDelay;
 
     int i = 0;
     int image = 0;
     int goal;
-    int current;
+    float current;
     bool summing;
     [SerializeField] bool begun;
     TMP_Text currentText;
-    float timer;
+    //float timer;
+    //float speed;
+
 
     // Update is called once per frame
     private void Start()
@@ -42,7 +44,7 @@ public class DetailsPanel : MonoBehaviour
             {
                 SumNum();
             }
-            timer += Time.deltaTime;
+            //timer += Time.deltaTime;
         }
     }
 
@@ -69,6 +71,7 @@ public class DetailsPanel : MonoBehaviour
     public void StartSum(TMP_Text text)
     {
         goal = GetGoal(text.gameObject.name);
+        //goal = 100;
         print("Current Goal is: " + goal);
         current = 0;
         currentText = text;
@@ -78,23 +81,26 @@ public class DetailsPanel : MonoBehaviour
 
     void SumNum()
     {
-        if (current == goal)
+        if (Mathf.Round(current) == goal)
         {
+            print("Goal Reached");
             summing = false;
             DoText();
         }
-        else if (timer > sumDelay)
-        {
-            current += 1;
-            currentText.text = current.ToString();
+        //else if (timer > sumSpeed)
+        //{
+            current = Mathf.Lerp(current, goal, sumSpeed*Time.deltaTime);
+            
+            currentText.text = Mathf.Round(current).ToString();
 
             if(currentText.name == "DistanceCount")
             {
-                currentText.text = current.ToString() + "m";
+                currentText.text += "m";
             }
 
-            timer = 0;
-        }
+        print(current);
+            //timer = 0;
+        //}
 
     }
 
