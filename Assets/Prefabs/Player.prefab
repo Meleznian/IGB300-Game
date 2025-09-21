@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
-  healAmountPerTick: 1
+  healAmountPerTick: 3
   healTickDelay: 0.5
   totalHealTicks: 40
   isHealing: 0
@@ -1096,6 +1096,7 @@ MonoBehaviour:
   anim: {fileID: 1389103851451260586}
   autoAttack: 1
   meleeCooldown: 0.6
+  superCharge: 0
 --- !u!114 &2982133742907216294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,16 +1109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80ab21b155a61741a8ea7291e6f2a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 12
-  bulletDamage: 10
-  bulletKnockback: 5
-  bulletPierce: 0
-  bulletSize: 0.5
-  heatPerShot: 1
-  maxHeat: 2
+  projectileSize: 0.5
   coolModifier: 0.5
-  rangedCooldown: 3
-  heat: 0
+  speedModifier: 0
+  damageModifier: 0
+  knockbackModifier: 0
+  pierceModifier: 0
+  bulletCooldown: 0.3
+  bulletUnlocked: 0
   bulletPrefab: {fileID: 918802385275866056, guid: f8627dce041d83043a11ab80165c40a8, type: 3}
   firePoint: {fileID: 644258332658440463}
   aimCursor: {fileID: 3461828938588683644}

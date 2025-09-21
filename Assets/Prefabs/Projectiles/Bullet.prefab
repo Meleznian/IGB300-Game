@@ -162,10 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1ce43fb58f0a84fab53178b01f241d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  damage: 5
+  speed: 12
+  damage: 10
   pierce: 1
-  knockback: 0
+  knockback: 10
   playerOwned: 0
   originallyEnemy: 0
   visual: {fileID: 6389117583567527859}

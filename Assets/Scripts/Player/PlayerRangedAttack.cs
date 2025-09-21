@@ -5,20 +5,33 @@ using System.Collections;
 
 public class PlayerRangedAttack : MonoBehaviour
 {
-    [Header("Variables")]
-    [SerializeField] float bulletSpeed;
-    [SerializeField] int bulletDamage;
-    [SerializeField] float bulletKnockback;
-    [SerializeField] int bulletPierce;
-    [SerializeField] float bulletSize = 1;
-    [SerializeField] float heatPerShot;
-    [SerializeField] float maxHeat;
-    [SerializeField] float coolModifier = 1;
-    [SerializeField] float rangedCooldown = 0.3f;
-    [SerializeField] float heat;
+    [Header("Universal Variables")]
+    [SerializeField] float sizeModifier = 1;
+    [SerializeField] float speedModifier;
+    [SerializeField] int damageModifier;
+    [SerializeField] float knockbackModifier;
+    [SerializeField] int pierceModifier;
+
+    [Header("Bullet Variables")]
+    [SerializeField] float bulletCooldown = 0.3f;
+    [SerializeField] bool bulletUnlocked;
+    [SerializeField] GameObject bulletPrefab;
+
+    [Header("Spear Variables")]
+    [SerializeField] float spearCooldown = 0.3f;
+    [SerializeField] bool spearUnlocked;
+    [SerializeField] GameObject spearPrefab;
+
+    float heatPerShot;
+    float maxHeat;
+
+
+
+
+
+    float heat;
 
     [Header("Components")]
-    [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] Transform aimCursor;
     [SerializeField] Animator anim;
@@ -31,7 +44,8 @@ public class PlayerRangedAttack : MonoBehaviour
 
     bool disabled;
 
-    Coroutine attack;
+    Coroutine bulletAttack;
+    Coroutine spearAttack;
 
     
 
@@ -45,20 +59,18 @@ public class PlayerRangedAttack : MonoBehaviour
         heatGauge.maxValue = maxHeat;
         print(heatGauge.maxValue);
 
-
     }
 
     bool autoing;
 
     void Update()
     {
-
         ToggleAuto();
 
-        if (autoAttack && !autoing)
+        if (!autoing && autoAttack)
         {
             autoing = true;
-            attack = StartCoroutine(AutoAttack());
+            bulletAttack = StartCoroutine(BulletAttack());
         }
 
         if (!GameManager.instance.playerDead)
@@ -74,8 +86,8 @@ public class PlayerRangedAttack : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.LeftShift) && rangedCooldownTimer <= 0f)
                 {
                     Vector2 dir = aimCursor.position - firePoint.position;
-                    FireBullet(dir.normalized);
-                    rangedCooldownTimer = rangedCooldown;
+                    FireBullet(dir.normalized, bulletPrefab);
+                    rangedCooldownTimer = bulletCooldown;
                     heat += heatPerShot;
                     print("updating heat value to: " + heat);
 
@@ -98,21 +110,21 @@ public class PlayerRangedAttack : MonoBehaviour
 
     }
 
-    void FireBullet(Vector2 dir)
+    void FireBullet(Vector2 dir, GameObject projectilePrefab)
     {
         //anim.SetTrigger("Shoot");
         shoulder.transform.rotation = Quaternion.FromToRotation(Vector3.up, -dir);
 
         if (!bulletPrefab || !firePoint) return;
 
-        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();         
-        bullet.playerOwned = true;
-        bullet.damage = bulletDamage;
-        bullet.speed = bulletSpeed;
-        bullet.knockback = bulletKnockback;
-        bullet.pierce = bulletPierce;
-        bullet.transform.localScale = new Vector3(bulletSize, bulletSize, bulletSize);
-        bullet.Init(dir);
+        Bullet projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();         
+        projectile.playerOwned = true;
+        projectile.damage += damageModifier;
+        projectile.speed += speedModifier;
+        projectile.knockback += knockbackModifier;
+        projectile.pierce += pierceModifier;
+        projectile.transform.localScale = projectile.transform.localScale + new Vector3(sizeModifier, sizeModifier, sizeModifier);
+        projectile.Init(dir);
         AudioManager.PlayEffect(SoundType.PLAYER_SHOOT);
 
     }
@@ -123,7 +135,7 @@ public class PlayerRangedAttack : MonoBehaviour
 
         if (heat > 0)
         {
-            heat -= (Time.deltaTime*coolModifier);
+            //heat -= (Time.deltaTime*coolModifier);
 
             heatGauge.gameObject.SetActive(true);
         }
@@ -151,17 +163,17 @@ public class PlayerRangedAttack : MonoBehaviour
 
     internal void IncreaseDamage(int damageAmount, int pierceAmount)
     {
-        bulletDamage += damageAmount;
-        bulletPierce += pierceAmount;
+        damageModifier += damageAmount;
+        pierceModifier += pierceAmount;
     }
     internal void IncreaseSpeed(float move, float cool)
     {
-        bulletSpeed += move;
-        rangedCooldown -= cool;
+        speedModifier += move;
+        bulletCooldown -= cool;
     }
     internal void IncreaseKnockback(float amount)
     {
-        bulletKnockback += amount;
+        knockbackModifier += amount;
     }
     public void IncreaseHeat(int amount)
     {
@@ -171,28 +183,37 @@ public class PlayerRangedAttack : MonoBehaviour
 
     public void IncreaseSize(float amount)
     {
-        bulletSize += amount;
+        sizeModifier += amount;
     }
 
-    IEnumerator AutoAttack()
+    IEnumerator BulletAttack()
     {
-        while (autoAttack)
+        while (bulletUnlocked)
         {
-            if (!disabled)
-            {
-                Vector2 dir = aimCursor.position - firePoint.position;
-                FireBullet(dir.normalized);
-                heat += heatPerShot;
-            }
-            yield return new WaitForSeconds(rangedCooldown);
+            Vector2 dir = aimCursor.position - firePoint.position;
+            FireBullet(dir.normalized, bulletPrefab);
+            yield return new WaitForSeconds(bulletCooldown);
+        }
+    }
+
+    IEnumerator SpearAttack()
+    {
+        while (spearUnlocked)
+        {
+            FireBullet(Vector3.right, spearPrefab);
+            yield return new WaitForSeconds(spearCooldown);
         }
     }
 
     internal void Die()
     {
-        if (attack != null)
+        if (bulletAttack != null)
         {
-            StopCoroutine(attack);
+            StopCoroutine(bulletAttack);
+        }
+        if (spearAttack != null)
+        {
+            StopCoroutine(spearAttack);
         }
         aimCursor.gameObject.SetActive(false);
     }
@@ -201,11 +222,24 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.O))
         {
-            autoAttack = !autoAttack;
-            if (autoing)
-            {
-                autoing = false;
-            }
+            UnlockBullet();
+            //autoAttack = !autoAttack;
+            //if (autoing)
+            //{
+            //    autoing = false;
+            //}
         }
+    }
+
+    internal void UnlockBullet()
+    {
+        bulletUnlocked = true;
+        bulletAttack = StartCoroutine(BulletAttack());
+    }
+
+    internal void UnlockSpear()
+    {
+        spearUnlocked = true;
+        spearAttack = StartCoroutine(SpearAttack());
     }
 }
