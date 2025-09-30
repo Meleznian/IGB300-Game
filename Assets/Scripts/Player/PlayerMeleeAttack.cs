@@ -126,7 +126,7 @@ public class PlayerMeleeAttack : MonoBehaviour
                 {
                     h.GetComponent<Rigidbody2D>().AddForce(knockDirection*knockback, ForceMode2D.Impulse);
                 }
-                GameManager.instance.IncreaseGauge();
+                //GameManager.instance.IncreaseGauge();
             }
         }
     }

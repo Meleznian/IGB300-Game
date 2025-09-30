@@ -391,7 +391,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1885519247420598914, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: superCharge
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2982133742907216294, guid: e783e79a80b88074780d2ddb21da2317, type: 3}
       propertyPath: spearPrefab
@@ -535,6 +535,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 850394223296075988, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1354585238773915636, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -557,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_SizeDelta.x
