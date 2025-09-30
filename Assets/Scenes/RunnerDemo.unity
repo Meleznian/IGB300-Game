@@ -504,24 +504,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunkPrefabs.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: '_chunkPrefabs.Array.data[10]'
       value: 
       objectReference: {fileID: 5249241490176251230, guid: d33f03268f7298a4ab3ab790b2988a29, type: 3}
+    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
+      propertyPath: '_chunkPrefabs.Array.data[11]'
+      value: 
+      objectReference: {fileID: 5249241490176251230, guid: 48474cbf7b5bd4045bb549fe04ea8487, type: 3}
     - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunksPool.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunksPool.Array.data[10].poolSize
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
+      propertyPath: _chunksPool.Array.data[11].poolSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunksPool.Array.data[10].chunkPrefab
       value: 
       objectReference: {fileID: 5249241490176251230, guid: d33f03268f7298a4ab3ab790b2988a29, type: 3}
+    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
+      propertyPath: _chunksPool.Array.data[11].chunkPrefab
+      value: 
+      objectReference: {fileID: 5249241490176251230, guid: 48474cbf7b5bd4045bb549fe04ea8487, type: 3}
     - target: {fileID: 7784479869937542948, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: m_Name
       value: ChunkManager
