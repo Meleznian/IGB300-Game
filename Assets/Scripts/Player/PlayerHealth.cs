@@ -71,29 +71,29 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
     }
 
-    IEnumerator HealOverTime()
-    {
-        isHealing = true;
-        //healCharge--;
-
-        for (int i = 0; i < totalHealTicks; i++)
-        {
-            currentHealth += healAmountPerTick;
-
-            if (currentHealth >= currentHealth * 0.3)
-            {
-                lowhealth.Stop();
-            }
-
-            if (currentHealth > maxHealth)
-                currentHealth = maxHealth;
-
-            yield return new WaitForSeconds(healTickDelay);
-        }
-
-        isHealing = false;
-        healing.Stop();
-    }
+    //IEnumerator HealOverTime()
+    //{
+    //    isHealing = true;
+    //    //healCharge--;
+    //
+    //    for (int i = 0; i < totalHealTicks; i++)
+    //    {
+    //        currentHealth += healAmountPerTick;
+    //
+    //        if (currentHealth >= currentHealth * 0.3)
+    //        {
+    //            lowhealth.Stop();
+    //        }
+    //
+    //        if (currentHealth > maxHealth)
+    //            currentHealth = maxHealth;
+    //
+    //        yield return new WaitForSeconds(healTickDelay);
+    //    }
+    //
+    //    isHealing = false;
+    //    healing.Stop();
+    //}
 
     public void IncreaseMax(int amount)
     {
@@ -195,11 +195,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
     }
 
-    internal void StartHealing()
-    {
-        AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
-        healStart.Play();
-        healing.Play();
-        StartCoroutine(HealOverTime());
-    }
+    //internal void StartHealing()
+    //{
+    //    AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
+    //    healStart.Play();
+    //    healing.Play();
+    //    StartCoroutine(HealOverTime());
+    //}
 }

@@ -256,32 +256,32 @@ public class GameManager : MonoBehaviour
     //    //crowdHypeText.text = "x"+ cashMult;
     //}
 
-    public void IncreaseGauge()
-    {
-        steamGauge++;
-        steamGauge = Mathf.Clamp(steamGauge, 0, maxSteam);
-        steamSlider.value = steamGauge;
+    //public void IncreaseGauge()
+    //{
+    //    steamGauge++;
+    //    steamGauge = Mathf.Clamp(steamGauge, 0, maxSteam);
+    //    steamSlider.value = steamGauge;
+    //
+    //    if(steamGauge == maxSteam && !playerHealth.isHealing)
+    //    {
+    //        playerHealth.StartHealing();
+    //        steamGauge = 0;
+    //    }
+    //}
 
-        if(steamGauge == maxSteam && !playerHealth.isHealing)
-        {
-            playerHealth.StartHealing();
-            steamGauge = 0;
-        }
-    }
-
-    public bool DecreaseGauge(int amount)
-    {
-        if (steamGauge - amount >= 0)
-        {
-            steamGauge -= amount;
-            steamSlider.value = steamGauge;
-            return true;
-        }
-        else
-        {
-            return false;
-        }  
-    }
+    //public bool DecreaseGauge(int amount)
+    //{
+    //    if (steamGauge - amount >= 0)
+    //    {
+    //        steamGauge -= amount;
+    //        steamSlider.value = steamGauge;
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }  
+    //}
 
     
     //public bool DecreaseHeat(int amount)

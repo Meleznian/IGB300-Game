@@ -126,7 +126,7 @@ public class PlayerMeleeAttack : MonoBehaviour
                 {
                     h.GetComponent<Rigidbody2D>().AddForce(knockDirection*knockback, ForceMode2D.Impulse);
                 }
-                GameManager.instance.IncreaseGauge();
+                //GameManager.instance.IncreaseGauge();
             }
         }
     }
@@ -180,7 +180,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         while (autoAttack)
         {
-            if (CheckForEnemy())
+            if (CheckForEnemy() || superCharge)
             {
                 Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 dir = (mouse - (Vector2)transform.position).normalized;
