@@ -222,7 +222,7 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.O))
         {
-            UnlockBullet();
+            UnlockSpear();
             //autoAttack = !autoAttack;
             //if (autoing)
             //{

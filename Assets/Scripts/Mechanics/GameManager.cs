@@ -328,6 +328,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] GenerateMoney(float amount)
     {
         amount = Mathf.Round(amount*cashMult);
+        amount = Mathf.Clamp(amount, 0, 100);
         print("Cash After Mult: " + amount);
         List<GameObject> cashList = new();
     
