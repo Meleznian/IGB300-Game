@@ -4,7 +4,7 @@ public class OneWayPlatform : MonoBehaviour
 {
     [SerializeField] Transform player;
     [SerializeField] BoxCollider2D c;
-    [SerializeField] bool solid;
+    public bool solid;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +43,7 @@ public class OneWayPlatform : MonoBehaviour
         }
     }
 
-    void StartCheck()
+    internal void StartCheck()
     {
         if (player.position.y - 0.9f > transform.position.y)
         {
