@@ -167,6 +167,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void Heal(int healAmount)
     {
         currentHealth += healAmount;
+        healStart.Play();
         if(currentHealth > maxHealth) currentHealth = maxHealth;
     }
 

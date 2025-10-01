@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PickupScript : MonoBehaviour, ICollectable
 {
+    [SerializeField] ParticleSystem particleEffect;
+
     public int pickupType = 0;
     public void Collect()
     {
@@ -14,7 +16,8 @@ public class PickupScript : MonoBehaviour, ICollectable
                 break;
             case 2:
                 //Nuke
-                for(int i = 0; i < EnemyManager.instance.livingEnemiesList.Count; i++)
+                Instantiate(particleEffect, GameManager.instance.Player.transform.position, Quaternion.identity);
+                for (int i = 0; i < EnemyManager.instance.livingEnemiesList.Count; i++)
                 {
                     EnemyManager.instance.livingEnemiesList[0].GetComponent<EnemyBase>().Die(true);
                 }
@@ -25,6 +28,7 @@ public class PickupScript : MonoBehaviour, ICollectable
                 break;
             case 4:
                 //Money
+                Instantiate(particleEffect, GameManager.instance.Player.transform.position, Quaternion.identity);
                 GameManager.instance.BoltCount((float)(GameManager.instance.gameObject.GetComponent<UpgradeManager>().cashGoal * 0.3));
                 break;
             case 5:

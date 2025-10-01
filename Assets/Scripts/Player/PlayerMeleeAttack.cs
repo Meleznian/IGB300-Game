@@ -16,6 +16,8 @@ public class PlayerMeleeAttack : MonoBehaviour
     internal bool shooting;
     //public bool attacking;
     Vector2 knockDirection;
+    [SerializeField] ParticleSystem superChargeEffect;
+
 
     [SerializeField] public float meleeCooldown = 0.5f;
     float meleeCooldownTimer = 0f;
@@ -228,6 +230,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     IEnumerator SuperCharge()
     {
         superCharge = true;
+        superChargeEffect.Play();
         yield return new WaitForSeconds(5f);
         superCharge = false;
     }

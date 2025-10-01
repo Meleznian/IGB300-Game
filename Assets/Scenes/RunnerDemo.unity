@@ -187,6 +187,11 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4223598137173593221, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
   m_PrefabInstance: {fileID: 2656630526388148700}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &367239171 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8237820782394273164, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+  m_PrefabInstance: {fileID: 1538605627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &737593122
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +284,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53af7ec6f41e6a146bb71e472f9d38eb, type: 3}
+--- !u!198 &1233471571 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4720191950420659207, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+  m_PrefabInstance: {fileID: 1538605627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1345539104 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4565688598016656052, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
@@ -368,6 +378,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1954925602468072038, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 367239171}
+    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: slowEffect
+      value: 
+      objectReference: {fileID: 1233471571}
+    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: slowColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: slowColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: slowColor.g
+      value: 0.83143175
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: slowColor.r
+      value: 0.35283017
+      objectReference: {fileID: 0}
     - target: {fileID: 7380162842883351911, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: m_Name
       value: KillWall
@@ -389,22 +427,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: spearPrefab
-      value: 
-      objectReference: {fileID: 918802385275866056, guid: 04f54e2bcd8c0e24e9a09cae44ef321a, type: 3}
-    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: sizeModifier
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: spearCooldown
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: bulletCooldown
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.95

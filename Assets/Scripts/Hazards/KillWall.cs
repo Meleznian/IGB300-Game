@@ -23,6 +23,9 @@ public class KillWall : MonoBehaviour
     [SerializeField] float currentSpeed;
     [SerializeField] private bool slowed = false;
     [SerializeField] Animator anim;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] Color slowColor;
+    [SerializeField] ParticleSystem slowEffect;
 
     void Reset()
     {
@@ -77,8 +80,12 @@ public class KillWall : MonoBehaviour
     IEnumerator slowKillWallCooldown()
     {
         slowed = true;
+        sprite.color = slowColor;
+        slowEffect.Play();
         yield return new WaitForSeconds(10f);
         slowed = false;
+        sprite.color = Color.white;
+        slowEffect.Stop();
     }
 
     public void SlowKillWallPickup()
