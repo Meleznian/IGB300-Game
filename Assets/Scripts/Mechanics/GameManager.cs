@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 using UnityEngine.UI;
-using System.Collections.Generic;
+using static EnemyManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -70,7 +73,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider ammoDisplay;
     [SerializeField] Slider levelProgress;
     [SerializeField] GameObject floorBullet;
-    [SerializeField] public GameObject[] pickups;
+
+
+    [Serializable]
+    public class Pickup
+    {
+        public GameObject prefab;
+        public float weight;
+        public string spawnPercentage;
+    }
+
+    [Header("Pickups")]
+    [SerializeField] public Pickup[] pickups;
+    float pickupsTotalWeight;
 
     private void Start()
     {
@@ -89,6 +104,14 @@ public class GameManager : MonoBehaviour
         }
         steamSlider.maxValue = maxSteam;
 
+        foreach (Pickup p in pickups)
+        {
+            pickupsTotalWeight += p.weight;
+        }
+        foreach (Pickup p in pickups)
+        {
+            GetSpawnPercentage(p);
+        }
     }
 
     void Update()
@@ -362,6 +385,32 @@ public class GameManager : MonoBehaviour
         }
         print(cashList.ToArray());
         return cashList.ToArray();
+    }
+
+    internal GameObject GetPickup()
+    {
+        float roll = UnityEngine.Random.Range(0, pickupsTotalWeight);
+        int i = 0;
+
+        foreach (Pickup p in pickups)
+        {
+            roll -= p.weight;
+
+            if (roll < 0)
+            {
+                return p.prefab;
+            }
+            i++;
+        }
+
+        return pickups[0].prefab;
+    }
+
+    void GetSpawnPercentage(Pickup p)
+    {
+        float s = p.weight / pickupsTotalWeight;
+        s *= 100;
+        p.spawnPercentage = s + "%";
     }
 }
 

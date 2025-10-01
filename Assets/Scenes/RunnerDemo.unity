@@ -567,6 +567,46 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 4477324071463915010, guid: 6f10c102151a47143adde286de3835bc, type: 3}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[0].weight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 4477324071463915010, guid: a38cf1fd62bebb34a8543a5be2570184, type: 3}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[1].weight
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 4477324071463915010, guid: d73380fb871a70c44b71b37894e29dbc, type: 3}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[2].weight
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 4477324071463915010, guid: d40a91b9f480b6e4e9364786d07b1285, type: 3}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[3].weight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 4477324071463915010, guid: 251d2799b88bda94897aacc7c178f5a1, type: 3}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[4].weight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3834647256915334317, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 5.8

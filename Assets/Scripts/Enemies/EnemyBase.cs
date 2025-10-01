@@ -191,7 +191,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     void SpawnPickup()
     {
         Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
-        Rigidbody2D rb = Instantiate(GameManager.instance.pickups[UnityEngine.Random.Range(0,GameManager.instance.pickups.Length)], transform.position + (Vector3)spawnOffset, Quaternion.identity).GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = Instantiate(GameManager.instance.GetPickup(), transform.position + (Vector3)spawnOffset, Quaternion.identity).GetComponent<Rigidbody2D>();
 
         Vector2 direction = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
         rb.AddForce(direction * 5, ForceMode2D.Impulse);
