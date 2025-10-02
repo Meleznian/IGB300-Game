@@ -27,6 +27,8 @@ public class KillWall : MonoBehaviour
     [SerializeField] Color slowColor;
     [SerializeField] ParticleSystem slowEffect;
 
+    bool playerDead = false;
+
     void Reset()
     {
         var col = GetComponent<Collider2D>();
@@ -45,20 +47,27 @@ public class KillWall : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Distance (wall Å® player's X difference). Forward is positive.
-        float dx = player ? (player.position.x - transform.position.x) : 0f;
+        if (!playerDead)
+        {
+            // Distance (wall Å® player's X difference). Forward is positive.
+            float dx = player ? (player.position.x - transform.position.x) : 0f;
 
-        // Linear map: NearÅ®0, FarÅ®1 (automatically clamps values outside range)
-        float t = Mathf.InverseLerp(nearDist, farDist, dx);
+            // Linear map: NearÅ®0, FarÅ®1 (automatically clamps values outside range)
+            float t = Mathf.InverseLerp(nearDist, farDist, dx);
 
-        // Interpolate speed between min..max 
-        float targetSpeed = slowed ? Mathf.Lerp(slowMinSpeed, slowMaxSpeed, t) : Mathf.Lerp(minSpeed, maxSpeed, t);
+            // Interpolate speed between min..max 
+            float targetSpeed = slowed ? Mathf.Lerp(slowMinSpeed, slowMaxSpeed, t) : Mathf.Lerp(minSpeed, maxSpeed, t);
 
-        // Smoothing
-        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accel * Time.deltaTime);
+            // Smoothing
+            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accel * Time.deltaTime);
 
-        // Horizontal movement
-        transform.position += Vector3.right * (currentSpeed * Time.deltaTime);
+            // Horizontal movement
+            transform.position += Vector3.right * (currentSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position -= Vector3.right * (currentSpeed * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -68,6 +77,8 @@ public class KillWall : MonoBehaviour
             var hp = other.GetComponent<PlayerHealth>() ?? other.GetComponentInParent<PlayerHealth>();
             anim.SetTrigger("Attack");
             if (hp) hp.Kill();
+            playerDead = true;
+            StartCoroutine(Leave());
             return;
         }
         if (other.CompareTag(enemyTag))
@@ -91,5 +102,18 @@ public class KillWall : MonoBehaviour
     public void SlowKillWallPickup()
     {
         StartCoroutine(slowKillWallCooldown());
+    }
+
+    IEnumerator Leave()
+    {
+        anim.SetBool("PlayerDead", true);
+        currentSpeed = 0;
+
+        yield return new WaitForSeconds(1f);
+
+        anim.SetTrigger("Leave");
+        currentSpeed = 2;
+        transform.rotation = Quaternion.Euler(0, 180, 0);
+        
     }
 }

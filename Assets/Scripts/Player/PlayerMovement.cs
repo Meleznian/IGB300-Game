@@ -228,6 +228,7 @@ public class PlayerMovement : MonoBehaviour
     internal void Die()
     {
         _speed = 0;
+        _sprintSpeed = 0;
     }
 
     // API that applies knockback, etc. from outside
