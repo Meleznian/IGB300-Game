@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 6330425727310632239}
   - component: {fileID: 5836110358900817899}
   m_Layer: 0
-  m_Name: BulletIWallmpact
+  m_Name: BulletDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

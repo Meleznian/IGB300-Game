@@ -1202,11 +1202,21 @@ MonoBehaviour:
   levelProgress: {fileID: 7840611494678022742}
   floorBullet: {fileID: 918802385275866056, guid: e2b8a258f7406f54ea667de099b55cfa, type: 3}
   pickups:
-  - {fileID: 4477324071463915010, guid: 6f10c102151a47143adde286de3835bc, type: 3}
-  - {fileID: 4477324071463915010, guid: d40a91b9f480b6e4e9364786d07b1285, type: 3}
-  - {fileID: 4477324071463915010, guid: a38cf1fd62bebb34a8543a5be2570184, type: 3}
-  - {fileID: 4477324071463915010, guid: d73380fb871a70c44b71b37894e29dbc, type: 3}
-  - {fileID: 4477324071463915010, guid: 251d2799b88bda94897aacc7c178f5a1, type: 3}
+  - prefab: {fileID: 4477324071463915010, guid: 6f10c102151a47143adde286de3835bc, type: 3}
+    weight: 10
+    spawnPercentage: 
+  - prefab: {fileID: 4477324071463915010, guid: a38cf1fd62bebb34a8543a5be2570184, type: 3}
+    weight: 6
+    spawnPercentage: 
+  - prefab: {fileID: 4477324071463915010, guid: d73380fb871a70c44b71b37894e29dbc, type: 3}
+    weight: 8
+    spawnPercentage: 
+  - prefab: {fileID: 4477324071463915010, guid: d40a91b9f480b6e4e9364786d07b1285, type: 3}
+    weight: 3
+    spawnPercentage: 
+  - prefab: {fileID: 4477324071463915010, guid: 251d2799b88bda94897aacc7c178f5a1, type: 3}
+    weight: 5
+    spawnPercentage: 
   bolt1: {fileID: 678814081965962704, guid: 1a3daa2fed6cd2f4ca943b9cae14015c, type: 3}
   bolt5: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
   bolt10: {fileID: 678814081965962704, guid: 3a8dc92e1dfe6fd448922a8b3108aabf, type: 3}
@@ -1284,6 +1294,27 @@ MonoBehaviour:
     id: BulletDamage
     avaliableAtStart: 1
     removeAfterSelection: 0
+    timesChosen: 0
+  - upgradeName: Axe
+    effectDescription: Throw a powerful arcing axe
+    icon: {fileID: -6726651253695804080, guid: 4498830d73da56a42bc77b31a85e4fa5, type: 3}
+    id: Axe
+    avaliableAtStart: 1
+    removeAfterSelection: 1
+    timesChosen: 0
+  - upgradeName: Spear
+    effectDescription: Throw a piercing spear straight ahead
+    icon: {fileID: -6726651253695804080, guid: 9d35e29a93e9c704f802edbe7274c769, type: 3}
+    id: Spear
+    avaliableAtStart: 1
+    removeAfterSelection: 1
+    timesChosen: 0
+  - upgradeName: Hand Cannon
+    effectDescription: Shoot damaging bullets at the nearest enemy
+    icon: {fileID: -6726651253695804080, guid: 00a7af8c7bf3f094dbc2bc8d80538f3b, type: 3}
+    id: Gun
+    avaliableAtStart: 1
+    removeAfterSelection: 1
     timesChosen: 0
   upgradeMusicSource: {fileID: 0}
   cashGoal: 100
@@ -4906,6 +4937,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7835850529534847684}
     m_Modifications:
+    - target: {fileID: 1866748632581144832, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082805211088265523, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.8
+      objectReference: {fileID: 0}
     - target: {fileID: 4582798722900154699, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4993,6 +5032,14 @@ PrefabInstance:
     - target: {fileID: 6180603723970892847, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180603723970892847, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -22.8397
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180603723970892847, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.479004
       objectReference: {fileID: 0}
     - target: {fileID: 6699709823408339045, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_Name

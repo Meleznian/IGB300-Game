@@ -22,6 +22,11 @@ public class PlayerRangedAttack : MonoBehaviour
     [SerializeField] bool spearUnlocked;
     [SerializeField] GameObject spearPrefab;
 
+    [Header("Axe Variables")]
+    [SerializeField] float axeCooldown = 0.3f;
+    [SerializeField] bool axeUnlocked;
+    [SerializeField] GameObject axePrefab;
+
     float heatPerShot;
     float maxHeat;
 
@@ -46,6 +51,7 @@ public class PlayerRangedAttack : MonoBehaviour
 
     Coroutine bulletAttack;
     Coroutine spearAttack;
+    Coroutine axeAttack;
 
     
 
@@ -204,6 +210,14 @@ public class PlayerRangedAttack : MonoBehaviour
             yield return new WaitForSeconds(spearCooldown);
         }
     }
+    IEnumerator AxeAttack()
+    {
+        while (axeUnlocked)
+        {
+            FireBullet(Vector3.right + Vector3.up, axePrefab);
+            yield return new WaitForSeconds(axeCooldown);
+        }
+    }
 
     internal void Die()
     {
@@ -229,6 +243,15 @@ public class PlayerRangedAttack : MonoBehaviour
             //    autoing = false;
             //}
         }
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            UnlockAxe();
+            //autoAttack = !autoAttack;
+            //if (autoing)
+            //{
+            //    autoing = false;
+            //}
+        }
     }
 
     internal void UnlockBullet()
@@ -241,5 +264,10 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         spearUnlocked = true;
         spearAttack = StartCoroutine(SpearAttack());
+    }
+    internal void UnlockAxe()
+    {
+        axeUnlocked = true;
+        axeAttack = StartCoroutine(AxeAttack());
     }
 }

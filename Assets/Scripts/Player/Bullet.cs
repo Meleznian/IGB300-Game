@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.VFX;
+using static UnityEditor.PlayerSettings;
 
 public class Bullet : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] internal bool playerOwned;
     [SerializeField] internal bool originallyEnemy;
     [SerializeField] internal Transform visual;
+    [SerializeField] ParticleSystem dropParticle;
 
     public LayerMask playerLayer;
     public LayerMask enemyLayer;
@@ -19,6 +21,15 @@ public class Bullet : MonoBehaviour
     int pierced;
 
     Vector2 moveDir;
+
+    enum ProjectileType 
+    {
+        Bullet,
+        Spear,
+        Axe
+    }
+
+    [SerializeField] ProjectileType projectileType;
 
     public void Init(Vector2 direction)
     {
@@ -28,11 +39,20 @@ public class Bullet : MonoBehaviour
         //Destroy(gameObject, lifetime);
 
         SetIgnore();
+
+        if(projectileType == ProjectileType.Axe)
+        {
+            GetComponent<Rigidbody2D>().AddForce(moveDir*speed, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddTorque(-speed, ForceMode2D.Impulse);
+        }
     }
 
     void Update()
     {
-        transform.Translate(moveDir * speed * Time.deltaTime);
+        if (projectileType != ProjectileType.Axe)
+        {
+            transform.Translate(moveDir * speed * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -74,8 +94,9 @@ public class Bullet : MonoBehaviour
             //{
             //    GameManager.instance.SpawnBullets(1, transform.position);
             //}
+            Instantiate(dropParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            EnemyManager.instance.BulletWall(transform.position);
+            //EnemyManager.instance.BulletWall(transform.position);
         }
     }
 

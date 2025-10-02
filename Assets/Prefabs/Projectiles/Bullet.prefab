@@ -169,12 +169,14 @@ MonoBehaviour:
   playerOwned: 0
   originallyEnemy: 0
   visual: {fileID: 6389117583567527859}
+  dropParticle: {fileID: 5836110358900817899, guid: e60cf663398a61744bd018ba88381228, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  projectileType: 0
 --- !u!58 &3674676283107417146
 CircleCollider2D:
   m_ObjectHideFlags: 0

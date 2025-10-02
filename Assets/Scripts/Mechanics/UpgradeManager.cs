@@ -246,14 +246,29 @@ public class UpgradeManager : MonoBehaviour
         //{
         //    GameManager.instance.IncreaseParryMult(parryMultIncrease);
         //}
-        else if (id == "Heat")
-        {
-            ranged.IncreaseHeat(heatIncrease);
-        }
+        //else if (id == "Heat")
+        //{
+        //    ranged.IncreaseHeat(heatIncrease);
+        //}
         else if (id == "Size")
         {
             ranged.IncreaseSize(rangedSizeIncrease);
             melee.IncreaseSize(meleeSizeIncrease);
+        }
+        else if( id == "Spear")
+        {
+            ranged.UnlockSpear();
+            EnableRangedUpgrades();
+        }
+        else if (id == "Gun")
+        {
+            ranged.UnlockBullet();
+            EnableRangedUpgrades();
+        }
+        else if (id == "Axe")
+        {
+            ranged.UnlockAxe();
+            EnableRangedUpgrades();
         }
         else
         {
@@ -269,6 +284,16 @@ public class UpgradeManager : MonoBehaviour
         progressSlider.maxValue = cashGoal;
         progressSlider.value = 0;
         GameManager.instance._BoltCount = 0;
+    }
+
+    bool rangedActive;
+    void EnableRangedUpgrades()
+    {
+        if (!rangedActive)
+        {
+            AddUpgrade("BulletDamage");
+            rangedActive = true;
+        }
     }
 
     void AddUpgrade(string id)

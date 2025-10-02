@@ -155,11 +155,11 @@ public class EnemyManager : MonoBehaviour
         Instantiate(enemyHurtEffect, pos, Quaternion.identity);
     }
 
-    internal void BulletWall(Vector3 pos)
-    {
-        //print("Enemy Hurt");
-        Instantiate(bulletWallEffect, pos, Quaternion.identity);
-    }
+    //internal void BulletWall(Vector3 pos)
+    //{
+    //    //print("Enemy Hurt");
+    //    Instantiate(bulletWallEffect, pos, Quaternion.identity);
+    //}
 
     internal void BulletHit(Vector3 pos)
     {
