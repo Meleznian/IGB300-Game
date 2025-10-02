@@ -59,6 +59,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5433946583230835763}
     m_Modifications:
+    - target: {fileID: 398435340768379175, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_Name
       value: BrassBolt
@@ -121,6 +125,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5433946583230835763}
     m_Modifications:
+    - target: {fileID: 398435340768379175, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_Name
       value: BrassBolt (2)
@@ -183,6 +191,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5433946583230835763}
     m_Modifications:
+    - target: {fileID: 398435340768379175, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 678814081965962704, guid: 369ec80fe3751df4da7c5387b17e63d4, type: 3}
       propertyPath: m_Name
       value: BrassBolt (1)
