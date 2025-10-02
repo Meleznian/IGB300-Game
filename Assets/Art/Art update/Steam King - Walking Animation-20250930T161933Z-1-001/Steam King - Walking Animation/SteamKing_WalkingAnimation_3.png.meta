@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SteamKing_WalkingAnimation_3_0: -267069886084492417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Factory robot moving-4.png_0: -6443254578962115093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

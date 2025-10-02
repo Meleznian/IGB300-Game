@@ -171,7 +171,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4926895817482089505}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74f8ef8125c576b46932e920cbe0b100, type: 3}
   m_Name: 
@@ -191,6 +191,7 @@ MonoBehaviour:
   anim: {fileID: 8574984968815192029}
   sprite: {fileID: 0}
   slowColor: {r: 0, g: 0, b: 0, a: 0}
+  slowEffect: {fileID: 0}
 --- !u!95 &8574984968815192029
 Animator:
   serializedVersion: 7
@@ -272,8 +273,9 @@ MonoBehaviour:
   currentSpeed: 0
   slowed: 0
   anim: {fileID: 8574984968815192029}
-  sprite: {fileID: 0}
-  slowColor: {r: 0, g: 0, b: 0, a: 0}
+  sprite: {fileID: 8237820782394273164}
+  slowColor: {r: 0.35283017, g: 0.83143175, b: 1, a: 1}
+  slowEffect: {fileID: 4720191950420659207}
 --- !u!1001 &5708755263495608928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,6 +284,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1217495970487130342}
     m_Modifications:
+    - target: {fileID: 1060860751246743143, guid: 2303aa5811509d14c837be807342dec0, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2129402319154538990, guid: 2303aa5811509d14c837be807342dec0, type: 3}
       propertyPath: m_Name
       value: SlowedEffect
@@ -331,6 +337,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2303aa5811509d14c837be807342dec0, type: 3}
+--- !u!198 &4720191950420659207 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1060860751246743143, guid: 2303aa5811509d14c837be807342dec0, type: 3}
+  m_PrefabInstance: {fileID: 5708755263495608928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8166698435410830397 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4498078289208458845, guid: 2303aa5811509d14c837be807342dec0, type: 3}
