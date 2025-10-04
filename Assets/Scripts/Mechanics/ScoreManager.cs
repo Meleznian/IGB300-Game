@@ -16,7 +16,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] TMP_Text textPrefab;
     [SerializeField] Transform textCanvas;
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI PauseHighScoreText;
+    public TextMeshProUGUI PauseScoreText;
+
     public TextMeshProUGUI deathScoreText;
     public TextMeshProUGUI deathHighScoreText;
     [SerializeField] TMP_Text newHighScore;
@@ -130,7 +132,8 @@ public class ScoreManager : MonoBehaviour
     private void UpdateScoreUI()
     {
         scoreText.text = "Score: " + currentScore.ToString();
-        highScoreText.text = "High Score: " + highScore.ToString();
+        PauseScoreText.text = "Score: " + currentScore.ToString();
+        PauseHighScoreText.text = "High Score: " + highScore.ToString();
         if (deathScoreText != null)
         {
             if (currentScore >= highScore)
