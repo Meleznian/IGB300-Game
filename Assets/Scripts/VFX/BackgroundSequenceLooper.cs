@@ -15,7 +15,9 @@ public class BackgroundSequenceLooper : MonoBehaviour
     [Header("Sequence Prefabs")]
     [SerializeField] private GameObject firstPrefab; 
     [SerializeField] private GameObject goalPrefab;  
-    [SerializeField] private List<GameObject> betweenPool; 
+    [SerializeField] private List<GameObject> betweenPool;
+    [SerializeField] GameObject pipe;
+    [SerializeField] bool spawnPipes;
 
     // ===== Sequence Length =====
     [Header("Sequence Length")]
@@ -201,6 +203,11 @@ public class BackgroundSequenceLooper : MonoBehaviour
         var pos = go.transform.position;
         pos.x = (pixelSnap && unitPx > 0f) ? Snap(centerX) : centerX;
         go.transform.position = pos;
+        if(spawnPipes)
+        {
+            var newPipe = Instantiate(pipe, go.transform);
+            newPipe.transform.localPosition = new Vector2(9.45f, 0);
+        }
         return new Segment { t = go.transform, width = width };
     }
 
