@@ -13,12 +13,12 @@ public class UpgradeIconUI : MonoBehaviour
     {
         UpgradeID = upgrade.id;
         iconImage.sprite = upgrade.icon;
-        UpdateStack(upgrade.timesChosen);
+
+        gameObject.SetActive(true);
+    }
+public void UpdateStack(int count)
+    {
+        stackText.text = count > 1 ? "x" + count : "";
     }
 
-    public void UpdateStack(int count)
-    {
-        // Always show at least x1
-        stackText.text = "x" + count.ToString();
-    }
 }

@@ -234,6 +234,8 @@ GameObject:
   - component: {fileID: 997172965}
   - component: {fileID: 997172967}
   - component: {fileID: 997172968}
+  - component: {fileID: 997172970}
+  - component: {fileID: 997172969}
   m_Layer: 5
   m_Name: UpgradesPanel
   m_TagString: Untagged
@@ -258,8 +260,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -162.4, y: 50.9}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: -178.38498, y: 50.9}
+  m_SizeDelta: {x: 135.6836, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &997172967
 MonoBehaviour:
@@ -326,6 +328,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradesPanel: {fileID: 997172965}
   upgradeIconPrefab: {fileID: 1341846232}
+--- !u!114 &997172969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997172964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 0
+--- !u!114 &997172970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997172964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!114 &1026222748 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1121396729962120471, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
@@ -381,7 +423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1161205529808201585, guid: 1b84e04fb9be6fb4ca75f3a0545db08a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -414,10 +456,10 @@ RectTransform:
   - {fileID: 1958394489}
   m_Father: {fileID: 997172965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70.00001, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341846236
 MonoBehaviour:
@@ -922,6 +964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1540245765535838074, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2334671606798691541, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -929,6 +975,10 @@ PrefabInstance:
     - target: {fileID: 5320256361434271331, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 85.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5348831649322967473, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1095,7 +1145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f28cc7eccf472045a0f587439439746, type: 2}
   m_sharedMaterial: {fileID: 2459708227621514389, guid: 7f28cc7eccf472045a0f587439439746, type: 2}

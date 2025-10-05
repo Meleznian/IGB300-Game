@@ -4,28 +4,37 @@ using TMPro;
 
 public class UpgradesUI : MonoBehaviour
 {
-    [SerializeField] private Transform upgradesPanel;   // Where icons will be added
+    [SerializeField] private Transform upgradesPanel;
     [SerializeField] private GameObject upgradeIconPrefab;
 
-    /// <summary>
-    /// Called when an upgrade is chosen.
-    /// </summary>
+    void Start()
+    {
+        upgradesPanel.gameObject.SetActive(false);
+    }
+
     public void UpdateUpgradeUI(UpgradeManager.Upgrade upgrade)
     {
+        if (!upgradesPanel.gameObject.activeSelf)
+            upgradesPanel.gameObject.SetActive(true);
+
         // Look for existing icon
         foreach (Transform child in upgradesPanel)
         {
             UpgradeIconUI icon = child.GetComponent<UpgradeIconUI>();
             if (icon != null && icon.UpgradeID == upgrade.id)
             {
+
                 icon.UpdateStack(upgrade.timesChosen);
-                return;
+                return; // Don't spawn a new icon
             }
         }
 
-        // If no icon exists, make a new one
+        // Make a new one if no icon exists
         GameObject newIcon = Instantiate(upgradeIconPrefab, upgradesPanel);
         UpgradeIconUI newIconUI = newIcon.GetComponent<UpgradeIconUI>();
         newIconUI.Setup(upgrade);
+
+        // Shifts others to the right
+        newIcon.transform.SetSiblingIndex(0);
     }
 }
