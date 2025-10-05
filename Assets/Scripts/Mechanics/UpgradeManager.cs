@@ -20,6 +20,7 @@ public class UpgradeManager : MonoBehaviour
 
 
     public GameObject upgradePanel;
+    [SerializeField] private UpgradesUI upgradesUI;
 
     public Button[] upgradeButtons;                 
     public TMP_Text[] upgradeNameTexts;             
@@ -35,6 +36,7 @@ public class UpgradeManager : MonoBehaviour
     private Upgrade[] currentOptions = new Upgrade[3];
     [SerializeField] private AudioSource upgradeMusicSource;
    
+
 
     void Start()
     {
@@ -157,6 +159,11 @@ public class UpgradeManager : MonoBehaviour
 
             DoUpgrade(chosen.id);
             chosen.timesChosen += 1;
+
+            if (upgradesUI != null)
+            {
+                upgradesUI.UpdateUpgradeUI(chosen);
+            }
 
             if (chosen.removeAfterSelection)
             {
