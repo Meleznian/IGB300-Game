@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.VFX;
-using static UnityEditor.PlayerSettings;
 
 public class Bullet : MonoBehaviour
 {
