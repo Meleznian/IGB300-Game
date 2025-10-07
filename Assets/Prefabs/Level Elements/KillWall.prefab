@@ -267,9 +267,9 @@ MonoBehaviour:
   slowMinSpeed: 0.01
   maxSpeed: 3
   slowMaxSpeed: 1.5
-  nearDist: 5
-  farDist: 8
-  accel: 8
+  nearDist: 8.5
+  farDist: 10
+  accel: 6
   currentSpeed: 0
   slowed: 0
   anim: {fileID: 8574984968815192029}
