@@ -1234,6 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradePanel: {fileID: 3680619535114890108}
+  upgradesUI: {fileID: 0}
   upgradeButtons:
   - {fileID: 4564533711103761011}
   - {fileID: 5606650723381129714}
@@ -4147,7 +4148,8 @@ MonoBehaviour:
   textPrefab: {fileID: 6337040031794903453, guid: 623711c254d7b3e4697e7a3c1a1b2dbe, type: 3}
   textCanvas: {fileID: 0}
   scoreText: {fileID: 7551057588884780777}
-  highScoreText: {fileID: 1121396729962120471}
+  PauseHighScoreText: {fileID: 0}
+  PauseScoreText: {fileID: 0}
   deathScoreText: {fileID: 2838393635413785791}
   deathHighScoreText: {fileID: 1144326441101686927}
   newHighScore: {fileID: 8513313237945323649}
@@ -4937,9 +4939,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7835850529534847684}
     m_Modifications:
+    - target: {fileID: 765393135792478948, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_FillRect
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1866748632581144832, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913235389415130893, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -181
       objectReference: {fileID: 0}
     - target: {fileID: 3082805211088265523, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5054,7 +5064,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 380150500488013697, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
+    - {fileID: 2078093688481734563, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82d56e7439d2bd747b6c23435b64a393, type: 3}
