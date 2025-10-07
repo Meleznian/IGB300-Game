@@ -3103,6 +3103,10 @@ PrefabInstance:
       propertyPath: tutorial
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3680619535114890108, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4123473240533744550, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3587,7 +3591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2983214621514775937, guid: 6ceeee108754f46bab85e9a448e310e5, type: 3}
+  m_Sprite: {fileID: 768160805689376425, guid: ffadf4041a3847a49b971f3bd32a96ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
