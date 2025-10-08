@@ -28,6 +28,13 @@ public class SettingsManager : MonoBehaviour
 
     }
 
+    //private void Update()
+    //{
+    //    if (Input.GetKeyUp(KeyCode.Escape))
+    //    {
+    //        PlayerPrefs.SetInt("TutorialOpened", 0);
+    //    }
+    //}
 
 
     public void StartGame()
