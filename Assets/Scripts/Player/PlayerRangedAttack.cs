@@ -123,7 +123,13 @@ public class PlayerRangedAttack : MonoBehaviour
 
         if (!bulletPrefab || !firePoint) return;
 
-        Bullet projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();         
+        Bullet projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity).GetComponent<Bullet>();
+
+        if(projectile.projectileType == Bullet.ProjectileType.Spear)
+        {
+            projectile.transform.position += new Vector3(0, -0.55f, 0);
+        }
+
         projectile.playerOwned = true;
         projectile.damage += damageModifier;
         projectile.speed += speedModifier;
