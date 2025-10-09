@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEngine.UI.Image;
 
 public class PlayerMeleeAttack : MonoBehaviour
@@ -17,7 +19,15 @@ public class PlayerMeleeAttack : MonoBehaviour
     //public bool attacking;
     Vector2 knockDirection;
     [SerializeField] ParticleSystem superChargeEffect;
+    [SerializeField] int horizontalMove;
+    [SerializeField] int verticalMove;
+    private enum Directions{
+        Up, Down, Left, Right
+    }
+    private Directions Direction;
+    InputAction moveAction;
 
+    [SerializeField] private int _lastDirection = 1;
 
     [SerializeField] public float meleeCooldown = 0.5f;
     float meleeCooldownTimer = 0f;
@@ -26,6 +36,13 @@ public class PlayerMeleeAttack : MonoBehaviour
     public bool superCharge = false;
 
     Coroutine attack;
+
+    void Start()
+    {
+
+        moveAction = InputSystem.actions.FindAction("Move");
+    }
+
     void Update()
     {
         if (autoAttack && !autoing)
@@ -46,6 +63,51 @@ public class PlayerMeleeAttack : MonoBehaviour
                 anim.SetInteger("Slashes", 0);
             }
 
+            horizontalMove = moveAction.ReadValue<Vector2>().x > 0 ? 1 : 0;
+            horizontalMove = moveAction.ReadValue<Vector2>().x < 0 ? -1 : horizontalMove;
+        
+            verticalMove = moveAction.ReadValue<Vector2>().y > 0 ? 1 : 0;
+            verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
+
+            _lastDirection = Input.GetKeyDown(KeyCode.D) ? 1 : _lastDirection;
+            _lastDirection = Input.GetKeyDown(KeyCode.A) ? -1 : _lastDirection;
+
+            if(verticalMove == 0 && horizontalMove == 0)
+            {
+                switch(_lastDirection)
+                {
+                    case -1:
+                        Direction = Directions.Left; break;
+                    case 1:
+                        Direction = Directions.Right; break;
+                    default:
+                        Direction = Directions.Right; break;
+                }
+            } else if(horizontalMove != 0)
+            {
+                switch (horizontalMove)
+                {
+                    case -1:
+                        Direction = Directions.Left; break;
+                    case 1:
+                        Direction = Directions.Right; break;
+                    default:
+                        Direction = Directions.Right; break;
+                }
+            } else if(verticalMove != 0)
+            {
+                switch (verticalMove)
+                {
+                    case -1:
+                        Direction = Directions.Down; break;
+                    case 1:
+                        Direction = Directions.Up; break;
+                    default:
+                        Direction = Directions.Right; break;
+                }
+            }
+
+            //Debug.Log(Direction);
             if (!autoAttack)
             {
                 // Gamepad input: Left stick + R1 button
@@ -106,6 +168,7 @@ public class PlayerMeleeAttack : MonoBehaviour
                 rot = Quaternion.Euler(0, 0, 270);
             }
 
+            Debug.Log(point);
             SpawnEffect(point.position, rot);
             DealDamage(point.position);
         }
@@ -184,8 +247,29 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             if (CheckForEnemy() || superCharge)
             {
-                Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 dir = (mouse - (Vector2)transform.position).normalized;
+                //Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Vector2 dir = (mouse - (Vector2)transform.position).normalized;
+                Vector2 dir = right.position;
+                switch (Direction)
+                {
+                    case Directions.Up:
+                        dir = up.localPosition;
+                        break;
+                    case Directions.Down:
+                        dir = down.localPosition;
+                        break;
+                    case Directions.Left:
+                        dir = left.localPosition;
+                        break;
+                    case Directions.Right:
+                        dir = right.localPosition;
+                        break;
+                    default:
+                        dir = right.localPosition;
+                        break;
+                }
+                Debug.Log(Direction);
+                Debug.Log(dir);
                 TryAttack(dir);
                 yield return new WaitForSeconds(superCharge ? 0.1f: meleeCooldown);
             }
