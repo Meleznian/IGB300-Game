@@ -136,6 +136,15 @@ public class UpgradeManager : MonoBehaviour
             if (currentOptions[i].icon == null)
                 Debug.LogWarning("Missing sprite for upgrade: " + currentOptions[i].upgradeName);
 
+            if (upgradeTextsIndicator[i] != null)
+            {
+                if (currentOptions[i].timesChosen > 0)
+                    upgradeTextsIndicator[i].text = "x" + currentOptions[i].timesChosen;
+                else
+                    upgradeTextsIndicator[i].text = ""; // empty if never chosen
+            }
+
+
             AudioManager.PauseMusic();
             AudioManager.PlayEffect(SoundType.UPGRADE_MUSIC, 0.35f);
             upgradeMusicSource.Play();
