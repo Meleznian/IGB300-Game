@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
 
         if(projectileType == ProjectileType.Axe)
         {
-            GetComponent<Rigidbody2D>().AddForce(moveDir*speed, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(moveDir*(speed*1.7f), ForceMode2D.Impulse);
             GetComponent<Rigidbody2D>().AddTorque(-speed, ForceMode2D.Impulse);
         }
     }
