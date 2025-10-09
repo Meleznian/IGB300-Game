@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9924deccaebf9e4b9235c6340f0c6a9
+guid: 3d604be8fde20bd46b977068794da893
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2165630488497663918
-    second: SteamKing walking-6.png_0
+      213: -6930971244839123731
+    second: SteamKing walking-1.png_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SteamKing walking-6.png_0
+      name: SteamKing walking-1.png_0
       rect:
         serializedVersion: 2
         x: 17
         y: 0
-        width: 64
-        height: 76
+        width: 63
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eafa8ad847ddd0e10800000000000000
-      internalID: 2165630488497663918
+      spriteID: de4caeaef5e30df90800000000000000
+      internalID: -6930971244839123731
       vertices: []
       indices: 
       edges: []
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SteamKing walking-1.png_0: -6930971244839123731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
