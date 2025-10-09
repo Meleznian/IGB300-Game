@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1523863081317021737, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3348260807176035591, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
       propertyPath: m_Name
       value: Ground
