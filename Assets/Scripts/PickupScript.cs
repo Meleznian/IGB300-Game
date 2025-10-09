@@ -1,8 +1,57 @@
 using UnityEngine;
+using System.Collections;
 
 public class PickupScript : MonoBehaviour, ICollectable
 {
     [SerializeField] ParticleSystem particleEffect;
+
+    public float MagnetRange = 3f;
+    public float MagnetSpeed = 4f;
+    public Transform player;
+    public bool inRange = false;
+    [SerializeField] float collectionDelay;
+    bool canBeCollected;
+    bool tagged;
+    bool floating;
+
+    Rigidbody2D rb;
+    CircleCollider2D c;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").transform;
+        StartCoroutine(CollectDelay());
+        //parent = transform.parent;
+        rb = GetComponent<Rigidbody2D>();
+        c = GetComponent<CircleCollider2D>();
+    }
+    void Update()
+    {
+
+        float distance = Vector2.Distance(transform.position, player.position);
+        inRange = distance <= MagnetRange;
+
+        if (inRange)
+        {
+            tagged = true;
+        }
+
+        if (canBeCollected)
+        {
+
+            if (tagged)
+            {
+                if (!floating)
+                {
+                    rb.gravityScale = 0;
+                    c.excludeLayers |= (1 << 6);
+                    floating = true;
+                }
+
+                transform.position = Vector2.MoveTowards(transform.position, player.position, MagnetSpeed * Time.deltaTime);
+            }
+        }
+    }
 
     public int pickupType = 0;
     public void Collect()
@@ -41,5 +90,11 @@ public class PickupScript : MonoBehaviour, ICollectable
         }
 
         Destroy(gameObject);
+    }
+
+    IEnumerator CollectDelay()
+    {
+        yield return new WaitForSeconds(collectionDelay);
+        canBeCollected = true;
     }
 }

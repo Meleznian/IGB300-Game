@@ -102,11 +102,13 @@ public class GameManager : MonoBehaviour
         {
             killWall = GameObject.Find("KillWall").transform;
         }
-        steamSlider.maxValue = maxSteam;
+
+        //steamSlider.maxValue = maxSteam;
 
         foreach (Pickup p in pickups)
         {
             pickupsTotalWeight += p.weight;
+            print("Total Weight is: " + pickupsTotalWeight);
         }
         foreach (Pickup p in pickups)
         {
@@ -390,6 +392,10 @@ public class GameManager : MonoBehaviour
     internal GameObject GetPickup()
     {
         float roll = UnityEngine.Random.Range(0, pickupsTotalWeight);
+
+        //print("Total Weight is: " + pickupsTotalWeight);
+        //print("Roll was: " + roll);
+
         int i = 0;
 
         foreach (Pickup p in pickups)

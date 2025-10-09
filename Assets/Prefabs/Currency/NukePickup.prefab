@@ -166,4 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleEffect: {fileID: 6922806724857937827, guid: 1729e2c61df0d3047a1142ef9bb059ff, type: 3}
+  MagnetRange: 3
+  MagnetSpeed: 15
+  player: {fileID: 0}
+  inRange: 0
+  collectionDelay: 1
   pickupType: 2

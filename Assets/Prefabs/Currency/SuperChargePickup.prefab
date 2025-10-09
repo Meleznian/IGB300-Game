@@ -165,4 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba702fe10a44bff40a2db847075d403a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleEffect: {fileID: 0}
+  MagnetRange: 3
+  MagnetSpeed: 15
+  player: {fileID: 0}
+  inRange: 0
+  collectionDelay: 1
   pickupType: 5
