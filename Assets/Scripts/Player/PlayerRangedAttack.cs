@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
 
 public class PlayerRangedAttack : MonoBehaviour
 {
@@ -202,8 +204,11 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         while (bulletUnlocked)
         {
-            Vector2 dir = aimCursor.position - firePoint.position;
+            //Vector2 dir = aimCursor.position - firePoint.position;
+            Vector3 closestEnemy = GetClosestEnemy();
+            Vector2 dir = closestEnemy - firePoint.position;
             FireBullet(dir.normalized, bulletPrefab);
+            Debug.Log("Grrrrr");
             yield return new WaitForSeconds(bulletCooldown);
         }
     }
@@ -275,5 +280,21 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         axeUnlocked = true;
         axeAttack = StartCoroutine(AxeAttack());
+    }
+
+    private Vector3 GetClosestEnemy()
+    {
+        List<GameObject> enemies = EnemyManager.instance.livingEnemiesList;
+        GameObject closestEnemy = enemies[0];
+        float closestDistance = Vector3.Distance(closestEnemy.transform.position, gameObject.transform.position);
+        for(int i = 1; i < enemies.Count - 1; i++)
+        {
+            if (Vector3.Distance(enemies[i].transform.position, gameObject.transform.position) < closestDistance)
+            {
+                closestEnemy = enemies[i];
+                closestDistance = Vector3.Distance(enemies[i].transform.position, gameObject.transform.position);
+            }
+        }
+        return closestEnemy.transform.position;
     }
 }
