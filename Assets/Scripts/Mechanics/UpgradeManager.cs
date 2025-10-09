@@ -26,6 +26,7 @@ public class UpgradeManager : MonoBehaviour
     public TMP_Text[] upgradeNameTexts;             
     public TMP_Text[] upgradeEffectTexts;
     public Image[] UpgradeIcon;
+    public TMP_Text[] upgradeTextsIndicator;
     [SerializeField] Animator anim;
     [SerializeField] ParticleSystem richesRain;
 
