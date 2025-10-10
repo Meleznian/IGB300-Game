@@ -1129,7 +1129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunkPrefabs.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: '_chunkPrefabs.Array.data[10]'
@@ -1163,9 +1163,13 @@ PrefabInstance:
       propertyPath: '_chunkPrefabs.Array.data[17]'
       value: 
       objectReference: {fileID: 5249241490176251230, guid: 9593c48eb2c29ab4f8aa75813ba4ad08, type: 3}
+    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
+      propertyPath: '_chunkPrefabs.Array.data[18]'
+      value: 
+      objectReference: {fileID: 5249241490176251230, guid: 951cb8e868cb8fd479f76dd5f8046f66, type: 3}
     - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunksPool.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunksPool.Array.data[10].poolSize
@@ -1200,6 +1204,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
+      propertyPath: _chunksPool.Array.data[18].poolSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: _chunksPool.Array.data[10].chunkPrefab
       value: 
       objectReference: {fileID: 5249241490176251230, guid: d33f03268f7298a4ab3ab790b2988a29, type: 3}
@@ -1231,6 +1239,10 @@ PrefabInstance:
       propertyPath: _chunksPool.Array.data[17].chunkPrefab
       value: 
       objectReference: {fileID: 5249241490176251230, guid: 9593c48eb2c29ab4f8aa75813ba4ad08, type: 3}
+    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
+      propertyPath: _chunksPool.Array.data[18].chunkPrefab
+      value: 
+      objectReference: {fileID: 5249241490176251230, guid: 951cb8e868cb8fd479f76dd5f8046f66, type: 3}
     - target: {fileID: 7784479869937542948, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: m_Name
       value: ChunkManager
