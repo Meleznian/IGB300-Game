@@ -687,7 +687,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 7
   m_Sprite: {fileID: 4903086354309169804, guid: bab82c872f37995419db90057c144704, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1096,6 +1096,9 @@ MonoBehaviour:
   anim: {fileID: 1389103851451260586}
   autoAttack: 1
   superChargeEffect: {fileID: 4837967084965484588}
+  horizontalMove: 0
+  verticalMove: 0
+  _lastDirection: 1
   meleeCooldown: 0.6
   superCharge: 0
 --- !u!114 &2982133742907216294
@@ -1121,6 +1124,9 @@ MonoBehaviour:
   spearCooldown: 2.5
   spearUnlocked: 0
   spearPrefab: {fileID: 918802385275866056, guid: 04f54e2bcd8c0e24e9a09cae44ef321a, type: 3}
+  axeCooldown: 0.3
+  axeUnlocked: 0
+  axePrefab: {fileID: 0}
   firePoint: {fileID: 644258332658440463}
   aimCursor: {fileID: 3461828938588683644}
   anim: {fileID: 1389103851451260586}
