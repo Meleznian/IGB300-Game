@@ -107,28 +107,28 @@ public class DetailsPanel : MonoBehaviour
     int GetGoal(string name)
     {
         print(name);
-        if(name == "Steel_Bolt Text")
+        if (name == "Steel_Bolt Text")
         {
             bolts[image].enabled = true;
-            image += 1;
+            //image += 1;
             return GameManager.instance.steelBolts;
         }
         else if (name == "Brass_Bolt Text")
         {
             bolts[image].enabled = true;
-            image += 1;
+            //image += 1;
             return GameManager.instance.brassBolts;
         }
         else if (name == "Silver_Bolt Text")
         {
             bolts[image].enabled = true;
-            image += 1;
+            //image += 1;
             return GameManager.instance.silverBolts;
         }
         else if (name == "Gold_Bolt Text")
         {
             bolts[image].enabled = true;
-            image += 1;
+            //image += 1;
             return GameManager.instance.goldBolts;
         }
         else if (name == "DistanceCount")
