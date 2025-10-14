@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1788317556}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &267600381
@@ -5407,9 +5407,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9670751, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.8679245, g: 0.22710222, b: 0, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0, g: 0.16586089, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5425,7 +5425,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 48450519}
+  m_TargetGraphic: {fileID: 1322122416}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -6974,7 +6974,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 769, y: -513}
+  m_AnchoredPosition: {x: 769, y: -444.97}
   m_SizeDelta: {x: 400.1271, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1707712472
@@ -7062,7 +7062,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 32.691605, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.44889832, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7139,14 +7139,14 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9670751, g: 1, b: 0, a: 1}
-    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.4716981, g: 0.049745508, b: 0.006674961, a: 1}
+    m_PressedColor: {r: 0.32182944, g: 1, b: 0, a: 1}
+    m_SelectedColor: {r: 0.79984677, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: -8300249302430709409, guid: 6e5b934b75c634746863c11095fdc9bc, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -7157,7 +7157,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 123840631}
+  m_TargetGraphic: {fileID: 1788317559}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
