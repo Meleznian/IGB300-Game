@@ -110,7 +110,7 @@ public class DetailsPanel : MonoBehaviour
         if (name == "Steel_Bolt Text")
         {
             bolts[image].enabled = true;
-            //image += 1;
+            //image += 1; I have hidden the image generate 
             return GameManager.instance.steelBolts;
         }
         else if (name == "Brass_Bolt Text")
