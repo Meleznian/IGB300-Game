@@ -50,7 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolIndex: 11
-  _despawnX: -30
+  _despawnX: 30
+  player: {fileID: 0}
+  dist: 0
 --- !u!1001 &743620404905587225
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -87,7 +87,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolIndex: 5
-  _despawnX: -30
+  _despawnX: 30
+  player: {fileID: 0}
+  dist: 0
 --- !u!1 &8667287001190358090
 GameObject:
   m_ObjectHideFlags: 0
