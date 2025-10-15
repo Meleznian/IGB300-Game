@@ -48,7 +48,7 @@ public class RunningEnemy : EnemyBase
                 canDamage = false;
                 timer = 1;
             }
-            rb.AddForce(-_moveDirection/4, ForceMode2D.Impulse);
+            rb.AddForce(-_moveDirection/2, ForceMode2D.Impulse);
 
         }
 
