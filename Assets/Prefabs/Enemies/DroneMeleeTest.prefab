@@ -80,7 +80,7 @@ MonoBehaviour:
   defaultDamage: 5
   moveSpeed: 1.2
   speedVariance: 0.3
-  PickupDropPercent: 0.1
+  PickupDropPercent: 0.05
   value: 10
   A: 0.5
   B: 1

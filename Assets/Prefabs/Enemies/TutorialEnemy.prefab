@@ -139,6 +139,7 @@ MonoBehaviour:
   defaultDamage: 5
   moveSpeed: 0
   speedVariance: 0
+  PickupDropPercent: 0
   value: 15
   canJump: 0
   jumpForce: 0
