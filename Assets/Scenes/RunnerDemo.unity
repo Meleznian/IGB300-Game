@@ -1200,6 +1200,22 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: axePrefab
+      value: 
+      objectReference: {fileID: 918802385275866056, guid: 4194ece4ea702db40b612442cd00be63, type: 3}
+    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: axeCooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: bulletCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837967084965484588, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5765494503337787885, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1240,29 +1256,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8837223900107501713, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: axePrefab
-      value: 
-      objectReference: {fileID: 918802385275866056, guid: 4194ece4ea702db40b612442cd00be63, type: 3}
-    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: axeCooldown
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2982133742907216294, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: bulletCooldown
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837967084965484588, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5998056170048742855, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8837223900107501713, guid: 295d1ea099554324dad11ad83b73ac26, type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1453,122 +1453,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunkPrefabs.Array.size
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[10]'
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: d33f03268f7298a4ab3ab790b2988a29, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[11]'
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 48474cbf7b5bd4045bb549fe04ea8487, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[12]'
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: c9a8a26773af05246bbc6d531542ae8b, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[13]'
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: c62f289501240294f8bda2dd73960637, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[14]'
-      value: 
-      objectReference: {fileID: 3664248506165738467, guid: cd8393bffcf74594f9254218c0576e86, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[15]'
-      value: 
-      objectReference: {fileID: 3664248506165738467, guid: 7a204fc183e4dc3468798c505ef8a827, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[16]'
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 4391f4a3694d74644afe888dd44a0bf0, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[17]'
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 9593c48eb2c29ab4f8aa75813ba4ad08, type: 3}
-    - target: {fileID: 5694731184444216916, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: '_chunkPrefabs.Array.data[18]'
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 951cb8e868cb8fd479f76dd5f8046f66, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.size
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[10].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[11].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[12].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[13].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[14].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[15].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[16].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[17].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[18].poolSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[10].chunkPrefab
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: d33f03268f7298a4ab3ab790b2988a29, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[11].chunkPrefab
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 48474cbf7b5bd4045bb549fe04ea8487, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[12].chunkPrefab
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: c9a8a26773af05246bbc6d531542ae8b, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[13].chunkPrefab
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: c62f289501240294f8bda2dd73960637, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[14].chunkPrefab
-      value: 
-      objectReference: {fileID: 3664248506165738467, guid: cd8393bffcf74594f9254218c0576e86, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[15].chunkPrefab
-      value: 
-      objectReference: {fileID: 3664248506165738467, guid: 7a204fc183e4dc3468798c505ef8a827, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[16].chunkPrefab
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 4391f4a3694d74644afe888dd44a0bf0, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[17].chunkPrefab
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 9593c48eb2c29ab4f8aa75813ba4ad08, type: 3}
-    - target: {fileID: 5855779943685971297, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
-      propertyPath: _chunksPool.Array.data[18].chunkPrefab
-      value: 
-      objectReference: {fileID: 5249241490176251230, guid: 951cb8e868cb8fd479f76dd5f8046f66, type: 3}
     - target: {fileID: 7784479869937542948, guid: f2aef551e82bcbd4c9209362cfe9ce5a, type: 3}
       propertyPath: m_Name
       value: ChunkManager
@@ -1780,8 +1664,24 @@ PrefabInstance:
       value: -15.533996
       objectReference: {fileID: 0}
     - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: bolt5
+      value: 
+      objectReference: {fileID: 678814081965962704, guid: b091077eb5fe8844f85c033606ab7c9e, type: 3}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: boltClamp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: steamSlider
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: valueIncrease
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: valueMultiplier
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3680619535114890108, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_IsActive
@@ -1844,6 +1744,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1505754056}
     - target: {fileID: 6904265280506163872, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: currentScore
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904265280506163872, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: PauseScoreText
       value: 
       objectReference: {fileID: 1678235878}
@@ -1863,6 +1767,14 @@ PrefabInstance:
       propertyPath: upgradesUI
       value: 
       objectReference: {fileID: 997172968}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: meleeSizeIncrease
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: rangedSizeIncrease
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: upgradeMusicSource
       value: 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -61,7 +62,6 @@ public class GameManager : MonoBehaviour
     public int KillTarget = 10;
 
     //public int crowdHype;
-    public float cashMult;
     public int steamGauge;
     public int maxSteam;
     public int ammo;
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ammoDisplay.value = ammo;
-        AudioManager.PlayMusic(SoundType.MAIN_MUSIC,0.3f);
+        AudioManager.PlayMusic(SoundType.MAIN_MUSIC, 0.3f);
 
         //Player
         Player = GameObject.Find("Player");
@@ -206,10 +206,10 @@ public class GameManager : MonoBehaviour
         return _BoltCount;
     }
 
-    
+
     public void EndGame()
     {
-        if(gameHasEnded == false)
+        if (gameHasEnded == false)
         {
             print("Ending Game");
             gameHasEnded = true;
@@ -232,11 +232,11 @@ public class GameManager : MonoBehaviour
                 ////Restart();
                 ///
             }
-            
+
         }
-        
+
     }
- 
+
 
     //public void IncreaseHype()
     //{
@@ -308,7 +308,7 @@ public class GameManager : MonoBehaviour
     //    }  
     //}
 
-    
+
     //public bool DecreaseHeat(int amount)
     //{
     //    if (ammo - amount >= 0)
@@ -349,27 +349,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject bolt5;
     [SerializeField] GameObject bolt10;
     [SerializeField] GameObject bolt20;
-    
+    [SerializeField] float valueMultiplier;
+    [SerializeField] float valueIncrease;
+    [SerializeField] int boltClamp;
+
+
     public GameObject[] GenerateMoney(float amount)
     {
-        amount = Mathf.Round(amount*cashMult);
-        amount = Mathf.Clamp(amount, 0, 100);
+        amount = Mathf.Round(amount * valueMultiplier);
+        amount = Mathf.Clamp(amount, 0, boltClamp);
         print("Cash After Mult: " + amount);
         List<GameObject> cashList = new();
-    
-        while(amount > 0)
+
+        while (amount > 0)
         {
-            if(amount >= 60 && amount > 40)
-            {
-                cashList.Add(bolt20);
-                amount -= 20;
-            }
-            else if (amount <= 40 && amount > 20)
-            {
-                cashList.Add(bolt10);
-                amount -= 10;
-            }
-            else if (amount <= 20 && amount > 5)
+            if (amount <= 20 && amount > 5)
             {
                 cashList.Add(bolt5);
                 amount -= 5;
@@ -417,6 +411,34 @@ public class GameManager : MonoBehaviour
         float s = p.weight / pickupsTotalWeight;
         s *= 100;
         p.spawnPercentage = s + "%";
+    }
+
+    internal GameObject GetScaledBolt()
+    {
+        int level = ScoreManager.instance.currentScore;
+
+        if (level > 20000)
+        {
+            return bolt20;
+        }
+        else if(level > 10000)
+        {
+            return bolt10;
+        }
+        else if (level > 5000)
+        {
+            return bolt5;
+        }
+        else
+        {
+            return bolt1;
+        }
+
+    }
+
+    internal void IncreaseBoltMultiplier()
+    {
+        valueMultiplier += valueIncrease;
     }
 }
 
