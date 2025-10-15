@@ -144,6 +144,7 @@ MonoBehaviour:
   canJump: 1
   jumpForce: 13
   knockback: 3
+  offsetRange: 2.5
 --- !u!1 &4833173571841026522
 GameObject:
   m_ObjectHideFlags: 0

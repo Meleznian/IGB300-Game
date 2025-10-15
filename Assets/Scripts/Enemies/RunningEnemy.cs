@@ -8,15 +8,18 @@ public class RunningEnemy : EnemyBase
     [SerializeField] bool canJump;
     [SerializeField] float jumpForce;
     [SerializeField] float knockback = 2f;
+    [SerializeField] float offsetRange = 1;
+    float offset;
     public override void Move()
     {
         transform.position += _moveDirection * actingMoveSpeed;
         transform.localScale = new Vector3(_moveDirection.x, 1, 1);
 
-        if (transform.position.x < GameManager.instance.Player.transform.position.x) _moveDirection = Vector3.right;
+        if (transform.position.x < GameManager.instance.Player.transform.position.x + offset) _moveDirection = Vector3.right;
         else _moveDirection = Vector3.left;
 
         Jump();
+        SetTarget();
     }
 
     bool canDamage;
@@ -30,6 +33,25 @@ public class RunningEnemy : EnemyBase
         }
 
         CheckWall();
+    }
+
+    void SetTarget()
+    {
+        //if (GameManager.instance.Player.transform.position.y > transform.position.y + 1)
+        //{
+            if (_moveDirection == Vector3.right)
+            {
+                offset = offsetRange;
+            }
+            else
+            {
+                offset = -offsetRange;
+            }
+        //}
+        //else
+        //{
+        //    offset = 0;
+        //}
     }
 
     private void OnTriggerStay2D(Collider2D other)

@@ -345,3 +345,4 @@ MonoBehaviour:
   canJump: 0
   jumpForce: 0
   knockback: 13
+  offsetRange: 1
