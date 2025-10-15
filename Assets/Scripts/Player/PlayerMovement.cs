@@ -209,10 +209,10 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Collectable")
-        {
-            other.gameObject.GetComponent<ICollectable>().Collect();
-        }
+        //if (other.gameObject.tag == "Collectable")
+        //{
+        //    other.gameObject.GetComponent<ICollectable>().Collect();
+        //}
         if (other.gameObject.tag == "Ground" && _isGrounded)
         {
             Instantiate(landEffect, new Vector3(transform.position.x, transform.position.y - 1, transform.position.z), Quaternion.identity);
