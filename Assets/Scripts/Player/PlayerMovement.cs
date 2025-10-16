@@ -95,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
         verticalMove = moveAction.ReadValue<Vector2>().y < 0 ? -1 : verticalMove;
 
         anim.SetBool("Running", horizontalMove != 0);
+        Turn();
 
         _lastDirection = Input.GetKeyDown(KeyCode.D) ? 1 : _lastDirection;
         _lastDirection = Input.GetKeyDown(KeyCode.A) ? -1 : _lastDirection;
@@ -262,6 +263,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 horizontalMove = 1;
             }
+        }
+    }
+
+    void Turn()
+    {
+        if (horizontalMove > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (horizontalMove < -0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 

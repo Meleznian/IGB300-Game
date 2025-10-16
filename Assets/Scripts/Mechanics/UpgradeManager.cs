@@ -106,6 +106,7 @@ public class UpgradeManager : MonoBehaviour
 
     internal void ShowUpgradeOptions()
     {
+        movement.enabled = false;
         richesRain.Play();
         //if (availableUpgrades.Count < 3)
         //{
@@ -167,6 +168,7 @@ public class UpgradeManager : MonoBehaviour
             playerLevel++;
             levelText.text = playerLevel.ToString();
 
+            movement.enabled = true;
             DoUpgrade(chosen.id);
             chosen.timesChosen += 1;
 

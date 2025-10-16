@@ -50,12 +50,14 @@ public class MenuManager : MonoBehaviour
         if (isOpen && openSound != null)
         {
             Time.timeScale = 0f;
+            GameManager.instance.playerMovement.enabled = false;
             UICanvas.SetActive(false);
             audioSource.PlayOneShot(openSound);
         }
         else if (!isOpen && closeSound != null)
         {
             Time.timeScale = 1.0f;
+            GameManager.instance.playerMovement.enabled = true;
             UICanvas.SetActive(true);  
             audioSource.PlayOneShot(closeSound);
         }

@@ -448,7 +448,7 @@ public class GameManager : MonoBehaviour
         valueMultiplier += valueIncrease;
     }
 
-    PlayerMovement playerMovement;
+    internal PlayerMovement playerMovement;
     CameraFollow cameraScript;
 
     public void StartGame()
