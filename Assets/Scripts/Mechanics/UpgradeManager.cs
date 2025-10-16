@@ -36,7 +36,9 @@ public class UpgradeManager : MonoBehaviour
 
     private Upgrade[] currentOptions = new Upgrade[3];
     [SerializeField] private AudioSource upgradeMusicSource;
-   
+
+    private int currentSelection = 0;
+    private bool isChoosingUpgrade = false;
 
 
     void Start()
@@ -101,8 +103,10 @@ public class UpgradeManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             ShowUpgradeOptions();
+
         }
     }
+
 
     internal void ShowUpgradeOptions()
     {
@@ -149,13 +153,16 @@ public class UpgradeManager : MonoBehaviour
             AudioManager.PauseMusic();
             AudioManager.PlayEffect(SoundType.UPGRADE_MUSIC, 0.35f);
             upgradeMusicSource.Play();
-
         }
 
 
         upgradePanel.SetActive(true);
         Time.timeScale = 0f;
         anim.SetTrigger("Enter");
+        isChoosingUpgrade = true;
+        currentSelection = 0;
+
+
     }
 
     public void SelectUpgrade(int index)
@@ -187,6 +194,7 @@ public class UpgradeManager : MonoBehaviour
             Time.timeScale = 1f;
             upgradeMusicSource.Stop();
             AudioManager.resumeMusic();
+
         }
     }
 
