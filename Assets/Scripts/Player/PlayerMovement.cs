@@ -270,11 +270,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (horizontalMove > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            anim.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (horizontalMove < -0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            anim.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
