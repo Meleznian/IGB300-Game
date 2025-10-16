@@ -54,9 +54,12 @@ public class Bolt : MonoBehaviour
             }
         }
 
-        if (transform.position.x < killWall.position.x)
+        if (GameManager.instance.tutorial == false)
         {
-            Destroy(gameObject);
+            if (transform.position.x < killWall.position.x)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
