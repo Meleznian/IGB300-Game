@@ -458,6 +458,7 @@ public class GameManager : MonoBehaviour
         killWall.GetComponent<KillWall>().BeginWalking();
         cameraScript.enabled = true;
         ScoreManager.instance.gameObject.SetActive(true);
+        AudioManager.resumeMusic();
     }
 
     public void SetupCutscene()
@@ -466,6 +467,7 @@ public class GameManager : MonoBehaviour
         playerMovement.enabled = false;
         cameraScript.enabled = false;
         ScoreManager.instance.gameObject.SetActive(false);
+        AudioManager.PauseMusic();
     }
 }
 
