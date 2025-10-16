@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
         //Player
         Player = GameObject.Find("Player");
         playerHealth = Player.GetComponent<PlayerHealth>();
+        playerMovement = Player.GetComponent<PlayerMovement>();
+        cameraScript = Camera.main.GetComponent<CameraFollow>();
         // Store starting position
         startPosition = Player.transform.position;
 
@@ -113,6 +115,11 @@ public class GameManager : MonoBehaviour
         foreach (Pickup p in pickups)
         {
             GetSpawnPercentage(p);
+        }
+
+        if (!tutorial)
+        {
+            SetupCutscene();
         }
     }
 
@@ -439,6 +446,26 @@ public class GameManager : MonoBehaviour
     internal void IncreaseBoltMultiplier()
     {
         valueMultiplier += valueIncrease;
+    }
+
+    PlayerMovement playerMovement;
+    CameraFollow cameraScript;
+
+    public void StartGame()
+    {
+        EnemyManager.instance.gameObject.SetActive(true);
+        playerMovement.enabled = true;
+        killWall.GetComponent<KillWall>().BeginWalking();
+        cameraScript.enabled = true;
+        ScoreManager.instance.gameObject.SetActive(true);
+    }
+
+    public void SetupCutscene()
+    {
+        EnemyManager.instance.gameObject.SetActive(false);
+        playerMovement.enabled = false;
+        cameraScript.enabled = false;
+        ScoreManager.instance.gameObject.SetActive(false);
     }
 }
 
