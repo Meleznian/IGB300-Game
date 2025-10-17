@@ -138,6 +138,6 @@ public class KillWall : MonoBehaviour
     public void BeginWalking()
     {
         began = true;
-        anim.SetTrigger("Talked");
+        anim.SetBool("Talked", true);
     }
 }

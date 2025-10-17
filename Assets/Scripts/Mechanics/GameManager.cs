@@ -459,6 +459,7 @@ public class GameManager : MonoBehaviour
         cameraScript.enabled = true;
         ScoreManager.instance.gameObject.SetActive(true);
         AudioManager.resumeMusic();
+        MenuManager.instance.cutsceneActive = false;
     }
 
     public void SetupCutscene()
@@ -468,6 +469,7 @@ public class GameManager : MonoBehaviour
         cameraScript.enabled = false;
         ScoreManager.instance.gameObject.SetActive(false);
         AudioManager.PauseMusic();
+        MenuManager.instance.cutsceneActive = true;
     }
 }
 

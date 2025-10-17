@@ -12,6 +12,7 @@ public class Cutscene : MonoBehaviour
     [SerializeField] KillWall killWall;
     [SerializeField] GameObject dialogueBox;
     [SerializeField] GameObject kingHead;
+    
     void Start()
     {
         effect = text.gameObject.GetComponent<TextEffect>();
@@ -52,7 +53,7 @@ public class Cutscene : MonoBehaviour
     {
         dialogueBox.SetActive(true);
         kingHead.SetActive(true);
-        anim.SetTrigger("Enter");
+        anim.SetBool("Enter", true);
         effect.StartManualEffect("typewriter");
 
     }

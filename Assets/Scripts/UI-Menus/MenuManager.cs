@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
     public AudioClip openSound;
     public AudioClip closeSound;
     private AudioSource audioSource;
+    internal bool cutsceneActive;
 
     private bool isOpen = false;
 
@@ -57,7 +58,10 @@ public class MenuManager : MonoBehaviour
         else if (!isOpen && closeSound != null)
         {
             Time.timeScale = 1.0f;
-            GameManager.instance.playerMovement.enabled = true;
+            if (cutsceneActive == false)
+            {
+                GameManager.instance.playerMovement.enabled = true;
+            }
             UICanvas.SetActive(true);  
             audioSource.PlayOneShot(closeSound);
         }
