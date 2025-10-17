@@ -4840,6 +4840,7 @@ GameObject:
   - component: {fileID: 1099034104}
   - component: {fileID: 1099034103}
   - component: {fileID: 1099034107}
+  - component: {fileID: 1099034108}
   m_Layer: 5
   m_Name: Credit Canvas
   m_TagString: Untagged
@@ -4955,6 +4956,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultButton: {fileID: 2021527813}
+--- !u!114 &1099034108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099034102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbf0a1557a5e4f46ada8d0573fa1ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1136500241
 GameObject:
   m_ObjectHideFlags: 0
