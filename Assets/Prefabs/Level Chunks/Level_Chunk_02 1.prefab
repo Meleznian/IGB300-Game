@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolIndex: 1
-  _despawnX: -30
+  _despawnX: 30
+  player: {fileID: 0}
+  dist: 0
 --- !u!1001 &167616986457924634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -473,6 +475,10 @@ PrefabInstance:
     - target: {fileID: 4245227301016309550, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
       propertyPath: m_Size.x
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245227301016309550, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1319,6 +1325,10 @@ PrefabInstance:
     - target: {fileID: 4245227301016309550, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
       propertyPath: m_Size.x
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245227301016309550, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

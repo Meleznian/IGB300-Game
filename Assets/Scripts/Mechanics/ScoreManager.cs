@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     private Vector3 baseScale;
 
     [SerializeField] int multIncrease;
-    [SerializeField] float increaseAmount;
+    //[SerializeField] float increaseAmount;
     int increaseBy;
 
     private void Awake()
@@ -70,9 +70,9 @@ public class ScoreManager : MonoBehaviour
 
         if (currentScore >= multIncrease)
         {
-            GameManager.instance.cashMult += increaseAmount;
             multIncrease += increaseBy;
             EnemyManager.instance.IncreaseDifficulty();
+            GameManager.instance.IncreaseBoltMultiplier();
         }
 
         // Spawn floating score text under canvas (works!)

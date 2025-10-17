@@ -53,7 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolIndex: 2
-  _despawnX: -30
+  _despawnX: 30
+  player: {fileID: 0}
+  dist: 0
 --- !u!1001 &394965061677187453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +515,10 @@ PrefabInstance:
     - target: {fileID: 3348260807176035591, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245227301016309550, guid: ccce3ef20abe6aa4b913501319f18ca8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

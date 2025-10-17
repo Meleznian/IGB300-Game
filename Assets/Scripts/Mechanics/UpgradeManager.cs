@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 
 public class UpgradeManager : MonoBehaviour
@@ -26,6 +27,7 @@ public class UpgradeManager : MonoBehaviour
     public TMP_Text[] upgradeNameTexts;             
     public TMP_Text[] upgradeEffectTexts;
     public Image[] UpgradeIcon;
+    public TMP_Text[] upgradeTextsIndicator;
     [SerializeField] Animator anim;
     [SerializeField] ParticleSystem richesRain;
 
@@ -35,8 +37,10 @@ public class UpgradeManager : MonoBehaviour
 
     private Upgrade[] currentOptions = new Upgrade[3];
     [SerializeField] private AudioSource upgradeMusicSource;
-   
 
+    private int currentSelection = 0;
+    private bool isChoosingUpgrade = false;
+    private GameObject lastSelectedButton;
 
     void Start()
     {
@@ -97,14 +101,68 @@ public class UpgradeManager : MonoBehaviour
 
     void Update()
     {
+        // Activate upgrade panel with 9 key for debug
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             ShowUpgradeOptions();
         }
+
+        // Restore selection if lost after player has misclick during the gameplay
+        if (upgradePanel.activeSelf && EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(upgradeButtons[currentSelection].gameObject);
+        }
+
+        // Move between buttons with arrow keys
+        if (upgradePanel.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                currentSelection = (currentSelection - 1 + upgradeButtons.Length) % upgradeButtons.Length;
+                HighlightCurrentButton();
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                currentSelection = (currentSelection + 1) % upgradeButtons.Length;
+                HighlightCurrentButton();
+            }
+
+            // Select with Enter
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SelectUpgrade(currentSelection);
+            }
+        }
     }
+
+    void HighlightCurrentButton()
+    {
+        // Reset all button colors to default (white)
+        for (int i = 0; i < upgradeButtons.Length; i++)
+        {
+            var cb = upgradeButtons[i].colors;
+            cb.highlightedColor = Color.white;
+            cb.selectedColor = Color.white;
+            upgradeButtons[i].colors = cb;
+        }
+
+        // Highlight only the currently selected one
+        var selectedButton = upgradeButtons[currentSelection];
+        var selectedCb = selectedButton.colors;
+        selectedCb.highlightedColor = Color.grey;
+        selectedCb.selectedColor = Color.grey;
+        selectedButton.colors = selectedCb;
+
+        // Ensure the EventSystem knows which button is selected
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(selectedButton.gameObject);
+    }
+
+
 
     internal void ShowUpgradeOptions()
     {
+        movement.enabled = false;
         richesRain.Play();
         //if (availableUpgrades.Count < 3)
         //{
@@ -135,16 +193,28 @@ public class UpgradeManager : MonoBehaviour
             if (currentOptions[i].icon == null)
                 Debug.LogWarning("Missing sprite for upgrade: " + currentOptions[i].upgradeName);
 
+            if (upgradeTextsIndicator[i] != null)
+            {
+                if (currentOptions[i].timesChosen > 0)
+                    upgradeTextsIndicator[i].text = "x" + currentOptions[i].timesChosen;
+                else
+                    upgradeTextsIndicator[i].text = ""; // empty if never chosen
+            }
+
             AudioManager.PauseMusic();
             AudioManager.PlayEffect(SoundType.UPGRADE_MUSIC, 0.35f);
             upgradeMusicSource.Play();
-
+            HighlightCurrentButton();
         }
 
 
         upgradePanel.SetActive(true);
         Time.timeScale = 0f;
         anim.SetTrigger("Enter");
+        isChoosingUpgrade = true;
+        currentSelection = 0;
+
+
     }
 
     public void SelectUpgrade(int index)
@@ -157,6 +227,7 @@ public class UpgradeManager : MonoBehaviour
             playerLevel++;
             levelText.text = playerLevel.ToString();
 
+            movement.enabled = true;
             DoUpgrade(chosen.id);
             chosen.timesChosen += 1;
 
@@ -175,6 +246,7 @@ public class UpgradeManager : MonoBehaviour
             Time.timeScale = 1f;
             upgradeMusicSource.Stop();
             AudioManager.resumeMusic();
+
         }
     }
 

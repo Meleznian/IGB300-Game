@@ -20,14 +20,14 @@ public class Bullet : MonoBehaviour
 
     Vector2 moveDir;
 
-    enum ProjectileType 
+    public enum ProjectileType 
     {
         Bullet,
         Spear,
         Axe
     }
 
-    [SerializeField] ProjectileType projectileType;
+    public ProjectileType projectileType;
 
     public void Init(Vector2 direction)
     {
@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
 
         if(projectileType == ProjectileType.Axe)
         {
-            GetComponent<Rigidbody2D>().AddForce(moveDir*speed, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(moveDir*(speed*1.7f), ForceMode2D.Impulse);
             GetComponent<Rigidbody2D>().AddTorque(-speed, ForceMode2D.Impulse);
         }
     }

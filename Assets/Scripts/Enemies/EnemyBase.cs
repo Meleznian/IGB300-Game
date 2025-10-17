@@ -191,7 +191,20 @@ public class EnemyBase : MonoBehaviour, IDamageable
     void SpawnPickup()
     {
         Vector2 spawnOffset = UnityEngine.Random.insideUnitCircle * 0.5f;
-        Rigidbody2D rb = Instantiate(GameManager.instance.GetPickup(), transform.position + (Vector3)spawnOffset, Quaternion.identity).GetComponent<Rigidbody2D>();
+        GameObject pickup = GameManager.instance.GetPickup();
+        Vector3 spawnPos;
+
+        if(pickup.GetComponent<PickupScript>().hoverer == true)
+        {
+            spawnPos = EnemyManager.instance.transform.position;
+            spawnPos += new Vector3(0, UnityEngine.Random.Range(-5, 5),0);
+        }
+        else
+        {
+            spawnPos = transform.position;
+        }
+
+        Rigidbody2D rb = Instantiate(pickup, spawnPos + (Vector3)spawnOffset, Quaternion.identity).GetComponent<Rigidbody2D>();
 
         Vector2 direction = new Vector2(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
         rb.AddForce(direction * 5, ForceMode2D.Impulse);

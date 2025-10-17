@@ -4,15 +4,18 @@ using TMPro;
 
 public class SettingsManager : MonoBehaviour
 {
-    public GameObject mainMenuPanel;
+    public GameObject mainMenuCanvas;
+    public GameObject menuPanel;
     public GameObject TutorialPanel;
+    public GameObject tutorialPopup;
 
     private GameObject currentOpenPanel;
 
     public void Start()
     {
         TutorialPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
+        mainMenuCanvas.SetActive(true);
+        tutorialPopup.SetActive(false);
     }
 
     public void Tutorial()
@@ -20,15 +23,33 @@ public class SettingsManager : MonoBehaviour
         //CloseCurrentPanel();
         //TutorialPanel.SetActive(true);
         //currentOpenPanel = TutorialPanel;
+        PlayerPrefs.SetInt("TutorialOpened", 1);
         SceneManager.LoadScene("Tutorial");
 
     }
 
+    //private void Update()
+    //{
+    //    if (Input.GetKeyUp(KeyCode.Escape))
+    //    {
+    //        PlayerPrefs.SetInt("TutorialOpened", 0);
+    //    }
+    //}
 
 
     public void StartGame()
     {
-        SceneManager.LoadScene("RunnerDemo");
+        if (PlayerPrefs.GetInt("TutorialOpened") == 0)
+        {
+
+            tutorialPopup.SetActive(true);
+            menuPanel.SetActive(false);
+            PlayerPrefs.SetInt("TutorialOpened", 1);
+        }
+        else
+        {
+            SceneManager.LoadScene("RunnerDemo");
+        }
     }
 
     public void OpenSettings()
@@ -39,7 +60,7 @@ public class SettingsManager : MonoBehaviour
 
     public void GoBackToMainMenu()
     {
-        mainMenuPanel.SetActive(true);
+        mainMenuCanvas.SetActive(true);
     }
 
     public void CloseCurrentPanel()
@@ -49,7 +70,7 @@ public class SettingsManager : MonoBehaviour
             currentOpenPanel.SetActive(false);
             currentOpenPanel = null;
         }
-        mainMenuPanel.SetActive(true);
+        mainMenuCanvas.SetActive(true);
     }
 
     public void ExitGame()

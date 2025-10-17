@@ -9,10 +9,17 @@ public class Cutscene : MonoBehaviour
     [SerializeField] TMP_Text text;
     Animator anim;
     [SerializeField] TextEffect effect;
+    [SerializeField] KillWall killWall;
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject kingHead;
+    
     void Start()
     {
         effect = text.gameObject.GetComponent<TextEffect>();
         anim = GetComponent<Animator>();
+
+        dialogueBox.SetActive(false);
+        kingHead.SetActive(false);
 
         Setup();
     }
@@ -34,7 +41,6 @@ public class Cutscene : MonoBehaviour
         //}
 
         effect.Refresh();
-        effect.StartManualEffect("typewriter");
         //anim.SetTrigger("Start");
     }
 
@@ -43,13 +49,28 @@ public class Cutscene : MonoBehaviour
         print("arrived");
     }
 
+    public void Begin()
+    {
+        dialogueBox.SetActive(true);
+        kingHead.SetActive(true);
+        anim.SetBool("Enter", true);
+        effect.StartManualEffect("typewriter");
+
+    }
+
     public void TextDone()
     {
         anim.SetTrigger("Leave");
+    }
+
+    public void StartGame()
+    {
+        GameManager.instance.StartGame();
     }
 
     public void Exited()
     {
         Destroy(transform.parent.gameObject);
     }
+
 }
