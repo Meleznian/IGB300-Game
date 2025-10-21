@@ -78,6 +78,7 @@ public class KillWall : MonoBehaviour
                 transform.position += Vector3.right * (currentSpeed * Time.deltaTime);
 
                 anim.speed = currentSpeed / minSpeed;
+                anim.speed = Mathf.Clamp(anim.speed, 1, 1.5f);
             }
             else
             {
