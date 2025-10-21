@@ -76,6 +76,8 @@ public class KillWall : MonoBehaviour
 
                 // Horizontal movement
                 transform.position += Vector3.right * (currentSpeed * Time.deltaTime);
+
+                anim.speed = currentSpeed / minSpeed;
             }
             else
             {

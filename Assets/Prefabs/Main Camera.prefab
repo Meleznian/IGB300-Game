@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 0.2
-  offset: {x: 0, y: 0, z: -10}
+  offset: {x: 2.5, y: 0, z: -10}
   tutorial: 0
   stageBoundsTopLeft: {fileID: 0}
   stageBoundsBottomRight: {fileID: 0}
@@ -288,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6753488690363329677, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
       propertyPath: enemies.Array.data[7].level
-      value: 0
+      value: 20000
       objectReference: {fileID: 0}
     - target: {fileID: 6753488690363329677, guid: 118874b27b2672a4c8a787e82a5a31e3, type: 3}
       propertyPath: enemies.Array.data[0].spawnWeight
