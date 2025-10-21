@@ -330,6 +330,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 1.23
       objectReference: {fileID: 0}
+    - target: {fileID: 5680163889695692822, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
+      propertyPath: nearDist
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6748709638046843067, guid: a25b6a913019d02448cfe631717b84cb, type: 3}
       propertyPath: functionToRelay2.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -622,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2465129241250098991, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: offset.x
-      value: 1
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 2465129241250098991, guid: e9ba51df19740a44b8a830a27576520c, type: 3}
       propertyPath: stageBoundsTopLeft
