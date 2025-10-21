@@ -196,8 +196,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         if(pickup.GetComponent<PickupScript>().hoverer == true)
         {
-            spawnPos = EnemyManager.instance.transform.position;
-            spawnPos += new Vector3(0, UnityEngine.Random.Range(-5, 5),0);
+
+            spawnPos = new Vector3(EnemyManager.instance.transform.position.x, UnityEngine.Random.Range(-5, 5),0);
         }
         else
         {
