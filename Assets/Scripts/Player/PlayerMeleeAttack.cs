@@ -83,18 +83,8 @@ public class PlayerMeleeAttack : MonoBehaviour
                     default:
                         Direction = Directions.Right; break;
                 }
-            } else if(horizontalMove != 0)
-            {
-                switch (horizontalMove)
-                {
-                    case -1:
-                        Direction = Directions.Left; break;
-                    case 1:
-                        Direction = Directions.Right; break;
-                    default:
-                        Direction = Directions.Right; break;
-                }
-            } else if(verticalMove != 0)
+            }
+            else if (verticalMove != 0)
             {
                 switch (verticalMove)
                 {
@@ -102,6 +92,18 @@ public class PlayerMeleeAttack : MonoBehaviour
                         Direction = Directions.Down; break;
                     case 1:
                         Direction = Directions.Up; break;
+                    default:
+                        Direction = Directions.Right; break;
+                }
+            }
+            else if(horizontalMove != 0)
+            {
+                switch (horizontalMove)
+                {
+                    case -1:
+                        Direction = Directions.Left; break;
+                    case 1:
+                        Direction = Directions.Right; break;
                     default:
                         Direction = Directions.Right; break;
                 }
