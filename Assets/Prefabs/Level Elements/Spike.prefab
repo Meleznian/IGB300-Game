@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c356adcf8415f094c96d75fb25defc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 20
   canDamage: 0
   timer: 0
   knockback: 7
@@ -228,5 +228,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.05, y: 0.35}
+  m_Size: {x: 1.03, y: 0.35}
   m_EdgeRadius: 0

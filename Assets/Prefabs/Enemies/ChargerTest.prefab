@@ -340,8 +340,9 @@ MonoBehaviour:
   defaultDamage: 5
   moveSpeed: 1.5
   speedVariance: 0.5
-  PickupDropPercent: 0.1
+  PickupDropPercent: 0.05
   value: 15
   canJump: 0
   jumpForce: 0
   knockback: 10
+  offsetRange: 4

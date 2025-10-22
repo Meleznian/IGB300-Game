@@ -26,8 +26,10 @@ public class KillWall : MonoBehaviour
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Color slowColor;
     [SerializeField] ParticleSystem slowEffect;
+    [SerializeField] ParticleSystem landEffect;
 
     bool playerDead = false;
+    internal bool began;
 
     void Reset()
     {
@@ -45,28 +47,43 @@ public class KillWall : MonoBehaviour
         currentSpeed = minSpeed;
     }
 
+    private void Start()
+    {
+        if(GameManager.instance.tutorial == true)
+        {
+            anim.SetBool("Tutorial", true);
+            began = true;
+        }
+    }
+
     void FixedUpdate()
     {
-        if (!playerDead)
+        if (began)
         {
-            // Distance (wall Å® player's X difference). Forward is positive.
-            float dx = player ? (player.position.x - transform.position.x) : 0f;
+            if (!playerDead)
+            {
+                // Distance (wall Å® player's X difference). Forward is positive.
+                float dx = player ? (player.position.x - transform.position.x) : 0f;
 
-            // Linear map: NearÅ®0, FarÅ®1 (automatically clamps values outside range)
-            float t = Mathf.InverseLerp(nearDist, farDist, dx);
+                // Linear map: NearÅ®0, FarÅ®1 (automatically clamps values outside range)
+                float t = Mathf.InverseLerp(nearDist, farDist, dx);
 
-            // Interpolate speed between min..max 
-            float targetSpeed = slowed ? Mathf.Lerp(slowMinSpeed, slowMaxSpeed, t) : Mathf.Lerp(minSpeed, maxSpeed, t);
+                // Interpolate speed between min..max 
+                float targetSpeed = slowed ? Mathf.Lerp(slowMinSpeed, slowMaxSpeed, t) : Mathf.Lerp(minSpeed, maxSpeed, t);
 
-            // Smoothing
-            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accel * Time.deltaTime);
+                // Smoothing
+                currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, accel * Time.deltaTime);
 
-            // Horizontal movement
-            transform.position += Vector3.right * (currentSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position -= Vector3.right * (currentSpeed * Time.deltaTime);
+                // Horizontal movement
+                transform.position += Vector3.right * (currentSpeed * Time.deltaTime);
+
+                anim.speed = currentSpeed / minSpeed;
+                anim.speed = Mathf.Clamp(anim.speed, 1, 1.5f);
+            }
+            else
+            {
+                transform.position -= Vector3.right * (currentSpeed * Time.deltaTime);
+            }
         }
     }
 
@@ -113,7 +130,17 @@ public class KillWall : MonoBehaviour
 
         anim.SetTrigger("Leave");
         currentSpeed = 2;
-        transform.rotation = Quaternion.Euler(0, 180, 0);
-        
+        transform.rotation = Quaternion.Euler(0, 180, 0); 
+    }
+
+    public void Landed()
+    {
+        landEffect.Play();
+    }
+
+    public void BeginWalking()
+    {
+        began = true;
+        anim.SetBool("Talked", true);
     }
 }

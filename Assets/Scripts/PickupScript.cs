@@ -1,5 +1,7 @@
-using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PickupScript : MonoBehaviour, ICollectable
 {
@@ -14,8 +16,10 @@ public class PickupScript : MonoBehaviour, ICollectable
     bool tagged;
     bool floating;
 
+    public bool hoverer;
+
     Rigidbody2D rb;
-    CircleCollider2D c;
+    Collider2D c;
 
     private void Start()
     {
@@ -23,7 +27,12 @@ public class PickupScript : MonoBehaviour, ICollectable
         StartCoroutine(CollectDelay());
         //parent = transform.parent;
         rb = GetComponent<Rigidbody2D>();
-        c = GetComponent<CircleCollider2D>();
+        c = GetComponent<Collider2D>();
+
+        if (hoverer)
+        {
+            rb.gravityScale = 0.0f;
+        }
     }
     void Update()
     {
@@ -50,6 +59,11 @@ public class PickupScript : MonoBehaviour, ICollectable
 
                 transform.position = Vector2.MoveTowards(transform.position, player.position, MagnetSpeed * Time.deltaTime);
             }
+        }
+
+        if (!tagged && hoverer)
+        {
+            Move();
         }
     }
 
@@ -92,9 +106,28 @@ public class PickupScript : MonoBehaviour, ICollectable
         Destroy(gameObject);
     }
 
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && canBeCollected)
+        {
+            Collect();
+        }
+    }
+
     IEnumerator CollectDelay()
     {
         yield return new WaitForSeconds(collectionDelay);
         canBeCollected = true;
+    }
+
+    [Header("Float In")]
+    internal Vector3 _moveDirection = Vector3.left;
+    public float A, B, C;
+    public float speed;
+
+    public void Move()
+    {
+        transform.position += _moveDirection * (speed*Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, A * Mathf.Sin(transform.position.x - B) + C, transform.position.z);
     }
 }

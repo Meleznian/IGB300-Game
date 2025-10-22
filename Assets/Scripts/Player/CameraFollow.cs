@@ -48,7 +48,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 targetPos;
         if (!tutorial)
         {
-            targetPos = new Vector3(lockedX + 3, transform.position.y, desired.z);
+            targetPos = new Vector3(lockedX, transform.position.y, desired.z);
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothSpeed);
         }
         else

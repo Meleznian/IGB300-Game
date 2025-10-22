@@ -13,6 +13,8 @@ public class Bolt : MonoBehaviour
     bool tagged;
     bool floating;
 
+    [SerializeField] Transform killWall;
+
     Rigidbody2D rb;
     CircleCollider2D c;
     //Transform parent;
@@ -24,10 +26,10 @@ public class Bolt : MonoBehaviour
         //parent = transform.parent;
         rb = GetComponent<Rigidbody2D>();
         c = transform.GetChild(0).GetComponent<CircleCollider2D>();
+        killWall = GameManager.instance.killWall;
     }
     void Update()
     {
-
         float distance = Vector2.Distance(transform.position, player.position);
         inRange = distance <= MagnetRange;
 
@@ -49,6 +51,14 @@ public class Bolt : MonoBehaviour
                 }
 
                 transform.position = Vector2.MoveTowards(transform.position, player.position, MagnetSpeed * Time.deltaTime);
+            }
+        }
+
+        if (GameManager.instance.tutorial == false)
+        {
+            if (transform.position.x < killWall.position.x)
+            {
+                Destroy(gameObject);
             }
         }
     }

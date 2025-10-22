@@ -67,7 +67,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] GameObject bulletWallEffect;
     [SerializeField] GameObject bulletHitEffect;
 
-
+    bool hoverboyAlive;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -115,6 +115,11 @@ public class EnemyManager : MonoBehaviour
             {
                 Enemy e = ChooseEnemy();
 
+                if (e.enemyPrefab.GetComponent<EnemyBase>().enemyName == "Hoverboy" && hoverboyAlive)
+                {
+                    continue;
+                }
+
                 if (e.level <= ScoreManager.instance.currentScore)
                 {
                     float x = UnityEngine.Random.Range(-spawnVariationX, spawnVariationX);
@@ -123,7 +128,14 @@ public class EnemyManager : MonoBehaviour
                     Vector2 spawnPos = new Vector2(transform.position.x + x, transform.position.y + y);
 
                     livingEnemiesList.Add(Instantiate(e.enemyPrefab, spawnPos, Quaternion.identity));
+
+                    if(e.enemyPrefab.GetComponent<EnemyBase>().enemyName == "Hoverboy")
+                    {
+                        hoverboyAlive = true;
+                    }
+
                     currentlyAlive += 1;
+
                     i++;
                 }
                 else
@@ -143,6 +155,12 @@ public class EnemyManager : MonoBehaviour
         currentlyAlive--;
 
         Instantiate(enemyDeathEffect, enemy.transform.position, Quaternion.identity);
+
+        if (enemy.GetComponent<EnemyBase>().enemyName == "Hoverboy")
+        {
+            hoverboyAlive = false;
+        }
+
         livingEnemiesList.Remove(enemy);
         Destroy(enemy);
 

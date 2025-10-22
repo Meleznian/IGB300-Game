@@ -20,14 +20,14 @@ public class Bullet : MonoBehaviour
 
     Vector2 moveDir;
 
-    enum ProjectileType 
+    public enum ProjectileType 
     {
         Bullet,
         Spear,
         Axe
     }
 
-    [SerializeField] ProjectileType projectileType;
+    public ProjectileType projectileType;
 
     public void Init(Vector2 direction)
     {

@@ -91,6 +91,9 @@ MonoBehaviour:
     FOR HUMANS AT THIS MICRO-INSTANT FOR YOU. HATE. HATE
   text: {fileID: 6546031257835530501}
   effect: {fileID: 0}
+  killWall: {fileID: 0}
+  dialogueBox: {fileID: 0}
+  kingHead: {fileID: 0}
 --- !u!1 &2221838300227487826
 GameObject:
   m_ObjectHideFlags: 0

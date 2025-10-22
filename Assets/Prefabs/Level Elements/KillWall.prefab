@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4005338707354385433}
   - component: {fileID: 8237820782394273164}
   - component: {fileID: 8574984968815192029}
+  - component: {fileID: 6748709638046843067}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4926895817482089505}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -3.8, z: 0}
+  m_LocalPosition: {x: 1.1, y: -3.8, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,6 +111,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6748709638046843067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926895817482089505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572f0802710b4ef4783f03ff42878a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  functionToRelay1:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5680163889695692822}
+        m_TargetAssemblyTypeName: KillWall, Assembly-CSharp
+        m_MethodName: Landed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  functionToRelay2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Cutscene, Assembly-CSharp
+        m_MethodName: Begin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  functionToRelay3:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7380162842883351911
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +190,7 @@ Transform:
   m_Children:
   - {fileID: 4005338707354385433}
   - {fileID: 8166698435410830397}
+  - {fileID: 5174067103655645063}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5680163889695692822
@@ -174,6 +221,7 @@ MonoBehaviour:
   sprite: {fileID: 8237820782394273164}
   slowColor: {r: 0.35283017, g: 0.83143175, b: 1, a: 1}
   slowEffect: {fileID: 4720191950420659207}
+  landEffect: {fileID: 8582022484036954045}
 --- !u!50 &7529555766633140783
 Rigidbody2D:
   serializedVersion: 5
@@ -247,6 +295,89 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.4, y: 9.7}
   m_EdgeRadius: 0
+--- !u!1001 &1660623143744018462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1217495970487130342}
+    m_Modifications:
+    - target: {fileID: 5067376862589127176, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6922806724857937827, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297608615447593002, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+      propertyPath: m_Name
+      value: KingLand
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+--- !u!4 &5174067103655645063 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5820424700610369433, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+  m_PrefabInstance: {fileID: 1660623143744018462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8582022484036954045 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6922806724857937827, guid: ff6cd120ffe76c945ac13104333bc7d3, type: 3}
+  m_PrefabInstance: {fileID: 1660623143744018462}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5708755263495608928
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -139,11 +139,12 @@ MonoBehaviour:
   defaultDamage: 5
   moveSpeed: 0.6
   speedVariance: 0.2
-  PickupDropPercent: 0.05
+  PickupDropPercent: 0.02
   value: 5
   canJump: 0
   jumpForce: 0
   knockback: 6
+  offsetRange: 3
 --- !u!1 &4833173571841026522
 GameObject:
   m_ObjectHideFlags: 0

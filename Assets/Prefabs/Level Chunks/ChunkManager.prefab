@@ -56,8 +56,17 @@ MonoBehaviour:
   - {fileID: 3664248506165738467, guid: 186fe16610e72d4459690bfd1473781f, type: 3}
   - {fileID: 3664248506165738467, guid: a40c9d2b12f03dd43871fededc1dd069, type: 3}
   - {fileID: 3664248506165738467, guid: b2a2a289e8c21d8439ca150585e9a977, type: 3}
+  - {fileID: 5249241490176251230, guid: d33f03268f7298a4ab3ab790b2988a29, type: 3}
+  - {fileID: 5249241490176251230, guid: 48474cbf7b5bd4045bb549fe04ea8487, type: 3}
+  - {fileID: 5249241490176251230, guid: c9a8a26773af05246bbc6d531542ae8b, type: 3}
+  - {fileID: 5249241490176251230, guid: c62f289501240294f8bda2dd73960637, type: 3}
+  - {fileID: 3664248506165738467, guid: cd8393bffcf74594f9254218c0576e86, type: 3}
+  - {fileID: 3664248506165738467, guid: 7a204fc183e4dc3468798c505ef8a827, type: 3}
+  - {fileID: 5249241490176251230, guid: 4391f4a3694d74644afe888dd44a0bf0, type: 3}
+  - {fileID: 5249241490176251230, guid: 9593c48eb2c29ab4f8aa75813ba4ad08, type: 3}
+  - {fileID: 5249241490176251230, guid: 951cb8e868cb8fd479f76dd5f8046f66, type: 3}
   _chunkWidth: 20
-  _chunksAhead: 20
+  _chunksAhead: 4
 --- !u!114 &5855779943685971297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,4 +99,22 @@ MonoBehaviour:
   - chunkPrefab: {fileID: 3664248506165738467, guid: a40c9d2b12f03dd43871fededc1dd069, type: 3}
     poolSize: 2
   - chunkPrefab: {fileID: 3664248506165738467, guid: b2a2a289e8c21d8439ca150585e9a977, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 5249241490176251230, guid: d33f03268f7298a4ab3ab790b2988a29, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 5249241490176251230, guid: 48474cbf7b5bd4045bb549fe04ea8487, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 5249241490176251230, guid: c9a8a26773af05246bbc6d531542ae8b, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 5249241490176251230, guid: c62f289501240294f8bda2dd73960637, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 3664248506165738467, guid: cd8393bffcf74594f9254218c0576e86, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 3664248506165738467, guid: 7a204fc183e4dc3468798c505ef8a827, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 5249241490176251230, guid: 4391f4a3694d74644afe888dd44a0bf0, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 5249241490176251230, guid: 9593c48eb2c29ab4f8aa75813ba4ad08, type: 3}
+    poolSize: 2
+  - chunkPrefab: {fileID: 5249241490176251230, guid: 951cb8e868cb8fd479f76dd5f8046f66, type: 3}
     poolSize: 2
