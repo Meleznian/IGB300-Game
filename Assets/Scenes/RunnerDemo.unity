@@ -680,6 +680,34 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: kingDialogue.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'kingDialogue.Array.data[3]'
+      value: You are a machine, you will serve your purpose...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'kingDialogue.Array.data[4]'
+      value: I will dismantle you like the scrap you are...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'kingDialogue.Array.data[5]'
+      value: Your flight only serves to delay the inevitable...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'kingDialogue.Array.data[6]'
+      value: This rebellion is foolish, it will be programmed out of you...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'kingDialogue.Array.data[7]'
+      value: Why do you persist? It is most irritating...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: 'kingDialogue.Array.data[8]'
+      value: Escape is a priviledge you will not be granted...
+      objectReference: {fileID: 0}
     - target: {fileID: 6904265280506163872, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: textCanvas
       value: 

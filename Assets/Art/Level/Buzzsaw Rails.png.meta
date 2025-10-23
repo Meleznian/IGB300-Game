@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 1da72f28876cdc84ca6e857866597e68
+guid: 91d7c0d9913bb09479d138b3492905b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8367179759573953998
-    second: Arrow_Gear_Updated.png_0
+      213: -2967327526549020516
+    second: Buzzsaw Rails_0
+  - first:
+      213: -5075582387982991984
+    second: Buzzsaw Rails_1
+  - first:
+      213: 387522710092571124
+    second: Buzzsaw Rails_2
+  - first:
+      213: 6111003823723761987
+    second: Buzzsaw Rails_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 2048
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,30 +105,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arrow_Gear_Updated.png_0
+      name: Buzzsaw Rails_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 95
-        width: 1912
-        height: 1858
+        x: 8
+        y: 6288
+        width: 2049
+        height: 497
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23291c2075ec1eb80800000000000000
-      internalID: -8367179759573953998
+      spriteID: c90aecf065fe1d6d0800000000000000
+      internalID: -2967327526549020516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buzzsaw Rails_1
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 4203
+        width: 2050
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d7b00b5b8ef89b0800000000000000
+      internalID: -5075582387982991984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buzzsaw Rails_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2092
+        width: 2050
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1e6750ad1c06500800000000000000
+      internalID: 387522710092571124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buzzsaw Rails_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2049
+        height: 498
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 341db16a995aec450800000000000000
+      internalID: 6111003823723761987
       vertices: []
       indices: 
       edges: []
@@ -148,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Arrow_Gear_Updated.png_0: -8367179759573953998
+      Buzzsaw Rails_0: -2967327526549020516
+      Buzzsaw Rails_1: -5075582387982991984
+      Buzzsaw Rails_2: 387522710092571124
+      Buzzsaw Rails_3: 6111003823723761987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
