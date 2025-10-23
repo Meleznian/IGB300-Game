@@ -55,6 +55,7 @@ public class Cutscene : MonoBehaviour
         kingHead.SetActive(true);
         anim.SetBool("Enter", true);
         effect.StartManualEffect("typewriter");
+        AudioManager.PlayEffect(SoundType.STEAM_KING_LAUGH);
 
     }
 
