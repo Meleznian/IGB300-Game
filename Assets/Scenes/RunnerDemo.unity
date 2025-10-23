@@ -680,6 +680,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3235539322155298633, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: pickups.Array.data[0].weight
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5784983966646762922, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: kingDialogue.Array.size
       value: 9
