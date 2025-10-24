@@ -111,7 +111,6 @@ public class KillWall : MonoBehaviour
         slowed = true;
         sprite.color = slowColor;
         slowEffect.Play();
-        AudioManager.PlayEffect(SoundType.SLOW_KILLWALL);
         yield return new WaitForSeconds(10f);
         slowed = false;
         sprite.color = Color.white;
