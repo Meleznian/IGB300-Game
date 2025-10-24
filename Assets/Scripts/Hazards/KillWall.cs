@@ -93,6 +93,7 @@ public class KillWall : MonoBehaviour
         {
             var hp = other.GetComponent<PlayerHealth>() ?? other.GetComponentInParent<PlayerHealth>();
             anim.SetTrigger("Attack");
+            AudioManager.PlayEffect(SoundType.STEAM_KING_THRUST);
             if (hp) hp.Kill();
             playerDead = true;
             StartCoroutine(Leave());
@@ -110,6 +111,7 @@ public class KillWall : MonoBehaviour
         slowed = true;
         sprite.color = slowColor;
         slowEffect.Play();
+        AudioManager.PlayEffect(SoundType.SLOW_KILLWALL);
         yield return new WaitForSeconds(10f);
         slowed = false;
         sprite.color = Color.white;

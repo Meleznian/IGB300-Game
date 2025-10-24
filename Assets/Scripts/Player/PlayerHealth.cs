@@ -168,6 +168,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         currentHealth += healAmount;
         healStart.Play();
+        AudioManager.PlayEffect(SoundType.PLAYER_HEAL);
         if(currentHealth > maxHealth) currentHealth = maxHealth;
     }
 

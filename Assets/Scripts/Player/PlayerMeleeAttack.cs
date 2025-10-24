@@ -317,6 +317,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         superCharge = true;
         superChargeEffect.Play();
+        AudioManager.PlayEffect(SoundType.SUPER_CHARGE);
         yield return new WaitForSeconds(5f);
         superCharge = false;
     }

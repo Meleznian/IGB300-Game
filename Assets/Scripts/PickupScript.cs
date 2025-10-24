@@ -80,6 +80,7 @@ public class PickupScript : MonoBehaviour, ICollectable
             case 2:
                 //Nuke
                 Instantiate(particleEffect, GameManager.instance.Player.transform.position, Quaternion.identity);
+                AudioManager.PlayEffect(SoundType.NUKE);
                 for (int i = 0; i < EnemyManager.instance.livingEnemiesList.Count; i++)
                 {
                     EnemyManager.instance.livingEnemiesList[0].GetComponent<EnemyBase>().Die(true);
@@ -92,6 +93,7 @@ public class PickupScript : MonoBehaviour, ICollectable
             case 4:
                 //Money
                 Instantiate(particleEffect, GameManager.instance.Player.transform.position, Quaternion.identity);
+                AudioManager.PlayEffect(SoundType.MONEY);
                 GameManager.instance.BoltCount((float)(GameManager.instance.gameObject.GetComponent<UpgradeManager>().cashGoal * 0.3));
                 break;
             case 5:
