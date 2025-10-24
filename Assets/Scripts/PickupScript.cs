@@ -89,6 +89,7 @@ public class PickupScript : MonoBehaviour, ICollectable
             case 3:
                 //Slow Kill Wall
                 GameManager.instance.killWall.gameObject.GetComponent<KillWall>().SlowKillWallPickup();
+                AudioManager.PlayEffect(SoundType.SLOW_KILLWALL);
                 break;
             case 4:
                 //Money
