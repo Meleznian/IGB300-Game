@@ -51,7 +51,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             attack = StartCoroutine(AutoAttack());
         }
 
-        ToggleAuto();
+        //ToggleAuto();
 
         if (!GameManager.instance.playerDead)
         { 
@@ -134,10 +134,10 @@ public class PlayerMeleeAttack : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            IncreaseSize(0.5f);
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    IncreaseSize(0.5f);
+        //}
     }
 
     void TryAttack(Vector2 dir)

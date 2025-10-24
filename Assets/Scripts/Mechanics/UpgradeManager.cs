@@ -102,10 +102,10 @@ public class UpgradeManager : MonoBehaviour
     void Update()
     {
         // Activate upgrade panel with 9 key for debug
-        if (Input.GetKeyDown(KeyCode.Alpha9))
-        {
-            ShowUpgradeOptions();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha9))
+        //{
+        //    ShowUpgradeOptions();
+        //}
 
         // Restore selection if lost after player has misclick during the gameplay
         if (upgradePanel.activeSelf && EventSystem.current.currentSelectedGameObject == null)

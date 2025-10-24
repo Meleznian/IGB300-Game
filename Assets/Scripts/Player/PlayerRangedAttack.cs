@@ -73,7 +73,7 @@ public class PlayerRangedAttack : MonoBehaviour
 
     void Update()
     {
-        ToggleAuto();
+        //ToggleAuto();
 
         if (!autoing && autoAttack)
         {

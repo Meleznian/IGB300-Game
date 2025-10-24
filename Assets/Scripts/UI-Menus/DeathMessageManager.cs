@@ -14,10 +14,10 @@ public class DeathMessageManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            //ShowDeathPanel();
-        }
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    //ShowDeathPanel();
+        //}
     }
 
     public void ShowDeathPanel()

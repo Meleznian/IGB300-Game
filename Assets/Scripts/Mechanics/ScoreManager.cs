@@ -166,7 +166,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        ResetScore();
+        //ResetScore();
     }
 
     void ResetScore()
