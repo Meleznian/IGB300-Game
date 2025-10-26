@@ -4,7 +4,7 @@ public class Spike : MonoBehaviour
 {
     [SerializeField] int damage;
     [SerializeField] internal bool canDamage;
-    [SerializeField] float timer;
+    float timer;
     [SerializeField] float knockback;
 
     private void Update()

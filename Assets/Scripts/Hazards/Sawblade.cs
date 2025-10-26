@@ -3,16 +3,17 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Sawblade : Spike
 {
-
+    [Header("Sawblade Variables")]
     [SerializeField] float speed;
     [SerializeField] float horizontalRange;
     //[SerializeField] float maxDist;
  
     float actingSpeed;
 
+    [Header("Debug")]
     [SerializeField] bool right;
-    Vector3 leftTarget;
-    Vector3 rightTarget;
+    [SerializeField] Vector3 leftTarget;
+    [SerializeField] Vector3 rightTarget;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -82,5 +83,12 @@ public class Sawblade : Spike
             Cooldown();
         }
         Move();
+    }
+
+    private void OnEnable()
+    {
+        leftTarget = transform.position + new Vector3(horizontalRange, 0, 0);
+        rightTarget = transform.position - new Vector3(horizontalRange, 0, 0);
+        print("Reenabled");
     }
 }
