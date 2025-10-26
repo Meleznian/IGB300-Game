@@ -19,6 +19,19 @@ public class UpgradeManager : MonoBehaviour
         public int timesChosen;
     }
 
+    public static UpgradeManager instance { get; private set; }
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
 
     public GameObject upgradePanel;
     [SerializeField] private UpgradesUI upgradesUI;
@@ -39,7 +52,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private AudioSource upgradeMusicSource;
 
     private int currentSelection = 0;
-    private bool isChoosingUpgrade = false;
+    internal bool isChoosingUpgrade = false;
     private GameObject lastSelectedButton;
 
     void Start()
@@ -162,6 +175,7 @@ public class UpgradeManager : MonoBehaviour
 
     internal void ShowUpgradeOptions()
     {
+        isChoosingUpgrade = true;
         movement.enabled = false;
         richesRain.Play();
         //if (availableUpgrades.Count < 3)
@@ -211,7 +225,6 @@ public class UpgradeManager : MonoBehaviour
         upgradePanel.SetActive(true);
         Time.timeScale = 0f;
         anim.SetTrigger("Enter");
-        isChoosingUpgrade = true;
         currentSelection = 0;
 
 
@@ -246,6 +259,8 @@ public class UpgradeManager : MonoBehaviour
             Time.timeScale = 1f;
             upgradeMusicSource.Stop();
             AudioManager.resumeMusic();
+            isChoosingUpgrade = false;
+
 
         }
     }

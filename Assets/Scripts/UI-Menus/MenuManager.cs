@@ -45,25 +45,28 @@ public class MenuManager : MonoBehaviour
 
     void ToggleMenu()
     {
-        isOpen = !isOpen;
-        menuPanel.SetActive(isOpen);
+        if (UpgradeManager.instance.isChoosingUpgrade == false)
+        {
+            isOpen = !isOpen;
+            menuPanel.SetActive(isOpen);
 
-        if (isOpen && openSound != null)
-        {
-            Time.timeScale = 0f;
-            GameManager.instance.playerMovement.enabled = false;
-            UICanvas.SetActive(false);
-            audioSource.PlayOneShot(openSound);
-        }
-        else if (!isOpen && closeSound != null)
-        {
-            Time.timeScale = 1.0f;
-            if (cutsceneActive == false)
+            if (isOpen && openSound != null)
             {
-                GameManager.instance.playerMovement.enabled = true;
+                Time.timeScale = 0f;
+                GameManager.instance.playerMovement.enabled = false;
+                UICanvas.SetActive(false);
+                audioSource.PlayOneShot(openSound);
             }
-            UICanvas.SetActive(true);  
-            audioSource.PlayOneShot(closeSound);
+            else if (!isOpen && closeSound != null)
+            {
+                Time.timeScale = 1.0f;
+                if (cutsceneActive == false)
+                {
+                    GameManager.instance.playerMovement.enabled = true;
+                }
+                UICanvas.SetActive(true);
+                audioSource.PlayOneShot(closeSound);
+            }
         }
     }
     public void ResumeGame()
