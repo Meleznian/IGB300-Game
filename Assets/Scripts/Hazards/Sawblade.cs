@@ -10,7 +10,7 @@ public class Sawblade : Spike
  
     float actingSpeed;
 
-    bool right;
+    [SerializeField] bool right;
     Vector3 leftTarget;
     Vector3 rightTarget;
 
@@ -30,7 +30,7 @@ public class Sawblade : Spike
             transform.position = Vector3.MoveTowards(transform.position, rightTarget, actingSpeed*Time.deltaTime);
             //AdjustSpeed();
 
-            if (Vector3.Distance(transform.position, rightTarget) <= 0.1f)
+            if (transform.position.x <= rightTarget.x)
             {
                 //print(Vector3.Distance(transform.position, rightTarget));
                 right = false;
@@ -41,7 +41,7 @@ public class Sawblade : Spike
             transform.position = Vector3.MoveTowards(transform.position, leftTarget, actingSpeed * Time.deltaTime);
             //AdjustSpeed();
 
-            if (Vector3.Distance(transform.position, leftTarget) <= 0.1f)
+            if (transform.position.x >= leftTarget.x)
             {
                 //print(Vector3.Distance(transform.position, leftTarget));
                 right = true;
