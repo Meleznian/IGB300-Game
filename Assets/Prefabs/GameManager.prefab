@@ -1283,13 +1283,6 @@ MonoBehaviour:
     avaliableAtStart: 1
     removeAfterSelection: 0
     timesChosen: 0
-  - upgradeName: Optimize Limbs
-    effectDescription: Increase move speed
-    icon: {fileID: 2442818145047964957, guid: 02c9d4357077d4048a042635363a21f9, type: 3}
-    id: Move
-    avaliableAtStart: 1
-    removeAfterSelection: 0
-    timesChosen: 0
   - upgradeName: Thermal Expansion
     effectDescription: Increase attack size
     icon: {fileID: 8522422916469138456, guid: d64543d623f32a84abe6d2bc4985c70e, type: 3}
@@ -1329,7 +1322,7 @@ MonoBehaviour:
   cashGoal: 100
   goalIncreaseMultiplier: 1.6
   playerLevel: 1
-  healthIncrease: 20
+  healthIncrease: 30
   attackSpeedIncrease: 0.06
   damageIncrease: 5
   bulletSpeedIncrease: 2
