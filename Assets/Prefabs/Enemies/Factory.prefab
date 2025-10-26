@@ -341,7 +341,8 @@ MonoBehaviour:
   moveSpeed: 1.7
   speedVariance: 0.3
   PickupDropPercent: 1
-  value: 15
+  value: 25
   canJump: 1
   jumpForce: 15
   knockback: 10
+  offsetRange: 0

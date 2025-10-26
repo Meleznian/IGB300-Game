@@ -81,7 +81,7 @@ MonoBehaviour:
   moveSpeed: 1.2
   speedVariance: 0.3
   PickupDropPercent: 0.08
-  value: 10
+  value: 15
   A: 0.5
   B: 1
   C: 0.5

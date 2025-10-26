@@ -135,12 +135,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: Scuttler
-  health: 5
+  health: 4
   defaultDamage: 5
   moveSpeed: 1.5
   speedVariance: 0.5
   PickupDropPercent: 0.05
-  value: 10
+  value: 5
   canJump: 1
   jumpForce: 13
   knockback: 3

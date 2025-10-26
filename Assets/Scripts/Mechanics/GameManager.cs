@@ -424,15 +424,15 @@ public class GameManager : MonoBehaviour
     {
         int level = ScoreManager.instance.currentScore;
 
-        if (level > 20000)
+        if (level > 50000)
         {
             return bolt20;
         }
-        else if(level > 10000)
+        else if(level > 25000)
         {
             return bolt10;
         }
-        else if (level > 5000)
+        else if (level > 10000)
         {
             return bolt5;
         }
