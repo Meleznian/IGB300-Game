@@ -43,7 +43,7 @@ AudioSource:
   m_GameObject: {fileID: 4927309907016366696}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 337857873283931842, guid: f593a0c2eac33944f9f1149fe148aa9c, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -176,6 +176,76 @@ MonoBehaviour:
     sounds: []
   - name: BOSS_MUSIC
     sounds: []
+  - name: BOLTS
+    sounds: []
+  - name: CHARGER_WALK
+    sounds: []
+  - name: CHARGER_CHARGING
+    sounds: []
+  - name: CHARGER_DIE
+    sounds: []
+  - name: CHARGER_BLOCK
+    sounds: []
+  - name: CHARGER_ATTACK
+    sounds: []
+  - name: TURRET_DIE
+    sounds: []
+  - name: TURRET_LOCKON
+    sounds: []
+  - name: TURRET_SHOOT
+    sounds: []
+  - name: CRAWLER_WALK
+    sounds: []
+  - name: CRAWLER_DIE
+    sounds: []
+  - name: CRAWLER_HIT
+    sounds: []
+  - name: CRAWLER_ATTACK
+    sounds: []
+  - name: UPGRADE_MUSIC
+    sounds: []
+  - name: PLAYER_SHOOT
+    sounds: []
+  - name: COLLECT_BOLT
+    sounds: []
+  - name: ENEMY_DAMAGE
+    sounds: []
+  - name: KAMIKAZE_WARNING
+    sounds: []
+  - name: KAMIKAZE_EXPLODE
+    sounds: []
+  - name: ENEMY_DEATH
+    sounds: []
+  - name: PLAYER_DEATH
+    sounds: []
+  - name: PLAYER_HEAL
+    sounds: []
+  - name: STEAM_KING_THRUST
+    sounds: []
+  - name: STEAM_KING_DASH
+    sounds: []
+  - name: STEAM_KING_JUMP
+    sounds: []
+  - name: STEAM_KING_LAND
+    sounds: []
+  - name: STEAM_KING_CHAIN
+    sounds: []
+  - name: STEAM_KING_DIE_1
+    sounds: []
+  - name: STEAM_KING_DIE_2
+    sounds: []
+  - name: STEAM_KING_LAUGH
+    sounds: []
+  - name: STEAM_KING_SHOOT
+    sounds: []
+  - name: SUPER_CHARGE
+    sounds: []
+  - name: NUKE
+    sounds: []
+  - name: SLOW_KILLWALL
+    sounds: []
+  - name: MONEY
+    sounds: []
   musicSource: {fileID: 558276488312956840}
 --- !u!1 &8278167607208257251
 GameObject:
@@ -218,7 +288,7 @@ AudioSource:
   m_GameObject: {fileID: 8278167607208257251}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -173960889376685912, guid: f593a0c2eac33944f9f1149fe148aa9c, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
