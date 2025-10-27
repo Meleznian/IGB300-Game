@@ -12,6 +12,15 @@ public class UIKeyboardNavigator : MonoBehaviour
 
     void Start()
     {
+        // Disable automatic navigation for all elements
+        foreach (var ui in uiElements)
+        {
+            if (ui == null) continue;
+            Navigation nav = ui.navigation;
+            nav.mode = Navigation.Mode.None;
+            ui.navigation = nav;
+        }
+
         if (uiElements.Count > 0)
             SelectElement(0);
     }
@@ -23,17 +32,13 @@ public class UIKeyboardNavigator : MonoBehaviour
         // Move Up
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            currentIndex--;
-            if (currentIndex < 0) currentIndex = uiElements.Count - 1;
-            SelectElement(currentIndex);
+            MoveSelection(-1);
         }
 
         // Move Down
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            currentIndex++;
-            if (currentIndex >= uiElements.Count) currentIndex = 0;
-            SelectElement(currentIndex);
+            MoveSelection(1);
         }
 
         // Adjust sliders
@@ -41,7 +46,6 @@ public class UIKeyboardNavigator : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftArrow))
                 slider.value -= Time.unscaledDeltaTime * 0.5f;
-
             if (Input.GetKey(KeyCode.RightArrow))
                 slider.value += Time.unscaledDeltaTime * 0.5f;
         }
@@ -59,11 +63,45 @@ public class UIKeyboardNavigator : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
                 button.onClick.Invoke();
         }
+
+        // Ensure EventSystem always points to the correct element
+        if (EventSystem.current.currentSelectedGameObject != uiElements[currentIndex].gameObject)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(uiElements[currentIndex].gameObject);
+        }
+    }
+
+    void MoveSelection(int direction)
+    {
+        if (uiElements.Count == 0) return;
+
+        int newIndex = currentIndex;
+
+        do
+        {
+            newIndex = (newIndex + direction + uiElements.Count) % uiElements.Count;
+        }
+        while (uiElements[newIndex] == null || !uiElements[newIndex].gameObject.activeInHierarchy);
+
+        SelectElement(newIndex);
     }
 
     void SelectElement(int index)
     {
         if (uiElements[index] == null) return;
-        EventSystem.current.SetSelectedGameObject(uiElements[index].gameObject);
+
+        currentIndex = index;
+
+        // Deselect and delay select to force refresh
+        StartCoroutine(ReselectAfterFrame(uiElements[index].gameObject));
+    }
+
+    System.Collections.IEnumerator ReselectAfterFrame(GameObject go)
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return null; // wait one frame
+        EventSystem.current.SetSelectedGameObject(go);
+        Debug.Log("Selected: " + go.name);
     }
 }
