@@ -188,7 +188,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             {
                 print(h.gameObject.name);
                 enemy.TakeDamage(damage);
-                AudioManager.PlayEffect(SoundType.ENEMY_DAMAGE);
+                AudioManager.PlayEffect(SoundType.ENEMY_DAMAGE,0.25f);
                 if (h.GetComponent<Rigidbody2D>() != null)
                 {
                     h.GetComponent<Rigidbody2D>().AddForce(knockDirection*knockback, ForceMode2D.Impulse);

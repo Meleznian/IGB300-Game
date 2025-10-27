@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     private AudioSource effectsSource;
     public AudioSource musicSource;
+    private float lastDeathClip;
+    public float minBetweenClips;
 
     private void Awake()
     {
@@ -67,6 +69,14 @@ public class AudioManager : MonoBehaviour
     public static void resumeMusic()
     {
         instance.musicSource.Play();
+    }
+    public void PlayEnemyDeathSound()
+    {
+        if (Time.time - lastDeathClip > minBetweenClips)
+        {
+            PlayEffect(SoundType.ENEMY_DEATH);
+            lastDeathClip = Time.time;
+        }
     }
 
 #if UNITY_EDITOR

@@ -112,7 +112,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
             GameManager.instance.KillCount();
         }
 
-        AudioManager.PlayEffect(SoundType.ENEMY_DEATH);
+        AudioManager.instance.PlayEnemyDeathSound();
 
         if (EnemyManager.instance != null)
         {
