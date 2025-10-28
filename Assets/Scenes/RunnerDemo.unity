@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: upgradeMusicSource
       value: 
       objectReference: {fileID: 1888206803}
+    - target: {fileID: 6939304625285668413, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
+      propertyPath: attackSpeedIncrease
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 7835850529534847684, guid: f40fd5581d8ad734aaec1d535dd691d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.6564524

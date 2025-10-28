@@ -173,9 +173,9 @@ public class GameManager : MonoBehaviour
             steelBolts++;
         else if (amount == 5)
             brassBolts++;
-        else if (amount == 10)
+        else if (amount == 15)
             silverBolts++;
-        else if (amount == 20)
+        else if (amount == 30)
             goldBolts++;
 
         // Update DetailPanel UI
